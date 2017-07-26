@@ -1,6 +1,6 @@
 # RettApp
 
-AFSR (http://afsr.fr) build a smart application in order to collect health data on an international cohort of Rett girls. A partnership has been signed with major companies specialized in information technology for developping
+AFSR (https://afsr.fr) build a smart application in order to collect health data on an international cohort of Rett girls. A partnership has been signed with major companies specialized in information technology for developping
 this application with the help of students from the Catholic Pontifical University from
 Rio Grande Sul in Brazil.
 
