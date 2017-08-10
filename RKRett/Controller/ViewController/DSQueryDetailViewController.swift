@@ -66,7 +66,7 @@ class DSQueryDetailViewController: UIViewController{
                 print(query.url)
                 do{
                     
-                    let csv = try CSV(url: fileURL)
+                    let csv = try CSV(url: fileURL as NSURL)
                     for (index, dateString) in csv.columns["dateString"]!.enumerated(){
                         let timeInterval: Double! = Double(dateString)
                         let date = NSDate(timeIntervalSince1970: timeInterval)
