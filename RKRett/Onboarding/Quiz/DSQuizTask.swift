@@ -12,39 +12,39 @@ public var DSQuizTask: ORKOrderedTask {
     
     var steps = [ORKStep]()
     
-    if let path = NSBundle.mainBundle().pathForResource(kDSQuizPlist, ofType: "plist") {
+    if let path = Bundle.main.path(forResource: kDSQuizPlist, ofType: "plist") {
         if let plistDictionary = NSDictionary(contentsOfFile: path){
-            if let instructionDictionary = plistDictionary.valueForKey("instruction") as? NSDictionary{
-                let detailText = instructionDictionary.valueForKey("detailText") as? String
+            if let instructionDictionary = plistDictionary.value(forKey: "instruction") as? NSDictionary{
+                let detailText = instructionDictionary.value(forKey: "detailText") as? String
                 let instructionStep = ORKInstructionStep(identifier: kQuizIntroductionStepIdentifier)
                 instructionStep.detailText = detailText
                 steps += [instructionStep]
             }
             
-            if let questionsArray = plistDictionary.valueForKey("question") as? [AnyObject] {
+            if let questionsArray = plistDictionary.value(forKey: "question") as? [AnyObject] {
                 for dictionary in questionsArray{
                     // - FIXME: Use guard, tem que ver a syntax dessa porra
                     if let questionDictionary = dictionary as? NSDictionary{
-                        if let questionTitle = questionDictionary.valueForKey("title") as? String{
-                            if let questionIdentifier = questionDictionary.valueForKey("identifier") as? String{
+                        if let questionTitle = questionDictionary.value(forKey: "title") as? String{
+                            if let questionIdentifier = questionDictionary.value(forKey: "identifier") as? String{
                                 var questionStep = ORKQuestionStep(identifier: questionIdentifier)
                                 
-                                switch(dictionary.valueForKey("type") as! String){
+                                switch(dictionary.value(forKey: "type") as! String){
                                 case "Boolean":
                                     questionStep = ORKQuestionStep(identifier: questionIdentifier, title: questionTitle, answer: ORKAnswerFormat.booleanAnswerFormat())
                                     
                                 case "SingleChoice":
                                     var questionTextChoices = [ORKTextChoice]()
-                                    for choice in questionDictionary.valueForKey("choices") as! [AnyObject]{
-                                        questionTextChoices.append(ORKTextChoice(text: choice as! String, value: choice as! String))
+                                    for choice in questionDictionary.value(forKey: "choices") as! [AnyObject]{
+                                        questionTextChoices.append(ORKTextChoice(text: choice as! String, value: choice as! String as NSCoding & NSCopying & NSObjectProtocol))
                                     }
-                                    let questionAnswerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(ORKChoiceAnswerStyle.SingleChoice, textChoices: questionTextChoices)
+                                    let questionAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: ORKChoiceAnswerStyle.singleChoice, textChoices: questionTextChoices)
                                     questionStep = ORKQuestionStep(identifier: questionIdentifier, title: questionTitle, answer: questionAnswerFormat)
                                     
                                 default:
                                     break
                                 }
-                                questionStep.optional = false
+                                questionStep.isOptional = false
                                 steps += [questionStep]
                             }
                         }

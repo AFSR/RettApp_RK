@@ -10,39 +10,39 @@ public var DSElegibilityTask: ORKOrderedTask {
     
     var steps = [ORKStep]()
     
-    if let path = NSBundle.mainBundle().pathForResource(kDSElegibilityPlist, ofType: "plist") {
+    if let path = Bundle.main.path(forResource: kDSElegibilityPlist, ofType: "plist") {
         if let plistDictionary = NSDictionary(contentsOfFile: path){
-            if let instructionDictionary = plistDictionary.valueForKey("instruction") as? NSDictionary{
-                let detailText = instructionDictionary.valueForKey("detailText") as? String
+            if let instructionDictionary = plistDictionary.value(forKey: "instruction") as? NSDictionary{
+                let detailText = instructionDictionary.value(forKey: "detailText") as? String
                 let instructionStep = ORKInstructionStep(identifier: kQuizIntroductionStepIdentifier)
                 instructionStep.detailText = detailText
                 steps += [instructionStep]
             }
-            if let questionsArray = plistDictionary.valueForKey("question") as? Array<AnyObject> {
+            if let questionsArray = plistDictionary.value(forKey: "question") as? Array<AnyObject> {
                 for dictionary in questionsArray{
                     let questionDictionary = dictionary as! NSDictionary
-                    let questionIdentifier = questionDictionary.valueForKey("identifier") as? String
-                    let questionTitle = questionDictionary.valueForKey("title") as? String
+                    let questionIdentifier = questionDictionary.value(forKey: "identifier") as? String
+                    let questionTitle = questionDictionary.value(forKey: "title") as? String
                     
                     var questionStep = ORKQuestionStep()
                     
-                    switch(dictionary.valueForKey("type") as! String){
+                    switch(dictionary.value(forKey: "type") as! String){
                     case "Boolean":
                         questionStep = ORKQuestionStep(identifier: questionIdentifier!, title: questionTitle, answer: ORKAnswerFormat.booleanAnswerFormat())
                         
                     case "SingleChoice":
                         var questionTextChoices = [String]()
-                        for choice in questionDictionary.valueForKey("choices") as! Array<AnyObject>{
+                        for choice in questionDictionary.value(forKey: "choices") as! Array<AnyObject>{
                             questionTextChoices.append(choice as! String)
                         }
-                        let questionAnswerFormat = ORKAnswerFormat.choiceAnswerFormatWithStyle(ORKChoiceAnswerStyle.SingleChoice, textChoices: questionTextChoices)
+                        let questionAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: ORKChoiceAnswerStyle.singleChoice, textChoices: questionTextChoices!)
                         questionStep = ORKQuestionStep(identifier: questionIdentifier!, title: questionTitle, answer: questionAnswerFormat)
 
                         
                     default:
                         break
                     }
-                    questionStep.optional = false
+                    questionStep.isOptional = false
                     steps += [questionStep]
                 }
             }

@@ -88,7 +88,7 @@ class StandardGraphView: UIView {
             self.setNeedsDisplay()
         }
     }
-    @IBInspectable var axisColor:UIColor = UIColor.blackColor() {
+    @IBInspectable var axisColor:UIColor = UIColor.black {
         didSet {
             self.setNeedsDisplay()
         }
@@ -98,17 +98,17 @@ class StandardGraphView: UIView {
             self.drawPoints()
         }
     }
-    @IBInspectable var guidelinesColor:UIColor = UIColor.lightGrayColor() {
+    @IBInspectable var guidelinesColor:UIColor = UIColor.lightGray {
         didSet {
             self.setNeedsDisplay()
         }
     }
-    @IBInspectable var highlightedLinesColor:UIColor = UIColor.blackColor() {
+    @IBInspectable var highlightedLinesColor:UIColor = UIColor.black {
         didSet {
             self.setNeedsDisplay()
         }
     }
-    @IBInspectable var textColor:UIColor = UIColor.blackColor() {
+    @IBInspectable var textColor:UIColor = UIColor.black {
         didSet {
             self.setNeedsDisplay()
         }
@@ -116,7 +116,7 @@ class StandardGraphView: UIView {
     override func didMoveToWindow() {
         super.didMoveToWindow()
         if self.animate {
-            self.setPoints(self.points)
+            self.setPoints(points: self.points)
         }
     }
     
@@ -126,7 +126,7 @@ class StandardGraphView: UIView {
 
         super.init(frame: frame)
         
-        self.contentMode = UIViewContentMode.Redraw
+        self.contentMode = UIViewContentMode.redraw
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -134,7 +134,7 @@ class StandardGraphView: UIView {
         self.yValuesRange = (0, 1)
         
         super.init(coder: aDecoder)!
-        self.contentMode = UIViewContentMode.Redraw
+        self.contentMode = UIViewContentMode.redraw
         self.layer.addSublayer(self.lineLayer)
         self.layer.addSublayer(self.pointsLayer)
     }
@@ -176,15 +176,15 @@ class StandardGraphView: UIView {
     }
     
     func addXHighlightedLine(x:CGFloat) {
-        if self.xHighlightedLines.containsObject(x){
+        if self.xHighlightedLines.contains(x){
             return
         }
-        self.xHighlightedLines.addObject(x)
+        self.xHighlightedLines.add(x)
         self.setNeedsDisplay()
     }
     
     func removeXHighlightedLine(x:CGFloat) {
-        self.xHighlightedLines.removeObject(x)
+        self.xHighlightedLines.remove(x)
         self.setNeedsDisplay()
     }
     
@@ -194,15 +194,15 @@ class StandardGraphView: UIView {
     }
     
     func addYHighlightedLine(y:CGFloat) {
-        if self.yHighlightedLines.containsObject(y){
+        if self.yHighlightedLines.contains(y){
             return
         }
-        self.yHighlightedLines.addObject(y)
+        self.yHighlightedLines.add(y)
         self.setNeedsDisplay()
     }
     
     func removeYHighlightedLine(y:CGFloat) {
-        self.yHighlightedLines.removeObject(y)
+        self.yHighlightedLines.remove(y)
         self.setNeedsDisplay()
     }
     
@@ -213,29 +213,29 @@ class StandardGraphView: UIView {
     
     internal func drawAxis(){
         let axis = UIBezierPath()
-        axis.lineCapStyle = .Round
+        axis.lineCapStyle = .round
         axis.lineWidth = 2.0
         self.axisColor.setStroke()
         
         //X axis
-        axis.moveToPoint(CGPointMake(self.edgeInsets.left, self.frame.height - self.edgeInsets.bottom))
-        axis.addLineToPoint(CGPointMake(self.frame.width - self.edgeInsets.right, self.frame.height - self.edgeInsets.bottom))
+        axis.move(to: CGPoint(x: self.edgeInsets.left,y: self.frame.height - self.edgeInsets.bottom))
+        axis.addLine(to: CGPoint(x: self.frame.width - self.edgeInsets.right, y: self.frame.height - self.edgeInsets.bottom))
         
         //Y axis
-        axis.moveToPoint(CGPointMake(self.edgeInsets.left, self.frame.height - self.edgeInsets.bottom))
-        axis.addLineToPoint(CGPointMake(self.edgeInsets.left, self.edgeInsets.top))
+        axis.move(to: CGPoint(x: self.edgeInsets.left, y: self.frame.height - self.edgeInsets.bottom))
+        axis.addLine(to: CGPoint(x: self.edgeInsets.left, y: self.edgeInsets.top))
         
         axis.stroke()
     }
     
     internal func drawHorizontalGuidelines(){
         let hGuidelines = UIBezierPath()
-        hGuidelines.lineCapStyle = .Round
+        hGuidelines.lineCapStyle = .round
         self.guidelinesColor.setStroke()
         
-        for var i = self.frame.height - self.edgeInsets.bottom; i > self.edgeInsets.top; i -= self.guidelinesSpacing {
-            hGuidelines.moveToPoint(CGPointMake(self.edgeInsets.left, i))
-            hGuidelines.addLineToPoint(CGPointMake(self.frame.width - self.edgeInsets.right, i))
+        for var i in stride(from: self.frame.height - self.edgeInsets.bottom, to: self.edgeInsets.top, by: self.guidelinesSpacing).reversed() {
+            hGuidelines.move(to: CGPoint(x: self.edgeInsets.left,y: i))
+            hGuidelines.addLine(to: CGPoint(x: self.frame.width - self.edgeInsets.right, y: i))
         }
         
         hGuidelines.stroke()
@@ -243,28 +243,28 @@ class StandardGraphView: UIView {
     
     internal func drawVerticalGuidelines(){
         let vGuidelines = UIBezierPath()
-        vGuidelines.lineCapStyle = .Round
+        vGuidelines.lineCapStyle = .round
         self.guidelinesColor.setStroke()
         
-        for var i = self.edgeInsets.left; i < self.frame.width - self.edgeInsets.right; i += self.guidelinesSpacing {
-            vGuidelines.moveToPoint(CGPointMake(i, self.frame.height-self.edgeInsets.bottom))
-            vGuidelines.addLineToPoint(CGPointMake(i, self.edgeInsets.top))
+        for var i in stride(from: self.edgeInsets.left, to: self.frame.width - self.edgeInsets.right, by:self.guidelinesSpacing) {
+            vGuidelines.move(to: CGPoint(x: i, y: self.frame.height-self.edgeInsets.bottom))
+            vGuidelines.addLine(to: CGPoint(x: i, y: self.edgeInsets.top))
         }
         
         vGuidelines.stroke()
     }
     
-    internal func drawHighlightedLines(ctx:CGContextRef){
+    internal func drawHighlightedLines(ctx:CGContext){
         
         let highlightedLines = UIBezierPath()
-        highlightedLines.lineCapStyle = .Round
+        highlightedLines.lineCapStyle = .round
         highlightedLines.setLineDash([7.5, 5], count: 2, phase: 0)
         self.highlightedLinesColor.setStroke()
         
         let font = UIFont(name: "Helvetica", size: 13)
-        let attr:CFDictionaryRef = [NSFontAttributeName:font!,NSForegroundColorAttributeName:self.highlightedLinesColor]
-        let affineMatrix = CGAffineTransformMakeScale(1, -1)
-        CGContextSetTextMatrix(ctx, affineMatrix)
+        let attr:CFDictionary = [NSFontAttributeName:font!,NSForegroundColorAttributeName:self.highlightedLinesColor]
+        let affineMatrix = CGAffineTransform(scaleX: 1, y: -1)
+        ctx.textMatrix = affineMatrix
 //        let alignment = CTTextAlignment.Right
         
         //X Values
@@ -272,15 +272,16 @@ class StandardGraphView: UIView {
             let v = (x as! CGFloat)*self.xScale
             
             if v > 0 && v < (self.frame.width - self.edgeInsets.right - self.edgeInsets.left) {
-                highlightedLines.moveToPoint(CGPointMake(self.edgeInsets.left + v, self.frame.height - self.edgeInsets.bottom))
-                highlightedLines.addLineToPoint(CGPointMake(self.edgeInsets.left + v, self.edgeInsets.top))
+                highlightedLines.move(to: CGPoint(x: self.edgeInsets.left + v, y: self.frame.height - self.edgeInsets.bottom))
+                highlightedLines.addLine(to: CGPoint(x: self.edgeInsets.left + v, y: self.edgeInsets.top))
                 
-                let text = CFAttributedStringCreate(nil, String(format: "%.1f", arguments: [Float(x as! NSNumber)]), attr)
-                let line = CTLineCreateWithAttributedString(text)
-                let bounds = CTLineGetBoundsWithOptions(line, CTLineBoundsOptions.UseOpticalBounds)
+                let text = CFAttributedStringCreate(nil, String(format: "%.1f", arguments: [Float(x as! NSNumber)]) as CFString, attr)
+                let line = CTLineCreateWithAttributedString(text!)
+                let bounds = CTLineGetBoundsWithOptions(line, CTLineBoundsOptions.useOpticalBounds)
                 
                 if v - (bounds.width+1) > 0 {
-                    CGContextSetTextPosition(ctx, v - (bounds.width+1) + self.edgeInsets.left, self.frame.height - self.edgeInsets.bottom + bounds.height)
+                    //CGContextSetTextPosition(ctx, v - (bounds.width+1) + self.edgeInsets.left, self.frame.height - self.edgeInsets.bottom + bounds.height)
+                    ctx.textPosition = CGPoint(x: v - (bounds.width+1) + self.edgeInsets.left, y: self.frame.height - self.edgeInsets.bottom + bounds.height)
                 }
                 
             }
@@ -291,14 +292,15 @@ class StandardGraphView: UIView {
             let v = (y as! CGFloat)*self.yScale
             
             if v > 0 && v < (self.frame.height - self.edgeInsets.bottom - self.edgeInsets.top) {
-                highlightedLines.moveToPoint(CGPointMake(self.edgeInsets.left + 7.5, self.frame.height - self.edgeInsets.bottom - v))
-                highlightedLines.addLineToPoint(CGPointMake(self.frame.width - self.edgeInsets.right, self.frame.height - self.edgeInsets.bottom - v))
+                highlightedLines.move(to: CGPoint(x: self.edgeInsets.left + 7.5, y: self.frame.height - self.edgeInsets.bottom - v))
+                highlightedLines.addLine(to: CGPoint(x: self.frame.width - self.edgeInsets.right, y: self.frame.height - self.edgeInsets.bottom - v))
                 
-                let text = CFAttributedStringCreate(nil, String(format: "%.1f", arguments: [Float(y as! NSNumber)]), attr)
-                let line = CTLineCreateWithAttributedString(text)
-                let bounds = CTLineGetBoundsWithOptions(line, CTLineBoundsOptions.UseOpticalBounds)
+                let text = CFAttributedStringCreate(nil, String(format: "%.1f", arguments: [Float(y as! NSNumber)]) as CFString, attr)
+                let line = CTLineCreateWithAttributedString(text!)
+                let bounds = CTLineGetBoundsWithOptions(line, CTLineBoundsOptions.useOpticalBounds)
                 
-                CGContextSetTextPosition(ctx, self.frame.width - self.edgeInsets.right - bounds.width , self.frame.height - self.edgeInsets.bottom - v - bounds.height/3)
+                //CGContextSetTextPosition(ctx, self.frame.width - self.edgeInsets.right - bounds.width , self.frame.height - self.edgeInsets.bottom - v - bounds.height/3)
+                ctx.textPosition = CGPoint (x: self.frame.width - self.edgeInsets.right - bounds.width, y: self.frame.height - self.edgeInsets.bottom - v - bounds.height/3)
                 CTLineDraw(line, ctx)
             }
         }
@@ -317,35 +319,37 @@ class StandardGraphView: UIView {
         return String(format: "%.1f", arguments: [y])
     }
     
-    internal func drawGraphValues(ctx:CGContextRef){
+    internal func drawGraphValues(ctx:CGContext){
         let font = UIFont(name: "Helvetica", size: 13)
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .Right
-        let attr:CFDictionaryRef = [NSFontAttributeName:font!,NSForegroundColorAttributeName:self.textColor, NSParagraphStyleAttributeName:paragraphStyle]
+        paragraphStyle.alignment = .right
+        let attr:CFDictionary = [NSFontAttributeName:font!,NSForegroundColorAttributeName:self.textColor, NSParagraphStyleAttributeName:paragraphStyle]
         
-        CGContextSetLineWidth(ctx, 1.0)
-        CGContextSetTextDrawingMode(ctx, .Fill)
-        let affineMatrix = CGAffineTransformMakeScale(1, -1)
-        CGContextSetTextMatrix(ctx, affineMatrix)
+        ctx.setLineWidth(1.0)
+        ctx.setTextDrawingMode(.fill)
+        let affineMatrix = CGAffineTransform(scaleX: 1, y: -1)
+        ctx.textMatrix = affineMatrix
 
         
         //Y Values
-        for var i = CGFloat(1); i < ((self.frame.height - self.edgeInsets.top - self.edgeInsets.bottom)) / self.guidelinesSpacing; i++ {
-            let text = CFAttributedStringCreate(nil, self.YValueForIndex(i), attr)
-            let line = CTLineCreateWithAttributedString(text)
-            let bounds = CTLineGetBoundsWithOptions(line, CTLineBoundsOptions.UseOpticalBounds)
+        for var i in stride( from: CGFloat(1), to: ((self.frame.height - self.edgeInsets.top - self.edgeInsets.bottom)) / self.guidelinesSpacing, by: 1) {
+            let text = CFAttributedStringCreate(nil, self.YValueForIndex(index: i) as CFString, attr)
+            let line = CTLineCreateWithAttributedString(text!)
+            let bounds = CTLineGetBoundsWithOptions(line, CTLineBoundsOptions.useOpticalBounds)
             
-            CGContextSetTextPosition(ctx, 4, (self.frame.height - self.edgeInsets.bottom + (bounds.height/4)) - (i*self.guidelinesSpacing))
+            //CGContextSetTextPosition(ctx, 4, (self.frame.height - self.edgeInsets.bottom + (bounds.height/4)) - (i*self.guidelinesSpacing))
+            ctx.textPosition = CGPoint(x: 4, y: (self.frame.height - self.edgeInsets.bottom + (bounds.height/4)) - (i*self.guidelinesSpacing))
             CTLineDraw(line, ctx)
         }
         
         //X Values
-        for var i = CGFloat(0); i < ((self.frame.width - self.edgeInsets.left - self.edgeInsets.right)) / self.guidelinesSpacing; i++ {
-            let text = CFAttributedStringCreate(nil, self.XValueForIndex(i), attr)
-            let line = CTLineCreateWithAttributedString(text)
-            let bounds = CTLineGetBoundsWithOptions(line, CTLineBoundsOptions.UseOpticalBounds)
+        for var i in stride(from: CGFloat(0), to: ((self.frame.width - self.edgeInsets.left - self.edgeInsets.right)) / self.guidelinesSpacing, by:1) {
+            let text = CFAttributedStringCreate(nil, self.XValueForIndex(index: i) as CFString, attr)
+            let line = CTLineCreateWithAttributedString(text!)
+            let bounds = CTLineGetBoundsWithOptions(line, CTLineBoundsOptions.useOpticalBounds)
             
-            CGContextSetTextPosition(ctx, self.edgeInsets.left + (i*self.guidelinesSpacing) - (bounds.width/2), self.frame.height - self.edgeInsets.bottom + bounds.height)
+            //CGContextSetTextPosition(ctx, self.edgeInsets.left + (i*self.guidelinesSpacing) - (bounds.width/2), self.frame.height - self.edgeInsets.bottom + bounds.height)
+            ctx.textPosition = CGPoint(x: self.edgeInsets.left + (i*self.guidelinesSpacing) - (bounds.width/2), y: self.frame.height - self.edgeInsets.bottom + bounds.height)
             CTLineDraw(line, ctx)
         }
         
@@ -356,7 +360,7 @@ class StandardGraphView: UIView {
         let x = CGFloat(p.x as! Double - self.xValuesRange.min)
         let y = CGFloat(p.y as! Double - self.yValuesRange.min)
         
-        return CGPointMake((x*self.xScale), self.graphHeight - (y*self.yScale))
+        return CGPoint(x: (x*self.xScale),y: self.graphHeight - (y*self.yScale))
     }
     
     internal func drawPoints(){
@@ -364,14 +368,14 @@ class StandardGraphView: UIView {
             return
         }
         
-        self.lineLayer.frame = CGRectMake(self.edgeInsets.left, self.edgeInsets.top, self.graphWidth, self.graphHeight)
-        self.lineLayer.strokeColor = self.lineColor.CGColor
-        self.lineLayer.fillColor = UIColor.clearColor().CGColor
+        self.lineLayer.frame = CGRect(x: self.edgeInsets.left,y: self.edgeInsets.top,width: self.graphWidth,height: self.graphHeight)
+        self.lineLayer.strokeColor = self.lineColor.cgColor
+        self.lineLayer.fillColor = UIColor.clear.cgColor
         self.lineLayer.lineWidth = 1.2
         
-        self.pointsLayer.frame = CGRectMake(self.edgeInsets.left, self.edgeInsets.top, self.graphWidth, self.graphHeight)
-        self.pointsLayer.strokeColor = self.lineColor.CGColor
-        self.pointsLayer.fillColor = self.backgroundColor!.CGColor
+        self.pointsLayer.frame = CGRect(x: self.edgeInsets.left,y: self.edgeInsets.top,width: self.graphWidth,height: self.graphHeight)
+        self.pointsLayer.strokeColor = self.lineColor.cgColor
+        self.pointsLayer.fillColor = self.backgroundColor!.cgColor
         self.pointsLayer.lineWidth = 2.0
         
         let line = UIBezierPath()
@@ -381,22 +385,22 @@ class StandardGraphView: UIView {
         var lastPoint:CGPoint?
         
         for point in self.points {
-            let correctPoint = self.pointForObject(point)
+            let correctPoint = self.pointForObject(object: point)
             
 //            if self.negativeY {
 //                correctPoint.y = correctPoint.y - (self.bounds.height - (self.edgeInsets.top + self.edgeInsets.bottom))/2
 //            }
             
             if lastPoint == nil {
-                line.moveToPoint(correctPoint)
+                line.move(to: correctPoint)
             } else {
-                line.moveToPoint(lastPoint!)
-                line.addLineToPoint(correctPoint)
-                lineLength = lineLength + self.distanceBetweenPoints(lastPoint!, p2: correctPoint)
+                line.move(to: lastPoint!)
+                line.addLine(to: correctPoint)
+                lineLength = lineLength + self.distanceBetweenPoints(p1: lastPoint!, p2: correctPoint)
             }
             
             let circle = UIBezierPath(arcCenter: correctPoint, radius: 4.0, startAngle: 0, endAngle: CGFloat(2 * M_PI), clockwise: false)
-            points.appendPath(circle)
+            points.append(circle)
             
             lastPoint = correctPoint
             
@@ -406,7 +410,7 @@ class StandardGraphView: UIView {
         
         CATransaction.begin()
         CATransaction.setDisableActions(true)
-        self.pointsLayer.path = points.CGPath
+        self.pointsLayer.path = points.cgPath
         CATransaction.commit()
         
         if self.animate {
@@ -419,13 +423,13 @@ class StandardGraphView: UIView {
             anim.toValue = 1.0
             anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
             
-            self.lineLayer.path = line.CGPath
+            self.lineLayer.path = line.cgPath
             self.lineLayer.strokeEnd = 1.0
-            self.lineLayer.addAnimation(anim, forKey: "animateStrokeEnd")
+            self.lineLayer.add(anim, forKey: "animateStrokeEnd")
             CATransaction.commit()
             
         } else {
-            self.lineLayer.path = line.CGPath
+            self.lineLayer.path = line.cgPath
         }
         
         self.shouldUpdatePoints = false
@@ -436,12 +440,12 @@ class StandardGraphView: UIView {
         super.layoutSubviews()
     }
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         
         self.updateGraphMeasurements()
         
         if let ctx = UIGraphicsGetCurrentContext(){
-            CGContextSetLineCap(ctx, .Round)
+            ctx.setLineCap(.round)
             
             if self.showHorizontalGuidelines {
                 self.drawHorizontalGuidelines()
@@ -450,12 +454,12 @@ class StandardGraphView: UIView {
                 self.drawVerticalGuidelines()
             }
             if (self.xHighlightedLines.count > 0) || (self.yHighlightedLines.count > 0){
-                self.drawHighlightedLines(ctx)
+                self.drawHighlightedLines(ctx: ctx)
             }
             if self.showAxis{
                 self.drawAxis()
             }
-            self.drawGraphValues(ctx)
+            self.drawGraphValues(ctx: ctx)
             
             if self.points.count != 0 && self.shouldUpdatePoints {
                 self.drawPoints()

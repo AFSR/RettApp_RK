@@ -31,7 +31,7 @@ class TimeBasedGraphView: StandardGraphView {
             }
         }
     }
-    private var dateFormatter = NSDateFormatter()
+    private var dateFormatter = DateFormatter()
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -40,7 +40,7 @@ class TimeBasedGraphView: StandardGraphView {
     
     override func setXValuesRange(range: (min:Any, max:Any)) {
         self.referenceDate = range.min as! NSDate
-        self.xValuesRange = (0.0, (range.max as! NSDate).timeIntervalSinceDate(self.referenceDate))
+        self.xValuesRange = (0.0, (range.max as! NSDate).timeIntervalSince(self.referenceDate as Date))
         print(self.xValuesRange.max)
     }
     override func setPoints(points: [(Any, Any)]) {
@@ -50,7 +50,7 @@ class TimeBasedGraphView: StandardGraphView {
     }
 
     private func stringFromDate(date:NSDate) -> String {
-        return self.dateFormatter.stringFromDate(date)
+        return self.dateFormatter.string(from: date as Date)
     }
     
     private func systemDateFormat() -> String {
@@ -73,18 +73,18 @@ class TimeBasedGraphView: StandardGraphView {
     }
     
     override func XValueForIndex(index: CGFloat) -> String {
-        let date = self.referenceDate.dateByAddingTimeInterval(Double(index*self.guidelinesSpacing/self.xScale))
-        return String(format: "%@", arguments: [self.stringFromDate(date)])
+        let date = self.referenceDate.addingTimeInterval(Double(index*self.guidelinesSpacing/self.xScale))
+        return String(format: "%@", arguments: [self.stringFromDate(date: date)])
     }
     
     override func pointForObject(object: (date: Any, value: Any)) -> CGPoint {
-        let x = CGFloat((object.date as! NSDate).timeIntervalSinceDate(self.referenceDate))
+        let x = CGFloat((object.date as! NSDate).timeIntervalSince(self.referenceDate as Date))
         let y = CGFloat(object.value as! Double)
-        return CGPointMake(x*self.xScale, self.getGraphHeight() - (y*self.yScale))
+        return CGPoint(x: x*self.xScale, y: self.getGraphHeight() - (y*self.yScale))
     }
     
-    override func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
     }
     
 }

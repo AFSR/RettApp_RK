@@ -30,8 +30,8 @@ public var DSConsentDocument: ORKConsentDocument {
                         
                         if let animation = sectionDictionary.value(forKey: PlistFile.Consent.Section.Animation.rawValue) as? String{
                             let animationExtension = plistDictionary.value(forKey: PlistFile.Consent.Extension.rawValue) as? String
-                            if let animationPath = Bundle.main.pathForResource(animation, ofType: animationExtension){
-                                consentSection.customAnimationURL = NSURL(fileURLWithPath: animationPath)
+                            if let animationPath = Bundle.main.path(forResource: animation, ofType: animationExtension){
+                                consentSection.customAnimationURL = NSURL(fileURLWithPath: animationPath) as URL
                             }
                         }
                     

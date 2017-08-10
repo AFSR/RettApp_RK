@@ -11,6 +11,9 @@
 		0AB33C8E1BC6DF30007904BA /* StandardGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB33C8B1BC6DF30007904BA /* StandardGraphView.swift */; };
 		0AB33C8F1BC6DF30007904BA /* TimeBasedGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB33C8C1BC6DF30007904BA /* TimeBasedGraphView.swift */; };
 		0AD1F8D21BA9B7DA00B8BFEF /* DSTimeBasedGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD1F8D11BA9B7DA00B8BFEF /* DSTimeBasedGraphViewController.swift */; };
+		2F3193551F3CFD1500F35E09 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3193541F3CFD1500F35E09 /* Parser.swift */; };
+		2F3193571F3D08A900F35E09 /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3193561F3D08A900F35E09 /* Description.swift */; };
+		2F3193591F3D0B4F00F35E09 /* ParserHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3193581F3D0B4F00F35E09 /* ParserHelpers.swift */; };
 		31FF5F1FC603400F0BAB2928 /* Pods_RKRettTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85D054C5D01128D7353EAB5 /* Pods_RKRettTests.framework */; };
 		35812B781BC6EB0700D4FB68 /* CSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35812B771BC6EB0700D4FB68 /* CSV.swift */; };
 		3588246F1BD8B35F00276C63 /* JBBarChartFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358824641BD8B35F00276C63 /* JBBarChartFooterView.m */; };
@@ -144,6 +147,9 @@
 		0AD1F8D11BA9B7DA00B8BFEF /* DSTimeBasedGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSTimeBasedGraphViewController.swift; sourceTree = "<group>"; };
 		293BB9B129CF7CD70AB32D70 /* Pods-RKRettTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RKRettTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RKRettTests/Pods-RKRettTests.release.xcconfig"; sourceTree = "<group>"; };
 		2CB967C4F8016B5A64889490 /* Pods-RKRett.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RKRett.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RKRett/Pods-RKRett.debug.xcconfig"; sourceTree = "<group>"; };
+		2F3193541F3CFD1500F35E09 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = Utils/Parser.swift; sourceTree = "<group>"; };
+		2F3193561F3D08A900F35E09 /* Description.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Description.swift; path = Utils/Description.swift; sourceTree = "<group>"; };
+		2F3193581F3D0B4F00F35E09 /* ParserHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParserHelpers.swift; path = Utils/ParserHelpers.swift; sourceTree = "<group>"; };
 		35812B771BC6EB0700D4FB68 /* CSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSV.swift; path = Utils/CSV.swift; sourceTree = "<group>"; };
 		358824631BD8B35F00276C63 /* JBBarChartFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartFooterView.h; sourceTree = "<group>"; };
 		358824641BD8B35F00276C63 /* JBBarChartFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartFooterView.m; sourceTree = "<group>"; };
@@ -673,6 +679,9 @@
 			children = (
 				358824621BD8B35F00276C63 /* JBChart */,
 				35812B771BC6EB0700D4FB68 /* CSV.swift */,
+				2F3193581F3D0B4F00F35E09 /* ParserHelpers.swift */,
+				2F3193561F3D08A900F35E09 /* Description.swift */,
+				2F3193541F3CFD1500F35E09 /* Parser.swift */,
 				52A06FBB1B90B8B400DA4AEC /* DSConstants.swift */,
 				62F31F641BAB3E9300EE689F /* DSExtensions.swift */,
 				625CB1F51BB32CA400D4855D /* DSGlobals.swift */,
@@ -771,7 +780,7 @@
 				TargetAttributes = {
 					52A4368B1B84DAE500188433 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 8WCPHDZJPJ;
+						DevelopmentTeam = WG7ACRM2BU;
 						LastSwiftMigration = 0830;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
@@ -896,13 +905,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RKRettTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8178772FCEA780FD775FB292 /* [CP] Embed Pods Frameworks */ = {
@@ -911,9 +923,24 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RKRett/Pods-RKRett-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/JBChartView/JBChartView.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/ResearchKit/ResearchKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JBChartView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ResearchKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -926,13 +953,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RKRett-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F53E0753AD3105FBA863C107 /* [CP] Embed Pods Frameworks */ = {
@@ -941,9 +971,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RKRettTests/Pods-RKRettTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -961,6 +996,7 @@
 				52AB7C7C1BABD467006E3B77 /* DSConsentTask.swift in Sources */,
 				52AB7C861BABD48E006E3B77 /* DSPasswordController.swift in Sources */,
 				62482FE81F3C852900B83B25 /* DSActivityCell.swift in Sources */,
+				2F3193591F3D0B4F00F35E09 /* ParserHelpers.swift in Sources */,
 				52AB7C7E1BABD467006E3B77 /* DSSharingConsent.swift in Sources */,
 				62482FED1F3C854E00B83B25 /* CircularGraphCell.swift in Sources */,
 				52AB7C7A1BABD467006E3B77 /* DSConsentController.swift in Sources */,
@@ -977,6 +1013,7 @@
 				0AB33C8E1BC6DF30007904BA /* StandardGraphView.swift in Sources */,
 				62F31F651BAB3E9300EE689F /* DSExtensions.swift in Sources */,
 				52AB7C8B1BABD4E6006E3B77 /* DSStartViewController.swift in Sources */,
+				2F3193551F3CFD1500F35E09 /* Parser.swift in Sources */,
 				625FBA981B8CF34B00E47353 /* DSDeveloperTableViewController.swift in Sources */,
 				62632C511B86548B0010B5F8 /* DSTaskController.swift in Sources */,
 				52AB7C8F1BB06C54006E3B77 /* DSLearnViewController.swift in Sources */,
@@ -992,6 +1029,7 @@
 				0AD1F8D21BA9B7DA00B8BFEF /* DSTimeBasedGraphViewController.swift in Sources */,
 				0AB33C8D1BC6DF30007904BA /* CircularGraphView.swift in Sources */,
 				62632C591B8662970010B5F8 /* DSTask.swift in Sources */,
+				2F3193571F3D08A900F35E09 /* Description.swift in Sources */,
 				626E1EEE1C121D2500A19674 /* DSBloodType.swift in Sources */,
 				6282414D1BA9FF0C00041DE3 /* DSJSONSerializer.swift in Sources */,
 				358824741BD8B35F00276C63 /* JBLineChartFooterView.m in Sources */,
@@ -1315,11 +1353,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2CB967C4F8016B5A64889490 /* Pods-RKRett.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RKRett/RKRett.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = WG7ACRM2BU;
 				EXECUTABLE_PREFIX = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1343,11 +1382,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DD9AB719DB8CC30EC6904102 /* Pods-RKRett.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RKRett/RKRett.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = WG7ACRM2BU;
 				EXECUTABLE_PREFIX = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1371,7 +1411,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 64893EE8C4BB5A7863D6D639 /* Pods-RKRettTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -1394,7 +1434,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 293BB9B129CF7CD70AB32D70 /* Pods-RKRettTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

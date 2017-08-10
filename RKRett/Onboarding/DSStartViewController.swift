@@ -41,7 +41,7 @@ class DSStartViewController: UIViewController {
 //        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         self.configureScrollView()
 //        let fx = UIBlurEffect(style: UIBlurEffectStyle.Light)
 //        let blurView = UIVisualEffectView(effect: fx)
@@ -50,12 +50,12 @@ class DSStartViewController: UIViewController {
 //        imageView.addSubview(blurView)
     }
     
-    override func viewWillAppear(animated: Bool) {
-        self.navigationController?.navigationBarHidden = true
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        self.navigationController?.navigationBarHidden = false
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     @IBAction func backFromConsent(segue: UIStoryboardSegue) {
@@ -71,43 +71,43 @@ class DSStartViewController: UIViewController {
         let titleStyle = ["font-family":"HelveticaNeue-Light", "font-size":"25px", "font-style":"normal", "font-weight":"normal", "text-align": "center"]
         
         self.scrollView.layer.borderWidth = 1.0
-        self.scrollView.layer.borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1).CGColor
+        self.scrollView.layer.borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1).cgColor
         
-        let secondCard = UIWebView(frame: CGRectMake(width, 0, width, height))
-        secondCard.backgroundColor = UIColor.whiteColor()
+        let secondCard = UIWebView(frame: CGRect(x:width,y: 0,width: width,height: height))
+        secondCard.backgroundColor = UIColor.white
         
         var title = "<br>" + NSLocalizedString("About Rett Syndrome", comment:"")
-        title = DSUtils.applyStyleDictionary(titleStyle, onTag: "h1", withText: title)
+        title = DSUtils.applyStyleDictionary(dictionary: titleStyle as NSDictionary, onTag: "h1", withText: title)
         
         var text = NSLocalizedString("Rett Syndrome About", comment: "")
-        text = DSUtils.applyStyleDictionary(textStyle, onTag: "p", withText: text)
+        text = DSUtils.applyStyleDictionary(dictionary: textStyle as NSDictionary, onTag: "p", withText: text)
         
-        let body = DSUtils.applyStyleDictionary(NSDictionary(), onTag: "body", withText: title + text)
+        let body = DSUtils.applyStyleDictionary(dictionary: NSDictionary(), onTag: "body", withText: title + text)
         
         secondCard.loadHTMLString(body, baseURL: nil)
         
-        let thirdCard = UIWebView(frame: CGRectMake(width*2, 0, width, height))
-        thirdCard.backgroundColor = UIColor.whiteColor()
+        let thirdCard = UIWebView(frame: CGRect(x:width*2,y: 0,width: width,height: height))
+        thirdCard.backgroundColor = UIColor.white
         
         var title2 = "<br>"+NSLocalizedString("About Research Kit", comment:"")
-        title2 = DSUtils.applyStyleDictionary(titleStyle, onTag: "h1", withText: title2)
+        title2 = DSUtils.applyStyleDictionary(dictionary: titleStyle as NSDictionary, onTag: "h1", withText: title2)
         
         var text2 = NSLocalizedString("Research Kit About", comment: "")
-        text2 = DSUtils.applyStyleDictionary(textStyle, onTag: "p", withText: text2)
+        text2 = DSUtils.applyStyleDictionary(dictionary: textStyle as NSDictionary, onTag: "p", withText: text2)
         
-        let body2 = DSUtils.applyStyleDictionary(NSDictionary(), onTag: "body", withText: title2 + text2)
+        let body2 = DSUtils.applyStyleDictionary(dictionary: NSDictionary(), onTag: "body", withText: title2 + text2)
         
         thirdCard.loadHTMLString(body2, baseURL: nil)
 
         scrollView.addSubview(secondCard)
         scrollView.addSubview(thirdCard)
-        scrollView.contentSize = CGSizeMake(width*3, height)
-        scrollView.contentInset = UIEdgeInsetsZero
+        scrollView.contentSize = CGSize(width: width*3,height: height)
+        scrollView.contentInset = UIEdgeInsets.zero
     }
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView){
         // Test the offset and calculate the current page after scrolling ends
-        let pageWidth:CGFloat = CGRectGetWidth(scrollView.frame)
+        let pageWidth:CGFloat = scrollView.frame.width
         let currentPage:CGFloat = floor((scrollView.contentOffset.x-pageWidth/2)/pageWidth)+1
         // Change the indicator
         self.pageControl.currentPage = Int(currentPage);
