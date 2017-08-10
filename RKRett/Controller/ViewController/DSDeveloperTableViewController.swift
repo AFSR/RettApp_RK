@@ -24,22 +24,22 @@ class DSDeveloperTableViewController: UITableViewController {
 
 // MARK: - UITableViewDelegate
 extension DSDeveloperTableViewController{
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath as IndexPath, animated: true)
+     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         let sectionAndRow = (Section: indexPath.section, Row: indexPath.row)
         
         switch sectionAndRow {
         case (Section: Section.Developer.rawValue, Row: RowNumberSectionDeveloper.ResetConsent.rawValue):
             KeychainWrapper.removeObject(kDSPasswordKey)
             alreadyParticipating = false
-            assert(UserDefaults.standardUserDefaults().synchronize(), "Error while reseting consent")
+            assert(UserDefaults.standardUserDefaults.synchronize(), "Error while reseting consent")
             print("Consent reseted")
             break
             
         case (Section: Section.Developer.rawValue, Row: RowNumberSectionDeveloper.Test.rawValue):
             let not = DSNotification()
             let next = not.nextDateForWeekday(desiredWeekday: 5, fromDate: NSDate())
-            print(next.stringDateWithFormat())
+            print(next as! String)
             break
         
         case (Section: Section.Developer.rawValue, Row: RowNumberSectionDeveloper.ResetDefaults.rawValue):
