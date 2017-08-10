@@ -11,18 +11,18 @@ import SVProgressHUD
 import Realm
 import RealmSwift
 
-extension UITableViewCell{
+extension UITableViewCell {
     
-    func highlightWithColor(color:UIColor){
-        let bgView = UIView(frame: CGRectMake(self.contentView.frame.width, 0, self.contentView.frame.width, self.contentView.frame.height))
+    func highlightWithColor(color: UIColor) {
+        let bgView = UIView(frame: CGRect(x: contentView.frame.width, y: 0, width: contentView.frame.width, height: contentView.frame.height))
         bgView.backgroundColor = color
         bgView.tag = kCellBackgroundViewTag
         print(bgView)
         UIView.beginAnimations("SelectedCell", context: nil)
-        UIView.setAnimationCurve(UIViewAnimationCurve.EaseIn)
+        UIView.setAnimationCurve(UIViewAnimationCurve.easeIn)
         UIView.setAnimationDuration(1.0)
-        self.selectedBackgroundView?.addSubview(bgView)
-        bgView.frame = self.contentView.frame
+        selectedBackgroundView?.addSubview(bgView)
+        bgView.frame = contentView.frame
         UIView.commitAnimations()
         print(bgView)
     }
@@ -42,7 +42,7 @@ class DSLearnViewController:UIViewController{
     var sectionShareDataTv:Int!
     var sectionDeveloper:Int!
     
-    private enum SegueIdentifier:String{
+    fileprivate enum SegueIdentifier:String{
         case LearnDetail = "gotoLearnDetail", ShareDataWithDoctor = "gotoShareDataWithDoctor"
         
         var description:String{
@@ -57,23 +57,23 @@ class DSLearnViewController:UIViewController{
         self.tableView.dataSource = self
         loadLearnPlistSections()
         
-        tableView.contentInset = UIEdgeInsetsZero
+        tableView.contentInset = .zero
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch(segue.identifier!){
         case SegueIdentifier.LearnDetail.rawValue:
-            let vc = segue.destinationViewController as! DSLearnDetailController
+            let vc = segue.destination as! DSLearnDetailController
             vc.section = sender as! DSLearnMoreSection
         default:
-            print("Identifier: \(segue.identifier)")
+            print("Identifier: \(String(describing: segue.identifier))")
         }
         
     }
     
     // MARK: - Functions
     func loadLearnPlistSections(){
-        if let path = NSBundle.mainBundle().pathForResource(kDSLearnMorePlist, ofType: "plist"){
+        if let path = Bundle.main.path(forResource: kDSLearnMorePlist, ofType: "plist"){
             if let sectionsArray = NSArray(contentsOfFile: path){
                 for section in sectionsArray as! [NSDictionary]{
                     //                    print(section)
@@ -89,13 +89,13 @@ class DSLearnViewController:UIViewController{
 // MARK: - UITableViewDelegate
 extension DSLearnViewController:UITableViewDelegate{
     
-    func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        performSegueWithIdentifier(SegueIdentifier.LearnDetail.rawValue, sender: learnMoreArray[indexPath.section])
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+        performSegue(withIdentifier: SegueIdentifier.LearnDetail.rawValue, sender: learnMoreArray[indexPath.section])
     }
 }
 
@@ -106,21 +106,21 @@ extension DSLearnViewController: UITableViewDataSource{
         return self.learnMoreArray.count
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
-    
+        
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .Default, reuseIdentifier: "learnMoreCell")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "learnMoreCell")
         
-        createSideViewForCell(cell, withColor: .purpleColor())
+        createSideViewForCell(cell: cell, withColor: .purple)
         cell.textLabel?.text = self.learnMoreArray[indexPath.section].title
         
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    private func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return section == 0 ? 0 : 0.5
     }
     

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DSAuthorizationViewController" customModule="RKRett" customModuleProvider="target">
+            <connections>
+                <outlet property="btnHealthKit" destination="aCh-eA-Feo" id="Rym-se-VIV"/>
+                <outlet property="btnMotion" destination="m8m-Kp-fO8" id="4be-JA-jpm"/>
+                <outlet property="btnNotifications" destination="xGM-lX-q6H" id="Bgx-c8-ya1"/>
+                <outlet property="doneButton" destination="wzS-cr-fSP" id="VWM-IW-pn9"/>
+                <outlet property="lblAuthorizations" destination="nHS-C9-RTV" id="Upd-9F-3kG"/>
+                <outlet property="lblHealthKit" destination="abO-4v-0n4" id="JXh-j1-jAN"/>
+                <outlet property="lblMotion" destination="tYg-1C-0hn" id="qh3-SY-LyO"/>
+                <outlet property="lblNotifications" destination="pPd-Z3-boX" id="KsE-qQ-n2o"/>
+                <outlet property="view" destination="WVn-n2-Bat" id="wZG-hs-Cie"/>
+                <outletCollection property="buttons" destination="aCh-eA-Feo" collectionClass="NSMutableArray" id="lOL-G5-nQw"/>
+                <outletCollection property="buttons" destination="m8m-Kp-fO8" collectionClass="NSMutableArray" id="wvM-Ql-pFo"/>
+                <outletCollection property="buttons" destination="xGM-lX-q6H" collectionClass="NSMutableArray" id="FQB-rX-4N4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="WVn-n2-Bat">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vgs-Fl-nIl">
+                    <rect key="frame" x="22" y="78" width="556" height="442"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authorizations" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHS-C9-RTV">
+                            <rect key="frame" x="194.5" y="0.0" width="167.5" height="32.5"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The app will use HealthKit to get Heart Rate  info, and all the info related to the Diet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abO-4v-0n4">
+                            <rect key="frame" x="1.5" y="62.5" width="553.5" height="41"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCh-eA-Feo" customClass="ORKContinueButton">
+                            <rect key="frame" x="189.5" y="133.5" width="177" height="22"/>
+                            <animations/>
+                            <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                            <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
+                            <state key="normal" title="Authorize HealthKit">
+                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="highlighted">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="healthKit:" destination="-1" eventType="touchUpInside" id="7NP-PP-IL9"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="lmk-fn-EKB">
+                            <rect key="frame" x="38" y="185" width="480" height="1"/>
+                            <animations/>
+                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="480" id="MA3-Fw-FGe"/>
+                                <constraint firstAttribute="height" constant="1" id="WqT-55-CvB"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We need the otion authorization to record accelerometer data from the Apple Watch" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYg-1C-0hn">
+                            <rect key="frame" x="6" y="216" width="544.5" height="41"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m8m-Kp-fO8" customClass="ORKContinueButton">
+                            <rect key="frame" x="199" y="287" width="158" height="22"/>
+                            <animations/>
+                            <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                            <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
+                            <state key="normal" title="Authorize Motion">
+                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="highlighted">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="motion:" destination="-1" eventType="touchUpInside" id="PX3-7z-6Yc"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pFT-dK-cyn">
+                            <rect key="frame" x="38" y="339" width="480" height="1"/>
+                            <animations/>
+                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="Pa5-NB-nEc"/>
+                                <constraint firstAttribute="width" constant="480" id="Ro4-Ng-6Ba"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We will use notifications to remind you about all  tasks and activities" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPd-Z3-boX">
+                            <rect key="frame" x="20" y="369.5" width="516.5" height="20.5"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xGM-lX-q6H" customClass="ORKContinueButton">
+                            <rect key="frame" x="176" y="420" width="204" height="22"/>
+                            <animations/>
+                            <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                            <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
+                            <state key="normal" title="Authorize Notifications">
+                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="highlighted">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="notifications:" destination="-1" eventType="touchUpInside" id="iUF-pa-E5N"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <animations/>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wzS-cr-fSP">
+                    <rect key="frame" x="537" y="20" width="37" height="30"/>
+                    <animations/>
+                    <state key="normal" title="Done"/>
+                    <connections>
+                        <action selector="doneButton:" destination="-1" eventType="touchUpInside" id="P8z-kO-kBA"/>
+                    </connections>
+                </button>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="wzS-cr-fSP" secondAttribute="trailing" constant="26" id="4WW-7k-3lW"/>
+                <constraint firstAttribute="trailing" secondItem="vgs-Fl-nIl" secondAttribute="trailing" constant="22" id="GDE-fS-aL9"/>
+                <constraint firstItem="vgs-Fl-nIl" firstAttribute="top" secondItem="WVn-n2-Bat" secondAttribute="top" constant="78" id="TiW-41-GAf"/>
+                <constraint firstItem="wzS-cr-fSP" firstAttribute="top" secondItem="WVn-n2-Bat" secondAttribute="top" constant="20" id="kHF-yY-bLL"/>
+                <constraint firstItem="vgs-Fl-nIl" firstAttribute="leading" secondItem="WVn-n2-Bat" secondAttribute="leading" constant="22" id="rg3-q3-68c"/>
+                <constraint firstAttribute="bottom" secondItem="vgs-Fl-nIl" secondAttribute="bottom" constant="80" id="v6Z-m8-RWo"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+            <point key="canvasLocation" x="325" y="-20"/>
+        </view>
+    </objects>
+</document>

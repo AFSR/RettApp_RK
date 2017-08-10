@@ -21,24 +21,26 @@ class CircularGraphView: UIView {
     
     private var percentage = 0.0
     
-    var backgroundImage:CGImageRef? {
+    var backgroundImage:CGImage? {
         didSet {
             self.setImageLayers()
             self.setPercentageLayer()
             self.setTotalLayer()
         }
     }
-    var graphColor = UIColor(red: 0.3568, green: 0.87, blue: 0.563, alpha: 1.0).CGColor {
+    
+    var graphColor = UIColor(red: 0.3568, green: 0.87, blue: 0.563, alpha: 1.0).cgColor {
         didSet {
             self.percentageLayer.strokeColor = self.graphColor
         }
     }
-    var textColor = UIColor.lightGrayColor() {
+    
+    var textColor = UIColor.lightGray {
         didSet {
             self.setTextLayer()
         }
     }
-    var backgroundGraphColor = UIColor.groupTableViewBackgroundColor().CGColor {
+    var backgroundGraphColor = UIColor.groupTableViewBackground.cgColor {
         didSet {
             self.setBackgroundLayer()
         }
@@ -85,12 +87,12 @@ class CircularGraphView: UIView {
     
     override func didMoveToWindow() {
         super.didMoveToWindow()
-        self.setPercentage(0, animated: false)
-        self.setPercentage(self.percentage, animated: true)
+        self.setPercentage(value: 0, animated: false)
+        self.setPercentage(value: self.percentage, animated: true)
     }
     
     private func deg2Rad(degree:Double) -> CGFloat {
-        return CGFloat(degree*(M_PI/180))
+        return CGFloat(degree * (.pi/180))
     }
     
     private func updateLayers(){
@@ -129,9 +131,9 @@ class CircularGraphView: UIView {
     
     private func setTextLayer(){
         
-        self.textLayer.frame = CGRectMake(0, self.bounds.height/2 - self.radius*0.3, self.bounds.width, (self.radius*2)*0.3)
+        self.textLayer.frame = CGRect(x: 0, y: bounds.height/2 - radius*0.3, width: bounds.width, height: (radius * 2) * 0.3)
         self.textLayer.alignmentMode = "center"
-        self.textLayer.contentsScale = UIScreen.mainScreen().scale
+        self.textLayer.contentsScale = UIScreen.main.scale
         
         let font1 = UIFont(name: "HelveticaNeue", size: self.radius/2)
         let font2 = UIFont(name: "HelveticaNeue-Light", size: self.radius/5)
@@ -139,22 +141,22 @@ class CircularGraphView: UIView {
         let val = NSMutableAttributedString(string: "\(Int(self.percentage*100))", attributes: [NSFontAttributeName:font1!, NSForegroundColorAttributeName:self.textColor])
         let perc = NSAttributedString(string: " %", attributes: [NSFontAttributeName:font2!, NSForegroundColorAttributeName:self.textColor])
         
-        val.appendAttributedString(perc)
+        val.append(perc)
         
         self.textLayer.string = val
     }
     
     private func setBackgroundLayer(){
         self.backgroundLayer.fillColor = self.backgroundGraphColor
-        self.backgroundLayer.path = self.makeArc(CGPointMake(self.bounds.midX, self.bounds.midY),radius: self.radius)
+        self.backgroundLayer.path = self.makeArc(center: CGPoint(x: bounds.midX, y: bounds.midY), radius: self.radius)
     }
     
     private func setTotalLayer(){
         
-        let path = self.makeArc(CGPointMake(self.bounds.midX, self.bounds.midY),radius: self.radius - (self.lineWidth/2))
+        let path = self.makeArc(center: CGPoint(x: bounds.midX, y: bounds.midY),radius: self.radius - (self.lineWidth/2))
         
-        self.totalLayer.strokeColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.3).CGColor
-        self.totalLayer.fillColor = UIColor.clearColor().CGColor
+        self.totalLayer.strokeColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.3).cgColor
+        self.totalLayer.fillColor = UIColor.clear.cgColor
         self.totalLayer.lineWidth = self.lineWidth
         self.totalLayer.lineCap = kCALineCapRound
         self.totalLayer.path = path
@@ -163,10 +165,10 @@ class CircularGraphView: UIView {
     
     private func setPercentageLayer(){
         
-        let path = self.makeArc(CGPointMake(self.bounds.midX, self.bounds.midY),radius: self.radius - (self.lineWidth/2))
+        let path = self.makeArc(center: CGPoint(x: bounds.midX, y: bounds.midY), radius: radius - (lineWidth/2))
         
         self.percentageLayer.strokeColor = self.graphColor
-        self.percentageLayer.fillColor = UIColor.clearColor().CGColor
+        self.percentageLayer.fillColor = UIColor.clear.cgColor
         self.percentageLayer.lineWidth = self.lineWidth
         self.percentageLayer.lineCap = kCALineCapRound
         self.percentageLayer.path = path
@@ -184,15 +186,15 @@ class CircularGraphView: UIView {
             anim.toValue = CGFloat(self.percentage)
             anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
             
-            self.textLayer.hidden = true
+            self.textLayer.isHidden = true
             self.setTextLayer()
             
             CATransaction.setCompletionBlock({ () -> Void in
-                self.textLayer.hidden = false
+                self.textLayer.isHidden = false
             })
             
             self.percentageLayer.strokeEnd = CGFloat(self.percentage)
-            self.percentageLayer.addAnimation(anim, forKey: "animateStrokeEnd")
+            self.percentageLayer.add(anim, forKey: "animateStrokeEnd")
             CATransaction.commit()
             
             return
@@ -205,16 +207,16 @@ class CircularGraphView: UIView {
         CATransaction.commit()
     }
     
-    private func makeArc(center:CGPoint, radius:CGFloat) -> CGPathRef {
+    private func makeArc(center:CGPoint, radius:CGFloat) -> CGPath {
         
-        let path = UIBezierPath(arcCenter: CGPointZero, radius: radius, startAngle: deg2Rad(0), endAngle: deg2Rad(360), clockwise: true)
+        let path = UIBezierPath(arcCenter: .zero, radius: radius, startAngle: deg2Rad(degree: 0), endAngle: deg2Rad(degree: 360), clockwise: true)
         
-        let rot = CGAffineTransformMakeRotation(self.deg2Rad(270))
-        let tra = CGAffineTransformMakeTranslation(center.x, center.y)
-        path.applyTransform(rot)
-        path.applyTransform(tra)
+        let rot = CGAffineTransform(rotationAngle: self.deg2Rad(degree: 270))
+        let tra = CGAffineTransform(translationX: center.x, y: center.y)
+        path.apply(rot)
+        path.apply(tra)
         
-        return path.CGPath
+        return path.cgPath
         
     }
     
@@ -226,7 +228,7 @@ class CircularGraphView: UIView {
     func setPercentage(value:Double, animated:Bool) {
         if (value >= 0 && value <= 1) {
             self.percentage = value
-            self.updatePercentage(animated)
+            self.updatePercentage(animated: animated)
         }
     }
 }

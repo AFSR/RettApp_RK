@@ -40,24 +40,24 @@ class DSConsentController: NSObject {
     - returns: `Void`
     */
     func createTaskWithParentViewController(parentViewController:DSOnboardingViewController, willShowTask showTask:Bool = true){
-        self.consentViewController = ORKTaskViewController(task:DSConsentTask, taskRunUUID: nil)
-        self.consentViewController.view.tintColor = .purpleColor()
+        self.consentViewController = ORKTaskViewController(task:DSConsentTask, taskRun: nil)
+        self.consentViewController.view.tintColor = .purple
         self.consentViewController.delegate = self
         self.parentViewController = parentViewController
-        self.parentViewController.presentViewController(self.consentViewController, animated: true, completion: nil)
+        self.parentViewController.present(self.consentViewController, animated: true, completion: nil)
     }
 }
 
 // MARK: - ORKTaskViewControllerDelegate
-extension DSConsentController : ORKTaskViewControllerDelegate{
-    func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+extension DSConsentController : ORKTaskViewControllerDelegate {
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         
         switch(reason){
-        case .Completed:
-            self.consentViewController.dismissViewControllerAnimated(true, completion: nil)
+        case .completed:
+            self.consentViewController.dismiss(animated: true, completion: nil)
             self.parentViewController.proceedToQuiz()
         default:
-            self.consentViewController.dismissViewControllerAnimated(true, completion: nil)
+            self.consentViewController.dismiss(animated: true, completion: nil)
             self.parentViewController.userFailedConsent()
         }
     }

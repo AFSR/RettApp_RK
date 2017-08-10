@@ -10,12 +10,12 @@ import ResearchKit
 
 public var DSReviewConsentDocument : ((String, ORKConsentDocument) -> (ORKConsentReviewStep)) = { identifier, document in
 
-    let reviewConsentStep = ORKConsentReviewStep(identifier: identifier, signature: nil, inDocument: document)
-    if let path = NSBundle.mainBundle().pathForResource("Consent", ofType: "plist") {
+    let reviewConsentStep = ORKConsentReviewStep(identifier: identifier, signature: nil, in: document)
+    if let path = Bundle.main.path(forResource: "Consent", ofType: "plist") {
         if let plistDictionary = NSDictionary(contentsOfFile: path){
-            if let reviewDictionary = plistDictionary.valueForKey("ReviewStep") as? NSDictionary{
-                reviewConsentStep.title = reviewDictionary.valueForKey("title") as? String
-                reviewConsentStep.reasonForConsent = reviewDictionary.valueForKey("reason") as? String
+            if let reviewDictionary = plistDictionary.value(forKey: "ReviewStep") as? NSDictionary{
+                reviewConsentStep.title = reviewDictionary.value(forKey: "title") as? String
+                reviewConsentStep.reasonForConsent = reviewDictionary.value(forKey: "reason") as? String
             }
         }
     }

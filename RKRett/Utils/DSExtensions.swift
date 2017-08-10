@@ -6,126 +6,126 @@
 //  Copyright © 2015 DarkShine. All rights reserved.
 //
 
-//MARK: - NSDate
+//MARK: - Date
 //MARK: Formats
-extension NSDate{
-    func stringDateWithFormat(format:String = "yyyyMMdd-HHmmss") -> String{
-        let dateFormatter = NSDateFormatter()
+extension Date{
+    func stringDateWithFormat(format: String = "yyyyMMdd-HHmmss") -> String {
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
-        return dateFormatter.stringFromDate(self)
+        return dateFormatter.string(from: self)
     }
     
     func ISOStringFromDate() -> String {
-        return self.stringDateWithFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").stringByAppendingString("Z")
+        return self.stringDateWithFormat(format: "yyyy-MM-dd'T'HH:mm:ss.SSS").appending("Z")
     }
     
-    func dateFromISOString(string: String) -> NSDate {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        dateFormatter.timeZone = NSTimeZone.localTimeZone()
+    func dateFromISOString(string: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
+        dateFormatter.timeZone = NSTimeZone.local
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         
-        return dateFormatter.dateFromString(string)!
+        return dateFormatter.date(from: string)! as Date
     }
     
     func isToday() -> Bool {
-        let cal = NSCalendar.currentCalendar()
+        let cal = NSCalendar.current
         return cal.isDateInToday(self)
     }
 }
 
 //MARK: Date components vars
-extension NSDate{
-    var seconds: Int{
-        return NSCalendar.currentCalendar().component(NSCalendarUnit.Second, fromDate: self)
+extension Date {
+    var seconds: Int {
+        return NSCalendar.current.component(.second, from: self)
     }
     
-    var minutes: Int{
-        return NSCalendar.currentCalendar().component(NSCalendarUnit.Minute, fromDate: self)
+    var minutes: Int {
+        return NSCalendar.current.component(.minute, from: self)
     }
     
     var hour: Int{
-        return NSCalendar.currentCalendar().component(NSCalendarUnit.Hour, fromDate: self)
+        return NSCalendar.current.component(.hour, from: self)
     }
     
     var day: Int{
-        return NSCalendar.currentCalendar().component(NSCalendarUnit.Day, fromDate: self)
+        return NSCalendar.current.component(.day, from: self)
     }
     
     var weekDay: Int{
-        return NSCalendar.currentCalendar().component(NSCalendarUnit.Weekday, fromDate: self)
+        return NSCalendar.current.component(.weekday, from: self)
     }
     
     var weekDayString: String{
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "EEEE"
-        let str = formatter.stringFromDate(self)
+        let str = formatter.string(from: self)
         return str
     }
     
     var month: Int{
-        return NSCalendar.currentCalendar().component(NSCalendarUnit.Month, fromDate: self)
+        return NSCalendar.current.component(.month, from: self)
     }
     var monthString: String{
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "MMMM"
-        let str = formatter.stringFromDate(self)
+        let str = formatter.string(from: self)
         return str
     }
     
-    func stringWithDateFormat(dateFormater: NSDateFormatter) -> String?{
-        let str = dateFormater.stringFromDate(self)
+    func stringWithDateFormat(dateFormater: DateFormatter) -> String?{
+        let str = dateFormater.string(from: self)
         return str
     }
     
-    var year: Int{
-        return NSCalendar.currentCalendar().component(NSCalendarUnit.Year, fromDate: self)
+    var year: Int {
+        return NSCalendar.current.component(.year, from: self)
     }
     
-    func yearsFrom(date:NSDate) -> Int{
-        return NSCalendar.currentCalendar().components(.Year, fromDate: date, toDate: self, options: []).year
-    }
+//    func yearsFrom(date: Date) -> Int {
+//        return NSCalendar.current.dateComponents(Set<Calendar.Component>(.year), from: date, to: self).year as! Int
+//    }
+//    
+//    func monthsFrom(date: Date) -> Int{
+//        return NSCalendar.currentCalendar.components(.month, fromDate: date, toDate: self, options: []).month
+//    }
+//    
+//    func weeksFrom(date: Date) -> Int{
+//        return NSCalendar.currentCalendar.components(.weekOfYear, fromDate: date, toDate: self, options: []).weekOfYear
+//    }
+//    
+//    func daysFrom(date: Date) -> Int{
+//        return NSCalendar.currentCalendar.components(.day, fromDate: date, toDate: self, options: []).day
+//    }
+//    
+//    func hoursFrom(date: Date) -> Int{
+//        return NSCalendar.currentCalendar.components(.hour, fromDate: date, toDate: self, options: []).hour
+//    }
+//    
+//    func minutesFrom(date: Date) -> Int{
+//        return NSCalendar.currentCalendar.components(.minute, fromDate: date, toDate: self, options: []).minute
+//    }
+//    
+//    func secondsFrom(date: Date) -> Int{
+//        return NSCalendar.currentCalendar.components(.second, fromDate: date, toDate: self, options: []).second
+//    }
     
-    func monthsFrom(date:NSDate) -> Int{
-        return NSCalendar.currentCalendar().components(.Month, fromDate: date, toDate: self, options: []).month
-    }
-    
-    func weeksFrom(date:NSDate) -> Int{
-        return NSCalendar.currentCalendar().components(.WeekOfYear, fromDate: date, toDate: self, options: []).weekOfYear
-    }
-    
-    func daysFrom(date:NSDate) -> Int{
-        return NSCalendar.currentCalendar().components(.Day, fromDate: date, toDate: self, options: []).day
-    }
-    
-    func hoursFrom(date:NSDate) -> Int{
-        return NSCalendar.currentCalendar().components(.Hour, fromDate: date, toDate: self, options: []).hour
-    }
-    
-    func minutesFrom(date:NSDate) -> Int{
-        return NSCalendar.currentCalendar().components(.Minute, fromDate: date, toDate: self, options: []).minute
-    }
-    
-    func secondsFrom(date:NSDate) -> Int{
-        return NSCalendar.currentCalendar().components(.Second, fromDate: date, toDate: self, options: []).second
-    }
-    
-    func offsetFrom(date:NSDate) -> String {
-        if yearsFrom(date)   > 0 { return "\(yearsFrom(date))y"   }
-        if monthsFrom(date)  > 0 { return "\(monthsFrom(date))M"  }
-        if weeksFrom(date)   > 0 { return "\(weeksFrom(date))w"   }
-        if daysFrom(date)    > 0 { return "\(daysFrom(date))d"    }
-        if hoursFrom(date)   > 0 { return "\(hoursFrom(date))h"   }
-        if minutesFrom(date) > 0 { return "\(minutesFrom(date))m" }
-        if secondsFrom(date) > 0 { return "\(secondsFrom(date))s" }
-        return ""
-    }
+//    func offsetFrom(date: Date) -> String {
+//        if yearsFrom(date: date)   > 0 { return "\(yearsFrom(date: date))y"   }
+//        if monthsFrom(date: date)  > 0 { return "\(monthsFrom(date: date))M"  }
+//        if weeksFrom(date: date)   > 0 { return "\(weeksFrom(date: date))w"   }
+//        if daysFrom(date: date)    > 0 { return "\(daysFrom(date: date))d"    }
+//        if hoursFrom(date: date)   > 0 { return "\(hoursFrom(date: date))h"   }
+//        if minutesFrom(date: date) > 0 { return "\(minutesFrom(date: date))m" }
+//        if secondsFrom(date: date) > 0 { return "\(secondsFrom(date: date))s" }
+//        return ""
+//    }
 }
 
 //MARK: - NSError
 //MARK: Utils
-extension NSError{
-    func codeIn(arrayCodes:[Int])->Bool{
+extension NSError {
+    func codeIn(arrayCodes: [Int]) -> Bool {
         return arrayCodes.contains(self.code)
     }
     
@@ -157,20 +157,20 @@ extension UIColor{
 //MARK: Utils
 extension UIButton {
     private func imageWithColor(color: UIColor) -> UIImage {
-        let rect = CGRectMake(0.0, 0.0, 1.0, 1.0)
+        let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
         
-        CGContextSetFillColorWithColor(context, color.CGColor)
-        CGContextFillRect(context, rect)
+        context!.setFillColor(color.cgColor)
+        context!.fill(rect)
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return image
+        return image!
     }
     
     func setBackgroundColor(color: UIColor, forUIControlState state: UIControlState) {
-        self.setBackgroundImage(imageWithColor(color), forState: state)
+        setBackgroundImage(imageWithColor(color: color), for: state)
     }
 }
 
@@ -187,13 +187,13 @@ extension UIImage{
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
         
-        CGContextSetFillColorWithColor(context, color.CGColor)
-        CGContextFillRect(context, rect)
+        context!.setFillColor(color.cgColor)
+        context!.fill(rect)
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return image
+        return image!
     }
 }
 

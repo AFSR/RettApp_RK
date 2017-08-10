@@ -2,107 +2,66 @@
 //  CSV.swift
 //  SwiftCSV
 //
-//  Created by naoty on 2014/06/09.
-//  Copyright (c) 2014年 Naoto Kaneko. All rights reserved.
+//  Created by Naoto Kaneko on 2/18/16.
+//  Copyright © 2016 Naoto Kaneko. All rights reserved.
 //
 
 import Foundation
 
 public class CSV {
-    public var headers: [String] = []
-    public var rows: [Dictionary<String, String>] = []
-    public var columns = Dictionary<String, [String]>()
-    var delimiter = NSCharacterSet(charactersInString: ",")
+    static private let comma: Character = ","
     
-    public init(content: String?, delimiter: NSCharacterSet, encoding: UInt) throws{
-        if let csvStringToParse = content{
-            self.delimiter = delimiter
-
-            let newline = NSCharacterSet.newlineCharacterSet()
-            var lines: [String] = []
-            csvStringToParse.stringByTrimmingCharactersInSet(newline).enumerateLines { line, stop in lines.append(line) }
-
-            self.headers = self.parseHeaders(fromLines: lines)
-            self.rows = self.parseRows(fromLines: lines)
-            self.columns = self.parseColumns(fromLines: lines)
-        }
-    }
+    public var header: [String]!
+    var _rows: [[String: String]]? = nil
+    var _columns: [String: [String]]? = nil
     
-    public convenience init(contentsOfURL url: NSURL, delimiter: NSCharacterSet, encoding: UInt) throws {
-        let csvString: String?
-        do {
-            csvString = try String(contentsOfURL: url, encoding: encoding)
-        } catch _ {
-            csvString = nil
-        };
-        try self.init(content: csvString,delimiter:delimiter, encoding:encoding)
-    }
+    var text: String
+    var delimiter: Character
     
-    public convenience init(contentsOfURL url: NSURL) throws {
-        let comma = NSCharacterSet(charactersInString: ",")
-        try self.init(contentsOfURL: url, delimiter: comma, encoding: NSUTF8StringEncoding)
-    }
+    let loadColumns: Bool
     
-    public convenience init(contentsOfURL url: NSURL, encoding: UInt) throws {
-        let comma = NSCharacterSet(charactersInString: ",")
-        try self.init(contentsOfURL: url, delimiter: comma, encoding: encoding)
-    }
-    
-    public convenience init?(contentsOfFile path: String, delimiter: NSCharacterSet, encoding: UInt) throws {
-        var csvString: String? = nil
-        do {
-            csvString = try String(contentsOfFile: path, encoding: encoding)
-        } catch _ {
-            csvString = nil
-        }
-        try self.init(content: csvString, delimiter:delimiter, encoding:encoding)
-    }
-    
-    public convenience init?(contentsOfFile path: String, error: NSErrorPointer) throws {
-        let comma = NSCharacterSet(charactersInString: ",")
-        try self.init(contentsOfFile: path, delimiter: comma, encoding: NSUTF8StringEncoding)
-    }
-    
-    public convenience init?(contentsOfFile path: String, encoding: UInt, error: NSErrorPointer) throws {
-        let comma = NSCharacterSet(charactersInString: ",")
-        try self.init(contentsOfFile: path, delimiter: comma, encoding: encoding)
-    }
-    
-    func parseHeaders(fromLines lines: [String]) -> [String] {
-        return lines[0].componentsSeparatedByCharactersInSet(self.delimiter)
-    }
-    
-    func parseRows(fromLines lines: [String]) -> [Dictionary<String, String>] {
-        var rows: [Dictionary<String, String>] = []
+    /// Load a CSV file from a string
+    ///
+    /// string: string data of the CSV file
+    /// delimiter: character to split row and header fields by (default is ',')
+    /// loadColumns: whether to populate the columns dictionary (default is true)
+    public init(string: String, delimiter: Character = comma, loadColumns: Bool = true) {
+        self.text = string
+        self.delimiter = delimiter
+        self.loadColumns = loadColumns
         
-        for (lineNumber, line) in lines.enumerate() {
-            if lineNumber == 0 {
-                continue
-            }
-            
-            var row = Dictionary<String, String>()
-            let values = line.componentsSeparatedByCharactersInSet(self.delimiter)
-            for (index, header) in self.headers.enumerate() {
-                if index < values.count {
-                    row[header] = values[index]
-                } else {
-                    row[header] = ""
-                }
-            }
-            rows.append(row)
+        let createHeader: ([String]) -> () = { head in
+            self.header = head
         }
-        
-        return rows
+        enumerateAsArray(createHeader, limitTo: 1, startAt: 0)
     }
     
-    func parseColumns(fromLines lines: [String]) -> Dictionary<String, [String]> {
-        var columns = Dictionary<String, [String]>()
+    /// Load a CSV file
+    ///
+    /// name: name of the file (will be passed to String(contentsOfFile:encoding:) to load)
+    /// delimiter: character to split row and header fields by (default is ',')
+    /// encoding: encoding used to read file (default is NSUTF8StringEncoding)
+    /// loadColumns: whether to populate the columns dictionary (default is true)
+    public convenience init(name: String, delimiter: Character = comma, encoding: NSStringEncoding = NSUTF8StringEncoding, loadColumns: Bool = true) throws {
+        let contents = try String(contentsOfFile: name, encoding: encoding)
         
-        for header in self.headers {
-            let column = self.rows.map { row in row[header] != nil ? row[header]! : "" }
-            columns[header] = column
-        }
+        self.init(string: contents, delimiter: delimiter, loadColumns: loadColumns)
+    }
+    
+    /// Load a CSV file from a URL
+    ///
+    /// url: url pointing to the file (will be passed to String(contentsOfURL:encoding:) to load)
+    /// delimiter: character to split row and header fields by (default is ',')
+    /// encoding: encoding used to read file (default is NSUTF8StringEncoding)
+    /// loadColumns: whether to populate the columns dictionary (default is true)
+    public convenience init(url: NSURL, delimiter: Character = comma, encoding: String.Encoding = NSUTF8StringEncoding, loadColumns: Bool = true) throws {
+        let contents = try String(contentsOfURL: url, encoding: encoding)
         
-        return columns
+        self.init(string: contents, delimiter: delimiter, loadColumns: loadColumns)
+    }
+    
+    /// Turn the CSV data into NSData using a given encoding
+    public func dataUsingEncoding(encoding: NSStringEncoding) -> NSData? {
+        return description.dataUsingEncoding(encoding)
     }
 }

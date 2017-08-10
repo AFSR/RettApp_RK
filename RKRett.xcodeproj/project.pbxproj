@@ -19,7 +19,7 @@
 		35BDDE741BAC745B00A65EF2 /* DSSensorDataQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BDDE731BAC745B00A65EF2 /* DSSensorDataQuery.swift */; };
 		35EE6F251BC5A7FF00855E3A /* DSQueryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EE6F231BC5A7FF00855E3A /* DSQueryDetailViewController.swift */; };
 		35EE6F351BC5AF0000855E3A /* DSDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EE6F341BC5AF0000855E3A /* DSDashboardViewController.swift */; };
-		40DFAAD11BDC22BC006D822A /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		40DFAAD11BDC22BC006D822A /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		52031F621BC2DC5600A6402A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52031F641BC2DC5600A6402A /* Main.storyboard */; };
 		52031F6F1BC2DCB100A6402A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52031F711BC2DCB100A6402A /* LaunchScreen.xib */; };
 		52031F7A1BC2E1D600A6402A /* DSLearnMore.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52031F7C1BC2E1D600A6402A /* DSLearnMore.plist */; };
@@ -30,7 +30,6 @@
 		5249284E1BC2F0080091F35A /* Password.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5249284C1BC2F0080091F35A /* Password.storyboard */; };
 		52783EA21BBEA08400AB2BB9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52783EA01BBEA08400AB2BB9 /* InfoPlist.strings */; };
 		52783EA31BBEA77700AB2BB9 /* DSTemperatureTask.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52783EA51BBEA77700AB2BB9 /* DSTemperatureTask.plist */; };
-		5279DFFC1BBF2F4400E44F06 /* DSActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5279DFFB1BBF2F4400E44F06 /* DSActivityCell.swift */; };
 		52845FD61BA8AF8400441877 /* DSCircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52845FD51BA8AF8400441877 /* DSCircularView.swift */; };
 		528F5D451B8CE99200E98383 /* DSSignUpTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528F5D441B8CE99200E98383 /* DSSignUpTask.swift */; };
 		5298A51F1BBEA7A100605A75 /* DSSeizureTask.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5298A5211BBEA7A100605A75 /* DSSeizureTask.plist */; };
@@ -62,10 +61,6 @@
 		52CA576F1BBEB820000534FD /* DSSleepTask.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52CA57711BBEB820000534FD /* DSSleepTask.plist */; };
 		52CB18A71BBE9A1700B1B096 /* DSQuiz.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52CB18A91BBE9A1700B1B096 /* DSQuiz.plist */; };
 		52CD0AAA1BBF305800D61C8D /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52CD0AAC1BBF305800D61C8D /* Task.storyboard */; };
-		52CD0AC51BBF335C00D61C8D /* CircularGraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CD0ABE1BBF335C00D61C8D /* CircularGraphCell.swift */; };
-		52CD0AC61BBF335C00D61C8D /* CircularGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52CD0ABF1BBF335C00D61C8D /* CircularGraphCell.xib */; };
-		52CD0AC91BBF335C00D61C8D /* TimeBasedGraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CD0AC21BBF335C00D61C8D /* TimeBasedGraphCell.swift */; };
-		52CD0ACA1BBF335C00D61C8D /* TimeBasedGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52CD0AC31BBF335C00D61C8D /* TimeBasedGraphCell.xib */; };
 		52CD1E891BB1915700529E84 /* DSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CD1E881BB1915700529E84 /* DSUtils.swift */; };
 		52E600D91BBC4FE400910E56 /* DSBloodPressureTask.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52E600DB1BBC4FE400910E56 /* DSBloodPressureTask.plist */; };
 		52E9749E1BBC594F004601DB /* DSElegibility.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52E974A01BBC594F004601DB /* DSElegibility.plist */; };
@@ -79,6 +74,13 @@
 		622AEADF1BFBCE7E009191FC /* DSReflect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FBBC461B8776EE002462DE /* DSReflect.swift */; };
 		623938261BD1555C00B1BC09 /* Learn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 623938211BD1555C00B1BC09 /* Learn.storyboard */; };
 		624633891BABB05700EDAB1F /* Answers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 624633881BABB05700EDAB1F /* Answers.storyboard */; };
+		62482FE51F3C834E00B83B25 /* DSAuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62482FE31F3C834E00B83B25 /* DSAuthorizationViewController.swift */; };
+		62482FE61F3C834E00B83B25 /* DSAuthorizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62482FE41F3C834E00B83B25 /* DSAuthorizationViewController.xib */; };
+		62482FE81F3C852900B83B25 /* DSActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62482FE71F3C852900B83B25 /* DSActivityCell.swift */; };
+		62482FED1F3C854E00B83B25 /* CircularGraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62482FE91F3C854E00B83B25 /* CircularGraphCell.swift */; };
+		62482FEE1F3C854E00B83B25 /* CircularGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62482FEA1F3C854E00B83B25 /* CircularGraphCell.xib */; };
+		62482FEF1F3C854E00B83B25 /* TimeBasedGraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62482FEB1F3C854E00B83B25 /* TimeBasedGraphCell.swift */; };
+		62482FF01F3C854E00B83B25 /* TimeBasedGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62482FEC1F3C854E00B83B25 /* TimeBasedGraphCell.xib */; };
 		625222981BAA6799007A325E /* DSTaskAnswerRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625222971BAA6799007A325E /* DSTaskAnswerRealm.swift */; };
 		625CB1F61BB32CA400D4855D /* DSGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CB1F51BB32CA400D4855D /* DSGlobals.swift */; };
 		625D46C71B9F54710077D7AB /* DSTaskScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625D46C61B9F54710077D7AB /* DSTaskScheduler.swift */; };
@@ -92,8 +94,6 @@
 		62632C591B8662970010B5F8 /* DSTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62632C581B8662970010B5F8 /* DSTask.swift */; };
 		626E1EE01C10B51A00A19674 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626E1EDF1C10B51A00A19674 /* HealthKit.framework */; };
 		626E1EE31C10B64A00A19674 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E1EE21C10B64A00A19674 /* HealthManager.swift */; };
-		626E1EE61C10BDD300A19674 /* DSAuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E1EE41C10BDD300A19674 /* DSAuthorizationViewController.swift */; };
-		626E1EE81C10C0EE00A19674 /* DSAuthorizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 626E1EEA1C10C0EE00A19674 /* DSAuthorizationViewController.xib */; };
 		626E1EEE1C121D2500A19674 /* DSBloodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E1EED1C121D2500A19674 /* DSBloodType.swift */; };
 		62740BBD1B87A79400F12A81 /* ORKESerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 62740BBC1B87A79400F12A81 /* ORKESerialization.m */; };
 		6274FF3B1B8F90EC0002EB02 /* DSQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274FF3A1B8F90EC0002EB02 /* DSQuestion.swift */; };
@@ -130,7 +130,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				40DFAAD11BDC22BC006D822A /* BuildFile in Embed Frameworks */,
+				40DFAAD11BDC22BC006D822A /* (null) in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,7 +170,6 @@
 		52783E9E1BBE9FBB00AB2BB9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52783EA11BBEA08400AB2BB9 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		52783EA41BBEA77700AB2BB9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/DSTemperatureTask.plist; sourceTree = "<group>"; };
-		5279DFFB1BBF2F4400E44F06 /* DSActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSActivityCell.swift; path = ../../../../rkrett/RKRett/View/Activity/DSActivityCell.swift; sourceTree = "<group>"; };
 		527D10581BF51CD900D1F15B /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Dashboard1.strings; sourceTree = "<group>"; };
 		52845FD51BA8AF8400441877 /* DSCircularView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSCircularView.swift; path = View/DSCircularView.swift; sourceTree = "<group>"; };
 		528F5D441B8CE99200E98383 /* DSSignUpTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSSignUpTask.swift; path = SignUp/DSSignUpTask.swift; sourceTree = "<group>"; };
@@ -213,10 +212,6 @@
 		52CB18A81BBE9A1700B1B096 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/DSQuiz.plist; sourceTree = "<group>"; };
 		52CB18AA1BBE9A1900B1B096 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = pt; path = pt.lproj/DSQuiz.plist; sourceTree = "<group>"; };
 		52CD0AAB1BBF305800D61C8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Task.storyboard; sourceTree = "<group>"; };
-		52CD0ABE1BBF335C00D61C8D /* CircularGraphCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircularGraphCell.swift; path = ../../../../../rkrett/RKRett/View/Dashboard/Graphics/CircularGraphCell.swift; sourceTree = "<group>"; };
-		52CD0ABF1BBF335C00D61C8D /* CircularGraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CircularGraphCell.xib; path = ../../../../../rkrett/RKRett/View/Dashboard/Graphics/CircularGraphCell.xib; sourceTree = "<group>"; };
-		52CD0AC21BBF335C00D61C8D /* TimeBasedGraphCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeBasedGraphCell.swift; path = ../../../../../rkrett/RKRett/View/Dashboard/Graphics/TimeBasedGraphCell.swift; sourceTree = "<group>"; };
-		52CD0AC31BBF335C00D61C8D /* TimeBasedGraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TimeBasedGraphCell.xib; path = ../../../../../rkrett/RKRett/View/Dashboard/Graphics/TimeBasedGraphCell.xib; sourceTree = "<group>"; };
 		52CD1E881BB1915700529E84 /* DSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSUtils.swift; path = Utils/DSUtils.swift; sourceTree = "<group>"; };
 		52E600DA1BBC4FE400910E56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/DSBloodPressureTask.plist; sourceTree = "<group>"; };
 		52E9749D1BBC5406004601DB /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = pt; path = pt.lproj/DSMoodTask.plist; sourceTree = "<group>"; };
@@ -234,6 +229,13 @@
 		620E7A261BD570FA004AC520 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Dashboard1.storyboard; sourceTree = "<group>"; };
 		623938221BD1555C00B1BC09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Learn.storyboard; sourceTree = "<group>"; };
 		624633881BABB05700EDAB1F /* Answers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Answers.storyboard; path = View/Answers/Answers.storyboard; sourceTree = "<group>"; };
+		62482FE31F3C834E00B83B25 /* DSAuthorizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSAuthorizationViewController.swift; sourceTree = "<group>"; };
+		62482FE41F3C834E00B83B25 /* DSAuthorizationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSAuthorizationViewController.xib; sourceTree = "<group>"; };
+		62482FE71F3C852900B83B25 /* DSActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSActivityCell.swift; sourceTree = "<group>"; };
+		62482FE91F3C854E00B83B25 /* CircularGraphCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularGraphCell.swift; sourceTree = "<group>"; };
+		62482FEA1F3C854E00B83B25 /* CircularGraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CircularGraphCell.xib; sourceTree = "<group>"; };
+		62482FEB1F3C854E00B83B25 /* TimeBasedGraphCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeBasedGraphCell.swift; sourceTree = "<group>"; };
+		62482FEC1F3C854E00B83B25 /* TimeBasedGraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeBasedGraphCell.xib; sourceTree = "<group>"; };
 		625222971BAA6799007A325E /* DSTaskAnswerRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSTaskAnswerRealm.swift; path = Model/DSTaskAnswerRealm.swift; sourceTree = "<group>"; };
 		625CB1F51BB32CA400D4855D /* DSGlobals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSGlobals.swift; path = Utils/DSGlobals.swift; sourceTree = "<group>"; };
 		625D46C61B9F54710077D7AB /* DSTaskScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSTaskScheduler.swift; path = DSResearchKit/DSTaskScheduler.swift; sourceTree = "<group>"; };
@@ -248,9 +250,6 @@
 		626E1EDE1C10B51A00A19674 /* RKRett.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = RKRett.entitlements; sourceTree = "<group>"; };
 		626E1EDF1C10B51A00A19674 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		626E1EE21C10B64A00A19674 /* HealthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
-		626E1EE41C10BDD300A19674 /* DSAuthorizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSAuthorizationViewController.swift; sourceTree = "<group>"; };
-		626E1EE91C10C0EE00A19674 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DSAuthorizationViewController.xib; sourceTree = "<group>"; };
-		626E1EEC1C10C0F200A19674 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/DSAuthorizationViewController.strings; sourceTree = "<group>"; };
 		626E1EED1C121D2500A19674 /* DSBloodType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSBloodType.swift; path = Model/DSBloodType.swift; sourceTree = "<group>"; };
 		62740BBB1B87A79400F12A81 /* ORKESerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORKESerialization.h; path = Utils/ORKESerialization.h; sourceTree = "<group>"; };
 		62740BBC1B87A79400F12A81 /* ORKESerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORKESerialization.m; path = Utils/ORKESerialization.m; sourceTree = "<group>"; };
@@ -566,7 +565,7 @@
 			isa = PBXGroup;
 			children = (
 				52CD0AAC1BBF305800D61C8D /* Task.storyboard */,
-				5279DFFB1BBF2F4400E44F06 /* DSActivityCell.swift */,
+				62482FE71F3C852900B83B25 /* DSActivityCell.swift */,
 			);
 			name = Activity;
 			path = View/Activity;
@@ -625,8 +624,8 @@
 		626E1EE11C10B60D00A19674 /* HealthKit */ = {
 			isa = PBXGroup;
 			children = (
-				626E1EE41C10BDD300A19674 /* DSAuthorizationViewController.swift */,
-				626E1EEA1C10C0EE00A19674 /* DSAuthorizationViewController.xib */,
+				62482FE31F3C834E00B83B25 /* DSAuthorizationViewController.swift */,
+				62482FE41F3C834E00B83B25 /* DSAuthorizationViewController.xib */,
 				626E1EE21C10B64A00A19674 /* HealthManager.swift */,
 			);
 			path = HealthKit;
@@ -645,13 +644,13 @@
 		6274FF331B8F87D70002EB02 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				62482FE91F3C854E00B83B25 /* CircularGraphCell.swift */,
+				62482FEA1F3C854E00B83B25 /* CircularGraphCell.xib */,
+				62482FEB1F3C854E00B83B25 /* TimeBasedGraphCell.swift */,
+				62482FEC1F3C854E00B83B25 /* TimeBasedGraphCell.xib */,
 				0AB33C8A1BC6DF30007904BA /* CircularGraphView.swift */,
 				0AB33C8B1BC6DF30007904BA /* StandardGraphView.swift */,
 				0AB33C8C1BC6DF30007904BA /* TimeBasedGraphView.swift */,
-				52CD0ABE1BBF335C00D61C8D /* CircularGraphCell.swift */,
-				52CD0ABF1BBF335C00D61C8D /* CircularGraphCell.xib */,
-				52CD0AC21BBF335C00D61C8D /* TimeBasedGraphCell.swift */,
-				52CD0AC31BBF335C00D61C8D /* TimeBasedGraphCell.xib */,
 			);
 			path = Graphics;
 			sourceTree = "<group>";
@@ -767,12 +766,13 @@
 				CLASSPREFIX = DS;
 				LastSwiftMigration = 0710;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = DarkShine;
 				TargetAttributes = {
 					52A4368B1B84DAE500188433 = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = 8WCPHDZJPJ;
+						LastSwiftMigration = 0830;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
 								enabled = 1;
@@ -784,6 +784,7 @@
 					};
 					52A436A01B84DAE500188433 = {
 						CreatedOnToolsVersion = 6.3.2;
+						LastSwiftMigration = 0830;
 						TestTargetID = 52A4368B1B84DAE500188433;
 					};
 				};
@@ -814,7 +815,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				52A3E38F1BBD9A910051CA4C /* overview.m4v in Resources */,
-				52CD0ACA1BBF335C00D61C8D /* TimeBasedGraphCell.xib in Resources */,
 				624633891BABB05700EDAB1F /* Answers.storyboard in Resources */,
 				5249284E1BC2F0080091F35A /* Password.storyboard in Resources */,
 				52A3E38E1BBD9A910051CA4C /* data.m4v in Resources */,
@@ -825,13 +825,14 @@
 				52031F7A1BC2E1D600A6402A /* DSLearnMore.plist in Resources */,
 				52031F621BC2DC5600A6402A /* Main.storyboard in Resources */,
 				52C657DE1BC2EE66000CE353 /* Onboarding.storyboard in Resources */,
-				626E1EE81C10C0EE00A19674 /* DSAuthorizationViewController.xib in Resources */,
+				62482FE61F3C834E00B83B25 /* DSAuthorizationViewController.xib in Resources */,
 				52031F6F1BC2DCB100A6402A /* LaunchScreen.xib in Resources */,
-				52CD0AC61BBF335C00D61C8D /* CircularGraphCell.xib in Resources */,
+				62482FEE1F3C854E00B83B25 /* CircularGraphCell.xib in Resources */,
 				52CB18A71BBE9A1700B1B096 /* DSQuiz.plist in Resources */,
 				5227AA401BEBC31C000FA4B1 /* main.js in Resources */,
 				5227AA411BEBC31C000FA4B1 /* index.html in Resources */,
 				52CD0AAA1BBF305800D61C8D /* Task.storyboard in Resources */,
+				62482FF01F3C854E00B83B25 /* TimeBasedGraphCell.xib in Resources */,
 				5298A51F1BBEA7A100605A75 /* DSSeizureTask.plist in Resources */,
 				52783EA21BBEA08400AB2BB9 /* InfoPlist.strings in Resources */,
 				5227AA3F1BEBC31C000FA4B1 /* .parse.project in Resources */,
@@ -959,11 +960,12 @@
 				622AEADF1BFBCE7E009191FC /* DSReflect.swift in Sources */,
 				52AB7C7C1BABD467006E3B77 /* DSConsentTask.swift in Sources */,
 				52AB7C861BABD48E006E3B77 /* DSPasswordController.swift in Sources */,
+				62482FE81F3C852900B83B25 /* DSActivityCell.swift in Sources */,
 				52AB7C7E1BABD467006E3B77 /* DSSharingConsent.swift in Sources */,
+				62482FED1F3C854E00B83B25 /* CircularGraphCell.swift in Sources */,
 				52AB7C7A1BABD467006E3B77 /* DSConsentController.swift in Sources */,
 				35EE6F251BC5A7FF00855E3A /* DSQueryDetailViewController.swift in Sources */,
 				52AB7C7B1BABD467006E3B77 /* DSConsentDocument.swift in Sources */,
-				626E1EE61C10BDD300A19674 /* DSAuthorizationViewController.swift in Sources */,
 				52A06FBC1B90B8B400DA4AEC /* DSConstants.swift in Sources */,
 				52AB7C7D1BABD467006E3B77 /* DSReviewConsentDocument.swift in Sources */,
 				35ABC8231BE983DC0036A3AE /* DSError.swift in Sources */,
@@ -976,10 +978,9 @@
 				62F31F651BAB3E9300EE689F /* DSExtensions.swift in Sources */,
 				52AB7C8B1BABD4E6006E3B77 /* DSStartViewController.swift in Sources */,
 				625FBA981B8CF34B00E47353 /* DSDeveloperTableViewController.swift in Sources */,
-				52CD0AC91BBF335C00D61C8D /* TimeBasedGraphCell.swift in Sources */,
 				62632C511B86548B0010B5F8 /* DSTaskController.swift in Sources */,
 				52AB7C8F1BB06C54006E3B77 /* DSLearnViewController.swift in Sources */,
-				5279DFFC1BBF2F4400E44F06 /* DSActivityCell.swift in Sources */,
+				62482FE51F3C834E00B83B25 /* DSAuthorizationViewController.swift in Sources */,
 				52CD1E891BB1915700529E84 /* DSUtils.swift in Sources */,
 				52AB7C711BABD453006E3B77 /* DSQuizController.swift in Sources */,
 				625CB1F61BB32CA400D4855D /* DSGlobals.swift in Sources */,
@@ -994,7 +995,6 @@
 				626E1EEE1C121D2500A19674 /* DSBloodType.swift in Sources */,
 				6282414D1BA9FF0C00041DE3 /* DSJSONSerializer.swift in Sources */,
 				358824741BD8B35F00276C63 /* JBLineChartFooterView.m in Sources */,
-				52CD0AC51BBF335C00D61C8D /* CircularGraphCell.swift in Sources */,
 				52A436921B84DAE500188433 /* AppDelegate.swift in Sources */,
 				62632C531B865AF80010B5F8 /* DSTaskListViewController.swift in Sources */,
 				62D53CC31B8BC84B006ED5CC /* DSTaskAnswerListViewController.swift in Sources */,
@@ -1002,6 +1002,7 @@
 				625D46C91B9F5CEF0077D7AB /* DSNotification.swift in Sources */,
 				6261D6FC1B87C10C00443C72 /* DSDataResult.swift in Sources */,
 				625D46C71B9F54710077D7AB /* DSTaskScheduler.swift in Sources */,
+				62482FEF1F3C854E00B83B25 /* TimeBasedGraphCell.swift in Sources */,
 				35812B781BC6EB0700D4FB68 /* CSV.swift in Sources */,
 				6274FF3B1B8F90EC0002EB02 /* DSQuestion.swift in Sources */,
 				62632C4E1B863BF20010B5F8 /* DSStepCreator.swift in Sources */,
@@ -1214,15 +1215,6 @@
 			name = Learn.storyboard;
 			sourceTree = "<group>";
 		};
-		626E1EEA1C10C0EE00A19674 /* DSAuthorizationViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				626E1EE91C10C0EE00A19674 /* Base */,
-				626E1EEC1C10C0F200A19674 /* pt */,
-			);
-			name = DSAuthorizationViewController.xib;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1230,6 +1222,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1239,8 +1232,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1277,6 +1272,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1286,8 +1282,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1307,6 +1305,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				STRIP_BITCODE_FROM_COPIED_FILES = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1316,6 +1315,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2CB967C4F8016B5A64889490 /* Pods-RKRett.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RKRett/RKRett.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1335,6 +1335,7 @@
 				PROVISIONING_PROFILE = "";
 				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/RKRett/RKRett-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1342,6 +1343,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DD9AB719DB8CC30EC6904102 /* Pods-RKRett.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RKRett/RKRett.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1361,6 +1363,7 @@
 				PROVISIONING_PROFILE = "";
 				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/RKRett/RKRett-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1368,6 +1371,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 64893EE8C4BB5A7863D6D639 /* Pods-RKRettTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -1381,6 +1385,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "DS.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RKRett.app/RKRett";
 			};
 			name = Debug;
@@ -1389,6 +1394,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 293BB9B129CF7CD70AB32D70 /* Pods-RKRettTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -1398,6 +1404,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "DS.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RKRett.app/RKRett";
 			};
 			name = Release;

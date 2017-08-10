@@ -3,24 +3,24 @@ import HealthKit
 class HealthManager{
     
     private let healthKitStore:HKHealthStore = HKHealthStore()
-    private let readTypes:[HKObjectType?] = [HKObjectType.characteristicTypeForIdentifier(HKCharacteristicTypeIdentifierBloodType)]
+    private let readTypes:[HKObjectType?] = [HKObjectType.characteristicType(forIdentifier: .bloodType)]
     private let writeTypes: [HKSampleType?] = []
     
     var isAuthorized:Bool {
         for readType in readTypes where readType != nil {
-            print(readType)
-            let status = healthKitStore.authorizationStatusForType(readType!)
+            print(readType ?? "")
+            let status = healthKitStore.authorizationStatus(for: readType!)
             switch status{
-            case .NotDetermined, .SharingDenied:
+            case .notDetermined, .sharingDenied:
                 return false
-            case .SharingAuthorized:
+            case .sharingAuthorized:
                 continue
             }
         }
         return true
     }
     
-    func authorizeHealthKit(completion: ((success:Bool, error:NSError!) -> Void)!){
+    func authorizeHealthKit(completion: ((_ success: Bool, _ error: NSError?) -> Void)?) {
         // If the store is not available (for instance, iPad) return an error and don't go on.
         if HKHealthStore.isHealthDataAvailable(){
             var healthKitTypesToRead:Set<HKObjectType> = Set()
@@ -36,22 +36,14 @@ class HealthManager{
             print(healthKitTypesToWrite)
             
             
-//            healthKitStore.
-            healthKitStore.requestAuthorizationToShareTypes(healthKitTypesToWrite, readTypes: healthKitTypesToRead) { (success: Bool, error: NSError?) -> Void in
-                if( completion != nil ){
-                    completion(success: success, error: error)
-                }else{
-                    print("Completion block nil")
-                }
+            //            healthKitStore.
+            healthKitStore.requestAuthorization(toShare: healthKitTypesToWrite, read: healthKitTypesToRead) { (success: Bool, error: Error?) -> Void in
+                completion?(success, error as NSError?)
             }
-        }else{
+        } else {
             debugPrint("Health data not available, iPad maybe?")
             let error = NSError(domain: "io.darkshine.RettSyndrome", code: 2, userInfo: [NSLocalizedDescriptionKey:NSLocalizedString("HealthKit is not available", comment: "")])
-            if( completion != nil ){
-                completion(success: false, error: error)
-            }else{
-                debugPrint("Completion block nil")
-            }
+            completion?(false, error)
         }
     }
     
@@ -70,7 +62,7 @@ class HealthManager{
         var bio: HKBiologicalSexObject?
         var blood: HKBloodTypeObject?
         do{
-            dateOfBirth = try healthKitStore.dateOfBirth()
+            dateOfBirth = try healthKitStore.dateOfBirth() as NSDate
             bio = try healthKitStore.biologicalSex()
             blood = try healthKitStore.bloodType()
         }catch let error{
@@ -80,15 +72,17 @@ class HealthManager{
         return (dateOfBirth, bio, blood)
     }
     
-    func readBPM(completion: (sampleQuery: HKSampleQuery, sample: [HKSample]?, error: NSError?) -> ()) {
-        let sampleType = HKSampleType.quantityTypeForIdentifier(HKQuantityTypeIdentifierHeartRate)
-        let predicate = HKQuery.predicateForSamplesWithStartDate(NSDate(timeIntervalSince1970: 10.0), endDate: NSDate(), options: .None)
+    func readBPM(completion: @escaping (_ sampleQuery: HKSampleQuery, _ sample: [HKSample]?, _ error: Error?) -> ()) {
+        let sampleType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)
+        let predicate = HKQuery.predicateForSamples(withStart: Date(timeIntervalSince1970: 1.0), end: Date(), options: .strictEndDate)
         
         //        let count = NSSortDescriptor(key: "count", ascending: true)
         
-        let query = HKSampleQuery(sampleType: sampleType!, predicate: predicate, limit: 0, sortDescriptors: nil) { (sampleQuery: HKSampleQuery, sample: [HKSample]?, error: NSError?) -> Void in
-            completion(sampleQuery: sampleQuery, sample: sample, error: error)
+        
+        let query = HKSampleQuery(sampleType: sampleType!, predicate: predicate, limit: 0, sortDescriptors: nil) { (sampleQuery, samples: [HKSample]?, error: Error?) in
+            completion(sampleQuery, samples, error)
         }
-        healthKitStore.executeQuery(query)
+        
+        healthKitStore.execute(query)
     }
 }

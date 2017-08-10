@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 class DSSensorDataQuery: Object {
-    dynamic var identifier = NSUUID().UUIDString
+    dynamic var identifier = NSUUID().uuidString
     dynamic var createdAt = NSDate()
     dynamic var initialDate = NSDate(timeIntervalSince1970: 1)
     dynamic var finalDate =  NSDate(timeIntervalSince1970: 1)
@@ -29,8 +29,8 @@ class DSSensorDataQuery: Object {
 class DSSensorDataQueryStatusHistory: Object {
     dynamic var status = ""
     dynamic var timeStamp = ""
-    dynamic var owner: [DSSensorDataQuery]{
-        return linkingObjects(DSSensorDataQuery.self, forProperty: "statusHistory")
+    dynamic var owner: [DSSensorDataQuery] {
+        return LinkingObjects(fromType: DSSensorDataQuery.self, property: "statusHistory")
     }
     
     func configure(status: String, timeStamp: String) -> DSSensorDataQueryStatusHistory{

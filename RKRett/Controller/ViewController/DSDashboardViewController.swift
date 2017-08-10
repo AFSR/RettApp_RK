@@ -37,12 +37,12 @@ class DSDashboardViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.registerNib(UINib(nibName: "CircularGraphCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "CircularGraphCell")
-        tableView.registerNib(UINib(nibName: "TimeBasedGraphCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "TimeBasedGraphCell")
+        tableView.register(UINib(nibName: "CircularGraphCell", bundle: Bundle.main), forCellReuseIdentifier: "CircularGraphCell")
+        tableView.register(UINib(nibName: "TimeBasedGraphCell", bundle: Bundle.main), forCellReuseIdentifier: "TimeBasedGraphCell")
         
-        if let unwrapped = NSUserDefaults.standardUserDefaults().objectForKey(kQuestionsGraphArrayKey) as? [DSGraphIdentifierTypeDictionary]{
+        if let unwrapped = UserDefaults.standard.object(forKey: kQuestionsGraphArrayKey) as? [DSGraphIdentifierTypeDictionary]{
             unwrapped.forEach({ (element) -> () in
-                graphIdentifiers += [deserializeDictionary(element)]
+                graphIdentifiers += [deserializeDictionary(dictionary: element)]
             })
         }
         
@@ -54,23 +54,23 @@ class DSDashboardViewController: UIViewController {
     func configureSpotlightSearch(){
         let myActivity = NSUserActivity(activityType: bundleId + "." + SpotlightSearchActions.Dashboard.rawValue)
         myActivity.title = SpotlightSearchActions.Dashboard.rawValue
-        myActivity.eligibleForSearch = true
+        myActivity.isEligibleForSearch = true
         myActivity.keywords = Set(arrayLiteral: "Dashboard", "Charts", "Graph", "Rett")
         myActivity.userInfo = ["type":SpotlightSearchActions.Dashboard.rawValue]
 
         self.userActivity = myActivity
-        myActivity.eligibleForHandoff = false
+        myActivity.isEligibleForHandoff = false
         myActivity.becomeCurrent()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         for vc in viewControllers{
-            updateViewController(vc)
+            updateViewController(vc: vc)
         }
     }
     
-    private func viewController(graphId:DSGraphIdentifierType) -> UIViewController? {
+    fileprivate func viewController(graphId:DSGraphIdentifierType) -> UIViewController? {
         for vc in viewControllers {
             if vc is DSTimeBasedGraphViewController {
                 let tbvc = (vc as! DSTimeBasedGraphViewController)
@@ -82,7 +82,7 @@ class DSDashboardViewController: UIViewController {
         return nil
     }
     
-    private func containsViewController(graphId: DSGraphIdentifierType) -> Bool {
+    fileprivate func containsViewController(graphId: DSGraphIdentifierType) -> Bool {
         for vc in viewControllers /*where vc.isKindOfClass(DSTimeBasedGraphViewController)*/ {
             switch(vc){
             case is DSTimeBasedGraphViewController:
@@ -118,14 +118,14 @@ class DSDashboardViewController: UIViewController {
         }
     }
     
-    private func graphTypeForId(graphId:DSGraphIdentifierType) -> GraphType{
+    fileprivate func graphTypeForId(graphId:DSGraphIdentifierType) -> GraphType {
         // Esta retornando somente quando da certo pq o programador tem que criar o plist certo
-        if let path = NSBundle.mainBundle().pathForResource(graphId.taskId, ofType: "plist"){
+        if let path = Bundle.main.path(forResource: graphId.taskId, ofType: "plist"){
             if let plistFile = NSDictionary(contentsOfFile: path){
-                if let questions = plistFile.objectForKey(PlistFile.Task.Question.Key.rawValue) as? [NSDictionary]{
+                if let questions = plistFile.object(forKey: PlistFile.Task.Question.Key.rawValue) as? [NSDictionary]{
                     for question in questions{
-                        if let dashboard = question.objectForKey(PlistFile.Task.Question.Dashboard.Key.rawValue) as? NSDictionary{
-                            if let graphType = dashboard.objectForKey(PlistFile.Task.Question.Dashboard.GraphType.rawValue) as? String{
+                        if let dashboard = question.object(forKey: PlistFile.Task.Question.Dashboard.Key.rawValue) as? NSDictionary{
+                            if let graphType = dashboard.object(forKey: PlistFile.Task.Question.Dashboard.GraphType.rawValue) as? String{
                                 return GraphType(rawValue: graphType)!
                             }
                         }
@@ -140,10 +140,10 @@ class DSDashboardViewController: UIViewController {
     private func getGraphIds() -> [DSGraphIdentifierType]{
         var graphIds = [DSGraphIdentifierType]()
         
-        if let path = NSBundle.mainBundle().pathForResource("DSTasks", ofType: "plist"){
+        if let path = Bundle.main.path(forResource: "DSTasks", ofType: "plist"){
             if let tasks = NSArray(contentsOfFile: path) {
                 for taskId in tasks {
-                    if let taskPath = NSBundle.mainBundle().pathForResource((taskId as! String), ofType: "plist") {
+                    if let taskPath = Bundle.main.path(forResource: (taskId as! String), ofType: "plist") {
                         if let task = NSDictionary(contentsOfFile: taskPath) {
                             if let questions = task["questions"] as? NSArray {
                                 for question in questions {
@@ -169,20 +169,20 @@ extension DSDashboardViewController : UITableViewDataSource {
         return graphIdentifiers.count
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let graphId = graphIdentifiers[indexPath.section]
         
-        let graphType = graphTypeForId(graphIdentifiers[indexPath.section])
+        let graphType = graphTypeForId(graphId: graphIdentifiers[indexPath.section])
         switch(graphType){
         case GraphType.TimeBased:
             let vc:DSTimeBasedGraphViewController
-            if containsViewController(graphId) {
-                vc = viewController(graphId) as! DSTimeBasedGraphViewController
+            if containsViewController(graphId: graphId) {
+                vc = viewController(graphId: graphId) as! DSTimeBasedGraphViewController
             } else {
                 vc = DSTimeBasedGraphViewController()
                 vc.taskId = graphId.taskId
@@ -207,8 +207,8 @@ extension DSDashboardViewController : UITableViewDataSource {
         return UITableViewCell()
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if graphTypeForId(graphIdentifiers[indexPath.section]) == .Circular {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: IndexPath) -> CGFloat {
+        if graphTypeForId(graphId: graphIdentifiers[indexPath.section]) == .Circular {
             return 265
         }
         return 290
@@ -217,7 +217,7 @@ extension DSDashboardViewController : UITableViewDataSource {
 }
 
 extension DSDashboardViewController : UITableViewDelegate {
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

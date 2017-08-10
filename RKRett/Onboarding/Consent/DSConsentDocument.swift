@@ -7,61 +7,62 @@
 //
 
 import ResearchKit
+
 public var DSConsentDocument: ORKConsentDocument {
     
     let consentDocument = ORKConsentDocument()
 
-    if let path = NSBundle.mainBundle().pathForResource(kDSConsentPlist, ofType: "plist") {
+    if let path = Bundle.main.path(forResource: kDSConsentPlist, ofType: "plist") {
         if let plistDictionary = NSDictionary(contentsOfFile: path){
             
-            consentDocument.title = plistDictionary.valueForKey(PlistFile.Consent.Title.rawValue) as? String
+            consentDocument.title = plistDictionary.value(forKey: PlistFile.Consent.Title.rawValue) as? String
             
-            if let plistArray = plistDictionary.valueForKey(PlistFile.Consent.VisualStep.rawValue) as? Array<AnyObject>{
+            if let plistArray = plistDictionary.value(forKey: PlistFile.Consent.VisualStep.rawValue) as? Array<AnyObject>{
                 var sections = [ORKConsentSection]()
                 for dictionary in plistArray{
                     let sectionDictionary = dictionary as! NSDictionary
                     let consentSection: ORKConsentSection!
                     
-                    if let image = sectionDictionary.valueForKey(PlistFile.Consent.Section.Image.rawValue) as? String{
+                    if let image = sectionDictionary.value(forKey: PlistFile.Consent.Section.Image.rawValue) as? String{
                         
-                        consentSection = ORKConsentSection(type:  ORKConsentSectionType.Custom)
+                        consentSection = ORKConsentSection(type:  ORKConsentSectionType.custom)
                         consentSection.customImage = UIImage(named: image)
                         
-                        if let animation = sectionDictionary.valueForKey(PlistFile.Consent.Section.Animation.rawValue) as? String{
-                            let animationExtension = plistDictionary.valueForKey(PlistFile.Consent.Extension.rawValue) as? String
-                            if let animationPath = NSBundle.mainBundle().pathForResource(animation, ofType: animationExtension){
+                        if let animation = sectionDictionary.value(forKey: PlistFile.Consent.Section.Animation.rawValue) as? String{
+                            let animationExtension = plistDictionary.value(forKey: PlistFile.Consent.Extension.rawValue) as? String
+                            if let animationPath = Bundle.main.pathForResource(animation, ofType: animationExtension){
                                 consentSection.customAnimationURL = NSURL(fileURLWithPath: animationPath)
                             }
                         }
                     
                     } else {
-                        switch(sectionDictionary.valueForKey(PlistFile.Consent.Section.Type.rawValue) as! String){
+                        switch(sectionDictionary.value(forKey: PlistFile.Consent.Section.Type.rawValue) as! String){
                         case "Overview":
-                            consentSection = ORKConsentSection(type: ORKConsentSectionType.Overview)
+                            consentSection = ORKConsentSection(type: ORKConsentSectionType.overview)
                         case "DataGathering":
-                            consentSection = ORKConsentSection(type: ORKConsentSectionType.DataGathering)
+                            consentSection = ORKConsentSection(type: ORKConsentSectionType.dataGathering)
                         case "Privacy":
-                            consentSection = ORKConsentSection(type: ORKConsentSectionType.Privacy)
+                            consentSection = ORKConsentSection(type: ORKConsentSectionType.privacy)
                         case "DataUse":
-                            consentSection = ORKConsentSection(type: ORKConsentSectionType.DataUse)
+                            consentSection = ORKConsentSection(type: ORKConsentSectionType.dataUse)
                         case "TimeCommitment":
-                            consentSection = ORKConsentSection(type: ORKConsentSectionType.TimeCommitment)
+                            consentSection = ORKConsentSection(type: ORKConsentSectionType.timeCommitment)
                         case "StudySurvey":
-                            consentSection = ORKConsentSection(type: ORKConsentSectionType.StudySurvey)
+                            consentSection = ORKConsentSection(type: ORKConsentSectionType.studySurvey)
                         case "StudyTasks":
-                            consentSection = ORKConsentSection(type: ORKConsentSectionType.StudyTasks)
+                            consentSection = ORKConsentSection(type: ORKConsentSectionType.studyTasks)
                         case "Withdrawing":
-                            consentSection = ORKConsentSection(type: ORKConsentSectionType.Withdrawing)
+                            consentSection = ORKConsentSection(type: ORKConsentSectionType.withdrawing)
                         default:
-                            consentSection = ORKConsentSection(type: ORKConsentSectionType.Custom)
+                            consentSection = ORKConsentSection(type: ORKConsentSectionType.custom)
                         }
                     }
                     
-                    consentSection.title = sectionDictionary.valueForKey(PlistFile.Consent.Section.Title.rawValue) as? String
-                    consentSection.summary = sectionDictionary.valueForKey(PlistFile.Consent.Section.Summary.rawValue) as? String
-                    consentSection.content = sectionDictionary.valueForKey(PlistFile.Consent.Section.Content.rawValue) as? String
+                    consentSection.title = sectionDictionary.value(forKey: PlistFile.Consent.Section.Title.rawValue) as? String
+                    consentSection.summary = sectionDictionary.value(forKey: PlistFile.Consent.Section.Summary.rawValue) as? String
+                    consentSection.content = sectionDictionary.value(forKey: PlistFile.Consent.Section.Content.rawValue) as? String
                     
-                    sections.insert(consentSection, atIndex: sections.count)
+                    sections.insert(consentSection, at: sections.count)
                 }
                 
                 consentDocument.sections = sections

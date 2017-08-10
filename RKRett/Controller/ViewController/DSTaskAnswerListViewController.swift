@@ -15,7 +15,7 @@ class DSTaskAnswerListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadTaskAnswers()
     }
@@ -26,16 +26,16 @@ class DSTaskAnswerListViewController: UIViewController {
     }
     
     func loadTaskAnswers(){
-        do{
+        do {
             let realm = try Realm()
-            dispatch_sync(kBgQueue) {
-                self.taskAnswers = realm.objects(DSTaskAnswerRealm) // => Results<DSTaskAnswerRealm>
+            kBgQueue.sync() {
+                self.taskAnswers = realm.objects(DSTaskAnswerRealm.self) // => Results<DSTaskAnswerRealm>
                 //                results.
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                DispatchQueue.main.async {
                     self.tableView.reloadData()
-                })
+                }
             }
-        }catch let error as NSError{
+        } catch let error as NSError {
             print(error.localizedDescription)
         }
         //        if let query = DSTaskAnswer.query(false){
@@ -52,15 +52,15 @@ class DSTaskAnswerListViewController: UIViewController {
 }
 
 // MARK: - UITableViewDelegate
-extension DSTaskAnswerListViewController: UITableViewDelegate{
+extension DSTaskAnswerListViewController: UITableViewDelegate {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (self.taskAnswers == nil) ? 0 : 1
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let kReuseIdentifier = "TaskAnswerCell"
-        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: kReuseIdentifier)
+        let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: kReuseIdentifier)
         let taskAnswer = self.taskAnswers[indexPath.row]
         cell.textLabel?.text = taskAnswer.taskName
         cell.detailTextLabel?.text = taskAnswer.json
@@ -69,18 +69,18 @@ extension DSTaskAnswerListViewController: UITableViewDelegate{
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
 
 // MARK: - UITableViewDataSource
-extension DSTaskAnswerListViewController: UITableViewDataSource{
+extension DSTaskAnswerListViewController: UITableViewDataSource {
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if (section == 0){
-            return UIApplication.sharedApplication().statusBarFrame.size.height
+    private func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if (section == 0) {
+            return UIApplication.shared.statusBarFrame.size.height
         }else{
             return 0.5
         }

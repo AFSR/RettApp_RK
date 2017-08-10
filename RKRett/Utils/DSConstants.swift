@@ -15,7 +15,7 @@ struct Constants{
     static let PasswordUseTouchId = "kPasswordUseTouchId"
 }
 
-public let kBgQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+public let kBgQueue = DispatchQueue.global()
 
 public let kDSFirstRun = "DSFirsRun"
 public let kDSFirstWatchRun = "DSFirstWatchRun"
@@ -210,7 +210,7 @@ public struct PlistFile {
     enum Consent:String, CustomStringConvertible{
         enum Section:String, CustomStringConvertible{
             case Title = "title"
-            case Type = "type"
+            case `Type` = "type"
             case Animation = "animation"
             case Image = "image"
             case Summary = "summary"
@@ -248,7 +248,7 @@ public struct PlistFile {
     enum Quiz{
         enum Question:String, CustomStringConvertible{
             case Key = "question"
-            case Type = "type"
+            case `Type` = "type"
             case Title = "title"
             case Identifier = "identifier"
             case ExpectedAnswer = "expectedAnswer"
@@ -280,7 +280,7 @@ public struct PlistFile {
             return self.rawValue
         }
         
-        case Type = "type"
+        case `Type` = "type"
         
         enum Question:String,CustomStringConvertible{
             case Key = "questions"
