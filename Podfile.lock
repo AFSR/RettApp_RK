@@ -1,19 +1,19 @@
 PODS:
-  - JBChartView (2.8.16)
-  - Realm (0.96.2):
-    - Realm/Headers (= 0.96.2)
-  - Realm/Headers (0.96.2)
-  - RealmSwift (0.96.2):
-    - Realm (= 0.96.2)
-  - ResearchKit (1.1.2)
-  - SVProgressHUD (1.1.3)
-  - SwiftKeychainWrapper (1.0.11)
-  - SwiftyJSON (2.3.1)
+  - JBChartView (3.0.13)
+  - Realm (2.9.1):
+    - Realm/Headers (= 2.9.1)
+  - Realm/Headers (2.9.1)
+  - RealmSwift (2.9.1):
+    - Realm (= 2.9.1)
+  - ResearchKit (1.5.2)
+  - SVProgressHUD (2.1.2)
+  - SwiftKeychainWrapper (3.0.1)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - JBChartView
   - RealmSwift
-  - ResearchKit (~> 1.1.2)
+  - ResearchKit (~> 1.0)
   - SVProgressHUD
   - SwiftKeychainWrapper
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
@@ -24,18 +24,18 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   SwiftyJSON:
-    :commit: 10f67900bdf2fb0faba3371249a6fefdcaa880c5
+    :commit: ebc305b69ecca005b636f20e0db4d07d19d333fa
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  JBChartView: 8e65b7fbb4e7f1f2c0197575734fce4af1c19e17
-  Realm: 3ce8448151c571e90b85002d984d7f93f54fc8a3
-  RealmSwift: 485599fe54e35461c4a0daa7d01d8fbf11424873
-  ResearchKit: db2c5ff1dfe851cec9183b7c3dbc93d7373e6880
-  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
-  SwiftKeychainWrapper: 011a6946923948ffa49708014dd691164d7621d1
-  SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3
+  JBChartView: ea240dca7b83a92f47d4ae766beb3714753988a1
+  Realm: f91fb43bd474c4f731a116ebf7392c75dd015920
+  RealmSwift: 207f12a4a36b696c5183c60a1c06d70234a23e56
+  ResearchKit: a5770681dd61afddd3d1f24d232b9abf00cba454
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
+  SwiftyJSON: 05cf0e98a950e2ba343735264f5a96b81e755d00
 
-PODFILE CHECKSUM: 771b9da230a100d924cc64931fd872bd8e3cafcf
+PODFILE CHECKSUM: 61b5b23939b1051dc5b5659099414345d0b23f01
 
 COCOAPODS: 1.2.1

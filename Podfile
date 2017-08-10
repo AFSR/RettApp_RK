@@ -1,9 +1,9 @@
 # Uncomment this line to define a global platform for your project
-# platform :ios, '6.0'
+platform :ios, '9.1'
 use_frameworks!
 
 target 'RKRett' do
-    pod 'ResearchKit', '~> 1.1.2'
+    pod 'ResearchKit', '~> 1.0'
     pod 'SVProgressHUD'
     pod 'RealmSwift'
     pod 'SwiftKeychainWrapper'
