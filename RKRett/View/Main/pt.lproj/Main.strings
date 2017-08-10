@@ -1,0 +1,21 @@
+
+/* Class = "UITabBarItem"; title = "Comunidade"; ObjectID = "0X7-yf-OEM"; */
+"0X7-yf-OEM.title" = "Comunidade";
+
+/* Class = "UITabBarItem"; title = "Learn"; ObjectID = "FSq-FR-j87"; */
+"FSq-FR-j87.title" = "Saiba Mais";
+
+/* Class = "UITabBarItem"; title = "Task"; ObjectID = "UqQ-YU-rzM"; */
+"UqQ-YU-rzM.title" = "Atividades";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "ZQC-Gb-OrD"; */
+"ZQC-Gb-OrD.title" = "Item";
+
+/* Class = "UITabBarItem"; title = "Answers"; ObjectID = "gr3-Up-Oh5"; */
+"gr3-Up-Oh5.title" = "Respostas";
+
+/* Class = "UITabBarItem"; title = "Developer"; ObjectID = "qJa-fQ-SBT"; */
+"qJa-fQ-SBT.title" = "Desenvolvedor";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "t6d-F9-Whh"; */
+"t6d-F9-Whh.title" = "Perfil";

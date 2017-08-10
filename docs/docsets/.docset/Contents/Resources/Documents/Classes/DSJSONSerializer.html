@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DSJSONSerializer Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/DSJSONSerializer" class="dashAnchor"></a>
+    <a title="DSJSONSerializer Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (18% documented)</p>
+        <p class="header-right"><a href="https://github.com/kuquert/RKRett"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        DSJSONSerializer Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+          <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/DSConsentController.html">DSConsentController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DSElegibilityController.html">DSElegibilityController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DSJSONSerializer.html">DSJSONSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DSQuizController.html">DSQuizController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C6RKRett13DSStepCreator">DSStepCreator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DSTaskController.html">DSTaskController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DSTaskScheduler.html">DSTaskScheduler</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions.html#/s:C6RKRett19DSConsentController">DSConsentController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/DSElegibilityController.html">DSElegibilityController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/DSQuizController.html">DSQuizController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions.html#/s:C6RKRett16DSTaskController">DSTaskController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions.html#/c:objc(cs)UITableViewCell">UITableViewCell</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>DSJSONSerializer</h1>
+              <div class="declaration">
+                <div class="Swift">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">DSJSONSerializer</span><span class="p">:</span> <span class="kt">DSReflect</span></code></pre>
+
+                </div>
+              </div>
+            <p><code>DSJSONSerializer</code> is used to serialize ORKResult into JSON data.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC6RKRett16DSJSONSerializer20taskResultToJsonDataERR"></a>
+                    <a name="//apple_ref/swift/Method/taskResultToJsonData(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC6RKRett16DSJSONSerializer20taskResultToJsonDataERR">taskResultToJsonData(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Convert an <code>NSArray</code> of ORKResult objects into a serialized JSON and return its <code>NSData</code> object.</p>
+
+<p>-param results: <code>NSArray</code> of ORKResult. Usually the value from <code>ORKTaskViewController.result.results</code>.</p>
+
+<p>-returns: A <code>NSData</code> object containing the JSON serialized from the results.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">taskResultToJsonData</span><span class="p">(</span><span class="nv">taskResult</span><span class="p">:</span> <span class="kt">ORKTaskResult</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSData</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+                <div class="task-name-container">
+                  <a name="/Private%20functions"></a>
+                  <a name="//apple_ref/swift/Section/Private functions" class="dashAnchor"></a>
+                  <a href="#/Private%20functions">
+                    <h3 class="section-name">Private functions</h3>
+                  </a>
+                </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC6RKRett16DSJSONSerializerP33_A615FB4221A20EC3948089C92D2DAB4824resultsArrayToDictionaryFMS0_FCSo7NSArrayCSo12NSDictionary"></a>
+                    <a name="//apple_ref/swift/Method/resultsArrayToDictionary(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC6RKRett16DSJSONSerializerP33_A615FB4221A20EC3948089C92D2DAB4824resultsArrayToDictionaryFMS0_FCSo7NSArrayCSo12NSDictionary">resultsArrayToDictionary(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Convert the array of results into a dictionary.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">resultsArrayToDictionary</span><span class="p">(</span><span class="nv">results</span><span class="p">:</span> <span class="kt">NSArray</span><span class="cm">/*&lt;ORKResult&gt;*/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSDictionary</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>results</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>NSArray</code> of <code>ORKStepResult</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>NSDictionary</code> containing the results argument passed.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC6RKRett16DSJSONSerializerP33_A615FB4221A20EC3948089C92D2DAB4821getAnswerKeyForResultERR"></a>
+                    <a name="//apple_ref/swift/Method/getAnswerKeyForResult(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC6RKRett16DSJSONSerializerP33_A615FB4221A20EC3948089C92D2DAB4821getAnswerKeyForResultERR">getAnswerKeyForResult(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the key that contains the answer based on the result passed as argument.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">getAnswerKeyForResult</span><span class="p">(</span><span class="nv">result</span><span class="p">:</span><span class="kt">ORKResult</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>result</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>ORKResult</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>String</code> with the key that contains the answer.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC6RKRett16DSJSONSerializerP33_A615FB4221A20EC3948089C92D2DAB4822dictionaryToJSONObjectFMS0_FCSo12NSDictionaryGSqPSs9AnyObject__"></a>
+                    <a name="//apple_ref/swift/Method/dictionaryToJSONObject(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC6RKRett16DSJSONSerializerP33_A615FB4221A20EC3948089C92D2DAB4822dictionaryToJSONObjectFMS0_FCSo12NSDictionaryGSqPSs9AnyObject__">dictionaryToJSONObject(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Convert the results dictionary to a JSON object.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">dictionaryToJSONObject</span><span class="p">(</span><span class="nv">dictionary</span><span class="p">:</span><span class="kt">NSDictionary</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyObject</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dictionary</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>NSDictionary</code> to be converted to JSON object.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>AnyObject?</code> containing the JSON object created.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC6RKRett16DSJSONSerializerP33_A615FB4221A20EC3948089C92D2DAB4816JSONObjectToDataFMS0_FPSs9AnyObject_GSqCSo6NSData_"></a>
+                    <a name="//apple_ref/swift/Method/JSONObjectToData(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC6RKRett16DSJSONSerializerP33_A615FB4221A20EC3948089C92D2DAB4816JSONObjectToDataFMS0_FPSs9AnyObject_GSqCSo6NSData_">JSONObjectToData(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Convert a JSON object to a <code>NSData?</code> object.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">static</span> <span class="kd">func</span> <span class="kt">JSONObjectToData</span><span class="p">(</span><span class="nv">jsonObject</span><span class="p">:</span><span class="kt">AnyObject</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSData</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>jsonObject</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>AnyObject</code>, JSON object to be converted to <code>NSData?</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>NSData?</code> object that represent the JSON object passed as parameter.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external">DarkShine</a>. All rights reserved. (Last updated: 2015-11-09)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.3.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

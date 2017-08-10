@@ -1,0 +1,1438 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0AB33C8D1BC6DF30007904BA /* CircularGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB33C8A1BC6DF30007904BA /* CircularGraphView.swift */; };
+		0AB33C8E1BC6DF30007904BA /* StandardGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB33C8B1BC6DF30007904BA /* StandardGraphView.swift */; };
+		0AB33C8F1BC6DF30007904BA /* TimeBasedGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB33C8C1BC6DF30007904BA /* TimeBasedGraphView.swift */; };
+		0AD1F8D21BA9B7DA00B8BFEF /* DSTimeBasedGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD1F8D11BA9B7DA00B8BFEF /* DSTimeBasedGraphViewController.swift */; };
+		31FF5F1FC603400F0BAB2928 /* Pods_RKRettTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85D054C5D01128D7353EAB5 /* Pods_RKRettTests.framework */; };
+		35812B781BC6EB0700D4FB68 /* CSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35812B771BC6EB0700D4FB68 /* CSV.swift */; };
+		3588246F1BD8B35F00276C63 /* JBBarChartFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358824641BD8B35F00276C63 /* JBBarChartFooterView.m */; };
+		358824741BD8B35F00276C63 /* JBLineChartFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3588246E1BD8B35F00276C63 /* JBLineChartFooterView.m */; };
+		35ABC8231BE983DC0036A3AE /* DSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ABC8221BE983DC0036A3AE /* DSError.swift */; };
+		35BDDE741BAC745B00A65EF2 /* DSSensorDataQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BDDE731BAC745B00A65EF2 /* DSSensorDataQuery.swift */; };
+		35EE6F251BC5A7FF00855E3A /* DSQueryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EE6F231BC5A7FF00855E3A /* DSQueryDetailViewController.swift */; };
+		35EE6F351BC5AF0000855E3A /* DSDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EE6F341BC5AF0000855E3A /* DSDashboardViewController.swift */; };
+		40DFAAD11BDC22BC006D822A /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		52031F621BC2DC5600A6402A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52031F641BC2DC5600A6402A /* Main.storyboard */; };
+		52031F6F1BC2DCB100A6402A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52031F711BC2DCB100A6402A /* LaunchScreen.xib */; };
+		52031F7A1BC2E1D600A6402A /* DSLearnMore.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52031F7C1BC2E1D600A6402A /* DSLearnMore.plist */; };
+		5227AA3E1BEBC31C000FA4B1 /* .parse.local in Resources */ = {isa = PBXBuildFile; fileRef = 5227AA381BEBC31C000FA4B1 /* .parse.local */; };
+		5227AA3F1BEBC31C000FA4B1 /* .parse.project in Resources */ = {isa = PBXBuildFile; fileRef = 5227AA391BEBC31C000FA4B1 /* .parse.project */; };
+		5227AA401BEBC31C000FA4B1 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 5227AA3B1BEBC31C000FA4B1 /* main.js */; };
+		5227AA411BEBC31C000FA4B1 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 5227AA3D1BEBC31C000FA4B1 /* index.html */; };
+		5249284E1BC2F0080091F35A /* Password.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5249284C1BC2F0080091F35A /* Password.storyboard */; };
+		52783EA21BBEA08400AB2BB9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52783EA01BBEA08400AB2BB9 /* InfoPlist.strings */; };
+		52783EA31BBEA77700AB2BB9 /* DSTemperatureTask.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52783EA51BBEA77700AB2BB9 /* DSTemperatureTask.plist */; };
+		5279DFFC1BBF2F4400E44F06 /* DSActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5279DFFB1BBF2F4400E44F06 /* DSActivityCell.swift */; };
+		52845FD61BA8AF8400441877 /* DSCircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52845FD51BA8AF8400441877 /* DSCircularView.swift */; };
+		528F5D451B8CE99200E98383 /* DSSignUpTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528F5D441B8CE99200E98383 /* DSSignUpTask.swift */; };
+		5298A51F1BBEA7A100605A75 /* DSSeizureTask.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5298A5211BBEA7A100605A75 /* DSSeizureTask.plist */; };
+		5298A5231BBEA7AA00605A75 /* DSO2SaturationTask.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5298A5251BBEA7AA00605A75 /* DSO2SaturationTask.plist */; };
+		52A06FBC1B90B8B400DA4AEC /* DSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A06FBB1B90B8B400DA4AEC /* DSConstants.swift */; };
+		52A3E38E1BBD9A910051CA4C /* data.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 52A3E38C1BBD9A910051CA4C /* data.m4v */; };
+		52A3E38F1BBD9A910051CA4C /* overview.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 52A3E38D1BBD9A910051CA4C /* overview.m4v */; };
+		52A436921B84DAE500188433 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A436911B84DAE500188433 /* AppDelegate.swift */; };
+		52A436991B84DAE500188433 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52A436981B84DAE500188433 /* Images.xcassets */; };
+		52A436A81B84DAE500188433 /* RKRettTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A436A71B84DAE500188433 /* RKRettTests.swift */; };
+		52A436BC1B84E0AA00188433 /* DSTasks.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52A436B91B84E0AA00188433 /* DSTasks.plist */; };
+		52AB7C711BABD453006E3B77 /* DSQuizController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB7C6E1BABD453006E3B77 /* DSQuizController.swift */; };
+		52AB7C721BABD453006E3B77 /* DSQuizTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB7C6F1BABD453006E3B77 /* DSQuizTask.swift */; };
+		52AB7C7A1BABD467006E3B77 /* DSConsentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB7C741BABD467006E3B77 /* DSConsentController.swift */; };
+		52AB7C7B1BABD467006E3B77 /* DSConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB7C751BABD467006E3B77 /* DSConsentDocument.swift */; };
+		52AB7C7C1BABD467006E3B77 /* DSConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB7C761BABD467006E3B77 /* DSConsentTask.swift */; };
+		52AB7C7D1BABD467006E3B77 /* DSReviewConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB7C771BABD467006E3B77 /* DSReviewConsentDocument.swift */; };
+		52AB7C7E1BABD467006E3B77 /* DSSharingConsent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB7C781BABD467006E3B77 /* DSSharingConsent.swift */; };
+		52AB7C831BABD472006E3B77 /* DSElegibilityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB7C801BABD472006E3B77 /* DSElegibilityController.swift */; };
+		52AB7C841BABD472006E3B77 /* DSElegibilityTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB7C811BABD472006E3B77 /* DSElegibilityTask.swift */; };
+		52AB7C861BABD48E006E3B77 /* DSPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB7C851BABD48E006E3B77 /* DSPasswordController.swift */; };
+		52AB7C8A1BABD4E6006E3B77 /* DSOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB7C881BABD4E6006E3B77 /* DSOnboardingViewController.swift */; };
+		52AB7C8B1BABD4E6006E3B77 /* DSStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB7C891BABD4E6006E3B77 /* DSStartViewController.swift */; };
+		52AB7C8D1BAC0477006E3B77 /* _DSConsent.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52AB7C8C1BAC0477006E3B77 /* _DSConsent.plist */; };
+		52AB7C8F1BB06C54006E3B77 /* DSLearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB7C8E1BB06C54006E3B77 /* DSLearnViewController.swift */; };
+		52AB7C941BB08288006E3B77 /* DSLearnMoreSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB7C931BB08288006E3B77 /* DSLearnMoreSection.swift */; };
+		52AB7C961BB08D66006E3B77 /* DSLearnDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB7C951BB08D66006E3B77 /* DSLearnDetailController.swift */; };
+		52C657DE1BC2EE66000CE353 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C657E01BC2EE66000CE353 /* Onboarding.storyboard */; };
+		52CA576F1BBEB820000534FD /* DSSleepTask.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52CA57711BBEB820000534FD /* DSSleepTask.plist */; };
+		52CB18A71BBE9A1700B1B096 /* DSQuiz.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52CB18A91BBE9A1700B1B096 /* DSQuiz.plist */; };
+		52CD0AAA1BBF305800D61C8D /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52CD0AAC1BBF305800D61C8D /* Task.storyboard */; };
+		52CD0AC51BBF335C00D61C8D /* CircularGraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CD0ABE1BBF335C00D61C8D /* CircularGraphCell.swift */; };
+		52CD0AC61BBF335C00D61C8D /* CircularGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52CD0ABF1BBF335C00D61C8D /* CircularGraphCell.xib */; };
+		52CD0AC91BBF335C00D61C8D /* TimeBasedGraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CD0AC21BBF335C00D61C8D /* TimeBasedGraphCell.swift */; };
+		52CD0ACA1BBF335C00D61C8D /* TimeBasedGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52CD0AC31BBF335C00D61C8D /* TimeBasedGraphCell.xib */; };
+		52CD1E891BB1915700529E84 /* DSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CD1E881BB1915700529E84 /* DSUtils.swift */; };
+		52E600D91BBC4FE400910E56 /* DSBloodPressureTask.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52E600DB1BBC4FE400910E56 /* DSBloodPressureTask.plist */; };
+		52E9749E1BBC594F004601DB /* DSElegibility.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52E974A01BBC594F004601DB /* DSElegibility.plist */; };
+		52E974A51BBC6C4D004601DB /* DSConsent.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52E974A71BBC6C4D004601DB /* DSConsent.plist */; };
+		52EED4B61BBC49F80032B7DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52EED4B81BBC49F80032B7DF /* Localizable.strings */; };
+		52EED4BA1BBC4F030032B7DF /* DSMoodTask.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52EED4BC1BBC4F030032B7DF /* DSMoodTask.plist */; };
+		6207E2641BB4623800EC2E8F /* DSRealmExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6207E2631BB4623800EC2E8F /* DSRealmExporter.swift */; };
+		620943AB1BAC037600C1A9B9 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 620943AA1BAC037600C1A9B9 /* LocalAuthentication.framework */; };
+		620943AD1BAC293100C1A9B9 /* Certificados in Resources */ = {isa = PBXBuildFile; fileRef = 620943AC1BAC293100C1A9B9 /* Certificados */; };
+		620E7A271BD570FA004AC520 /* Dashboard1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 620E7A251BD570FA004AC520 /* Dashboard1.storyboard */; };
+		622AEADF1BFBCE7E009191FC /* DSReflect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FBBC461B8776EE002462DE /* DSReflect.swift */; };
+		623938261BD1555C00B1BC09 /* Learn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 623938211BD1555C00B1BC09 /* Learn.storyboard */; };
+		624633891BABB05700EDAB1F /* Answers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 624633881BABB05700EDAB1F /* Answers.storyboard */; };
+		625222981BAA6799007A325E /* DSTaskAnswerRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625222971BAA6799007A325E /* DSTaskAnswerRealm.swift */; };
+		625CB1F61BB32CA400D4855D /* DSGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CB1F51BB32CA400D4855D /* DSGlobals.swift */; };
+		625D46C71B9F54710077D7AB /* DSTaskScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625D46C61B9F54710077D7AB /* DSTaskScheduler.swift */; };
+		625D46C91B9F5CEF0077D7AB /* DSNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625D46C81B9F5CEF0077D7AB /* DSNotification.swift */; };
+		625FBA981B8CF34B00E47353 /* DSDeveloperTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625FBA971B8CF34B00E47353 /* DSDeveloperTableViewController.swift */; };
+		6261D6FC1B87C10C00443C72 /* DSDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6261D6FB1B87C10C00443C72 /* DSDataResult.swift */; };
+		62632C4E1B863BF20010B5F8 /* DSStepCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62632C4C1B863BF20010B5F8 /* DSStepCreator.swift */; };
+		62632C4F1B863BF20010B5F8 /* DSTaskCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62632C4D1B863BF20010B5F8 /* DSTaskCreator.swift */; };
+		62632C511B86548B0010B5F8 /* DSTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62632C501B86548B0010B5F8 /* DSTaskController.swift */; };
+		62632C531B865AF80010B5F8 /* DSTaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62632C521B865AF80010B5F8 /* DSTaskListViewController.swift */; };
+		62632C591B8662970010B5F8 /* DSTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62632C581B8662970010B5F8 /* DSTask.swift */; };
+		626E1EE01C10B51A00A19674 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626E1EDF1C10B51A00A19674 /* HealthKit.framework */; };
+		626E1EE31C10B64A00A19674 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E1EE21C10B64A00A19674 /* HealthManager.swift */; };
+		626E1EE61C10BDD300A19674 /* DSAuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E1EE41C10BDD300A19674 /* DSAuthorizationViewController.swift */; };
+		626E1EE81C10C0EE00A19674 /* DSAuthorizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 626E1EEA1C10C0EE00A19674 /* DSAuthorizationViewController.xib */; };
+		626E1EEE1C121D2500A19674 /* DSBloodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E1EED1C121D2500A19674 /* DSBloodType.swift */; };
+		62740BBD1B87A79400F12A81 /* ORKESerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 62740BBC1B87A79400F12A81 /* ORKESerialization.m */; };
+		6274FF3B1B8F90EC0002EB02 /* DSQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6274FF3A1B8F90EC0002EB02 /* DSQuestion.swift */; };
+		6282414D1BA9FF0C00041DE3 /* DSJSONSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6282414C1BA9FF0C00041DE3 /* DSJSONSerializer.swift */; };
+		62D53CC31B8BC84B006ED5CC /* DSTaskAnswerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D53CC21B8BC84B006ED5CC /* DSTaskAnswerListViewController.swift */; };
+		62F31F651BAB3E9300EE689F /* DSExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F31F641BAB3E9300EE689F /* DSExtensions.swift */; };
+		A24213B207408B4247DE6590 /* Pods_RKRett.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD67037406173830249EC74 /* Pods_RKRett.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		52A436A21B84DAE500188433 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52A436841B84DAE500188433 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52A4368B1B84DAE500188433;
+			remoteInfo = RKRett;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		352A83CB1BA8AACA0018C4D3 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40DFAAD21BDC22BC006D822A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				40DFAAD11BDC22BC006D822A /* BuildFile in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0AB33C8A1BC6DF30007904BA /* CircularGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularGraphView.swift; sourceTree = "<group>"; };
+		0AB33C8B1BC6DF30007904BA /* StandardGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardGraphView.swift; sourceTree = "<group>"; };
+		0AB33C8C1BC6DF30007904BA /* TimeBasedGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeBasedGraphView.swift; sourceTree = "<group>"; };
+		0AD1F8D11BA9B7DA00B8BFEF /* DSTimeBasedGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSTimeBasedGraphViewController.swift; sourceTree = "<group>"; };
+		293BB9B129CF7CD70AB32D70 /* Pods-RKRettTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RKRettTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RKRettTests/Pods-RKRettTests.release.xcconfig"; sourceTree = "<group>"; };
+		2CB967C4F8016B5A64889490 /* Pods-RKRett.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RKRett.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RKRett/Pods-RKRett.debug.xcconfig"; sourceTree = "<group>"; };
+		35812B771BC6EB0700D4FB68 /* CSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSV.swift; path = Utils/CSV.swift; sourceTree = "<group>"; };
+		358824631BD8B35F00276C63 /* JBBarChartFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartFooterView.h; sourceTree = "<group>"; };
+		358824641BD8B35F00276C63 /* JBBarChartFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartFooterView.m; sourceTree = "<group>"; };
+		3588246D1BD8B35F00276C63 /* JBLineChartFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBLineChartFooterView.h; sourceTree = "<group>"; };
+		3588246E1BD8B35F00276C63 /* JBLineChartFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBLineChartFooterView.m; sourceTree = "<group>"; };
+		35ABC8221BE983DC0036A3AE /* DSError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSError.swift; path = Utils/DSError.swift; sourceTree = "<group>"; };
+		35BDDE631BAC6A4800A65EF2 /* RKRett-Watch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RKRett-Watch-Bridging-Header.h"; sourceTree = "<group>"; };
+		35BDDE731BAC745B00A65EF2 /* DSSensorDataQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSSensorDataQuery.swift; path = Model/DSSensorDataQuery.swift; sourceTree = "<group>"; };
+		35EE6F231BC5A7FF00855E3A /* DSQueryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSQueryDetailViewController.swift; path = Controller/ViewController/DSQueryDetailViewController.swift; sourceTree = "<group>"; };
+		35EE6F341BC5AF0000855E3A /* DSDashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSDashboardViewController.swift; path = Controller/ViewController/DSDashboardViewController.swift; sourceTree = "<group>"; };
+		52031F631BC2DC5600A6402A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		52031F701BC2DCB100A6402A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		52031F731BC2DCB700A6402A /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		52031F741BC2DCD200A6402A /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Main.strings; sourceTree = "<group>"; };
+		52031F771BC2DD5500A6402A /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Task.strings; sourceTree = "<group>"; };
+		52031F7B1BC2E1D600A6402A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/DSLearnMore.plist; sourceTree = "<group>"; };
+		521FB7341BC2E1F6002686ED /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = pt; path = pt.lproj/DSLearnMore.plist; sourceTree = "<group>"; };
+		5227AA381BEBC31C000FA4B1 /* .parse.local */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .parse.local; sourceTree = "<group>"; };
+		5227AA391BEBC31C000FA4B1 /* .parse.project */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .parse.project; sourceTree = "<group>"; };
+		5227AA3B1BEBC31C000FA4B1 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
+		5227AA3D1BEBC31C000FA4B1 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		5249284D1BC2F0080091F35A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = View/Onboarding/Base.lproj/Password.storyboard; sourceTree = "<group>"; };
+		524928501BC2F00E0091F35A /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = View/Onboarding/pt.lproj/Password.strings; sourceTree = "<group>"; };
+		52783E9E1BBE9FBB00AB2BB9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52783EA11BBEA08400AB2BB9 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		52783EA41BBEA77700AB2BB9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/DSTemperatureTask.plist; sourceTree = "<group>"; };
+		5279DFFB1BBF2F4400E44F06 /* DSActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSActivityCell.swift; path = ../../../../rkrett/RKRett/View/Activity/DSActivityCell.swift; sourceTree = "<group>"; };
+		527D10581BF51CD900D1F15B /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Dashboard1.strings; sourceTree = "<group>"; };
+		52845FD51BA8AF8400441877 /* DSCircularView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSCircularView.swift; path = View/DSCircularView.swift; sourceTree = "<group>"; };
+		528F5D441B8CE99200E98383 /* DSSignUpTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSSignUpTask.swift; path = SignUp/DSSignUpTask.swift; sourceTree = "<group>"; };
+		5298A51E1BBEA79800605A75 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = pt; path = pt.lproj/DSTemperatureTask.plist; sourceTree = "<group>"; };
+		5298A5201BBEA7A100605A75 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/DSSeizureTask.plist; sourceTree = "<group>"; };
+		5298A5221BBEA7A300605A75 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = pt; path = pt.lproj/DSSeizureTask.plist; sourceTree = "<group>"; };
+		5298A5241BBEA7AA00605A75 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/DSO2SaturationTask.plist; sourceTree = "<group>"; };
+		5298A5261BBEA7AB00605A75 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = pt; path = pt.lproj/DSO2SaturationTask.plist; sourceTree = "<group>"; };
+		52A06FBB1B90B8B400DA4AEC /* DSConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSConstants.swift; path = Utils/DSConstants.swift; sourceTree = "<group>"; };
+		52A3E38C1BBD9A910051CA4C /* data.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; name = data.m4v; path = ../../../../../rkrett/RKRett/Onboarding/Consent/Animations/data.m4v; sourceTree = "<group>"; };
+		52A3E38D1BBD9A910051CA4C /* overview.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; name = overview.m4v; path = ../../../../../rkrett/RKRett/Onboarding/Consent/Animations/overview.m4v; sourceTree = "<group>"; };
+		52A4368C1B84DAE500188433 /* RKRett.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RKRett.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		52A436911B84DAE500188433 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		52A436981B84DAE500188433 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		52A436A11B84DAE500188433 /* RKRettTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RKRettTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		52A436A61B84DAE500188433 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52A436A71B84DAE500188433 /* RKRettTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RKRettTests.swift; sourceTree = "<group>"; };
+		52A436B91B84E0AA00188433 /* DSTasks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = DSTasks.plist; path = Surveys/DSTasks.plist; sourceTree = "<group>"; };
+		52A436C01B84E27F00188433 /* RKRett-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RKRett-Bridging-Header.h"; sourceTree = "<group>"; };
+		52AB7C6E1BABD453006E3B77 /* DSQuizController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSQuizController.swift; path = Onboarding/Quiz/DSQuizController.swift; sourceTree = "<group>"; };
+		52AB7C6F1BABD453006E3B77 /* DSQuizTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSQuizTask.swift; path = Onboarding/Quiz/DSQuizTask.swift; sourceTree = "<group>"; };
+		52AB7C741BABD467006E3B77 /* DSConsentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSConsentController.swift; path = Onboarding/Consent/DSConsentController.swift; sourceTree = "<group>"; };
+		52AB7C751BABD467006E3B77 /* DSConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSConsentDocument.swift; path = Onboarding/Consent/DSConsentDocument.swift; sourceTree = "<group>"; };
+		52AB7C761BABD467006E3B77 /* DSConsentTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSConsentTask.swift; path = Onboarding/Consent/DSConsentTask.swift; sourceTree = "<group>"; };
+		52AB7C771BABD467006E3B77 /* DSReviewConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSReviewConsentDocument.swift; path = Onboarding/Consent/DSReviewConsentDocument.swift; sourceTree = "<group>"; };
+		52AB7C781BABD467006E3B77 /* DSSharingConsent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSSharingConsent.swift; path = Onboarding/Consent/DSSharingConsent.swift; sourceTree = "<group>"; };
+		52AB7C801BABD472006E3B77 /* DSElegibilityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSElegibilityController.swift; path = Onboarding/Elegibility/DSElegibilityController.swift; sourceTree = "<group>"; };
+		52AB7C811BABD472006E3B77 /* DSElegibilityTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSElegibilityTask.swift; path = Onboarding/Elegibility/DSElegibilityTask.swift; sourceTree = "<group>"; };
+		52AB7C851BABD48E006E3B77 /* DSPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSPasswordController.swift; path = Onboarding/Password/DSPasswordController.swift; sourceTree = "<group>"; };
+		52AB7C881BABD4E6006E3B77 /* DSOnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSOnboardingViewController.swift; path = Onboarding/DSOnboardingViewController.swift; sourceTree = "<group>"; };
+		52AB7C891BABD4E6006E3B77 /* DSStartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSStartViewController.swift; path = Onboarding/DSStartViewController.swift; sourceTree = "<group>"; };
+		52AB7C8C1BAC0477006E3B77 /* _DSConsent.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = _DSConsent.plist; path = Onboarding/Consent/_DSConsent.plist; sourceTree = "<group>"; };
+		52AB7C8E1BB06C54006E3B77 /* DSLearnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSLearnViewController.swift; path = LearnMore/DSLearnViewController.swift; sourceTree = "<group>"; };
+		52AB7C931BB08288006E3B77 /* DSLearnMoreSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSLearnMoreSection.swift; path = LearnMore/DSLearnMoreSection.swift; sourceTree = "<group>"; };
+		52AB7C951BB08D66006E3B77 /* DSLearnDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSLearnDetailController.swift; path = LearnMore/DSLearnDetailController.swift; sourceTree = "<group>"; };
+		52C657DF1BC2EE66000CE353 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Onboarding.storyboard; sourceTree = "<group>"; };
+		52C657E21BC2EE6A000CE353 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		52CA57701BBEB820000534FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/DSSleepTask.plist; sourceTree = "<group>"; };
+		52CA57721BBEB822000534FD /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = pt; path = pt.lproj/DSSleepTask.plist; sourceTree = "<group>"; };
+		52CB18A81BBE9A1700B1B096 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/DSQuiz.plist; sourceTree = "<group>"; };
+		52CB18AA1BBE9A1900B1B096 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = pt; path = pt.lproj/DSQuiz.plist; sourceTree = "<group>"; };
+		52CD0AAB1BBF305800D61C8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Task.storyboard; sourceTree = "<group>"; };
+		52CD0ABE1BBF335C00D61C8D /* CircularGraphCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircularGraphCell.swift; path = ../../../../../rkrett/RKRett/View/Dashboard/Graphics/CircularGraphCell.swift; sourceTree = "<group>"; };
+		52CD0ABF1BBF335C00D61C8D /* CircularGraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CircularGraphCell.xib; path = ../../../../../rkrett/RKRett/View/Dashboard/Graphics/CircularGraphCell.xib; sourceTree = "<group>"; };
+		52CD0AC21BBF335C00D61C8D /* TimeBasedGraphCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeBasedGraphCell.swift; path = ../../../../../rkrett/RKRett/View/Dashboard/Graphics/TimeBasedGraphCell.swift; sourceTree = "<group>"; };
+		52CD0AC31BBF335C00D61C8D /* TimeBasedGraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TimeBasedGraphCell.xib; path = ../../../../../rkrett/RKRett/View/Dashboard/Graphics/TimeBasedGraphCell.xib; sourceTree = "<group>"; };
+		52CD1E881BB1915700529E84 /* DSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSUtils.swift; path = Utils/DSUtils.swift; sourceTree = "<group>"; };
+		52E600DA1BBC4FE400910E56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/DSBloodPressureTask.plist; sourceTree = "<group>"; };
+		52E9749D1BBC5406004601DB /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = pt; path = pt.lproj/DSMoodTask.plist; sourceTree = "<group>"; };
+		52E9749F1BBC594F004601DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/DSElegibility.plist; sourceTree = "<group>"; };
+		52E974A11BBC5951004601DB /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = pt; path = pt.lproj/DSElegibility.plist; sourceTree = "<group>"; };
+		52E974A61BBC6C4D004601DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/DSConsent.plist; sourceTree = "<group>"; };
+		52E974A81BBC6C4F004601DB /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = pt; path = pt.lproj/DSConsent.plist; sourceTree = "<group>"; };
+		52E974A91BBC7740004601DB /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = pt; path = pt.lproj/DSBloodPressureTask.plist; sourceTree = "<group>"; };
+		52EED4B71BBC49F80032B7DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		52EED4B91BBC4A260032B7DF /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		52EED4BB1BBC4F030032B7DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/DSMoodTask.plist; sourceTree = "<group>"; };
+		6207E2631BB4623800EC2E8F /* DSRealmExporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSRealmExporter.swift; path = Utils/DSRealmExporter.swift; sourceTree = "<group>"; };
+		620943AA1BAC037600C1A9B9 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		620943AC1BAC293100C1A9B9 /* Certificados */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Certificados; sourceTree = SOURCE_ROOT; };
+		620E7A261BD570FA004AC520 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Dashboard1.storyboard; sourceTree = "<group>"; };
+		623938221BD1555C00B1BC09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Learn.storyboard; sourceTree = "<group>"; };
+		624633881BABB05700EDAB1F /* Answers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Answers.storyboard; path = View/Answers/Answers.storyboard; sourceTree = "<group>"; };
+		625222971BAA6799007A325E /* DSTaskAnswerRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSTaskAnswerRealm.swift; path = Model/DSTaskAnswerRealm.swift; sourceTree = "<group>"; };
+		625CB1F51BB32CA400D4855D /* DSGlobals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSGlobals.swift; path = Utils/DSGlobals.swift; sourceTree = "<group>"; };
+		625D46C61B9F54710077D7AB /* DSTaskScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSTaskScheduler.swift; path = DSResearchKit/DSTaskScheduler.swift; sourceTree = "<group>"; };
+		625D46C81B9F5CEF0077D7AB /* DSNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSNotification.swift; path = DSResearchKit/DSNotification.swift; sourceTree = "<group>"; };
+		625FBA971B8CF34B00E47353 /* DSDeveloperTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSDeveloperTableViewController.swift; path = Controller/ViewController/DSDeveloperTableViewController.swift; sourceTree = "<group>"; };
+		6261D6FB1B87C10C00443C72 /* DSDataResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSDataResult.swift; path = Model/DSDataResult.swift; sourceTree = "<group>"; };
+		62632C4C1B863BF20010B5F8 /* DSStepCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSStepCreator.swift; path = Survey/DSStepCreator.swift; sourceTree = "<group>"; };
+		62632C4D1B863BF20010B5F8 /* DSTaskCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSTaskCreator.swift; path = Survey/DSTaskCreator.swift; sourceTree = "<group>"; };
+		62632C501B86548B0010B5F8 /* DSTaskController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSTaskController.swift; path = Controller/DSTaskController.swift; sourceTree = "<group>"; };
+		62632C521B865AF80010B5F8 /* DSTaskListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSTaskListViewController.swift; path = Controller/DSTaskListViewController.swift; sourceTree = "<group>"; };
+		62632C581B8662970010B5F8 /* DSTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSTask.swift; path = Model/DSTask.swift; sourceTree = "<group>"; };
+		626E1EDE1C10B51A00A19674 /* RKRett.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = RKRett.entitlements; sourceTree = "<group>"; };
+		626E1EDF1C10B51A00A19674 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		626E1EE21C10B64A00A19674 /* HealthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
+		626E1EE41C10BDD300A19674 /* DSAuthorizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSAuthorizationViewController.swift; sourceTree = "<group>"; };
+		626E1EE91C10C0EE00A19674 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DSAuthorizationViewController.xib; sourceTree = "<group>"; };
+		626E1EEC1C10C0F200A19674 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/DSAuthorizationViewController.strings; sourceTree = "<group>"; };
+		626E1EED1C121D2500A19674 /* DSBloodType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSBloodType.swift; path = Model/DSBloodType.swift; sourceTree = "<group>"; };
+		62740BBB1B87A79400F12A81 /* ORKESerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORKESerialization.h; path = Utils/ORKESerialization.h; sourceTree = "<group>"; };
+		62740BBC1B87A79400F12A81 /* ORKESerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORKESerialization.m; path = Utils/ORKESerialization.m; sourceTree = "<group>"; };
+		6274FF3A1B8F90EC0002EB02 /* DSQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSQuestion.swift; path = Model/DSQuestion.swift; sourceTree = "<group>"; };
+		6282414C1BA9FF0C00041DE3 /* DSJSONSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSJSONSerializer.swift; path = DSResearchKit/DSJSONSerializer.swift; sourceTree = "<group>"; };
+		628380C21BD1565B0016A1C3 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Learn.strings; sourceTree = "<group>"; };
+		62D53CC21B8BC84B006ED5CC /* DSTaskAnswerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSTaskAnswerListViewController.swift; path = Controller/ViewController/DSTaskAnswerListViewController.swift; sourceTree = "<group>"; };
+		62F31F641BAB3E9300EE689F /* DSExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSExtensions.swift; path = Utils/DSExtensions.swift; sourceTree = "<group>"; };
+		62FBBC461B8776EE002462DE /* DSReflect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSReflect.swift; path = Utils/DSReflect.swift; sourceTree = "<group>"; };
+		64893EE8C4BB5A7863D6D639 /* Pods-RKRettTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RKRettTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RKRettTests/Pods-RKRettTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B85D054C5D01128D7353EAB5 /* Pods_RKRettTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RKRettTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFD67037406173830249EC74 /* Pods_RKRett.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RKRett.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD9AB719DB8CC30EC6904102 /* Pods-RKRett.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RKRett.release.xcconfig"; path = "Pods/Target Support Files/Pods-RKRett/Pods-RKRett.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52A436891B84DAE500188433 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				626E1EE01C10B51A00A19674 /* HealthKit.framework in Frameworks */,
+				620943AB1BAC037600C1A9B9 /* LocalAuthentication.framework in Frameworks */,
+				A24213B207408B4247DE6590 /* Pods_RKRett.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52A4369E1B84DAE500188433 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31FF5F1FC603400F0BAB2928 /* Pods_RKRettTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		358824621BD8B35F00276C63 /* JBChart */ = {
+			isa = PBXGroup;
+			children = (
+				358824631BD8B35F00276C63 /* JBBarChartFooterView.h */,
+				358824641BD8B35F00276C63 /* JBBarChartFooterView.m */,
+				3588246D1BD8B35F00276C63 /* JBLineChartFooterView.h */,
+				3588246E1BD8B35F00276C63 /* JBLineChartFooterView.m */,
+			);
+			name = JBChart;
+			path = Utils/JBChart;
+			sourceTree = "<group>";
+		};
+		3D368D852E7B167EA9E9B657 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				626E1EDF1C10B51A00A19674 /* HealthKit.framework */,
+				620943AA1BAC037600C1A9B9 /* LocalAuthentication.framework */,
+				BFD67037406173830249EC74 /* Pods_RKRett.framework */,
+				B85D054C5D01128D7353EAB5 /* Pods_RKRettTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52031F5C1BC2DBF600A6402A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				52031F641BC2DC5600A6402A /* Main.storyboard */,
+			);
+			name = Main;
+			path = View/Main;
+			sourceTree = "<group>";
+		};
+		52031F5D1BC2DBFB00A6402A /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				52031F711BC2DCB100A6402A /* LaunchScreen.xib */,
+			);
+			name = LaunchScreen;
+			path = View/LaunchScreen;
+			sourceTree = "<group>";
+		};
+		5227AA371BEBC31C000FA4B1 /* CloudCode */ = {
+			isa = PBXGroup;
+			children = (
+				5227AA381BEBC31C000FA4B1 /* .parse.local */,
+				5227AA391BEBC31C000FA4B1 /* .parse.project */,
+				5227AA3A1BEBC31C000FA4B1 /* cloud */,
+				5227AA3C1BEBC31C000FA4B1 /* public */,
+			);
+			path = CloudCode;
+			sourceTree = "<group>";
+		};
+		5227AA3A1BEBC31C000FA4B1 /* cloud */ = {
+			isa = PBXGroup;
+			children = (
+				5227AA3B1BEBC31C000FA4B1 /* main.js */,
+			);
+			path = cloud;
+			sourceTree = "<group>";
+		};
+		5227AA3C1BEBC31C000FA4B1 /* public */ = {
+			isa = PBXGroup;
+			children = (
+				5227AA3D1BEBC31C000FA4B1 /* index.html */,
+			);
+			path = public;
+			sourceTree = "<group>";
+		};
+		525E177E1B879E3800EAAE57 /* TaskDelegates */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = TaskDelegates;
+			sourceTree = "<group>";
+		};
+		525E17841B87B06400EAAE57 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				52AB7C881BABD4E6006E3B77 /* DSOnboardingViewController.swift */,
+				52AB7C891BABD4E6006E3B77 /* DSStartViewController.swift */,
+				52AB7C871BABD492006E3B77 /* Password */,
+				52845FD01BA8A52800441877 /* Elegibility */,
+				528F5D461B8CE9B900E98383 /* SignUp */,
+				52A436B71B84E09300188433 /* Consent */,
+				525E17871B87B08600EAAE57 /* Quiz */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
+		525E17871B87B08600EAAE57 /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+				52CB18A91BBE9A1700B1B096 /* DSQuiz.plist */,
+				52AB7C6E1BABD453006E3B77 /* DSQuizController.swift */,
+				52AB7C6F1BABD453006E3B77 /* DSQuizTask.swift */,
+			);
+			name = Quiz;
+			sourceTree = "<group>";
+		};
+		527C41581BABA6AA001A1B24 /* ORKESerializer */ = {
+			isa = PBXGroup;
+			children = (
+				62740BBB1B87A79400F12A81 /* ORKESerialization.h */,
+				62740BBC1B87A79400F12A81 /* ORKESerialization.m */,
+			);
+			name = ORKESerializer;
+			sourceTree = "<group>";
+		};
+		527C415B1BABAA97001A1B24 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				5249284C1BC2F0080091F35A /* Password.storyboard */,
+				52C657E01BC2EE66000CE353 /* Onboarding.storyboard */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
+		52845FD01BA8A52800441877 /* Elegibility */ = {
+			isa = PBXGroup;
+			children = (
+				52E974A01BBC594F004601DB /* DSElegibility.plist */,
+				52AB7C801BABD472006E3B77 /* DSElegibilityController.swift */,
+				52AB7C811BABD472006E3B77 /* DSElegibilityTask.swift */,
+			);
+			name = Elegibility;
+			sourceTree = "<group>";
+		};
+		528F5D461B8CE9B900E98383 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				528F5D441B8CE99200E98383 /* DSSignUpTask.swift */,
+			);
+			name = SignUp;
+			sourceTree = "<group>";
+		};
+		52A3E38B1BBD9A6D0051CA4C /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				52A3E38C1BBD9A910051CA4C /* data.m4v */,
+				52A3E38D1BBD9A910051CA4C /* overview.m4v */,
+			);
+			name = Animations;
+			path = Onboarding/Consent/Animations;
+			sourceTree = "<group>";
+		};
+		52A436831B84DAE500188433 = {
+			isa = PBXGroup;
+			children = (
+				5227AA371BEBC31C000FA4B1 /* CloudCode */,
+				52A4368E1B84DAE500188433 /* RKRett */,
+				52A436A41B84DAE500188433 /* RKRettTests */,
+				52A4368D1B84DAE500188433 /* Products */,
+				3D368D852E7B167EA9E9B657 /* Frameworks */,
+				ADAF2BDBDFC41D854FA1E432 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		52A4368D1B84DAE500188433 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52A4368C1B84DAE500188433 /* RKRett.app */,
+				52A436A11B84DAE500188433 /* RKRettTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52A4368E1B84DAE500188433 /* RKRett */ = {
+			isa = PBXGroup;
+			children = (
+				52A436911B84DAE500188433 /* AppDelegate.swift */,
+				52A436C31B85131F00188433 /* Controller */,
+				625EB8C11B8E4131002BBEBD /* DSResearchKit */,
+				626E1EE11C10B60D00A19674 /* HealthKit */,
+				52AB7C901BB06C58006E3B77 /* LearnMore */,
+				62632C571B86627D0010B5F8 /* Model */,
+				525E17841B87B06400EAAE57 /* Onboarding */,
+				626E1EDE1C10B51A00A19674 /* RKRett.entitlements */,
+				52EED4B01BBC46F30032B7DF /* Strings */,
+				52A4368F1B84DAE500188433 /* Supporting Files */,
+				62632C491B8639330010B5F8 /* Task */,
+				525E177E1B879E3800EAAE57 /* TaskDelegates */,
+				52A436BE1B84E0B300188433 /* Tasks */,
+				62FBBC451B8776DE002462DE /* Utils */,
+				62FBBC481B878874002462DE /* View */,
+			);
+			path = RKRett;
+			sourceTree = "<group>";
+		};
+		52A4368F1B84DAE500188433 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52783E9E1BBE9FBB00AB2BB9 /* Info.plist */,
+				620943AC1BAC293100C1A9B9 /* Certificados */,
+				52A436981B84DAE500188433 /* Images.xcassets */,
+				52A436C01B84E27F00188433 /* RKRett-Bridging-Header.h */,
+				35BDDE631BAC6A4800A65EF2 /* RKRett-Watch-Bridging-Header.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		52A436A41B84DAE500188433 /* RKRettTests */ = {
+			isa = PBXGroup;
+			children = (
+				52A436A71B84DAE500188433 /* RKRettTests.swift */,
+				52A436A51B84DAE500188433 /* Supporting Files */,
+			);
+			path = RKRettTests;
+			sourceTree = "<group>";
+		};
+		52A436A51B84DAE500188433 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52A436A61B84DAE500188433 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		52A436B71B84E09300188433 /* Consent */ = {
+			isa = PBXGroup;
+			children = (
+				52A3E38B1BBD9A6D0051CA4C /* Animations */,
+				52E974A71BBC6C4D004601DB /* DSConsent.plist */,
+				52AB7C8C1BAC0477006E3B77 /* _DSConsent.plist */,
+				52AB7C741BABD467006E3B77 /* DSConsentController.swift */,
+				52AB7C751BABD467006E3B77 /* DSConsentDocument.swift */,
+				52AB7C761BABD467006E3B77 /* DSConsentTask.swift */,
+				52AB7C771BABD467006E3B77 /* DSReviewConsentDocument.swift */,
+				52AB7C781BABD467006E3B77 /* DSSharingConsent.swift */,
+			);
+			name = Consent;
+			sourceTree = "<group>";
+		};
+		52A436BE1B84E0B300188433 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				52E600DB1BBC4FE400910E56 /* DSBloodPressureTask.plist */,
+				52A436B91B84E0AA00188433 /* DSTasks.plist */,
+				52EED4BC1BBC4F030032B7DF /* DSMoodTask.plist */,
+				52783EA51BBEA77700AB2BB9 /* DSTemperatureTask.plist */,
+				5298A5211BBEA7A100605A75 /* DSSeizureTask.plist */,
+				5298A5251BBEA7AA00605A75 /* DSO2SaturationTask.plist */,
+				52CA57711BBEB820000534FD /* DSSleepTask.plist */,
+			);
+			name = Tasks;
+			sourceTree = "<group>";
+		};
+		52A436C31B85131F00188433 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				62632C501B86548B0010B5F8 /* DSTaskController.swift */,
+				62D53CC41B8BC86E006ED5CC /* ViewController */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		52AB7C871BABD492006E3B77 /* Password */ = {
+			isa = PBXGroup;
+			children = (
+				52AB7C851BABD48E006E3B77 /* DSPasswordController.swift */,
+			);
+			name = Password;
+			sourceTree = "<group>";
+		};
+		52AB7C901BB06C58006E3B77 /* LearnMore */ = {
+			isa = PBXGroup;
+			children = (
+				52AB7C951BB08D66006E3B77 /* DSLearnDetailController.swift */,
+				52031F7C1BC2E1D600A6402A /* DSLearnMore.plist */,
+				52AB7C931BB08288006E3B77 /* DSLearnMoreSection.swift */,
+				52AB7C8E1BB06C54006E3B77 /* DSLearnViewController.swift */,
+			);
+			name = LearnMore;
+			sourceTree = "<group>";
+		};
+		52E1BED51BA1F4FE0039BA6D /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				52CD0AAC1BBF305800D61C8D /* Task.storyboard */,
+				5279DFFB1BBF2F4400E44F06 /* DSActivityCell.swift */,
+			);
+			name = Activity;
+			path = View/Activity;
+			sourceTree = "<group>";
+		};
+		52EED4B01BBC46F30032B7DF /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				52EED4B81BBC49F80032B7DF /* Localizable.strings */,
+				52783EA01BBEA08400AB2BB9 /* InfoPlist.strings */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		623938201BD1555C00B1BC09 /* Learn */ = {
+			isa = PBXGroup;
+			children = (
+				623938211BD1555C00B1BC09 /* Learn.storyboard */,
+			);
+			name = Learn;
+			path = View/Learn;
+			sourceTree = "<group>";
+		};
+		625EB8C11B8E4131002BBEBD /* DSResearchKit */ = {
+			isa = PBXGroup;
+			children = (
+				625D46C61B9F54710077D7AB /* DSTaskScheduler.swift */,
+				625D46C81B9F5CEF0077D7AB /* DSNotification.swift */,
+				6282414C1BA9FF0C00041DE3 /* DSJSONSerializer.swift */,
+			);
+			name = DSResearchKit;
+			sourceTree = "<group>";
+		};
+		62632C491B8639330010B5F8 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				62632C4C1B863BF20010B5F8 /* DSStepCreator.swift */,
+				62632C4D1B863BF20010B5F8 /* DSTaskCreator.swift */,
+			);
+			name = Task;
+			sourceTree = "<group>";
+		};
+		62632C571B86627D0010B5F8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6261D6FB1B87C10C00443C72 /* DSDataResult.swift */,
+				6274FF3A1B8F90EC0002EB02 /* DSQuestion.swift */,
+				35BDDE731BAC745B00A65EF2 /* DSSensorDataQuery.swift */,
+				62632C581B8662970010B5F8 /* DSTask.swift */,
+				625222971BAA6799007A325E /* DSTaskAnswerRealm.swift */,
+				626E1EED1C121D2500A19674 /* DSBloodType.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		626E1EE11C10B60D00A19674 /* HealthKit */ = {
+			isa = PBXGroup;
+			children = (
+				626E1EE41C10BDD300A19674 /* DSAuthorizationViewController.swift */,
+				626E1EEA1C10C0EE00A19674 /* DSAuthorizationViewController.xib */,
+				626E1EE21C10B64A00A19674 /* HealthManager.swift */,
+			);
+			path = HealthKit;
+			sourceTree = "<group>";
+		};
+		6274FF321B8F87CE0002EB02 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				620E7A251BD570FA004AC520 /* Dashboard1.storyboard */,
+				6274FF331B8F87D70002EB02 /* Graphics */,
+			);
+			name = Dashboard;
+			path = View/Dashboard;
+			sourceTree = "<group>";
+		};
+		6274FF331B8F87D70002EB02 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				0AB33C8A1BC6DF30007904BA /* CircularGraphView.swift */,
+				0AB33C8B1BC6DF30007904BA /* StandardGraphView.swift */,
+				0AB33C8C1BC6DF30007904BA /* TimeBasedGraphView.swift */,
+				52CD0ABE1BBF335C00D61C8D /* CircularGraphCell.swift */,
+				52CD0ABF1BBF335C00D61C8D /* CircularGraphCell.xib */,
+				52CD0AC21BBF335C00D61C8D /* TimeBasedGraphCell.swift */,
+				52CD0AC31BBF335C00D61C8D /* TimeBasedGraphCell.xib */,
+			);
+			path = Graphics;
+			sourceTree = "<group>";
+		};
+		62D53CC41B8BC86E006ED5CC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				35EE6F231BC5A7FF00855E3A /* DSQueryDetailViewController.swift */,
+				35EE6F341BC5AF0000855E3A /* DSDashboardViewController.swift */,
+				625FBA971B8CF34B00E47353 /* DSDeveloperTableViewController.swift */,
+				62D53CC21B8BC84B006ED5CC /* DSTaskAnswerListViewController.swift */,
+				62632C521B865AF80010B5F8 /* DSTaskListViewController.swift */,
+				0AD1F8D11BA9B7DA00B8BFEF /* DSTimeBasedGraphViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		62FBBC451B8776DE002462DE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				358824621BD8B35F00276C63 /* JBChart */,
+				35812B771BC6EB0700D4FB68 /* CSV.swift */,
+				52A06FBB1B90B8B400DA4AEC /* DSConstants.swift */,
+				62F31F641BAB3E9300EE689F /* DSExtensions.swift */,
+				625CB1F51BB32CA400D4855D /* DSGlobals.swift */,
+				6207E2631BB4623800EC2E8F /* DSRealmExporter.swift */,
+				62FBBC461B8776EE002462DE /* DSReflect.swift */,
+				35ABC8221BE983DC0036A3AE /* DSError.swift */,
+				52CD1E881BB1915700529E84 /* DSUtils.swift */,
+				527C41581BABA6AA001A1B24 /* ORKESerializer */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		62FBBC481B878874002462DE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				52E1BED51BA1F4FE0039BA6D /* Activity */,
+				624633881BABB05700EDAB1F /* Answers.storyboard */,
+				6274FF321B8F87CE0002EB02 /* Dashboard */,
+				52845FD51BA8AF8400441877 /* DSCircularView.swift */,
+				52031F5D1BC2DBFB00A6402A /* LaunchScreen */,
+				623938201BD1555C00B1BC09 /* Learn */,
+				52031F5C1BC2DBF600A6402A /* Main */,
+				527C415B1BABAA97001A1B24 /* Onboarding */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		ADAF2BDBDFC41D854FA1E432 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2CB967C4F8016B5A64889490 /* Pods-RKRett.debug.xcconfig */,
+				DD9AB719DB8CC30EC6904102 /* Pods-RKRett.release.xcconfig */,
+				64893EE8C4BB5A7863D6D639 /* Pods-RKRettTests.debug.xcconfig */,
+				293BB9B129CF7CD70AB32D70 /* Pods-RKRettTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		52A4368B1B84DAE500188433 /* RKRett */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52A436AB1B84DAE500188433 /* Build configuration list for PBXNativeTarget "RKRett" */;
+			buildPhases = (
+				D0865C24B1F8C8CB8425D972 /* [CP] Check Pods Manifest.lock */,
+				52A436881B84DAE500188433 /* Sources */,
+				52A436891B84DAE500188433 /* Frameworks */,
+				52A4368A1B84DAE500188433 /* Resources */,
+				352A83CB1BA8AACA0018C4D3 /* Embed Watch Content */,
+				40DFAAD21BDC22BC006D822A /* Embed Frameworks */,
+				8178772FCEA780FD775FB292 /* [CP] Embed Pods Frameworks */,
+				4E5C6ECF91B4F9F269314CAD /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RKRett;
+			productName = RKRett;
+			productReference = 52A4368C1B84DAE500188433 /* RKRett.app */;
+			productType = "com.apple.product-type.application";
+		};
+		52A436A01B84DAE500188433 /* RKRettTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52A436AE1B84DAE500188433 /* Build configuration list for PBXNativeTarget "RKRettTests" */;
+			buildPhases = (
+				6DADA888186D3468E68D1A26 /* [CP] Check Pods Manifest.lock */,
+				52A4369D1B84DAE500188433 /* Sources */,
+				52A4369E1B84DAE500188433 /* Frameworks */,
+				52A4369F1B84DAE500188433 /* Resources */,
+				F53E0753AD3105FBA863C107 /* [CP] Embed Pods Frameworks */,
+				1FFC3C78B2C10DB674E2CBFC /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52A436A31B84DAE500188433 /* PBXTargetDependency */,
+			);
+			name = RKRettTests;
+			productName = RKRettTests;
+			productReference = 52A436A11B84DAE500188433 /* RKRettTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52A436841B84DAE500188433 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DS;
+				LastSwiftMigration = 0710;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = DarkShine;
+				TargetAttributes = {
+					52A4368B1B84DAE500188433 = {
+						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 8WCPHDZJPJ;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
+					};
+					52A436A01B84DAE500188433 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 52A4368B1B84DAE500188433;
+					};
+				};
+			};
+			buildConfigurationList = 52A436871B84DAE500188433 /* Build configuration list for PBXProject "RKRett" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				pt,
+			);
+			mainGroup = 52A436831B84DAE500188433;
+			productRefGroup = 52A4368D1B84DAE500188433 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52A4368B1B84DAE500188433 /* RKRett */,
+				52A436A01B84DAE500188433 /* RKRettTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52A4368A1B84DAE500188433 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52A3E38F1BBD9A910051CA4C /* overview.m4v in Resources */,
+				52CD0ACA1BBF335C00D61C8D /* TimeBasedGraphCell.xib in Resources */,
+				624633891BABB05700EDAB1F /* Answers.storyboard in Resources */,
+				5249284E1BC2F0080091F35A /* Password.storyboard in Resources */,
+				52A3E38E1BBD9A910051CA4C /* data.m4v in Resources */,
+				52AB7C8D1BAC0477006E3B77 /* _DSConsent.plist in Resources */,
+				623938261BD1555C00B1BC09 /* Learn.storyboard in Resources */,
+				620943AD1BAC293100C1A9B9 /* Certificados in Resources */,
+				52EED4B61BBC49F80032B7DF /* Localizable.strings in Resources */,
+				52031F7A1BC2E1D600A6402A /* DSLearnMore.plist in Resources */,
+				52031F621BC2DC5600A6402A /* Main.storyboard in Resources */,
+				52C657DE1BC2EE66000CE353 /* Onboarding.storyboard in Resources */,
+				626E1EE81C10C0EE00A19674 /* DSAuthorizationViewController.xib in Resources */,
+				52031F6F1BC2DCB100A6402A /* LaunchScreen.xib in Resources */,
+				52CD0AC61BBF335C00D61C8D /* CircularGraphCell.xib in Resources */,
+				52CB18A71BBE9A1700B1B096 /* DSQuiz.plist in Resources */,
+				5227AA401BEBC31C000FA4B1 /* main.js in Resources */,
+				5227AA411BEBC31C000FA4B1 /* index.html in Resources */,
+				52CD0AAA1BBF305800D61C8D /* Task.storyboard in Resources */,
+				5298A51F1BBEA7A100605A75 /* DSSeizureTask.plist in Resources */,
+				52783EA21BBEA08400AB2BB9 /* InfoPlist.strings in Resources */,
+				5227AA3F1BEBC31C000FA4B1 /* .parse.project in Resources */,
+				620E7A271BD570FA004AC520 /* Dashboard1.storyboard in Resources */,
+				52A436991B84DAE500188433 /* Images.xcassets in Resources */,
+				52E974A51BBC6C4D004601DB /* DSConsent.plist in Resources */,
+				52E600D91BBC4FE400910E56 /* DSBloodPressureTask.plist in Resources */,
+				52E9749E1BBC594F004601DB /* DSElegibility.plist in Resources */,
+				52CA576F1BBEB820000534FD /* DSSleepTask.plist in Resources */,
+				52EED4BA1BBC4F030032B7DF /* DSMoodTask.plist in Resources */,
+				52783EA31BBEA77700AB2BB9 /* DSTemperatureTask.plist in Resources */,
+				52A436BC1B84E0AA00188433 /* DSTasks.plist in Resources */,
+				5227AA3E1BEBC31C000FA4B1 /* .parse.local in Resources */,
+				5298A5231BBEA7AA00605A75 /* DSO2SaturationTask.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52A4369F1B84DAE500188433 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1FFC3C78B2C10DB674E2CBFC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RKRettTests/Pods-RKRettTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E5C6ECF91B4F9F269314CAD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RKRett/Pods-RKRett-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6DADA888186D3468E68D1A26 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8178772FCEA780FD775FB292 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RKRett/Pods-RKRett-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0865C24B1F8C8CB8425D972 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F53E0753AD3105FBA863C107 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RKRettTests/Pods-RKRettTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52A436881B84DAE500188433 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				622AEADF1BFBCE7E009191FC /* DSReflect.swift in Sources */,
+				52AB7C7C1BABD467006E3B77 /* DSConsentTask.swift in Sources */,
+				52AB7C861BABD48E006E3B77 /* DSPasswordController.swift in Sources */,
+				52AB7C7E1BABD467006E3B77 /* DSSharingConsent.swift in Sources */,
+				52AB7C7A1BABD467006E3B77 /* DSConsentController.swift in Sources */,
+				35EE6F251BC5A7FF00855E3A /* DSQueryDetailViewController.swift in Sources */,
+				52AB7C7B1BABD467006E3B77 /* DSConsentDocument.swift in Sources */,
+				626E1EE61C10BDD300A19674 /* DSAuthorizationViewController.swift in Sources */,
+				52A06FBC1B90B8B400DA4AEC /* DSConstants.swift in Sources */,
+				52AB7C7D1BABD467006E3B77 /* DSReviewConsentDocument.swift in Sources */,
+				35ABC8231BE983DC0036A3AE /* DSError.swift in Sources */,
+				0AB33C8F1BC6DF30007904BA /* TimeBasedGraphView.swift in Sources */,
+				52AB7C721BABD453006E3B77 /* DSQuizTask.swift in Sources */,
+				52AB7C831BABD472006E3B77 /* DSElegibilityController.swift in Sources */,
+				52AB7C841BABD472006E3B77 /* DSElegibilityTask.swift in Sources */,
+				625222981BAA6799007A325E /* DSTaskAnswerRealm.swift in Sources */,
+				0AB33C8E1BC6DF30007904BA /* StandardGraphView.swift in Sources */,
+				62F31F651BAB3E9300EE689F /* DSExtensions.swift in Sources */,
+				52AB7C8B1BABD4E6006E3B77 /* DSStartViewController.swift in Sources */,
+				625FBA981B8CF34B00E47353 /* DSDeveloperTableViewController.swift in Sources */,
+				52CD0AC91BBF335C00D61C8D /* TimeBasedGraphCell.swift in Sources */,
+				62632C511B86548B0010B5F8 /* DSTaskController.swift in Sources */,
+				52AB7C8F1BB06C54006E3B77 /* DSLearnViewController.swift in Sources */,
+				5279DFFC1BBF2F4400E44F06 /* DSActivityCell.swift in Sources */,
+				52CD1E891BB1915700529E84 /* DSUtils.swift in Sources */,
+				52AB7C711BABD453006E3B77 /* DSQuizController.swift in Sources */,
+				625CB1F61BB32CA400D4855D /* DSGlobals.swift in Sources */,
+				52AB7C961BB08D66006E3B77 /* DSLearnDetailController.swift in Sources */,
+				62632C4F1B863BF20010B5F8 /* DSTaskCreator.swift in Sources */,
+				6207E2641BB4623800EC2E8F /* DSRealmExporter.swift in Sources */,
+				3588246F1BD8B35F00276C63 /* JBBarChartFooterView.m in Sources */,
+				52AB7C8A1BABD4E6006E3B77 /* DSOnboardingViewController.swift in Sources */,
+				0AD1F8D21BA9B7DA00B8BFEF /* DSTimeBasedGraphViewController.swift in Sources */,
+				0AB33C8D1BC6DF30007904BA /* CircularGraphView.swift in Sources */,
+				62632C591B8662970010B5F8 /* DSTask.swift in Sources */,
+				626E1EEE1C121D2500A19674 /* DSBloodType.swift in Sources */,
+				6282414D1BA9FF0C00041DE3 /* DSJSONSerializer.swift in Sources */,
+				358824741BD8B35F00276C63 /* JBLineChartFooterView.m in Sources */,
+				52CD0AC51BBF335C00D61C8D /* CircularGraphCell.swift in Sources */,
+				52A436921B84DAE500188433 /* AppDelegate.swift in Sources */,
+				62632C531B865AF80010B5F8 /* DSTaskListViewController.swift in Sources */,
+				62D53CC31B8BC84B006ED5CC /* DSTaskAnswerListViewController.swift in Sources */,
+				35BDDE741BAC745B00A65EF2 /* DSSensorDataQuery.swift in Sources */,
+				625D46C91B9F5CEF0077D7AB /* DSNotification.swift in Sources */,
+				6261D6FC1B87C10C00443C72 /* DSDataResult.swift in Sources */,
+				625D46C71B9F54710077D7AB /* DSTaskScheduler.swift in Sources */,
+				35812B781BC6EB0700D4FB68 /* CSV.swift in Sources */,
+				6274FF3B1B8F90EC0002EB02 /* DSQuestion.swift in Sources */,
+				62632C4E1B863BF20010B5F8 /* DSStepCreator.swift in Sources */,
+				626E1EE31C10B64A00A19674 /* HealthManager.swift in Sources */,
+				52845FD61BA8AF8400441877 /* DSCircularView.swift in Sources */,
+				52AB7C941BB08288006E3B77 /* DSLearnMoreSection.swift in Sources */,
+				528F5D451B8CE99200E98383 /* DSSignUpTask.swift in Sources */,
+				62740BBD1B87A79400F12A81 /* ORKESerialization.m in Sources */,
+				35EE6F351BC5AF0000855E3A /* DSDashboardViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52A4369D1B84DAE500188433 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52A436A81B84DAE500188433 /* RKRettTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		52A436A31B84DAE500188433 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52A4368B1B84DAE500188433 /* RKRett */;
+			targetProxy = 52A436A21B84DAE500188433 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		52031F641BC2DC5600A6402A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52031F631BC2DC5600A6402A /* Base */,
+				52031F741BC2DCD200A6402A /* pt */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		52031F711BC2DCB100A6402A /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52031F701BC2DCB100A6402A /* Base */,
+				52031F731BC2DCB700A6402A /* pt */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		52031F7C1BC2E1D600A6402A /* DSLearnMore.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52031F7B1BC2E1D600A6402A /* en */,
+				521FB7341BC2E1F6002686ED /* pt */,
+			);
+			name = DSLearnMore.plist;
+			path = LearnMore;
+			sourceTree = "<group>";
+		};
+		5249284C1BC2F0080091F35A /* Password.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5249284D1BC2F0080091F35A /* Base */,
+				524928501BC2F00E0091F35A /* pt */,
+			);
+			name = Password.storyboard;
+			sourceTree = "<group>";
+		};
+		52783EA01BBEA08400AB2BB9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52783EA11BBEA08400AB2BB9 /* pt */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		52783EA51BBEA77700AB2BB9 /* DSTemperatureTask.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52783EA41BBEA77700AB2BB9 /* en */,
+				5298A51E1BBEA79800605A75 /* pt */,
+			);
+			name = DSTemperatureTask.plist;
+			path = Surveys;
+			sourceTree = "<group>";
+		};
+		5298A5211BBEA7A100605A75 /* DSSeizureTask.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5298A5201BBEA7A100605A75 /* en */,
+				5298A5221BBEA7A300605A75 /* pt */,
+			);
+			name = DSSeizureTask.plist;
+			path = Surveys;
+			sourceTree = "<group>";
+		};
+		5298A5251BBEA7AA00605A75 /* DSO2SaturationTask.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5298A5241BBEA7AA00605A75 /* en */,
+				5298A5261BBEA7AB00605A75 /* pt */,
+			);
+			name = DSO2SaturationTask.plist;
+			path = Surveys;
+			sourceTree = "<group>";
+		};
+		52C657E01BC2EE66000CE353 /* Onboarding.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52C657DF1BC2EE66000CE353 /* Base */,
+				52C657E21BC2EE6A000CE353 /* pt */,
+			);
+			name = Onboarding.storyboard;
+			path = View/Onboarding;
+			sourceTree = "<group>";
+		};
+		52CA57711BBEB820000534FD /* DSSleepTask.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52CA57701BBEB820000534FD /* en */,
+				52CA57721BBEB822000534FD /* pt */,
+			);
+			name = DSSleepTask.plist;
+			path = Surveys;
+			sourceTree = "<group>";
+		};
+		52CB18A91BBE9A1700B1B096 /* DSQuiz.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52CB18A81BBE9A1700B1B096 /* en */,
+				52CB18AA1BBE9A1900B1B096 /* pt */,
+			);
+			name = DSQuiz.plist;
+			path = Onboarding/Quiz;
+			sourceTree = "<group>";
+		};
+		52CD0AAC1BBF305800D61C8D /* Task.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52CD0AAB1BBF305800D61C8D /* Base */,
+				52031F771BC2DD5500A6402A /* pt */,
+			);
+			name = Task.storyboard;
+			sourceTree = "<group>";
+		};
+		52E600DB1BBC4FE400910E56 /* DSBloodPressureTask.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52E600DA1BBC4FE400910E56 /* en */,
+				52E974A91BBC7740004601DB /* pt */,
+			);
+			name = DSBloodPressureTask.plist;
+			path = Surveys;
+			sourceTree = "<group>";
+		};
+		52E974A01BBC594F004601DB /* DSElegibility.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52E9749F1BBC594F004601DB /* en */,
+				52E974A11BBC5951004601DB /* pt */,
+			);
+			name = DSElegibility.plist;
+			path = Onboarding/Elegibility;
+			sourceTree = "<group>";
+		};
+		52E974A71BBC6C4D004601DB /* DSConsent.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52E974A61BBC6C4D004601DB /* en */,
+				52E974A81BBC6C4F004601DB /* pt */,
+			);
+			name = DSConsent.plist;
+			path = Onboarding/Consent;
+			sourceTree = "<group>";
+		};
+		52EED4B81BBC49F80032B7DF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52EED4B71BBC49F80032B7DF /* en */,
+				52EED4B91BBC4A260032B7DF /* pt */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		52EED4BC1BBC4F030032B7DF /* DSMoodTask.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52EED4BB1BBC4F030032B7DF /* en */,
+				52E9749D1BBC5406004601DB /* pt */,
+			);
+			name = DSMoodTask.plist;
+			path = Surveys;
+			sourceTree = "<group>";
+		};
+		620E7A251BD570FA004AC520 /* Dashboard1.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				620E7A261BD570FA004AC520 /* Base */,
+				527D10581BF51CD900D1F15B /* pt */,
+			);
+			name = Dashboard1.storyboard;
+			sourceTree = "<group>";
+		};
+		623938211BD1555C00B1BC09 /* Learn.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				623938221BD1555C00B1BC09 /* Base */,
+				628380C21BD1565B0016A1C3 /* pt */,
+			);
+			name = Learn.storyboard;
+			sourceTree = "<group>";
+		};
+		626E1EEA1C10C0EE00A19674 /* DSAuthorizationViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				626E1EE91C10C0EE00A19674 /* Base */,
+				626E1EEC1C10C0F200A19674 /* pt */,
+			);
+			name = DSAuthorizationViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		52A436A91B84DAE500188433 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				STRIP_BITCODE_FROM_COPIED_FILES = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		52A436AA1B84DAE500188433 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				STRIP_BITCODE_FROM_COPIED_FILES = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		52A436AC1B84DAE500188433 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CB967C4F8016B5A64889490 /* Pods-RKRett.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RKRett/RKRett.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EXECUTABLE_PREFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = RKRett/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
+				PRODUCT_BUNDLE_IDENTIFIER = io.darkshine.RettSyndrome;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				STRIP_INSTALLED_PRODUCT = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/RKRett/RKRett-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		52A436AD1B84DAE500188433 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD9AB719DB8CC30EC6904102 /* Pods-RKRett.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RKRett/RKRett.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EXECUTABLE_PREFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = RKRett/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D RELEASE";
+				PRODUCT_BUNDLE_IDENTIFIER = io.darkshine.RettSyndrome;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				STRIP_INSTALLED_PRODUCT = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/RKRett/RKRett-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		52A436AF1B84DAE500188433 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64893EE8C4BB5A7863D6D639 /* Pods-RKRettTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RKRettTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "DS.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RKRett.app/RKRett";
+			};
+			name = Debug;
+		};
+		52A436B01B84DAE500188433 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 293BB9B129CF7CD70AB32D70 /* Pods-RKRettTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RKRettTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "DS.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RKRett.app/RKRett";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52A436871B84DAE500188433 /* Build configuration list for PBXProject "RKRett" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52A436A91B84DAE500188433 /* Debug */,
+				52A436AA1B84DAE500188433 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52A436AB1B84DAE500188433 /* Build configuration list for PBXNativeTarget "RKRett" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52A436AC1B84DAE500188433 /* Debug */,
+				52A436AD1B84DAE500188433 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52A436AE1B84DAE500188433 /* Build configuration list for PBXNativeTarget "RKRettTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52A436AF1B84DAE500188433 /* Debug */,
+				52A436B01B84DAE500188433 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52A436841B84DAE500188433 /* Project object */;
+}

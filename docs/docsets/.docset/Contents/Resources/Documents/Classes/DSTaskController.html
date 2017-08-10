@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DSTaskController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/DSTaskController" class="dashAnchor"></a>
+    <a title="DSTaskController Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (18% documented)</p>
+        <p class="header-right"><a href="https://github.com/kuquert/RKRett"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        DSTaskController Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+          <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/DSConsentController.html">DSConsentController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DSElegibilityController.html">DSElegibilityController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DSJSONSerializer.html">DSJSONSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DSQuizController.html">DSQuizController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C6RKRett13DSStepCreator">DSStepCreator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DSTaskController.html">DSTaskController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DSTaskScheduler.html">DSTaskScheduler</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions.html#/s:C6RKRett19DSConsentController">DSConsentController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/DSElegibilityController.html">DSElegibilityController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/DSQuizController.html">DSQuizController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions.html#/s:C6RKRett16DSTaskController">DSTaskController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions.html#/c:objc(cs)UITableViewCell">UITableViewCell</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>DSTaskController</h1>
+              <div class="declaration">
+                <div class="Swift">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">DSTaskController</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>Create and manage a ORKTaskViewController and its results.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC6RKRett16DSTaskController20parentViewControllerGSQCSo16UIViewController_"></a>
+                    <a name="//apple_ref/swift/Property/parentViewController" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC6RKRett16DSTaskController20parentViewControllerGSQCSo16UIViewController_">parentViewController</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Holds the UIViewController parent of taskViewControllerInstance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">parentViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC6RKRett16DSTaskController26taskViewControllerInstanceERR"></a>
+                    <a name="//apple_ref/swift/Property/taskViewControllerInstance" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC6RKRett16DSTaskController26taskViewControllerInstanceERR">taskViewControllerInstance</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Holds the instance of ORKTaskViewController created.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">taskViewControllerInstance</span><span class="p">:</span> <span class="kt">ORKTaskViewController</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC6RKRett16DSTaskController4taskGSQCS_6DSTask_"></a>
+                    <a name="//apple_ref/swift/Property/task" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC6RKRett16DSTaskController4taskGSQCS_6DSTask_">task</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Holds the instance of DSTask that will be presented by the controller.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">task</span><span class="p">:</span><span class="kt">DSTask</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC6RKRett16DSTaskController24createTaskWithDictionaryFS0_FTCSo12NSDictionary23andParentViewControllerCSo16UIViewController12willShowTaskSb_T_"></a>
+                    <a name="//apple_ref/swift/Method/createTaskWithDictionary(_:andParentViewController:willShowTask:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC6RKRett16DSTaskController24createTaskWithDictionaryFS0_FTCSo12NSDictionary23andParentViewControllerCSo16UIViewController12willShowTaskSb_T_">createTaskWithDictionary(_:andParentViewController:willShowTask:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create, and optionally shows, a task.</p>
+
+<p>:warning: Warning description.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">createTaskWithDictionary</span><span class="p">(</span><span class="nv">dictionary</span><span class="p">:</span><span class="kt">NSDictionary</span><span class="p">,</span> <span class="n">andParentViewController</span> <span class="nv">parentViewController</span><span class="p">:</span><span class="kt">UIViewController</span><span class="p">,</span> <span class="n">willShowTask</span> <span class="nv">showTask</span><span class="p">:</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dictionary</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>NSDictionary</code> that contains the data to create the task.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parentViewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>UIViewController</code> that will be ORKTarkViewController&rsquo;s parent.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>showTask</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>(optional) <code>Bool</code> that indicates that the task should be shown right after been created.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>Void</code></p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC6RKRett16DSTaskController8showTaskFS0_FT_T_"></a>
+                    <a name="//apple_ref/swift/Method/showTask()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC6RKRett16DSTaskController8showTaskFS0_FT_T_">showTask()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Show the task created.</p>
+
+<p>:warning: To use this method you MUST call createTaskWithDictionary(_:andParentViewController:willShowTask:) and the properties parentViewController and taskViewControllerInstance MUST have been initialized.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">showTask</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>Void</code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC6RKRett16DSTaskController9loadTasksFMS0_FT_GSaCS_6DSTask_"></a>
+                    <a name="//apple_ref/swift/Method/loadTasks()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC6RKRett16DSTaskController9loadTasksFMS0_FT_GSaCS_6DSTask_">loadTasks()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Reads the main plist for tasks and creates the models from the tasks plists.</p>
+
+<p>:warning: This method should be called once everytime the app is opened and used to populate a global variable making all the tasks accessible.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">loadTasks</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">DSTask</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>[DSTask]</code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external">DarkShine</a>. All rights reserved. (Last updated: 2015-11-09)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.3.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

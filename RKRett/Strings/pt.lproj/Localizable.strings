@@ -1,0 +1,71 @@
+/* 
+  Localizable.strings
+  RKRett
+
+  Created by Pietro Degrazia on 9/30/15.
+  Copyright © 2015 DarkShine. All rights reserved.
+ "KEY" = "CONTENT";
+*/
+
+"Authentication is needed to access the app." = "É necessária autenticação para acessar o app.";
+"Please try to match the girls mood with our predefined options." = "Escolha a figura que mais remete ao humor da menina hoje";
+"You are not elegible for this study, please uninstall the app." = "Você não é elegível para este estudo. Por favor desinstale o aplicativo.";
+"It is mandatory that you go through and accept the consent." = "É obrigatório que você leia e concorde com o Termo de Consentimento";
+"It seems that you did not understand the purpose of this study." = "Você parece não ter compreendido o objetivo do estudo.";
+"Review consent" = "Rever Termo de Consentimento";
+"Try again" = "Tentar de novo";
+"Leave" = "Sair";
+"Ok" = "Ok";
+"Sorry" = "Desculpe";
+"of" = "de";
+"No tasks" = "Nenhuma";
+"Fill this in as needed" = "Preencha conforme necessário";
+"To start an activity tap below" = "Para realizar uma atividade toque abaixo";
+"Today" = "Hoje";
+"for today" = "para hoje";
+"for this week"= "para esta semana";
+"for this month" = "para este mês";
+"Share data via email" = "Exportar dados via e-mail";
+"Generating file to export..." = "Gerando arquivo para exportação...";
+"Sending the email..." = "Enviando e-mail...";
+"Data from Rett Syndrome App" = "Dados do Aplicativo Síndrom de Rett";
+"Your data is attached as a .csv file." = "Seus dados estão em anexo como CSV.";
+"Error unwrapping file data." = "Erro lidandando com o arquivo. Tente de novo.";
+"Sorry, try to send a screenshot through TestFlight. %@" = "Desculpe, capture a tela e envie pelo TestFlight. %@";
+"Enable to send email!" = "Erro ao enviar o e-mail";
+"Mail cancelled" = "E-mail cancelado";
+"Mail saved" = "E-mail salvo";
+"Mail sent!" = "E-mail enviado!";
+"Error while sending the email! %@" = "Erro ao enviar o e-mail! %@";
+"No results to export!" = "Nenhum resultado para exportar!";
+"Rett Syndrome" = "Síndrome de Rett";
+
+"Rett Syndrome About" = "Síndrome de Rett(SR, MIM 312750) é uma desordem no desenvolvimento neurológico causada por mutação genética que afeta quase que exclusivamente meninas. Após um período de desenvolvimento normal(dos 6 aos 18 meses de vida), a síndrome gera perda de habilidade intelectual, redução da fala, do desenvolvimento psicomotor e desaceleração do crescimento encefálico. SR é uma das causas mais frequentes de desordem neurológica em meninas dos 5 aos 18 anos e uma prevalência de 1 a cada 10 000 meninas aos 12 anos de idade. Mutações no gene da proteína metil-CpG ligante 2(MECP2) foram identificadas em 70-90% dos casos de SR, sendo assim a principal ou única causa da síndrome. Este aplicativo tem como objetivo ser uma plataforma para que os responsáveis pela menina afetada possam acompanhar os dados da vida cotidiana da criança, podendo visualizar seus dados.";
+
+"Research Kit" = "Research Kit";
+
+"Research Kit About" = "ResearchKit é um framework de código aberto criado pela Apple que permite pesquisadores e desenvolvedores criarem aplicativos para pesquisa médica. Facilmente criando TCLE's interativos, atividades em tempo-real, e questionários usando uma variedade de modelos existentes, também permitindo a criação de módulos customizados. Como o Research Kit funciona naturalmente com o HealthKit, pesquisadores podem acessar informações mais relevantes ainda para suas pesquisas, como passos em um dia, calorias consumidas e batimentos cardíacos.";
+
+"Uploading your consent..." = "Salvando TCLE...";
+"Ops, an error occurred..."= "Desculpe, ocorreu um erro...";
+"Signing up..." = "Resgistrando...";
+"Signing in..." = "Entrando...";
+
+
+"You can't share data with an Apple TV/Doctor without being logged! Please go to Profile tab and sign up or log in." = "Não é possível compartilhar dados com a Apple TV/médico sem estar logado! Por favor acesse a tab de Perfil e cadastra-se ou faça login.";
+
+"On Demand" = "Na ocorrência";
+"Complete" = "Completos";
+"About Research Kit" = "Sobre o ResearchKit";
+"About Rett Syndrome" = "Sobre Sídrome de Rett";
+
+"Error getting HealthKit authorization\nDetails:\n" = "Erro ao obter autorização do HealthKit\nDetalhes:\n";
+
+"You should change this permission on settings" = "Você deve alterar esta permissão nas Configurações.";
+"Please, go to the Settings app and change the permissions for the app" = "Por favor, acesse as Configurações e altere as permissões para o app.";
+
+"You changed HealthKit's permissions" = "Você alterou as permissões do HealthKit.";
+"Please, go to the Health App and give permissions back manualy" = "Por favor, acesse o app Health e adicione as permissões manualmente.";
+"You didn't authorize the use of HealthKit" = "You didn't authorize the use of HealthKit";
+"Reminder" = "Lembrete";
+"You have pending tasks, please check the tasks tab" = "Você tem atividades pendentes, acesse a tela de atividades";

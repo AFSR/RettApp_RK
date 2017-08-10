@@ -1,0 +1,36 @@
+
+/* Class = "UIViewController"; title = "Sign In"; ObjectID = "0Cf-B5-aWT"; */
+"0Cf-B5-aWT.title" = "S'identifier";
+
+/* Class = "UITextField"; placeholder = "password"; ObjectID = "AnS-l8-bB1"; */
+"AnS-l8-bB1.placeholder" = "Mot de passe";
+
+/* Class = "UITextField"; placeholder = "email"; ObjectID = "I2Y-xS-vcL"; */
+"I2Y-xS-vcL.placeholder" = "E-mail";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "RXj-XW-zL7"; */
+"RXj-XW-zL7.normalTitle" = "S'enregistrer";
+
+/* Class = "UITextField"; placeholder = "name"; ObjectID = "doP-yM-cZC"; */
+"doP-yM-cZC.placeholder" = "Nom";
+
+/* Class = "UITextField"; placeholder = "password"; ObjectID = "okZ-bS-b0P"; */
+"okZ-bS-b0P.placeholder" = "Mot de passe";
+
+/* Class = "UIButton"; normalTitle = "Sign In"; ObjectID = "qNt-bE-QKJ"; */
+"qNt-bE-QKJ.normalTitle" = "S'identifier";
+
+/* Class = "UITextField"; placeholder = "name"; ObjectID = "rb4-ZH-L3p"; */
+"rb4-ZH-L3p.placeholder" = "Nom";
+
+/* Class = "UILabel"; text = "Welcome to the Rett Syndrome Research"; ObjectID = "uGM-T1-CXK"; */
+"uGM-T1-CXK.text" = "Bienvenue sur la recherche CoRe (Syndrome de Rett)";
+
+/* Class = "UIButton"; normalTitle = "Already participating?"; ObjectID = "vDj-lo-48Y"; */
+"vDj-lo-48Y.normalTitle" = "Déjà inscrit?";
+
+/* Class = "UIButton"; normalTitle = "Join Study"; ObjectID = "zmB-7N-srP"; */
+"zmB-7N-srP.normalTitle" = "Rejoindre l'étude";
+
+/* Class = "UILabel"; normalTitle = "Swipe to preview"; ObjectID = "06K-rz-XKy"; */
+"06K-rz-XKy.text" = "Glisser pour commencer";

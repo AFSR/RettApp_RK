@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9046" systemVersion="15A279b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="iry-CM-rna" customClass="CircularGraphCell" customModule="RKRett" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="265"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iry-CM-rna" id="grf-cN-qux">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="264.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhQ-fY-0DB">
+                        <rect key="frame" x="8" y="8" width="304" height="21"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="OnG-hT-1NN"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gnu-ex-aYC">
+                        <rect key="frame" x="8" y="32" width="304" height="21"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="gbg-R6-oCL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FgZ-aa-rVZ" customClass="CircularGraphView" customModule="RKRett">
+                        <rect key="frame" x="8" y="76" width="304" height="155"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="hhQ-fY-0DB" firstAttribute="trailing" secondItem="grf-cN-qux" secondAttribute="trailingMargin" id="3Fi-W3-b8j"/>
+                    <constraint firstItem="FgZ-aa-rVZ" firstAttribute="trailing" secondItem="grf-cN-qux" secondAttribute="trailingMargin" id="3nI-2b-JSI"/>
+                    <constraint firstItem="Gnu-ex-aYC" firstAttribute="leading" secondItem="grf-cN-qux" secondAttribute="leadingMargin" id="CUN-UR-iYf"/>
+                    <constraint firstItem="Gnu-ex-aYC" firstAttribute="trailing" secondItem="grf-cN-qux" secondAttribute="trailingMargin" id="CkN-HA-gzo"/>
+                    <constraint firstAttribute="topMargin" secondItem="hhQ-fY-0DB" secondAttribute="top" id="JR3-fW-bWq"/>
+                    <constraint firstItem="FgZ-aa-rVZ" firstAttribute="bottom" secondItem="grf-cN-qux" secondAttribute="bottomMargin" constant="-25" id="M65-2Q-wkM"/>
+                    <constraint firstItem="hhQ-fY-0DB" firstAttribute="leading" secondItem="grf-cN-qux" secondAttribute="leadingMargin" id="YK2-Xr-WBD"/>
+                    <constraint firstItem="FgZ-aa-rVZ" firstAttribute="top" secondItem="Gnu-ex-aYC" secondAttribute="bottom" constant="23" id="neb-v7-oZc"/>
+                    <constraint firstItem="Gnu-ex-aYC" firstAttribute="top" secondItem="hhQ-fY-0DB" secondAttribute="bottom" constant="3" id="yFN-m6-1RS"/>
+                    <constraint firstItem="FgZ-aa-rVZ" firstAttribute="leading" secondItem="grf-cN-qux" secondAttribute="leadingMargin" id="zXv-Ff-ldl"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="graphView" destination="FgZ-aa-rVZ" id="81e-1D-BQg"/>
+                <outlet property="lblSubtitle" destination="Gnu-ex-aYC" id="NTf-Wo-REf"/>
+                <outlet property="lblTitle" destination="hhQ-fY-0DB" id="g6Q-Qq-OJt"/>
+            </connections>
+            <point key="canvasLocation" x="777" y="598.5"/>
+        </tableViewCell>
+    </objects>
+</document>

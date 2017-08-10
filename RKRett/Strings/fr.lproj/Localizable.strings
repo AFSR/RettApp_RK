@@ -1,0 +1,52 @@
+/* 
+  Localizable.strings
+  RKRett
+
+  Created by Pietro Degrazia on 9/30/15.
+  Copyright © 2015 DarkShine. All rights reserved.
+ "KEY" = "CONTENT";Please try to match the girls mood with our predefined options.NS
+*/
+
+"Authentication is needed to access the app." = "L'authentification est nécessaire pour accéder à l'application.";
+"Please try to match the girls mood with our predefined options." = "Essayer de décrire l'humeur de votre fille avec nos options prédéfinies.";
+"You are not elegible for this study, please uninstall the app." = "Vous n'êtes pas elligible à cette étude, merci de désinstaller cette application.";
+"It is mandatory that you go through and accept the consent." = "Il est impératif de lire et d'accepter le consentement de l'étude.";
+"It seems that you did not understand the purpose of this study." = "Il semble que vous n'ayez pas parfaitement compris le but de cette étude.";
+"Review consent" = "Relire le consentement";
+"No tasks" = "Aucune activité";
+"Fill this in as needed" = "Remplir si nécessaire";
+"Sorry"= "Désolé";
+"Ok" = "Ok";
+"Try again"= "Réessayer";
+"Leave"= "Quitter";
+"of" = "de";
+"To start an activity tap below" ="Cliquez ci-dessous pour démarrer une activité ";
+"Today" = "Aujourd'hui";
+"for today" = "pour aujourd'hui";
+"for this week"= "pour cette semaine";
+"for this month" = "pour ce mois";
+"Share data via email" = "Partager les données par mail";
+"Generating file to export..." = "Génération du fichier CSV...";
+"Sending the email..." = "Email en cours d'envoi...";
+"Data from Rett Syndrome App" = "Données issues de l'application Rett Syndrome";
+"Your data is attached as a .csv file." = "Vos données sont incluses dans un fichier .csv";
+"Error unwrapping file data." = "Erreur dans la génération du fichier de données.";
+"Sorry, try to send a screenshot through TestFlight. %@" = "Désolé, essayer d'envoyer une capture d'écran grâce à TestFlight. %@";
+"Enable to send email!" = "Activer pour envoyer par email!";
+"Mail cancelled" = "Mail annulé";
+"Mail saved" = "Mail enregistré";
+"Mail sent!" = "Mail envoyé!";
+"Error while sending the email! %@" = "Erreur lors de l'envoi du mail! %@";
+"No results to export!" = "Aucun resultat à exporter!";
+"Rett Syndrome" = "Rett Syndrome";
+
+
+"Uploading your consent..." = "l'autorisation de l'ajout de";
+"Ops, an error occurred..."= "Désolé, erreur est survenue...";
+"Signing up..." = "s'enregistrer...";
+"Signing in..." = "Connectez-vous...";
+
+"You can't share data with an Apple TV/Doctor without being logged! Please go to Profile tab and sign up or log in." = "Vous ne pouvez pas partager des données avec un Apple TV / Docteur sans être connecté! S'il vous plaît aller à onglet Profil et inscrivez-vous ou connectez-vous.";
+
+"On Demand" = "Sur Demande";
+"Complete" = "Achevée";

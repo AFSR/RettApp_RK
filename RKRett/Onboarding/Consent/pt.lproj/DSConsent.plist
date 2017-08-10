@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>extension</key>
+	<string>m4v</string>
+	<key>title</key>
+	<string>Termo de Consentimento</string>
+	<key>VisualStep</key>
+	<array>
+		<dict>
+			<key>title</key>
+			<string>Bem-Vindo</string>
+			<key>type</key>
+			<string>Overview</string>
+			<key>summary</key>
+			<string>Este aplicativo tem como foco ajudar crianças afetadas pela Síndrome de Rett e seus familiares a cooperarem com a doença. Não compete a aplicação dar diagnóstico clínico e deve ser usada apenas para acompanhar dados com mais facilidade.</string>
+			<key>content</key>
+			<string>Os desenvolvedores do aplicativo se reservam o direito de assumir que você leu e entendeu que em momento algum este aplicativo irá realizar um diagnóstico clínico da Síndrome de Rett. Também deve ser de seu entendimento que o uso dado ao aplicativo é de sua responsabilidade, os desenvolvedores não são responsáveis por quaisquer danos físicos ou psicológicos causados pelo mau uso dessa tecnologia.</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Coleta de Dados</string>
+			<key>type</key>
+			<string>DataGathering</string>
+			<key>summary</key>
+			<string>Você encontrará telas para dar entrada de dados sobre atividades diárias da menina, sintomas clínicos e outros tipos de dados</string>
+			<key>content</key>
+			<string>Você encontrará telas para dar entrada de dados sobre atividades diárias da menina, sintomas clínicos e outros tipos de dados. Você não é obrigado a respondê-las, os dados entrados no aplicativo são de sua total responsabilidade. Você terá meios para guardar e visualizar seus dados de uma maneira mais legível. Não assumimos responsabilidade pela perda de dados do seu telefone. Todos os dados serão guardados localmente sob sua responsabilidade.</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Privacidade</string>
+			<key>type</key>
+			<string>Privacy</string>
+			<key>summary</key>
+			<string>O aplicativo será protegido por uma senha de 4 dígitos ou autorização por TouchID e seus dados serão encriptados.</string>
+			<key>content</key>
+			<string>O aplicativo será protegido por uma senha de 4 dígitos ou autorização por TouchID e seus dados serão encriptados. Outros tipos de invasões e perdas de dados são sua responsabilidade. Não podemos evitar que pessoas vejam as informações apresentadas na tela do celular, tome as devidas precauções.</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Uso de Dados</string>
+			<key>type</key>
+			<string>DataUse</string>
+			<key>summary</key>
+			<string>Não serão exportados dados de seu telefone em hipótese alguma.</string>
+			<key>content</key>
+			<string>Nenhum dado será enviado aos nossos servidores. Todos os dados são seus e você é livre para usá-los como desejar. Todos os dados são guardados localmente sob sua responsabilidade. Não serão exportados dados de seu telefone em hipótese alguma.</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Tempo Dedicado</string>
+			<key>type</key>
+			<string>TimeCommitment</string>
+			<key>summary</key>
+			<string>Todos os questionários levam de 1 a 2 minutos cada para serem completos.</string>
+			<key>content</key>
+			<string>Elaboramos os questionários para que você tenha facilidade e agilidade ao respondê-los. Utilize seu tempo conforme desejar. Todos os questionários levam de 1 a 2 minutos cada para serem completos. Você é livre para reservar quanto tempo desejar para cada um. Em hipótese alguma você será penalizado ou privilegiado por suas respostas. Pare e termine quando desejar. Você pode utilizar o aplicativo por quanto tempo quiser a partir da data de início.</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Perguntas</string>
+			<key>type</key>
+			<string>StudySurvey</string>
+			<key>summary</key>
+			<string>Você terá diversas perguntas para responder. Sinta-se livre para pular quando necessário.</string>
+			<key>content</key>
+			<string>Você terá diversas perguntas para responder. Sinta-se livre para pular quando necessário. Todas as perguntas foram pensadas para que você as responda, em caso de contrangimento ou qualquer desconforto pule a pergunta ou pare de usar o aplicativo. Em hipótese alguma você será penalizado ou privilegiado por suas respostas.</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Desistência</string>
+			<key>type</key>
+			<string>Withdrawing</string>
+			<key>summary</key>
+			<string>Você é livre para retirar sua participação a qualquer momento.</string>
+			<key>content</key>
+			<string>Você é livre para retirar sua participação a qualquer momento. Se abstenha de participar do aplicativo a qualquer momento. Você não estará comprometido com o estudo ou com a informação que o aplicativo contém. Você é livre para parar de atualizar as informações no aplicativo ou deletá-lo de seu celular.</string>
+		</dict>
+	</array>
+</dict>
+</plist>

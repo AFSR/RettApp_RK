@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>taskId</key>
+	<string>DSSeizureTask</string>
+	<key>frequencyType</key>
+	<string>onDemand</string>
+	<key>frequencyNumber</key>
+	<string>0</string>
+	<key>name</key>
+	<string>Registrar convulsão</string>
+	<key>type</key>
+	<string>Survey</string>
+	<key>questions</key>
+	<array>
+		<dict>
+			<key>answerType</key>
+			<string>Introduction</string>
+			<key>prompt</key>
+			<string>Este questionário deve ser usado para registrar informações sobre convulsões.</string>
+			<key>questionId</key>
+			<string>DSSeizureIntroduction</string>
+		</dict>
+		<dict>
+			<key>answerRange</key>
+			<dict>
+				<key>minimum</key>
+				<integer>0</integer>
+				<key>maximum</key>
+				<integer>10</integer>
+			</dict>
+			<key>answerUnit</key>
+			<string>NSNumber</string>
+			<key>answerType</key>
+			<string>TextChoice</string>
+			<key>prompt</key>
+			<string>Como você descreveria a convulsão?</string>
+			<key>questionId</key>
+			<string>seizureIntensity</string>
+			<key>textChoice</key>
+			<array>
+				<dict>
+					<key>detailText</key>
+					<string></string>
+					<key>text</key>
+					<string>Leve</string>
+					<key>value</key>
+					<integer>1</integer>
+				</dict>
+				<dict>
+					<key>detailText</key>
+					<string></string>
+					<key>text</key>
+					<string>Moderada</string>
+					<key>value</key>
+					<integer>2</integer>
+				</dict>
+				<dict>
+					<key>detailText</key>
+					<string></string>
+					<key>text</key>
+					<string>Forte</string>
+					<key>value</key>
+					<integer>3</integer>
+				</dict>
+			</array>
+			<key>dashboard</key>
+			<dict>
+				<key>graphType</key>
+				<string>timeBased</string>
+				<key>yAxisColName</key>
+				<string>DSDateColName</string>
+				<key>timeUnit</key>
+				<string>Week</string>
+				<key>xScale</key>
+				<integer>50</integer>
+				<key>yScale</key>
+				<integer>20</integer>
+				<key>title</key>
+				<string>Convulsões</string>
+				<key>subtitle</key>
+				<string>Frequencia</string>
+				<key>color</key>
+				<dict>
+					<key>red</key>
+					<real>1</real>
+					<key>green</key>
+					<real>0.2113</real>
+					<key>blue</key>
+					<real>0.3618</real>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>answerType</key>
+			<string>TimeOfDay</string>
+			<key>prompt</key>
+			<string>Quando ocorreu?</string>
+			<key>questionId</key>
+			<string>DSSeizureTimeOfDay</string>
+		</dict>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>answerType</key>
+			<string>String</string>
+			<key>prompt</key>
+			<string>Use este espaço para descrever a convulsão.</string>
+			<key>questionId</key>
+			<string>DSSeizureDescription</string>
+		</dict>
+	</array>
+</dict>
+</plist>

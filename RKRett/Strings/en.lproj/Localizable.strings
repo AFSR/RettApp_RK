@@ -1,0 +1,69 @@
+/* 
+  Localizable.strings
+  RKRett
+
+  Created by Pietro Degrazia on 9/30/15.
+  Copyright © 2015 DarkShine. All rights reserved.
+ "KEY" = "CONTENT";Please try to match the girls mood with our predefined options.NS
+*/
+
+"Authentication is needed to access the app." = "Authentication is needed to access the app.";
+"Please try to match the girls mood with our predefined options." = "Please try to match the girls mood with our predefined options.";
+"You are not elegible for this study, please uninstall the app." = "You are not elegible for this study, please uninstall the app.";
+"It is mandatory that you go through and accept the consent." = "It is mandatory that you go through and accept the consent.";
+"It seems that you did not understand the purpose of this study." = "It seems that you did not understand the purpose of this study.";
+"Review consent" = "Review consent";
+"No tasks" = "No tasks";
+"Fill this in as needed" = "Fill this in as needed";
+"Sorry"= "Sorry";
+"Ok" = "Ok";
+"Try again"= "Try again";
+"Leave"= "Leave";
+"of" = "of";
+"To start an activity tap below" ="To start an activity tap below";
+"Today" = "Today";
+"for today" = "for today";
+"for this week"= "for this week";
+"for this month" = "for this month";
+"Share data via email" = "Share data via email";
+"Generating file to export..." = "Generating file to export...";
+"Sending the email..." = "Sending the email...";
+"Data from Rett Syndrome App" = "Data from Rett Syndrome App";
+"Your data is attached as a .csv file." = "Your data is attached as a .csv file.";
+"Error unwrapping file data." = "Error unwrapping file data.";
+"Sorry, try to send a screenshot through TestFlight. %@" = "Sorry, try to send a screenshot through TestFlight. %@";
+"Enable to send email!" = "Enable to send email!";
+"Mail cancelled" = "Mail cancelled";
+"Mail saved" = "Mail saved";
+"Mail sent!" = "Mail sent!";
+"Error while sending the email! %@" = "Error while sending the email! %@";
+"No results to export!" = "No results to export!";
+
+
+"Rett Syndrome" = "Rett Syndrome";
+
+"Rett Syndrome About" = "Rett Syndrome is a neurological disorder that affects almost exclusively young girls. The syndrome is caused by a mutation on the X chromosome on the MECP2 gene. It's occurrence is of 1 in every 10.000 girls. There is no cure for Rett Syndrome, affected girls can only manage the symptoms with help of medication, occupational and physical therapy. This app's goal is to provide tracking and logging of daily life aspects of the affected girl. You can see your data in graphical interfaces. Due to Rett Syndrome being a rare disease, many times the affected girls family has to travel a long distance to see the doctor and this puts a limit on how much data doctors have at their disposal. With the data tracking done by the app we will have an amount of data points never seen before in the field of Rett Syndrome.";
+
+
+"Research Kit" = "Research Kit";
+
+"Research Kit About" = "ResearchKit is an open source framework introduced by Apple that allows researchers and developers to create powerful apps for medical research. Easily create visual consent flows, real-time dynamic active tasks, and surveys using a variety of customizable modules that you can build upon and share with the community. And since ResearchKit works seamlessly with HealthKit, researchers can access even more relevant data for their studies — like daily step counts, calorie use, and heart rate.";
+
+"You can't share data with an Apple TV/Doctor without being logged! Please go to Profile tab and sign up or log in." = "You can't share data with an Apple TV/Doctor without being logged! Please go to Profile tab and sign up or log in.";
+
+"On Demand" = "On Demand";
+"Complete" = "Complete";
+"Ops...Error authenticating..." = "Ops...Error authenticating...";
+"About Research Kit" = "About Research Kit";
+"About Rett Syndrome" = "About Rett Syndrome";
+
+"Error getting HealthKit authorization\nDetails:\n" = "Error getting HealthKit authorization\nDetails:\n";
+
+"You should change this permission on settings" = "You should change this permission on settings";
+"Please, go to the Settings app and change the permissions for the app" = "Please, go to the Settings app and change the permissions for the app";
+
+"You changed HealthKit's permissions" = "You changed HealthKit's permissions";
+"Please, go to the Health App and give permissions back manualy" = "Please, go to the Health App and give permissions back manualy";
+"You didn't authorize the use of HealthKit" = "You didn't authorize the use of HealthKit";
+"Reminder" = "Reminder";
+"You have pending tasks, please check the tasks tab" = "You have pending tasks, please check the tasks tab";

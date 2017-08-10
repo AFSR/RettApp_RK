@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>instruction</key>
+	<dict>
+		<key>detailText</key>
+		<string>The Rett Syndrome app&apos;s focus is to help kids suffering from the disease and others around them. Improve the quality of life and help understanding the many aspects of the day to day life that influence the syndromes expression.</string>
+	</dict>
+	<key>question</key>
+	<array>
+		<dict>
+			<key>expectedAnswer</key>
+			<string>0</string>
+			<key>type</key>
+			<string>Boolean</string>
+			<key>title</key>
+			<string>Were you forced to dowload this application?</string>
+			<key>identifier</key>
+			<string>quizForcedToDownload</string>
+		</dict>
+		<dict>
+			<key>expectedAnswer</key>
+			<string>1</string>
+			<key>type</key>
+			<string>Boolean</string>
+			<key>title</key>
+			<string>Are you confortable with smartphone applications?</string>
+			<key>identifier</key>
+			<string>quizConfortableWithApp</string>
+		</dict>
+		<dict>
+			<key>expectedAnswer</key>
+			<string>1</string>
+			<key>type</key>
+			<string>Boolean</string>
+			<key>title</key>
+			<string>Are you over 18?</string>
+			<key>identifier</key>
+			<string>quizOverEighteen</string>
+		</dict>
+		<dict>
+			<key>expectedAnswer</key>
+			<string>1</string>
+			<key>type</key>
+			<string>Boolean</string>
+			<key>title</key>
+			<string>Are you a parent/tutor of a girl with Rett Syndrome?</string>
+			<key>identifier</key>
+			<string>quizResponsibleForGirl</string>
+		</dict>
+	</array>
+</dict>
+</plist>

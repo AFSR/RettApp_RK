@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>VisualStep</key>
+	<array>
+		<dict>
+			<key>title</key>
+			<string>Overview</string>
+			<key>summary</key>
+			<string>This is a study about Rett Syndrome</string>
+			<key>content</key>
+			<string>This is the content for this study overview</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>DataGathering</string>
+			<key>summary</key>
+			<string>we will gather all the data you allow</string>
+			<key>content</key>
+			<string>content for data gathering</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Privacy</string>
+			<key>summary</key>
+			<string>have all the privacy you want</string>
+			<key>content</key>
+			<string>content for privacy</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>DataUse</string>
+			<key>summary</key>
+			<string>we will use the data you allow</string>
+			<key>content</key>
+			<string>content for data use</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>TimeCommitment</string>
+			<key>summary</key>
+			<string>commit the time you have</string>
+			<key>content</key>
+			<string>time commitment content</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>StudySurvey</string>
+			<key>summary</key>
+			<string>Complete the surveys</string>
+			<key>content</key>
+			<string>survey content</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>StudyTasks</string>
+			<key>summary</key>
+			<string>Complete the tasks </string>
+			<key>content</key>
+			<string>Tasks content</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Withdrawing</string>
+			<key>summary</key>
+			<string>Withdraw any time you want.</string>
+			<key>content</key>
+			<string>Withdraw Content</string>
+		</dict>
+	</array>
+	<key>ReviewStep</key>
+	<dict>
+		<key>reason</key>
+		<string>We must show you this</string>
+		<key>title</key>
+		<string>Please review the consent document before signing</string>
+	</dict>
+	<key>SharingStep</key>
+	<dict>
+		<key>learnMore</key>
+		<string>Learn more about who is going to see your private data!</string>
+		<key>longDescription</key>
+		<string>AFSR and it&apos;s partners</string>
+		<key>shortDescription</key>
+		<string>AFSR</string>
+	</dict>
+</dict>
+</plist>

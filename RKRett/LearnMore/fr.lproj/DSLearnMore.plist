@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <array>
+        <dict>
+            <key>sectionText</key>
+            <string>Have as many sections as you want.</string>
+            <key>sectionTitle</key>
+            <string>How to use</string>
+        </dict>
+        <dict>
+            <key>sectionText</key>
+            <string>Cette application a pour but d&apos;aider la famille et les personnes affectées par le syndrome de Rett. Cette application ne permet pas d&apos;effectuer un diagnostic. Elle permet d&apos;enregistrer et de centraliser les données recueillies grâce à des questionnaires et une connexion à l&apos;application santé. En utilisant cette application, vous êtes conscient qu&apos;elle ne permet en aucun cas de fournir un quelconque diagnostic ou conseil médical. Vous utilisez par ailleurs cette application sous votre entière responsabilité et les développeurs ou l&apos;AFSR ne sont pas responsables des dommages psychologiques ou physiques qui résulteraient d&apos;une mauvaise utilisation de cette technologie. Cette application fait par ailleurs partie d&apos;une étude plus vaste et cette version est un démonstrateur pour évaluer la pertinence de cette technologie en tant qu&apos;outil de recherche médicale.</string>
+            <key>sectionTitle</key>
+            <string>A propos de cette application</string>
+        </dict>
+        <dict>
+            <key>sectionText</key>
+            <string>Le syndrome de Rett typique (MIM #312 750) est une encéphalopathie neurodéveloppementale très particulière, touchant essentiellement les filles, caractérisée, dans sa forme typique, par une décélération globale du développement psychomoteur, puis d’une perte des acquisitions cognitives et motrices, survenant après une période de développement normal. Il constitue la principale cause de retard mental chez la fille, avec une prévalence variable de 1/10 000 à 1/22 000 naissance féminine dans les différentes régions du monde. Le diagnostic clinique repose sur des critères cliniques qui ont été modifiés avec les années avec l’accroissement des connaissances sur les symptômes de la maladie. Malgré tout, les éléments clés du diagnostic sont toujours présents qui permettent de poser le diagnostic de syndrome de Rett typique ou classique.
+                Parallèlement au syndrome de Rett typique, un certain nombre de patientes présentaient certains symptômes clés du Rett, mais pas l’ensemble des signes de la maladie. Ces formes ont été dénommées « Rett atypiques ou variantes ». Selon les symptômes associés, on a ainsi pu définir 3 formes facilement reconnaissables : la forme avec préservation du langage, la forme avec épilepsie précoce et la forme congénitale.
+                En 1999, des mutations dans le gène codant pour Methyl-CpG-binding protein 2 (MECP2) ont été identifiées dans d’exceptionnelles formes familiales du syndrome de Rett et validées dans des formes sporadiques. Aujourd’hui on sait que les mutations et délétions de MECP2 sont retrouvées dans 95 à 97 % des cas des formes typiques. Par contraste, dans les formes atypiques ou variantes, on ne retrouve une mutation de MECP2 que dans 50-70 % des cas. Plus récemment des mutations dans d’autres loci que celui de MECP2 ont été identifiées dans des formes atypiques de Rett. Parmi celles-ci, des mutations dans CDKL5 ont été identifiées dans les formes atypiques avec épilepsie précoce. De la même manière, des mutations dans FOXG1 ont été retrouvées chez des enfants porteurs de formes congénitales.</string>
+            <key>sectionTitle</key>
+            <string>A propos du syndrome de Rett</string>
+        </dict>
+        <dict>
+            <key>sectionText</key>
+            <string>Cette application propose une interface qui permet de saisir des données du quotidien, des symptômes cliniques et d’autres types de données. Vous n’êtes en aucun cas obligé de fournir ces données et les données saisies sont sous votre entière responsabilité. Nous vous permettons de stocker ces données sous un format exploitable. Nous ne sommes pas responsables des données perdues sur votre terminal. Toutes les données sont stockées en local sous votre responsabilité. Si vous le souhaitez, vous avez la possibilité d’exporter ces données au format CSV pour les partager avec du personnel médical. Des questionnaires vous seront présentés. Ils ont été optimisés par des médecins et des parents. Vous n’êtes pas obligé de les remplir. Nous vous proposons de protéger l’accès à ces informations par un code à 4 chiffres ou une identification à l’aide du TouchId ainsi qu’une encryption des données stockées sur votre terminal. Nous portons une attention particulière à ne pas vous proposer des questions inconfortables pour vous ou votre enfant. Vous devez interrompre immédiatement les questionnaires si vous ressentez un inconfort. Nous ne pouvons pas garantir l’accès aux informations affichées sur l’écran de votre terminal par des personnes à proximité.</string>
+            <key>sectionTitle</key>
+            <string>A propos de la sécurité des données</string>
+        </dict>
+        <dict>
+            <key>sectionText</key>
+            <string>À ce stade du développement de l’application, aucune donnée ne sera transmise vers nos serveurs. Les données vous appartiennent et vous êtes libre de les utiliser comme bon vous semble. Toutes les données sont stockées en local sur votre terminal sous votre responsabilité. Nous n’exporterons pas des données hors de votre terminal, mais vous avez la possibilité d’exporter ces données au format CSV avec la personne de votre choix.</string>
+            <key>sectionTitle</key>
+            <string>A propos de notre responsabilité</string>
+        </dict>
+        <dict>
+            <key>sectionText</key>
+            <string>Les tâches proposées par l’application sont étudiées pour nécessiter le moins de temps possible pour vous. Vous êtes responsable de gérer votre temps et d’effectuer ces tâches comme bon vous semble. Toutes les questions sont prédéfinies et sont susceptibles de prendre entre 10 et 30 minutes par jour pour y répondre. Vous êtes totalement libre de décider combien de temps y consacrer. Vous ne serez en aucun cas pénalisé d’aucune manière que ce soit ni récompensé pour le temps passé sur cette application. Vous avez la possibilité à tout moment de passer les questions. Tous les questionnaires ont été pensés pour être répondus dans la totalité toutefois vous avez la possibilité de quitter ces questionnaires à tout moment. Si vous ressentez un quelconque inconfort avec n’importe quelle question, vous devez arrêter immédiatement le questionnaire ou l’activité proposée. Des tâches consisteront en quelques questions et certaines permettront à l’application de collecter les données à partir de l’Apple Watch dans le cas ou votre enfant en utiliserait une.</string>
+            <key>sectionTitle</key>
+            <string>Tâches et questionnaires</string>
+        </dict>
+    </array>
+</plist>

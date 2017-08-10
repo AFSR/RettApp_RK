@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>question</key>
+	<array>
+		<dict>
+			<key>expectedAnswer</key>
+			<string>0</string>
+			<key>type</key>
+			<string>Boolean</string>
+			<key>title</key>
+			<string>Eu sou obrigado a respondar todas as perguntas.</string>
+			<key>identifier</key>
+			<string>quizMustAnswer</string>
+		</dict>
+		<dict>
+			<key>expectedAnswer</key>
+			<string>0</string>
+			<key>type</key>
+			<string>Boolean</string>
+			<key>title</key>
+			<string>Meus dados serão enviados aos pesquisadores.</string>
+			<key>identifier</key>
+			<string>quizDataToResearchers</string>
+		</dict>
+		<dict>
+			<key>expectedAnswer</key>
+			<string>...ir ao hospital.</string>
+			<key>choices</key>
+			<array>
+				<string>...ir ao hospital.</string>
+				<string>...abrir o aplicativo.</string>
+			</array>
+			<key>type</key>
+			<string>SingleChoice</string>
+			<key>title</key>
+			<string>Em caso de emergência eu devo...</string>
+			<key>identifier</key>
+			<string>quizEmergencyDoNotOpenApp</string>
+		</dict>
+		<dict>
+			<key>expectedAnswer</key>
+			<string>0</string>
+			<key>type</key>
+			<string>Boolean</string>
+			<key>title</key>
+			<string>Os pesquisadores são responsáveis por quaisquer danos causados a mim ou a criança.</string>
+			<key>identifier</key>
+			<string>quizResponsibleForGirl</string>
+		</dict>
+		<dict>
+			<key>expectedAnswer</key>
+			<string>A mim.</string>
+			<key>choices</key>
+			<array>
+				<string>A mim.</string>
+				<string>Aos pesquisadores.</string>
+			</array>
+			<key>type</key>
+			<string>SingleChoice</string>
+			<key>title</key>
+			<string>Os dados presentes no aplicativo pertencem a quem?</string>
+			<key>identifier</key>
+			<string>quizDataOwnership</string>
+		</dict>
+		<dict>
+			<key>expectedAnswer</key>
+			<string>Dar um diagnóstico clínico.</string>
+			<key>choices</key>
+			<array>
+				<string>Dar um diagnóstico clínico.</string>
+				<string>Ajudar a entender os sintomas e efeitos da doença.</string>
+			</array>
+			<key>type</key>
+			<string>SingleChoice</string>
+			<key>title</key>
+			<string>Qual dos seguintes NÃO é um objetivo deste app?</string>
+			<key>identifier</key>
+			<string>quizAppGoal</string>
+		</dict>
+	</array>
+	<key>instruction</key>
+	<dict>
+		<key>detailText</key>
+		<string>Por favor responda a estas perguntas.</string>
+	</dict>
+</dict>
+</plist>

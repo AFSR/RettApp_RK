@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>taskId</key>
+	<string>DSLogTask</string>
+	<key>frequencyType</key>
+	<string>daily</string>
+	<key>frequencyNumber</key>
+	<string>1</string>
+	<key>name</key>
+	<string>Daily Log</string>
+	<key>type</key>
+	<string>Survey</string>
+	<key>questions</key>
+	<array>
+		<dict>
+			<key>answerType</key>
+			<string>Introduction</string>
+			<key>prompt</key>
+			<string>This is an open space. Try to describe anything you think might have made a difference in the girl&apos;s day.</string>
+			<key>questionId</key>
+			<string>DSLogIntroduction</string>
+		</dict>
+		<dict>
+			<key>answerType</key>
+			<string>String</string>
+			<key>prompt</key>
+			<string>Feel free to use this space</string>
+			<key>questionId</key>
+			<string>DSLogQuestionId-0</string>
+		</dict>
+	</array>
+</dict>
+</plist>

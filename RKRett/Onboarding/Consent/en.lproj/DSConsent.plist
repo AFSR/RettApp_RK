@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>extension</key>
+	<string>m4v</string>
+	<key>title</key>
+	<string>Consent Document</string>
+	<key>VisualStep</key>
+	<array>
+		<dict>
+			<key>title</key>
+			<string>Overview</string>
+			<key>type</key>
+			<string>Overview</string>
+			<key>summary</key>
+			<string>This app aims to help the family and those affected by the Rett Syndrome.</string>
+			<key>content</key>
+			<string>The developers of the app reserve the right to assume you have read and understood that in no moment this app is responsible for giving diagnosis for Rett Syndrome cases. Also note that the use you give the app is entirely your responsability, we do not cover any psycological or physical damages caused by misuse of this technology. Also this app is part of a bigger study, and this version is the pilot to test if this is a valid way to conduct a medical research.</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Data Gathering</string>
+			<key>type</key>
+			<string>DataGathering</string>
+			<key>summary</key>
+			<string>The app provides interfaces for you to enter data about the day to day life, clinical symptoms and other kinds of data.</string>
+			<key>content</key>
+			<string>The app provides interfaces for you to enter data about the day to day life, clinical symptoms and other kinds of data. You are not obliged to do this, it is entirely up to you and all the data entered on the app is your responsibility. We will give you means to store your data in a more usable and readable format. In no moment we take responsibility for data loss on your phone. Also all the data will be stored locally under your responsibility.</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Privacy</string>
+			<key>type</key>
+			<string>Privacy</string>
+			<key>summary</key>
+			<string>We will provide you with a 4 digit passcode to open the app or TouchID authorization and basic encryption of your data on the phone.</string>
+			<key>content</key>
+			<string>We will provide you with a 4 digit passcode to open the app or TouchID authorization and basic encryption of your data on the phone. Other breaches and loss of data are your responsibility. We also can&apos;t prevent people from seeing data that is currently being shown at your phone&apos;s screen, take caution. </string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Data Use</string>
+			<key>type</key>
+			<string>DataUse</string>
+			<key>summary</key>
+			<string>No data is sent to our servers.</string>
+			<key>content</key>
+			<string>No data is sent to our servers. All of the data is stored locally and is under your responsibility. The data belongs to you and we will not collect it in any way.
+</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Time Commitment</string>
+			<key>type</key>
+			<string>TimeCommitment</string>
+			<key>summary</key>
+			<string>All tasks take from 1 to 2 minutes to answer.</string>
+			<key>content</key>
+			<string>All the tasks are easy and fast to answer. Manage your time as you wish. All tasks take from 1 to 2 minutes to answer. Stop and continue any time you like. You are free to use the application as long as you want from the moment you download it.</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Surveys</string>
+			<key>type</key>
+			<string>StudySurvey</string>
+			<key>summary</key>
+			<string>You are not obligated to answer the surveys.</string>
+			<key>content</key>
+			<string>All the questions were tought to be answered in their integrity, but you, in no case is obligated to answer them. Whenever you feel uncomfortable with any questions feel free to skip or stops the taks. You will not be penalised neither rewarded for your answers.</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Withdrawing</string>
+			<key>type</key>
+			<string>Withdrawing</string>
+			<key>summary</key>
+			<string>You are free to withdraw from the app at any time.</string>
+			<key>content</key>
+			<string>Withdraw any time you want. You are not compromised with this app or the information it contains. You are free to stop updating the info inside it or delete it from your phone at all times.</string>
+		</dict>
+	</array>
+</dict>
+</plist>

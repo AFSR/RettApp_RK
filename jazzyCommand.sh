@@ -1,0 +1,1 @@
+jazzy -x -"scheme,RKRett" --min-acl private --swift-version 2.1 --skip-undocumented --author DarkShine --github_url https://github.com/kuquert/RKRett

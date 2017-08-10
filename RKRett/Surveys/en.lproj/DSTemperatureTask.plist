@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>taskId</key>
+	<string>DSTemperatureTask</string>
+	<key>frequencyType</key>
+	<string>daily</string>
+	<key>frequencyNumber</key>
+	<string>3</string>
+	<key>name</key>
+	<string>Body Temperature</string>
+	<key>type</key>
+	<string>Survey</string>
+	<key>questions</key>
+	<array>
+		<dict>
+			<key>answerUnit</key>
+			<string>celsius</string>
+			<key>answerRange</key>
+			<dict>
+				<key>maximum</key>
+				<integer>50</integer>
+				<key>minimum</key>
+				<integer>20</integer>
+			</dict>
+			<key>answerType</key>
+			<string>NSNumber</string>
+			<key>prompt</key>
+			<string>Measure the body temperature please.</string>
+			<key>questionId</key>
+			<string>temperature</string>
+			<key>dashboard</key>
+			<dict>
+				<key>graphType</key>
+				<string>timeBased</string>
+				<key>yAxisColName</key>
+				<string>Celsius</string>
+				<key>timeUnit</key>
+				<string>Hour</string>
+				<key>title</key>
+				<string>Body Temperature</string>
+				<key>subtitle</key>
+				<string></string>
+				<key>color</key>
+				<dict>
+					<key>red</key>
+					<real>0.9922</real>
+					<key>green</key>
+					<real>0.6588000000000001</real>
+					<key>blue</key>
+					<real>0.1725</real>
+				</dict>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

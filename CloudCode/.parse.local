@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "RKRett": {
+      "applicationId": "9T1MqzJWJ5LFZCzCrmqgmo9Egt60jjHL5gIO2s23"
+    },
+    "_default": {
+      "link": "RKRett"
+    }
+  }
+}

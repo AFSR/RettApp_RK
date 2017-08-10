@@ -1,0 +1,39 @@
+
+/* Class = "UIViewController"; title = "Sign In"; ObjectID = "0Cf-B5-aWT"; */
+"0Cf-B5-aWT.title" = "Entrar";
+
+/* Class = "UITextField"; placeholder = "password"; ObjectID = "AnS-l8-bB1"; */
+"AnS-l8-bB1.placeholder" = "senha";
+
+/* Class = "UITextField"; placeholder = "email"; ObjectID = "I2Y-xS-vcL"; */
+"I2Y-xS-vcL.placeholder" = "email";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "RXj-XW-zL7"; */
+"RXj-XW-zL7.normalTitle" = "Participar";
+
+/* Class = "UITextField"; placeholder = "name"; ObjectID = "doP-yM-cZC"; */
+"doP-yM-cZC.placeholder" = "nome";
+
+/* Class = "UITextField"; placeholder = "password"; ObjectID = "okZ-bS-b0P"; */
+"okZ-bS-b0P.placeholder" = "senha";
+
+/* Class = "UIButton"; normalTitle = "Sign In"; ObjectID = "qNt-bE-QKJ"; */
+"qNt-bE-QKJ.normalTitle" = "Entrar";
+
+/* Class = "UITextField"; placeholder = "name"; ObjectID = "rb4-ZH-L3p"; */
+"rb4-ZH-L3p.placeholder" = "nome";
+
+/* Class = "UILabel"; text = "Welcome to the Rett Syndrome Research"; ObjectID = "uGM-T1-CXK"; */
+"uGM-T1-CXK.text" = "Bem-Vindo ao Estudo da Síndrome de Rett";
+
+/* Class = "UILabel"; text = "Swipe to preview"; ObjectID = "06K-rz-XKy"; */
+"06K-rz-XKy.text" = "Deslize para começar";
+
+/* Class = "UIButton"; normalTitle = "Already participating?"; ObjectID = "vDj-lo-48Y"; */
+"vDj-lo-48Y.normalTitle" = "Já estou participando";
+
+/* Class = "UIButton"; normalTitle = "Join Study"; ObjectID = "zmB-7N-srP"; */
+"zmB-7N-srP.normalTitle" = "Participar";
+
+/* Class = "UILabel"; normalTitle = "Swipe to preview"; ObjectID = "06K-rz-XKy"; */
+"06K-rz-XKy.text" = "Deslize para começar";

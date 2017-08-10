@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>question</key>
+	<array>
+		<dict>
+			<key>expectedAnswer</key>
+			<string>0</string>
+			<key>type</key>
+			<string>Boolean</string>
+			<key>title</key>
+			<string>I must answer all of the questions in this study.</string>
+			<key>identifier</key>
+			<string>quizMustAnswer</string>
+		</dict>
+		<dict>
+			<key>expectedAnswer</key>
+			<string>0</string>
+			<key>type</key>
+			<string>Boolean</string>
+			<key>title</key>
+			<string>My data will be sent to the researchers.</string>
+			<key>identifier</key>
+			<string>quizDataToResearchers</string>
+		</dict>
+		<dict>
+			<key>expectedAnswer</key>
+			<string>go to the hospital</string>
+			<key>choices</key>
+			<array>
+				<string>go to the hospital</string>
+				<string>open the app</string>
+			</array>
+			<key>type</key>
+			<string>SingleChoice</string>
+			<key>title</key>
+			<string>In case of a emergency should you go to the hospital or open the app?</string>
+			<key>identifier</key>
+			<string>quizEmergencyDoNotOpenApp</string>
+		</dict>
+		<dict>
+			<key>expectedAnswer</key>
+			<string>0</string>
+			<key>type</key>
+			<string>Boolean</string>
+			<key>title</key>
+			<string>The researchers are responsible for any damages to me or my child.</string>
+			<key>identifier</key>
+			<string>quizResponsibleForGirl</string>
+		</dict>
+		<dict>
+			<key>expectedAnswer</key>
+			<string>Me.</string>
+			<key>choices</key>
+			<array>
+				<string>Me.</string>
+				<string>The researchers.</string>
+			</array>
+			<key>type</key>
+			<string>SingleChoice</string>
+			<key>title</key>
+			<string>Who owns the data inside the app?</string>
+			<key>identifier</key>
+			<string>quizDataOwnership</string>
+		</dict>
+		<dict>
+			<key>expectedAnswer</key>
+			<string>Give Rett Syndrome diagnosis.</string>
+			<key>choices</key>
+			<array>
+				<string>Give Rett Syndrome diagnosis.</string>
+				<string>Help understand the effects and symptoms of the disease.</string>
+			</array>
+			<key>type</key>
+			<string>SingleChoice</string>
+			<key>title</key>
+			<string>Which one is NOT a goal of the app?</string>
+			<key>identifier</key>
+			<string>quizAppGoal</string>
+		</dict>
+	</array>
+	<key>instruction</key>
+	<dict>
+		<key>detailText</key>
+		<string>Please answer the following questions.</string>
+	</dict>
+</dict>
+</plist>

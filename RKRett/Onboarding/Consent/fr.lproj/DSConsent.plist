@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>extension</key>
+        <string>m4v</string>
+        <key>title</key>
+        <string>Consent Document</string>
+        <key>VisualStep</key>
+        <array>
+            <dict>
+                <key>title</key>
+                <string>Généralités</string>
+                <key>type</key>
+                <string>Overview</string>
+                <key>summary</key>
+                <string>Cette application permet d’aider les familles et les personnes atteintes par le Syndrome de Rett. Cette application n’a pas vocation à fournir des conseils médicaux, mais permet de collecter des données grâce à des activités et des questions prédéfinies.</string>
+                <key>content</key>
+                <string>En utilisant cette application, vous êtes conscient qu&apos;elle ne permet en aucun cas de fournir un quelconque diagnostic ou conseil médical. Vous utilisez par ailleurs cette application sous votre entière responsabilité et les développeurs ou l&apos;AFSR ne sont pas responsables des dommages psychologiques ou physiques qui résulteraient d&apos;une mauvaise utilisation de cette technologie. Cette application fait par ailleurs partie d&apos;une étude plus vaste et cette version est un démonstrateur pour évaluer la pertinence de cette technologie en tant qu&apos;outil de recherche médicale.</string>
+            </dict>
+            <dict>
+                <key>title</key>
+                <string>Collecte de données</string>
+                <key>type</key>
+                <string>DataGathering</string>
+                <key>summary</key>
+                <string>Cette application propose une interface qui permet de saisir des données du quotidien, des symptômes cliniques et d’autres types de données. Vous n’êtes en aucun cas obligé de fournir ces données et les données saisies sont sous votre entière responsabilité.</string>
+                <key>content</key>
+                <string>Nous vous permettons de stocker ces données sous un format exploitable. Nous ne sommes pas responsables des données perdues sur votre terminal. Toutes les données sont stockées en local sous votre responsabilité. Si vous le souhaitez, vous avez la possibilité d’exporter ces données au format CSV pour les partager avec du personnel médical.</string>
+            </dict>
+            <dict>
+                <key>title</key>
+                <string>Vie privée</string>
+                <key>type</key>
+                <string>Privacy</string>
+                <key>summary</key>
+                <string>Des questionnaires vous seront présentés. Ils ont été optimisés par des médecins et des parents. Vous n’êtes pas obligé de les remplir.</string>
+                <key>content</key>
+                <string>Nous vous proposons de protéger l’accès à ces informations par un code à 4 chiffres ou une identification à l’aide du TouchId ainsi qu’une encryption des données stockées sur votre terminal. Nous portons une attention particulière à ne pas vous proposer des questions inconfortables pour vous ou votre enfant. Vous devez interrompre immédiatement les questionnaires si vous ressentez un inconfort. Nous ne pouvons pas garantir l’accès aux informations affichées sur l’écran de votre terminal par des personnes à proximité.</string>
+            </dict>
+            <dict>
+                <key>title</key>
+                <string>Utilisation des données</string>
+                <key>type</key>
+                <string>DataUse</string>
+                <key>summary</key>
+                <string>À ce stade du développement de l’application, aucune donnée ne sera transmise vers nos serveurs. Les données vous appartiennent et vous êtes libre de les utiliser comme bon vous semble.</string>
+                <key>content</key>
+                <string>Toutes les données sont stockées en local sur votre terminal sous votre responsabilité. Nous n’exporterons pas des données hors de votre terminal, mais vous avez la possibilité d’exporter ces données au format CSV avec la personne de votre choix.</string>
+            </dict>
+            <dict>
+                <key>title</key>
+                <string>Temps nécessaire</string>
+                <key>type</key>
+                <string>TimeCommitment</string>
+                <key>summary</key>
+                <string>Les tâches proposées par l’application sont étudiées pour nécessiter le moins de temps possible pour vous. Vous êtes responsable de gérer votre temps et d’effectuer ces tâches comme bon vous semble.</string>
+                <key>content</key>
+                <string>Toutes les questions sont prédéfinies et sont susceptibles de prendre entre 10 et 30 minutes par jour pour y répondre. Vous êtes totalement libre de décider combien de temps y consacrer. Vous ne serez en aucun cas pénalisé d’aucune manière que ce soit ni récompensé pour le temps passé sur cette application.</string>
+            </dict>
+            <dict>
+                <key>title</key>
+                <string>Sondages</string>
+                <key>type</key>
+                <string>StudySurvey</string>
+                <key>summary</key>
+                <string>Des questionnaires vous seront proposés. Vous avez la possibilité à tout moment de ne pas répondre aux questions proposées.</string>
+                <key>content</key>
+                <string>Tous les questionnaires ont été pensés pour être répondus dans la totalité toutefois vous avez la possibilité de quitter ces questionnaires à tout moment. Si vous ressentez un quelconque inconfort avec n’importe quelle question, vous devez arrêter immédiatement le questionnaire ou l’activité proposée.</string>
+            </dict>
+            <dict>
+                <key>title</key>
+                <string>Activités</string>
+                <key>type</key>
+                <string>StudyTasks</string>
+                <key>summary</key>
+                <string>There will be tasks that are just a couple of questions and also some that are active steps for the phone to collect data from the Apple Watch in case the child is using one.</string>
+                <key>content</key>
+                <string>The app is based on many tasks, that are made up of steps. Mos of them are questions. Some of them are active steps, like checking something on the Apple Watch if you are using one to keep track of the child movements.You are free to answer whatever you think its best.</string>
+            </dict>
+            <dict>
+                <key>title</key>
+                <string>Withdrawing</string>
+                <key>type</key>
+                <string>Withdrawing</string>
+                <key>summary</key>
+                <string>You are free to withdraw from the app at any time.</string>
+                <key>content</key>
+                <string>Withdraw any time you want. You are not compromised with this app or the information it contains. You are free to stop updating the info inside it or delete it from your phone at all times. You can also export your information as CSV before deleting and loosing your data.</string>
+            </dict>
+        </array>
+    </dict>
+</plist>

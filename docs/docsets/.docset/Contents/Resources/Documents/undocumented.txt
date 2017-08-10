@@ -1,0 +1,254 @@
+DSLoginViewController.swift
+	class DSLoginViewController: UIViewController
+DSPatient.swift
+	class DSPatient: PFUser
+DSSignUpViewController.swift
+	class DSSignUpViewController: UIViewController
+DSConsentTask.swift
+	public var DSConsentTask: ORKOrderedTask
+DSThreadCommentCell.swift
+	@objc protocol DSCommentLikeDislike
+	class DSThreadCommentCell: UITableViewCell
+DSReflect.swift
+	class DSReflect: NSObject
+DSPasswordController.swift
+	class DSPasswordController:UIViewController
+DSSharingConsent.swift
+	public var DSSharingConsent : ((String) -> (ORKConsentSharingStep)) = { identifier in
+DSConsentController.swift
+	private var captureSession:AVCaptureSession?
+	private var videoPreviewLayer:AVCaptureVideoPreviewLayer?
+	private var qrCodeFrameView:UIView?
+	func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?)
+	func readQRCode(task: ORKTaskViewController)
+	func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!)
+	func validatePacientCode(code: String)
+DSForumViewController.swift
+	class DSForumViewController: UIViewController
+	class DSForumViewController : UIViewController
+	class DSForumViewController : UIViewController
+DSQueryDetailViewController.swift
+	class DSQueryDetailViewController: UIViewController
+	class DSQueryDetailViewController : UIViewController
+DSConsentDocument.swift
+	public var DSConsentDocument: ORKConsentDocument
+DSAuthorizationViewController.swift
+	class DSAuthorizationViewController: UIViewController
+DSSensorDataViewController.swift
+	class DSSensorDataViewController: UIViewController
+	class DSSensorDataViewController : UIViewController
+	class DSSensorDataViewController : UIViewController
+DSDislike.swift
+	class DSDislike: PFObject, PFSubclassing
+DSConstants.swift
+	struct Constants
+	public let kBgQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+	public let kDSFirstRun = "DSFirsRun"
+	public let kDSFirstWatchRun = "DSFirstWatchRun"
+	public let kReviewStepIdentifier = "ReviewConsentIdentifier"
+	public let kVisualStepIdentifier = "VisualConsentStep"
+	public let kSharingStepIdentifier = "SharingConsentIdentifier"
+	public let kDSQuizPlist = "DSQuiz"
+	public let kQuizIntroductionStepIdentifier = "QuizIntroductionStep"
+	public let kDSElegibilityPlist = "DSElegibility"
+	public let kParseApplicationId = "9T1MqzJWJ5LFZCzCrmqgmo9Egt60jjHL5gIO2s23"
+	public let kParseClientKey = "XUCH19yUKrsm9r3GYAS80S5HfAapZHJrFy1JP1Wq"
+	public let kDSConsentPlist = "DSConsent"
+	public let kUserHasConsentedKey = "DSUserHasConsentedKey"
+	public let kDSTasksListFileName = "DSTasks"
+	public let kDSLearnMorePlist = "DSLearnMore"
+	public let kDSOpenPasswordMaxSize = 4
+	public let kDSPasswordKey = "DSPasswordKey"
+	public let kUploadingConsentMessage = NSLocalizedString("Uploading your consent...", comment: "message to display while uploading consent pdf file")
+	public let kSimpleErrorMessage = NSLocalizedString("Ops, an error occurred...", comment: "message to display error uploading file")
+	public let kSigningUpMessage = NSLocalizedString("Signing up...", comment: "message to display while signing up user")
+	public let kLoggingInMessage = NSLocalizedString("Signing in...", comment: "message to display while signing user in")
+	public let kWatchQueryMessage = NSLocalizedString("Retriving data from Watch", comment: "message to display while quering data from watch")
+	public let kSundayIdentifier = 1
+	public let kTextAnswerMaxLength = 1000
+	public let kDateDidEnterBackgroundKey = "kDateDidEnterBackgroundKey"
+	func == <T:Equatable> (tuple1:(T,T), tuple2:(T,T)) -> Bool
+	enum DSActionType: String
+	enum DSActionItem: String
+	enum StoryboardName: String, CustomStringConvertible
+	enum LastUpdated: String, CustomStringConvertible
+	enum DSTaskTypes : String
+	enum UserType:String
+	enum TabBarItemIndexes:Int
+	enum SpotlightSearchActions:String
+	enum Frequency: String
+	enum SectionTypePlistKey : String
+	public struct PlistFile
+DSReviewConsentDocument.swift
+	public var DSReviewConsentDocument : ((String,ORKConsentSignature, ORKConsentDocument) -> (ORKConsentReviewStep)) = { identifier, signature, document in
+TimeBasedGraphView.swift
+	enum TimeUnit
+	class TimeBasedGraphView: StandardGraphView
+DSQuizTask.swift
+	public var DSQuizTask: ORKOrderedTask
+DSTextView.swift
+	class DSTextView: UITextView
+DSNewThreadViewController.swift
+	enum Notifications:String, CustomStringConvertible
+	class DSNewThreadViewController: UIViewController
+DSElegibilityController.swift
+	func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?)
+DSElegibilityTask.swift
+	public var DSElegibilityTask: ORKOrderedTask
+DSTaskAnswerRealm.swift
+	class DSTaskAnswerRealm: Object
+StandardGraphView.swift
+	class StandardGraphView: UIView
+DSChooseDoctorToShareDataViewController.swift
+	class DSChooseDoctorToShareDataViewController: UIViewController
+	class DSChooseDoctorToShareDataViewController : UIViewController
+	class DSChooseDoctorToShareDataViewController : UIViewController
+	class DSChooseDoctorToShareDataViewController : UIViewController
+DSStartViewController.swift
+	class DSStartViewController: UIViewController
+DSDoctor.swift
+	class DSDoctor: PFUser
+TVSharedData.swift
+	class TVSharedData: PFObject, PFSubclassing
+SharedData.swift
+	class SharedData: PFObject, PFSubclassing
+DSDeveloperTableViewController.swift
+	enum Section: Int
+	enum RowNumberSectionDeveloper: Int
+	class DSDeveloperTableViewController: UITableViewController
+	class DSDeveloperTableViewController : UITableViewController
+TimeBasedGraphCell.swift
+	class TimeBasedGraphCell: UITableViewCell
+DSSensorDataTaskViewController.swift
+	class DSSensorDataTaskViewController: UIViewController
+DSTaskController.swift
+	func taskViewController(taskViewController: ORKTaskViewController, stepViewControllerWillAppear stepViewController: ORKStepViewController)
+	func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?)
+	func taskViewController(taskViewController: ORKTaskViewController, recorder: ORKRecorder, didFailWithError error: NSError)
+DSThreadNewCommentCell.swift
+	protocol DSNewCommentCellDelegate
+	class DSThreadNewCommentCell: UITableViewHeaderFooterView
+DSLearnViewController.swift
+	func highlightWithColor(color:UIColor)
+	let kCellBackgroundViewTag = 1
+	class DSLearnViewController:UIViewController
+	class DSLearnViewController : UIViewController
+	class DSLearnViewController : UIViewController
+	class DSLearnViewController : UIViewController
+DSThreadViewController.swift
+	class DSThreadViewController: UIViewController
+	class DSThreadViewController : UIViewController
+	class DSThreadViewController : UIViewController
+	class DSThreadViewController : UIViewController
+	class DSThreadViewController : UIViewController
+DSActivityCell.swift
+	class DSActivityCell:UITableViewCell
+DSInitialScreenCommunityViewController.swift
+	class DSInitialScreenCommunityViewController: UIViewController
+DSUtils.swift
+	class DSUtils
+DSQuizController.swift
+	func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?)
+DSGlobals.swift
+	var alreadyParticipating:Bool
+	var useTouchId:Bool
+	var tasks : [DSTask]
+	func createSideViewForCell(cell: UITableViewCell, withColor color:UIColor)
+	var dateDidEnterBackground:NSDate?
+	var bundleId:String
+DSLearnDetailController.swift
+	class DSLearnDetailController:UIViewController
+	class DSLearnDetailController : UIViewController
+DSTaskCreator.swift
+	public var DSTaskCreator:((NSDictionary) -> (ORKOrderedTask)) = { dictionary in
+DSRealmExporter.swift
+	class DSRealmExporter: NSObject
+DSEnterCommunityViewController.swift
+	class DSEnterCommunityViewController: UIViewController
+DSTaskAnswer.swift
+	class DSTaskAnswer: PFObject, PFSubclassing
+DSThread.swift
+	class DSThread: PFObject, PFSubclassing
+DSOnboardingViewController.swift
+	class DSOnboardingViewController: UIViewController
+DSSignInViewController.swift
+	class DSSignInViewController : UIViewController
+DSSharedDataManager.swift
+	class DSSharedDataManager: NSObject
+DSTimeBasedGraphViewController.swift
+	class DSTimeBasedGraphViewController: UIViewController
+CircularGraphView.swift
+	class CircularGraphView: UIView
+DSLike.swift
+	class DSLike: PFObject, PFSubclassing
+DSTask.swift
+	class DSTask: DSReflect
+DSJSONSerializer.swift
+	private static func resultsArrayToJsonArray(results: NSArray/*<ORKResult>*/) -> [NSMutableDictionary]
+	private static func extractValue(value:AnyObject, forKey key:String = "") -> AnyObject
+	private static func getValueFromDateClasses(value:AnyObject) -> String
+CircularGraphCell.swift
+	class CircularGraphCell: UITableViewCell
+DSDoctorPatient.swift
+	class DSDoctorPatient: PFObject, PFSubclassing
+AppDelegate.swift
+	class AppDelegate: UIResponder
+	@UIApplicationMain class AppDelegate : UIResponder
+	@UIApplicationMain class AppDelegate : UIResponder
+	@UIApplicationMain class AppDelegate : UIResponder
+DSPdf.swift
+	class DSPdf:PFObject, PFSubclassing
+DSTaskListViewController.swift
+	class DSTaskListViewController: UIViewController
+	class DSTaskListViewController : UIViewController
+	class DSTaskListViewController : UIViewController
+DSTaskAnswerListViewController.swift
+	class DSTaskAnswerListViewController: UIViewController
+	class DSTaskAnswerListViewController : UIViewController
+	class DSTaskAnswerListViewController : UIViewController
+HealthManager.swift
+	class HealthManager
+DSSensorDataQuery.swift
+	class DSSensorDataQuery: Object
+	class DSSensorDataQueryStatusHistory: Object
+DSNotification.swift
+	class DSNotification: NSObject
+DSDataResult.swift
+	class DSDataResult: ORKResult
+DSTaskScheduler.swift
+	func registerTaskForScheduleWithId(id:String, onWeekDays weekDays:[Int])
+	func nextDateForWeekday(desiredWeekday: Int, fromDate: NSDate) -> NSDate
+CSV.swift
+	public class CSV
+DSThreadHeaderCell.swift
+	class DSThreadHeaderCell: UITableViewHeaderFooterView
+DSQuestion.swift
+	class DSQuestion: DSReflect
+DSStepCreator.swift
+	static let kDefaultStepIdentifier = "kDefaultStepIdentifier"
+	static let kDefaultStepTitle = "kDefaultStepTitle"
+	static let kDefaultStepAnswerUnit = "kDefaultStepAnswerUnit"
+	static var defaultStep:ORKQuestionStep = ORKQuestionStep(identifier: DSStepCreator.kDefaultStepIdentifier, title: DSStepCreator.kDefaultStepTitle, answer: ORKNumericAnswerFormat(style: ORKNumericAnswerStyle.Decimal, unit: DSStepCreator.kDefaultStepAnswerUnit))
+	static func createQuestionStepUsingDictionary(dictionary:NSDictionary) -> ORKStep
+	private static func createQueryStepUsingDictionary(dictionary:NSDictionary) -> ORKQuestionStep
+	private static func createNumericQuestionStepUsingDictionary(dictionary:NSDictionary) -> ORKQuestionStep
+	private static func createTextQuestionStepUsingDictionary(dictionary:NSDictionary) -> ORKQuestionStep
+	private static func createIntroductionStepUsingDictionary(dictionary:NSDictionary) -> ORKInstructionStep
+	private static func createImageChoiceStepUsingDictionary(dictionary:NSDictionary) -> ORKQuestionStep
+	private static func createTextChoiceStepUsingDictionary(dictionary:NSDictionary) -> ORKQuestionStep
+	private static func createTimeOfDayStepUsingDictionary(dictionary:NSDictionary) -> ORKQuestionStep
+DSCircularView.swift
+	class DSCircularView: UIView
+DSPatientDoctor.swift
+	class DSPatientDoctor: PFObject, PFSubclassing
+DSLearnMoreSection.swift
+	class DSLearnMoreSection: NSObject
+DSDashboardViewController.swift
+	class DSDashboardViewController: UIViewController
+	class DSDashboardViewController : UIViewController
+	class DSDashboardViewController : UIViewController
+DSComment.swift
+	class DSComment: PFObject, PFSubclassing
+SharingSession.swift
+	enum DataUploadStatus:String, CustomStringConvertible
+	class SharingSession: PFObject, PFSubclassing

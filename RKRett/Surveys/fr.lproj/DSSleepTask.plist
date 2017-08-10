@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>taskId</key>
+        <string>DSSleepTask</string>
+        <key>frequencyType</key>
+        <string>daily</string>
+        <key>frequencyNumber</key>
+        <string>1</string>
+        <key>name</key>
+        <string>Journal du sommeil</string>
+        <key>type</key>
+        <string>Survey</string>
+        <key>questions</key>
+        <array>
+            <dict>
+                <key>answerType</key>
+                <string>Introduction</string>
+                <key>prompt</key>
+                <string>Essayez de décrire le sommeil de votre fille.</string>
+                <key>questionId</key>
+                <string>DSSleepIntro</string>
+            </dict>
+            <dict>
+                <key>answerRange</key>
+                <dict>
+                    <key>maximum</key>
+                    <integer>20</integer>
+                    <key>minimum</key>
+                    <integer>0</integer>
+                </dict>
+                <key>answerUnit</key>
+                <string>hours</string>
+                <key>answerType</key>
+                <string>NSNumber</string>
+                <key>prompt</key>
+                <string>Combien d&apos;heures a dormi votre fille?</string>
+                <key>questionId</key>
+                <string>hoursSleep</string>
+                <key>dashboard</key>
+                <dict>
+                    <key>graphType</key>
+                    <string>timeBased</string>
+                    <key>yAxisColName</key>
+                    <string></string>
+                    <key>timeUnit</key>
+                    <string>Hour</string>
+                    <key>xScale</key>
+                    <integer>2</integer>
+                    <key>yScale</key>
+                    <real>1.75</real>
+                    <key>title</key>
+                    <string>Sommeil</string>
+                    <key>subtitle</key>
+                    <string>Heures/Jour</string>
+                    <key>color</key>
+                    <dict>
+                        <key>red</key>
+                        <real>1</real>
+                        <key>green</key>
+                        <real>0.2113</real>
+                        <key>blue</key>
+                        <real>0.3618</real>
+                    </dict>
+                </dict>
+            </dict>
+            <dict>
+                <key>optional</key>
+                <true/>
+                <key>answerType</key>
+                <string>String</string>
+                <key>prompt</key>
+                <string>Utiliser cette espace pour décrire des éléments importants à propos du sommeil de votre fille.</string>
+                <key>questionId</key>
+                <string>DSSleepDescription</string>
+            </dict>
+        </array>
+    </dict>
+</plist>s
