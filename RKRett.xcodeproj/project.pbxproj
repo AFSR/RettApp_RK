@@ -150,6 +150,13 @@
 		2F3193541F3CFD1500F35E09 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = Utils/Parser.swift; sourceTree = "<group>"; };
 		2F3193561F3D08A900F35E09 /* Description.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Description.swift; path = Utils/Description.swift; sourceTree = "<group>"; };
 		2F3193581F3D0B4F00F35E09 /* ParserHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParserHelpers.swift; path = Utils/ParserHelpers.swift; sourceTree = "<group>"; };
+		2F4F90041F3E488F009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Task.strings; sourceTree = "<group>"; };
+		2F4F90051F3E488F009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Dashboard1.strings; sourceTree = "<group>"; };
+		2F4F90061F3E488F009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		2F4F90071F3E488F009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Learn.strings; sourceTree = "<group>"; };
+		2F4F90081F3E488F009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		2F4F90091F3E4890009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = View/Onboarding/fr.lproj/Password.strings; sourceTree = "<group>"; };
+		2F4F900A1F3E4890009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Onboarding.strings; sourceTree = "<group>"; };
 		35812B771BC6EB0700D4FB68 /* CSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSV.swift; path = Utils/CSV.swift; sourceTree = "<group>"; };
 		358824631BD8B35F00276C63 /* JBBarChartFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartFooterView.h; sourceTree = "<group>"; };
 		358824641BD8B35F00276C63 /* JBBarChartFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartFooterView.m; sourceTree = "<group>"; };
@@ -806,6 +813,7 @@
 				en,
 				Base,
 				pt,
+				fr,
 			);
 			mainGroup = 52A436831B84DAE500188433;
 			productRefGroup = 52A4368D1B84DAE500188433 /* Products */;
@@ -1077,6 +1085,7 @@
 			children = (
 				52031F631BC2DC5600A6402A /* Base */,
 				52031F741BC2DCD200A6402A /* pt */,
+				2F4F90081F3E488F009852D0 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1086,6 +1095,7 @@
 			children = (
 				52031F701BC2DCB100A6402A /* Base */,
 				52031F731BC2DCB700A6402A /* pt */,
+				2F4F90061F3E488F009852D0 /* fr */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -1105,6 +1115,7 @@
 			children = (
 				5249284D1BC2F0080091F35A /* Base */,
 				524928501BC2F00E0091F35A /* pt */,
+				2F4F90091F3E4890009852D0 /* fr */,
 			);
 			name = Password.storyboard;
 			sourceTree = "<group>";
@@ -1152,6 +1163,7 @@
 			children = (
 				52C657DF1BC2EE66000CE353 /* Base */,
 				52C657E21BC2EE6A000CE353 /* pt */,
+				2F4F900A1F3E4890009852D0 /* fr */,
 			);
 			name = Onboarding.storyboard;
 			path = View/Onboarding;
@@ -1182,6 +1194,7 @@
 			children = (
 				52CD0AAB1BBF305800D61C8D /* Base */,
 				52031F771BC2DD5500A6402A /* pt */,
+				2F4F90041F3E488F009852D0 /* fr */,
 			);
 			name = Task.storyboard;
 			sourceTree = "<group>";
@@ -1240,6 +1253,7 @@
 			children = (
 				620E7A261BD570FA004AC520 /* Base */,
 				527D10581BF51CD900D1F15B /* pt */,
+				2F4F90051F3E488F009852D0 /* fr */,
 			);
 			name = Dashboard1.storyboard;
 			sourceTree = "<group>";
@@ -1249,6 +1263,7 @@
 			children = (
 				623938221BD1555C00B1BC09 /* Base */,
 				628380C21BD1565B0016A1C3 /* pt */,
+				2F4F90071F3E488F009852D0 /* fr */,
 			);
 			name = Learn.storyboard;
 			sourceTree = "<group>";

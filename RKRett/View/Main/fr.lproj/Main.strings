@@ -1,20 +1,9 @@
-/* Class = "UITabBarItem"; title = "Comunidade"; ObjectID = "0X7-yf-OEM"; */
-"0X7-yf-OEM.title" = "Communauté";
 
-/* Class = "UITabBarItem"; title = "Learn"; ObjectID = "FSq-FR-j87"; */
-"FSq-FR-j87.title" = "Apprendre";
+/* Class = "UITabBarItem"; title = "Dashboard"; ObjectID = "Pif-5Q-A8a"; */
+"Pif-5Q-A8a.title" = "Dashboard";
 
 /* Class = "UITabBarItem"; title = "Task"; ObjectID = "UqQ-YU-rzM"; */
-"UqQ-YU-rzM.title" = "Activités";
+"UqQ-YU-rzM.title" = "Task";
 
-/* Class = "UITabBarItem"; title = "Item"; ObjectID = "ZQC-Gb-OrD"; */
-"ZQC-Gb-OrD.title" = "Item";
-
-/* Class = "UITabBarItem"; title = "Answers"; ObjectID = "gr3-Up-Oh5"; */
-"gr3-Up-Oh5.title" = "Réponses";
-
-/* Class = "UITabBarItem"; title = "Developer"; ObjectID = "qJa-fQ-SBT"; */
-"qJa-fQ-SBT.title" = "Développeur";
-
-/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "t6d-F9-Whh"; */
-"t6d-F9-Whh.title" = "Profil";
+/* Class = "UITabBarItem"; title = "Learn"; ObjectID = "ZPq-Fk-mwF"; */
+"ZPq-Fk-mwF.title" = "Learn";

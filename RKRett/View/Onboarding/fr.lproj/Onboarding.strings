@@ -1,36 +1,39 @@
 
+/* Class = "UILabel"; text = "Swipe to preview"; ObjectID = "06K-rz-XKy"; */
+"06K-rz-XKy.text" = "Swipe to preview";
+
 /* Class = "UIViewController"; title = "Sign In"; ObjectID = "0Cf-B5-aWT"; */
-"0Cf-B5-aWT.title" = "S'identifier";
+"0Cf-B5-aWT.title" = "Sign In";
 
 /* Class = "UITextField"; placeholder = "password"; ObjectID = "AnS-l8-bB1"; */
-"AnS-l8-bB1.placeholder" = "Mot de passe";
+"AnS-l8-bB1.placeholder" = "password";
 
 /* Class = "UITextField"; placeholder = "email"; ObjectID = "I2Y-xS-vcL"; */
-"I2Y-xS-vcL.placeholder" = "E-mail";
+"I2Y-xS-vcL.placeholder" = "email";
 
 /* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "RXj-XW-zL7"; */
-"RXj-XW-zL7.normalTitle" = "S'enregistrer";
+"RXj-XW-zL7.normalTitle" = "Sign Up";
+
+/* Class = "UILabel"; text = "Rett Syndrome"; ObjectID = "b9l-uD-e13"; */
+"b9l-uD-e13.text" = "Rett Syndrome";
 
 /* Class = "UITextField"; placeholder = "name"; ObjectID = "doP-yM-cZC"; */
-"doP-yM-cZC.placeholder" = "Nom";
+"doP-yM-cZC.placeholder" = "name";
 
 /* Class = "UITextField"; placeholder = "password"; ObjectID = "okZ-bS-b0P"; */
-"okZ-bS-b0P.placeholder" = "Mot de passe";
+"okZ-bS-b0P.placeholder" = "password";
 
 /* Class = "UIButton"; normalTitle = "Sign In"; ObjectID = "qNt-bE-QKJ"; */
-"qNt-bE-QKJ.normalTitle" = "S'identifier";
+"qNt-bE-QKJ.normalTitle" = "Sign In";
 
 /* Class = "UITextField"; placeholder = "name"; ObjectID = "rb4-ZH-L3p"; */
-"rb4-ZH-L3p.placeholder" = "Nom";
+"rb4-ZH-L3p.placeholder" = "name";
 
 /* Class = "UILabel"; text = "Welcome to the Rett Syndrome Research"; ObjectID = "uGM-T1-CXK"; */
-"uGM-T1-CXK.text" = "Bienvenue sur la recherche CoRe (Syndrome de Rett)";
+"uGM-T1-CXK.text" = "Welcome to the Rett Syndrome Research";
 
 /* Class = "UIButton"; normalTitle = "Already participating?"; ObjectID = "vDj-lo-48Y"; */
-"vDj-lo-48Y.normalTitle" = "Déjà inscrit?";
+"vDj-lo-48Y.normalTitle" = "Already participating?";
 
 /* Class = "UIButton"; normalTitle = "Join Study"; ObjectID = "zmB-7N-srP"; */
-"zmB-7N-srP.normalTitle" = "Rejoindre l'étude";
-
-/* Class = "UILabel"; normalTitle = "Swipe to preview"; ObjectID = "06K-rz-XKy"; */
-"06K-rz-XKy.text" = "Glisser pour commencer";
+"zmB-7N-srP.normalTitle" = "Join Study";

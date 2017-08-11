@@ -1,5 +1,9 @@
+
 /* Class = "UITabBarItem"; title = "Learn More"; ObjectID = "8if-ot-VLT"; */
-"8if-ot-VLT.title" = "En savoir plus";
+"8if-ot-VLT.title" = "Learn More";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "dZe-cr-5Lh"; */
+"dZe-cr-5Lh.title" = "Title";
 
 /* Class = "UINavigationItem"; title = "Learn"; ObjectID = "hgf-VA-hzt"; */
-"hgf-VA-hzt.title" = "En savoir plus";
+"hgf-VA-hzt.title" = "Learn";

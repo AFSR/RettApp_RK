@@ -1,12 +1,12 @@
 
 /* Class = "UINavigationItem"; title = "Tasks"; ObjectID = "1eh-0d-aD5"; */
-"1eh-0d-aD5.title" = "Tâches";
+"1eh-0d-aD5.title" = "Tasks";
 
 /* Class = "UILabel"; text = "Detail"; ObjectID = "O48-ce-eSH"; */
-"O48-ce-eSH.text" = "Détails";
+"O48-ce-eSH.text" = "Detail";
 
 /* Class = "UITabBarItem"; title = "Tasks"; ObjectID = "ZqQ-vi-q06"; */
-"ZqQ-vi-q06.title" = "Tâches";
+"ZqQ-vi-q06.title" = "Tasks";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "axX-1y-0zh"; */
-"axX-1y-0zh.text" = "Titre";
+"axX-1y-0zh.text" = "Title";
