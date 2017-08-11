@@ -38,12 +38,12 @@
 "Mail sent!" = "Mail envoyé!";
 "Error while sending the email! %@" = "Erreur lors de l'envoi du mail! %@";
 "No results to export!" = "Aucun resultat à exporter!";
-"Rett Syndrome" = "Rett Syndrome";
+"Rett Syndrome" = "Syndrome de Rett";
 
 
 "Uploading your consent..." = "l'autorisation de l'ajout de";
 "Ops, an error occurred..."= "Désolé, erreur est survenue...";
-"Signing up..." = "s'enregistrer...";
+"Signing up..." = "S'enregistrer...";
 "Signing in..." = "Connectez-vous...";
 
 "You can't share data with an Apple TV/Doctor without being logged! Please go to Profile tab and sign up or log in." = "Vous ne pouvez pas partager des données avec un Apple TV / Docteur sans être connecté! S'il vous plaît aller à onglet Profil et inscrivez-vous ou connectez-vous.";

@@ -157,6 +157,7 @@
 		2F4F90081F3E488F009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		2F4F90091F3E4890009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = View/Onboarding/fr.lproj/Password.strings; sourceTree = "<group>"; };
 		2F4F900A1F3E4890009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		2F4F900B1F3E48CF009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		35812B771BC6EB0700D4FB68 /* CSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSV.swift; path = Utils/CSV.swift; sourceTree = "<group>"; };
 		358824631BD8B35F00276C63 /* JBBarChartFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartFooterView.h; sourceTree = "<group>"; };
 		358824641BD8B35F00276C63 /* JBBarChartFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartFooterView.m; sourceTree = "<group>"; };
@@ -1234,6 +1235,7 @@
 			children = (
 				52EED4B71BBC49F80032B7DF /* en */,
 				52EED4B91BBC4A260032B7DF /* pt */,
+				2F4F900B1F3E48CF009852D0 /* fr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
