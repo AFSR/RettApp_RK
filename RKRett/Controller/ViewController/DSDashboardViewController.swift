@@ -207,7 +207,7 @@ extension DSDashboardViewController : UITableViewDataSource {
         return UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAtIndexPath indexPath: IndexPath) -> CGFloat {
+    @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if graphTypeForId(graphIdentifiers[indexPath.section]) == .Circular {
             return 265
         }

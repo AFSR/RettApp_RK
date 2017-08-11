@@ -33,7 +33,7 @@ open class CSV {
         let createHeader: ([String]) -> () = { head in
             self.header = head
         }
-        enumerateAsArray(block: createHeader, limitTo: 1, startAt: 0)
+        enumerateAsArray(createHeader, limitTo: 1, startAt: 0)
     }
     
     /// Load a CSV file
@@ -47,21 +47,21 @@ open class CSV {
         
         self.init(string: contents, delimiter: delimiter, loadColumns: loadColumns)
     }
-    
+   
     /// Load a CSV file from a URL
     ///
     /// url: url pointing to the file (will be passed to String(contentsOfURL:encoding:) to load)
     /// delimiter: character to split row and header fields by (default is ',')
     /// encoding: encoding used to read file (default is NSUTF8StringEncoding)
     /// loadColumns: whether to populate the columns dictionary (default is true)
-    public convenience init(url: URL, delimiter: Character = comma, encoding: String.Encoding = String.Encoding.utf8, loadColumns: Bool = true) throws {
-        let contents = try String(contentsOfURL: url as! String, encoding: encoding)
+    public convenience init(url: NSURL, delimiter: Character = comma, encoding: String.Encoding = String.Encoding.utf8, loadColumns: Bool = true) throws {
+        let contents = try String(contentsOf: url as URL, encoding: encoding)
         
         self.init(string: contents, delimiter: delimiter, loadColumns: loadColumns)
     }
     
     /// Turn the CSV data into NSData using a given encoding
-    open func dataUsingEncoding(_ encoding: String.Encoding) -> Data? {
-        return description.data(using: encoding) as! NSData as Data
+    public func dataUsingEncoding(encoding: String.Encoding) -> NSData? {
+        return description.data(using: encoding) as! NSData
     }
 }

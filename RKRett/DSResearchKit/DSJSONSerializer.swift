@@ -40,7 +40,7 @@ class DSJSONSerializer: DSReflect {
                 if let result: AnyObject = stepResult.results?.first{
                     let answerKey = getAnswerKeyForResult(result as! ORKResult)
                     assert(result.responds(NSSelectorFromString(answerKey)), "Result '\(NSStringFromClass(result.classForCoder))' doesn't respond to selector '\(answerKey)'")
-                    if let value: AnyObject = result.valueForKey(answerKey){
+                    if let value: AnyObject = result.value(forKey: answerKey){
                         if let key = result.identifier as String?{
                             dict.setValue(value, forKey: key)
                         }
@@ -167,8 +167,8 @@ class DSJSONSerializer: DSReflect {
     fileprivate static func dictionaryToJSONObject(_ dictionary:NSDictionary) -> AnyObject?{
         do {
             let data = try JSONSerialization.data(withJSONObject: dictionary, options: JSONSerialization.WritingOptions.prettyPrinted)
-            let json: AnyObject = try JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers])
-            return json
+            let json = try JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers]) as? [String:AnyObject]
+            return json as? AnyObject
         } catch let error as NSError {
             print(error.localizedDescription)
         }

@@ -94,7 +94,7 @@ class DSTaskListViewController: UIViewController{
             }
         }
         
-        createSideViewForCell(cell: cell, withColor: color)
+        createSideViewForCell(cell, withColor: color)
     }
     
     func moveSubviews(view:UIView, x:CGFloat, y:CGFloat){
@@ -202,7 +202,7 @@ extension DSTaskListViewController: UITableViewDelegate {
             if let path = Bundle.main.path(forResource: task!.file, ofType: "plist") {
                 if let taskDict = NSDictionary(contentsOfFile: path){
                     self.taskController.task = task
-                    self.taskController.createTaskWithDictionary(dictionary: taskDict, andParentViewController: self, willShowTask: true)
+                    self.taskController.createTaskWithDictionary(taskDict, andParentViewController: self, willShowTask: true)
                 }
             }
         }

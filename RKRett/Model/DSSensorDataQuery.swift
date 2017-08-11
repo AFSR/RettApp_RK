@@ -30,7 +30,7 @@ class DSSensorDataQueryStatusHistory: Object {
     dynamic var status = ""
     dynamic var timeStamp = ""
     dynamic var owner: [DSSensorDataQuery] {
-        return LinkingObjects(fromType: DSSensorDataQuery.self, property: "statusHistory")
+        return [LinkingObjects(fromType: DSSensorDataQuery.self, property: "statusHistory") as! DSSensorDataQuery]
     }
     
     func configure(_ status: String, timeStamp: String) -> DSSensorDataQueryStatusHistory{

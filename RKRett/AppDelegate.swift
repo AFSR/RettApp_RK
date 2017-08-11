@@ -60,7 +60,7 @@ class AppDelegate: UIResponder {
             gotoStoryboard(StoryboardName.Password.rawValue)
         } else {
             gotoStoryboard(StoryboardName.Consent.rawValue)
-            KeychainWrapper.removeObject(forKey: kDSPasswordKey as! String)
+            //KeychainWrapper.removeObject(forKey: kDSPasswordKey as! String)
         }
     }
     
@@ -72,8 +72,8 @@ class AppDelegate: UIResponder {
     }
     
     func configureAppearance(){
-        SVProgressHUD.setForegroundColor(.purpleColor())
-        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
+        SVProgressHUD.setForegroundColor(.purple)
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
         
         UIApplication.shared.statusBarStyle = .default
         

@@ -14,8 +14,8 @@ class DSLearnMoreSection: NSObject{
 
     init(fromDictionary dic:NSDictionary){
         super.init()
-        self.title = dic.objectForKey(PlistFile.Learn.Section.Title.rawValue) as! String
-        self.text = dic.objectForKey(PlistFile.Learn.Section.Text.rawValue) as! String
+        self.title = dic.object(forKey: PlistFile.Learn.Section.Title.rawValue) as! String
+        self.text = dic.object(forKey: PlistFile.Learn.Section.Text.rawValue) as! String
     }
     
 }

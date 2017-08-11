@@ -17,7 +17,7 @@ class DSStepCreator: NSObject {
     static let kDefaultStepIdentifier = "kDefaultStepIdentifier"
     static let kDefaultStepTitle = "kDefaultStepTitle"
     static let kDefaultStepAnswerUnit = "kDefaultStepAnswerUnit"
-    static var defaultStep:ORKQuestionStep = ORKQuestionStep(identifier: DSStepCreator.kDefaultStepIdentifier, title: DSStepCreator.kDefaultStepTitle, answer: ORKNumericAnswerFormat(style: ORKNumericAnswerStyle.Decimal, unit: DSStepCreator.kDefaultStepAnswerUnit))
+    static var defaultStep:ORKQuestionStep = ORKQuestionStep(identifier: DSStepCreator.kDefaultStepIdentifier, title: DSStepCreator.kDefaultStepTitle, answer: ORKNumericAnswerFormat(style: ORKNumericAnswerStyle.decimal, unit: DSStepCreator.kDefaultStepAnswerUnit))
     
     
     //MARK: - Crate Question Step from Dictionary
@@ -52,9 +52,9 @@ class DSStepCreator: NSObject {
         }
         
         if let optional = dictionary.object(forKey: PlistFile.Task.Question.Optional.rawValue) as? Bool{
-            step.optional = optional
+            step.isOptional = optional
         } else {
-            step.optional = false
+            step.isOptional = false
         }
         
         
@@ -72,7 +72,7 @@ class DSStepCreator: NSObject {
     fileprivate static func createNumericQuestionStepUsingDictionary(_ dictionary:NSDictionary) -> ORKQuestionStep{
         var step:ORKQuestionStep
         if let answerUnit = dictionary.object(forKey: PlistFile.Task.Question.AnswerUnit.rawValue) as? String{
-            let answerFormat:ORKNumericAnswerFormat = ORKNumericAnswerFormat(style: ORKNumericAnswerStyle.Decimal, unit: answerUnit)
+            let answerFormat:ORKNumericAnswerFormat = ORKNumericAnswerFormat(style: ORKNumericAnswerStyle.decimal, unit: answerUnit)
             
             
             if let answerRangeDic = dictionary.object(forKey: PlistFile.Task.Question.AnswerRange.Key.rawValue) as? NSDictionary,
@@ -177,14 +177,14 @@ class DSStepCreator: NSObject {
                     // - FIXME: Criar nova coluna de exclusividade
 //                    let isExclusive = textChoiceDic.objectForKey(PlistFile.Task.Question.TextChoice.Value.rawValue) as? Bool{
                 
-                        textChoice = ORKTextChoice(text: text, detailText: detailText, value: value/*, exclusive: isExclusive*/)
+                        textChoice = ORKTextChoice(text: text , value: value/*, exclusive: isExclusive*/)
                         textChoices.append(textChoice)
                 }else{
                     assertionFailure("Some value couldn't be unwrapped in DSStepCreator.createTextChoiceStepUsingDictionary")
                 }
             }
         }
-        let answerFormat = ORKTextChoiceAnswerFormat(style: ORKChoiceAnswerStyle.SingleChoice, textChoices: textChoices)
+        let answerFormat = ORKTextChoiceAnswerFormat(style: ORKChoiceAnswerStyle.singleChoice, textChoices: textChoices)
         
         let questionIdentifier = dictionary.object(forKey: PlistFile.Task.Question.QuestionID.rawValue) as! String
         let prompt = dictionary.object(forKey: PlistFile.Task.Question.Prompt.rawValue) as! String

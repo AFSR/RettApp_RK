@@ -49,7 +49,7 @@ class DSTaskScheduler: NSObject {
         
         self.registerTaskForScheduleWithId("", frequencyNumber: 2)
         
-        return fromDate.dateByAddingTimeInterval((60 * 60 * 24 * Double(daysToDay)) as NSTimeInterval);
+        return fromDate.addingTimeInterval((60 * 60 * 24 * Double(daysToDay)) as TimeInterval);
     }
    
 }

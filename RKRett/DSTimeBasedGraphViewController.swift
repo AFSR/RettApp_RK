@@ -39,7 +39,7 @@ class DSTimeBasedGraphViewController: UIViewController {
         if let task = dict {
             if let questions = (task["questions"] as? NSArray) {
                 for question in questions {
-                    if question["questionId"] as! String == self.questionId {
+               /*     if question["questionId"] as! [String] == self.questionId  {
                         if let answerRange = question["answerRange"] as? NSDictionary {
                             if let max = answerRange["maximum"] as? Double {
                                 self.maxValue = max
@@ -86,12 +86,12 @@ class DSTimeBasedGraphViewController: UIViewController {
                                     self.yHighlightedLines.addObjects(from: yhl as [AnyObject])
                                 }
                             }
-                        }
-                    }
+                        }*/
                 }
             }
         }
     }
+    
     
     fileprivate func colorFromDictionary(_ dict:NSDictionary) -> UIColor {
         
@@ -123,13 +123,13 @@ class DSTimeBasedGraphViewController: UIViewController {
         for obj in data {
             let jsonData = obj.json.data(using: String.Encoding.utf8)
             do {
-                json = try JSONSerialization.jsonObject(with: jsonData!, options: JSONSerialization.ReadingOptions.AllowFragments) as? [String : AnyObject]
+                json = try JSONSerialization.jsonObject(with: jsonData!, options: JSONSerialization.ReadingOptions.allowFragments) as AnyObject
             }catch let error as NSError {
                 print(error.localizedDescription)
             }
             
             if json != nil {
-                if let results = json!["results"] as? NSDictionary {
+                /*if let results = json!["results"] as? [NSDictionary] {
                     if let result = results[self.questionId] as? NSDictionary{
                         if let value = result["result"] {
                             if let dateString = result["date"] as? String {
@@ -138,7 +138,7 @@ class DSTimeBasedGraphViewController: UIViewController {
                             }
                         }
                     }
-                }
+                }*/
             }
         }
         

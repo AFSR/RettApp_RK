@@ -31,7 +31,7 @@ class DSNotification: NSObject {
         let frequencyStr = "daily"
         if let frequency = DSFrequencyType(rawValue: frequencyStr){
             let interval = getIntervalForFrequency(frequency)
-            not.repeatInterval = interval
+            not.repeatInterval = interval as! NSCalendar.Unit
 //            let fireDate = getNextFireDate()
             not.fireDate = Date()
         }
@@ -85,7 +85,7 @@ class DSNotification: NSObject {
 //        default:
 //            interval = 1
 //        }
-        return repeatInterval
+        return repeatInterval as! Calendar.Component
     }
     
     func nextDateForWeekday(_ desiredWeekday: Int, fromDate: Date) -> Date {
@@ -93,7 +93,7 @@ class DSNotification: NSObject {
         let difference = desiredWeekday-weekdayFromDate
         let daysToDay = (difference == 0 && Date().timeIntervalSinceNow < fromDate.timeIntervalSinceNow) ? 0 : (difference > 0 ? difference : difference+7)
         
-        return fromDate.dateByAddingTimeInterval((60 * 60 * 24 * Double(daysToDay)) as NSTimeInterval);
+        return fromDate.addingTimeInterval((60 * 60 * 24 * Double(daysToDay)) as TimeInterval);
     }
     
     func rescheduleAlerts(_ includingReminders: Bool = false) {
