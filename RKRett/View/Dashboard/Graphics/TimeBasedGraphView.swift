@@ -9,14 +9,14 @@
 import UIKit
 
 enum TimeUnit {
-    case Second, Minute, Hour, Day, Week, Month, Year
+    case second, minute, hour, day, week, month, year
 }
 
 class TimeBasedGraphView: StandardGraphView {
     
-    private var referenceDate = NSDate()
+    fileprivate var referenceDate = Date()
     
-    var timeUnit:TimeUnit = .Hour {
+    var timeUnit:TimeUnit = .hour {
         didSet{
             self.dateFormat = self.systemDateFormat()
             super.shouldUpdatePoints = true
@@ -31,54 +31,54 @@ class TimeBasedGraphView: StandardGraphView {
             }
         }
     }
-    private var dateFormatter = DateFormatter()
+    fileprivate var dateFormatter = DateFormatter()
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.dateFormatter.dateFormat = self.systemDateFormat()
     }
     
-    override func setXValuesRange(range: (min:Any, max:Any)) {
-        self.referenceDate = range.min as! NSDate
-        self.xValuesRange = (0.0, (range.max as! NSDate).timeIntervalSince(self.referenceDate as Date))
+    override func setXValuesRange(_ range: (min:Any, max:Any)) {
+        self.referenceDate = range.min as! Date
+        self.xValuesRange = (0.0, (range.max as! Date).timeIntervalSince(self.referenceDate as Date))
         print(self.xValuesRange.max)
     }
-    override func setPoints(points: [(Any, Any)]) {
+    override func setPoints(_ points: [(Any, Any)]) {
         self.points = points
         super.shouldUpdatePoints = true
         self.setNeedsDisplay()
     }
 
-    private func stringFromDate(date:NSDate) -> String {
+    fileprivate func stringFromDate(_ date:Date) -> String {
         return self.dateFormatter.string(from: date as Date)
     }
     
-    private func systemDateFormat() -> String {
+    fileprivate func systemDateFormat() -> String {
         switch self.timeUnit {
-        case .Second:
+        case .second:
             return "ss"
-        case .Minute:
+        case .minute:
             return "HH:mm"
-        case .Hour:
+        case .hour:
             return "HH:mm"
-        case .Day:
+        case .day:
             return "MMM dd"
-        case .Week:
+        case .week:
             return "'w'W, MMM"
-        case .Month:
+        case .month:
             return "MMM"
-        case .Year:
+        case .year:
             return "yyyy"
         }
     }
     
-    override func XValueForIndex(index: CGFloat) -> String {
+    override func XValueForIndex(_ index: CGFloat) -> String {
         let date = self.referenceDate.addingTimeInterval(Double(index*self.guidelinesSpacing/self.xScale))
-        return String(format: "%@", arguments: [self.stringFromDate(date: date)])
+        return String(format: "%@", arguments: [self.stringFromDate(date)])
     }
     
-    override func pointForObject(object: (date: Any, value: Any)) -> CGPoint {
-        let x = CGFloat((object.date as! NSDate).timeIntervalSince(self.referenceDate as Date))
+    override func pointForObject(_ object: (date: Any, value: Any)) -> CGPoint {
+        let x = CGFloat((object.date as! Date).timeIntervalSince(self.referenceDate as Date))
         let y = CGFloat(object.value as! Double)
         return CGPoint(x: x*self.xScale, y: self.getGraphHeight() - (y*self.yScale))
     }

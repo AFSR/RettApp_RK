@@ -25,28 +25,28 @@ class DSAuthorizationViewController: UIViewController {
     @IBOutlet weak var btnNotifications: UIButton!
     
     var isHealthKitAuthorized = false
-    let healthManager = HealthManager()
+    var healthManager = HealthManager()
     var parentController: DSOnboardingViewController?
     
     //MARK: IBActions
-    @IBAction func doneButton(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func doneButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
         self.parentController?.proceedToPassword()
     }
     
-    @IBAction func healthKit(sender: AnyObject) {
+    @IBAction func healthKit(_ sender: AnyObject) {
         self.authorizeHealthKit()
         self.configureButtons()
     }
     
-    @IBAction func motion(sender: AnyObject) {
-        CMSensorRecorder().recordAccelerometerFor(100)
+    @IBAction func motion(_ sender: AnyObject) {
+        CMSensorRecorder().recordAccelerometer(forDuration: 100)
         if(!alreadyParticipating){
             showSettingsAlert()
         }
     }
     
-    @IBAction func notifications(sender: AnyObject) {
+    @IBAction func notifications(_ sender: AnyObject) {
         self.registerForPushForiOS7AndAbove()
         if(!alreadyParticipating){
             showSettingsAlert()
@@ -56,25 +56,25 @@ class DSAuthorizationViewController: UIViewController {
     //MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "configureButtons", name: UIApplicationWillEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(DSAuthorizationViewController.configureButtons), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         
-        NSBundle.mainBundle().loadNibNamed("DSAuthorizationViewController", owner: self, options: nil)
+        Bundle.main.loadNibNamed("DSAuthorizationViewController", owner: self, options: nil)
         for button in buttons{
             button.layer.borderWidth = 1
             button.layer.cornerRadius = 5
         }
         self.configureButtons()
-        let application = UIApplication.sharedApplication()
-        application.statusBarStyle = UIStatusBarStyle.Default
+        let application = UIApplication.shared
+        application.statusBarStyle = UIStatusBarStyle.default
         
         self.lblAuthorizations.text = NSLocalizedString("Authorizations", comment: "")
         self.lblHealthKit.text = NSLocalizedString("HealthKit Authorization", comment: "")
         self.lblMotion.text = NSLocalizedString("Motion Authorization", comment: "")
         self.lblNotifications.text = NSLocalizedString("Notifications Authorization", comment: "")
         
-        self.btnHealthKit.setTitle(NSLocalizedString("Authorize HealthKit", comment: ""), forState: UIControlState.Normal)
-        self.btnMotion.setTitle(NSLocalizedString("Authorize Motion", comment: ""), forState: UIControlState.Normal)
-        self.btnNotifications.setTitle(NSLocalizedString("Authorize Notifications", comment: ""), forState: UIControlState.Normal)
+        self.btnHealthKit.setTitle(NSLocalizedString("Authorize HealthKit", comment: ""), for: UIControlState.normal)
+        self.btnMotion.setTitle(NSLocalizedString("Authorize Motion", comment: ""), for: UIControlState.normal)
+        self.btnNotifications.setTitle(NSLocalizedString("Authorize Notifications", comment: ""), for: UIControlState.normal)
         
     }
     
@@ -82,16 +82,17 @@ class DSAuthorizationViewController: UIViewController {
         super.awakeFromNib()
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
+    
     
     //MARK: Internal functioons
     func configureButtons(){
         
         //Configure healthKit button
-        healthManager.readProfile({ (success: Bool, error: NSError?) -> Void in
+        /* healthManager.readProfile({ (success: Bool, error: NSError?) -> Void in
             if error == nil{
                 do{
                     let _ = try self.healthManager.healthKitStore.dateOfBirth()
@@ -110,19 +111,22 @@ class DSAuthorizationViewController: UIViewController {
                 print(error)
             }
         })
+        */
+        healthManager.readProfile()
         
+       
         //Configure motion button
-        buttons[1].enabled = !CMSensorRecorder.isAuthorizedForRecording()
+        buttons[1].isEnabled = !CMSensorRecorder.isAuthorizedForRecording()
         
         //Configure notificationsButton
-        buttons[2].enabled = !UIApplication.sharedApplication().isRegisteredForRemoteNotifications()
+        buttons[2].isEnabled = !UIApplication.shared.isRegisteredForRemoteNotifications
     }
     
     func registerForPushForiOS7AndAbove(){
-        UIApplication.sharedApplication()
-        let application = UIApplication.sharedApplication()
-        if application.respondsToSelector(Selector("registerUserNotificationSettings:")) {
-            let notifSettings = UIUserNotificationSettings(forTypes: [.Sound, .Alert, .Badge], categories: nil)
+        UIApplication.shared
+        let application = UIApplication.shared
+        if application.responds(to: Selector("registerUserNotificationSettings:")) {
+            let notifSettings = UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil)
             application.registerUserNotificationSettings(notifSettings)
             application.registerForRemoteNotifications()
         }else{
@@ -136,7 +140,7 @@ class DSAuthorizationViewController: UIViewController {
             if error == nil {
                 print("HealthKit authorization received.")
                 if(!alreadyParticipating){
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    DispatchQueue.main.async(execute: { () -> Void in
                         self.showHealthKitAlert()
                     })
                 }
@@ -151,26 +155,26 @@ class DSAuthorizationViewController: UIViewController {
         let alertController: UIAlertController?
         let title = NSLocalizedString("You should change this permission on settings", comment: "")
         let msg = NSLocalizedString("Please, go to the Settings app and change the permissions for the app", comment: "")
-        alertController = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.Alert)
-        let gotoSettingsAction = UIAlertAction(title: NSLocalizedString("Settings", comment: ""), style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+        alertController = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        let gotoSettingsAction = UIAlertAction(title: NSLocalizedString("Settings", comment: ""), style: UIAlertActionStyle.default) { (UIAlertAction) -> Void in
             
-            UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
+            UIApplication.shared.openURL(NSURL(string: UIApplicationOpenSettingsURLString)! as URL)
         }
-        let action = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController!.addAction(gotoSettingsAction)
         alertController!.addAction(action)
         
-        self.presentViewController(alertController!, animated: true, completion: nil)
+        self.present(alertController!, animated: true, completion: nil)
     }
     
     func showHealthKitAlert(){
         let alertController: UIAlertController?
         let title = NSLocalizedString("You changed HealthKit permissions", comment: "")
         let msg = NSLocalizedString("Please, go to the Health App and give permissions back manually", comment: "")
-        alertController = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.Alert)
-        let action = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+        alertController = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController!.addAction(action)
         
-        self.presentViewController(alertController!, animated: true, completion: nil)
+        self.present(alertController!, animated: true, completion: nil)
     }
 }

@@ -78,7 +78,7 @@ extension DSTaskAnswerListViewController: UITableViewDelegate {
 // MARK: - UITableViewDataSource
 extension DSTaskAnswerListViewController: UITableViewDataSource {
     
-    private func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    internal func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if (section == 0) {
             return UIApplication.shared.statusBarFrame.size.height
         }else{
@@ -86,7 +86,7 @@ extension DSTaskAnswerListViewController: UITableViewDataSource {
         }
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return (self.taskAnswers == nil) ? 0 : self.taskAnswers.count
     }
     

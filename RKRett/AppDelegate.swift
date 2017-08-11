@@ -22,35 +22,35 @@ class AppDelegate: UIResponder {
     
     let appTasks : [DSTask] = DSTaskController.loadTasks()
     
-    func createNotificationForDay(day: Int, hour: Int, minute: Int) -> UILocalNotification{
-        let calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)
-        let components = NSDateComponents()
+    func createNotificationForDay(_ day: Int, hour: Int, minute: Int) -> UILocalNotification{
+        let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
+        var components = DateComponents()
         components.day = day
-        components.month = NSDate().month
-        components.year = NSDate().year
+        components.month = Date().month
+        components.year = Date().year
         components.hour = hour
         components.minute = minute
         components.second = 0
-        let date = calendar?.dateFromComponents(components)
+        let date = calendar.date(from: components)
         let localNotification = UILocalNotification()
         localNotification.alertAction = NSLocalizedString("Reminder", comment: "")
         localNotification.alertBody = NSLocalizedString("You have pending tasks, please check the tasks tab", comment: "")
         localNotification.fireDate = date
-        localNotification.repeatInterval = NSCalendarUnit.Day
+        localNotification.repeatInterval = NSCalendar.Unit.day
         return localNotification
     }
     
     func configureNotifications(){
         if !isAllTasksCompleted{
-            let notificationExist = (UIApplication.sharedApplication().scheduledLocalNotifications!.filter({ $0.fireDate!.isToday() }).count > 0)
+            let notificationExist = (UIApplication.shared.scheduledLocalNotifications!.filter({ $0.fireDate!.isToday() }).count > 0)
             if !notificationExist{
                 //Create notification for today if its not created
-                UIApplication.sharedApplication().scheduleLocalNotification(createNotificationForDay(NSDate().day, hour: 14, minute: 30))
+                UIApplication.shared.scheduleLocalNotification(createNotificationForDay(Date().day, hour: 14, minute: 30))
             }
         }else{
             //Create notification for tomorrow
-            UIApplication.sharedApplication().cancelAllLocalNotifications()
-            UIApplication.sharedApplication().scheduleLocalNotification(createNotificationForDay(NSDate().day + 1, hour: 14, minute: 30))
+            UIApplication.shared.cancelAllLocalNotifications()
+            UIApplication.shared.scheduleLocalNotification(createNotificationForDay(Date().day + 1, hour: 14, minute: 30))
         }
         
     }
@@ -60,11 +60,11 @@ class AppDelegate: UIResponder {
             gotoStoryboard(StoryboardName.Password.rawValue)
         } else {
             gotoStoryboard(StoryboardName.Consent.rawValue)
-            KeychainWrapper.removeObjectForKey(kDSPasswordKey)
+            KeychainWrapper.removeObject(forKey: kDSPasswordKey as! String)
         }
     }
     
-    func gotoStoryboard(initialStoryboard:String){
+    func gotoStoryboard(_ initialStoryboard:String){
         let sb = UIStoryboard(name: initialStoryboard, bundle: nil)
         let vc = sb.instantiateInitialViewController()
         window?.rootViewController = vc
@@ -75,17 +75,17 @@ class AppDelegate: UIResponder {
         SVProgressHUD.setForegroundColor(.purpleColor())
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.Black)
         
-        UIApplication.sharedApplication().statusBarStyle = .Default
+        UIApplication.shared.statusBarStyle = .default
         
-        UINavigationBar.appearance().barTintColor = UIColor.whiteColor()
-        UINavigationBar.appearance().tintColor = .purpleColor()
-        UINavigationBar.appearance().barStyle = UIBarStyle.Default
-        UINavigationBar.appearance().translucent = true
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purpleColor()]
+        UINavigationBar.appearance().barTintColor = UIColor.white
+        UINavigationBar.appearance().tintColor = .purple
+        UINavigationBar.appearance().barStyle = UIBarStyle.default
+        UINavigationBar.appearance().isTranslucent = true
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
         
-        UILabel.appearance().tintColor = .purpleColor()
-        UIButton.appearance().tintColor = .purpleColor()
-        UITabBar.appearance().tintColor = .purpleColor()
+        UILabel.appearance().tintColor = .purple
+        UIButton.appearance().tintColor = .purple
+        UITabBar.appearance().tintColor = .purple
     }
     
     //Should be called on the first viewController that appear
@@ -99,10 +99,10 @@ class AppDelegate: UIResponder {
                 2:["learn", "tabSelectedLearn"]
             ]
             
-            for (i, item) in tab.items!.enumerate(){
+            for (i, item) in tab.items!.enumerated(){
                 if let imgsName = tabBarImages[i]{
-                    let img = UIImage(named: imgsName[0])?.imageWithRenderingMode(.AlwaysOriginal)
-                    let selectedImg = UIImage(named: imgsName[1])?.imageWithRenderingMode(.AlwaysOriginal)
+                    let img = UIImage(named: imgsName[0])?.withRenderingMode(.alwaysOriginal)
+                    let selectedImg = UIImage(named: imgsName[1])?.withRenderingMode(.alwaysOriginal)
                     item.image = img
                     item.selectedImage = selectedImg
                 }
@@ -127,9 +127,9 @@ class AppDelegate: UIResponder {
 //MARK: UIApplicationDelegate
 extension AppDelegate: UIApplicationDelegate{
     
-    func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         if let tab = window?.rootViewController as? UITabBarController{
-            tab.selectedIndex = TabBarItemIndexes.Tasks.rawValue
+            tab.selectedIndex = TabBarItemIndexes.tasks.rawValue
             print((tab.selectedViewController as! UINavigationController).topViewController)
             if let vc = ((tab.selectedViewController as! UINavigationController).topViewController) as? DSTaskListViewController{
                 vc.restoreUserActivityState(userActivity)
@@ -139,34 +139,34 @@ extension AppDelegate: UIApplicationDelegate{
         return false
     }
     
-    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
         print(notification.userInfo)
     }
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         configureAppearance()
         initApp()
         return true
     }
     
-    func applicationWillResignActive(application: UIApplication) {
+    func applicationWillResignActive(_ application: UIApplication) {
         let whiteView = UIView(frame: (self.window?.frame)!)
-        whiteView.backgroundColor = UIColor.whiteColor()
+        whiteView.backgroundColor = UIColor.white
         whiteView.tag = kTagForViewDidEnterBackground
-        UIApplication.sharedApplication().delegate?.window??.addSubview(whiteView)
+        UIApplication.shared.delegate?.window??.addSubview(whiteView)
         
         let ribbon = UIImage(named: "RettLogo")
         let ribbonView = UIImageView(image: ribbon)
-        ribbonView.frame = CGRectMake((whiteView.frame.width/2) - 50, (whiteView.frame.height/2) - 100, 100, 200)
-        ribbonView.contentMode = .ScaleAspectFit
+        ribbonView.frame = CGRect(x: (whiteView.frame.width/2) - 50, y: (whiteView.frame.height/2) - 100, width: 100, height: 200)
+        ribbonView.contentMode = .scaleAspectFit
         
         whiteView.addSubview(ribbonView)
     }
     
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         for view in (window?.subviews)!{
             if(view.tag == kTagForViewDidEnterBackground){
-                UIView.animateWithDuration(0.1, animations: { () -> Void in
+                UIView.animate(withDuration: 0.1, animations: { () -> Void in
                     view.alpha = 0
                     }, completion: { (success) -> Void in
                         view.removeFromSuperview()
@@ -176,7 +176,7 @@ extension AppDelegate: UIApplicationDelegate{
         }
     }
     
-    func applicationSignificantTimeChange(application: UIApplication) {
+    func applicationSignificantTimeChange(_ application: UIApplication) {
         DSUtils.resetUserDefaults()
     }
 }

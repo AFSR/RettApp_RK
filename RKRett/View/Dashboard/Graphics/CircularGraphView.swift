@@ -10,16 +10,16 @@ import UIKit
 
 class CircularGraphView: UIView {
     
-    private var backgroundLayer = CAShapeLayer()
-    private var percentageLayer = CAShapeLayer()
-    private var totalLayer = CAShapeLayer()
+    fileprivate var backgroundLayer = CAShapeLayer()
+    fileprivate var percentageLayer = CAShapeLayer()
+    fileprivate var totalLayer = CAShapeLayer()
     
-    private var imageLayer = CALayer()
-    private var bImageLayer = CALayer()
+    fileprivate var imageLayer = CALayer()
+    fileprivate var bImageLayer = CALayer()
     
-    private var textLayer = CATextLayer()
+    fileprivate var textLayer = CATextLayer()
     
-    private var percentage = 0.0
+    fileprivate var percentage = 0.0
     
     var backgroundImage:CGImage? {
         didSet {
@@ -87,15 +87,15 @@ class CircularGraphView: UIView {
     
     override func didMoveToWindow() {
         super.didMoveToWindow()
-        self.setPercentage(value: 0, animated: false)
-        self.setPercentage(value: self.percentage, animated: true)
+        self.setPercentage(0, animated: false)
+        self.setPercentage(self.percentage, animated: true)
     }
     
-    private func deg2Rad(degree:Double) -> CGFloat {
+    fileprivate func deg2Rad(_ degree:Double) -> CGFloat {
         return CGFloat(degree * (.pi/180))
     }
     
-    private func updateLayers(){
+    fileprivate func updateLayers(){
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         self.setBackgroundLayer()
@@ -106,7 +106,7 @@ class CircularGraphView: UIView {
         CATransaction.commit()
     }
     
-    private func setImageLayers(){
+    fileprivate func setImageLayers(){
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         self.imageLayer.frame = self.bounds
@@ -129,7 +129,7 @@ class CircularGraphView: UIView {
         
     }
     
-    private func setTextLayer(){
+    fileprivate func setTextLayer(){
         
         self.textLayer.frame = CGRect(x: 0, y: bounds.height/2 - radius*0.3, width: bounds.width, height: (radius * 2) * 0.3)
         self.textLayer.alignmentMode = "center"
@@ -146,14 +146,14 @@ class CircularGraphView: UIView {
         self.textLayer.string = val
     }
     
-    private func setBackgroundLayer(){
+    fileprivate func setBackgroundLayer(){
         self.backgroundLayer.fillColor = self.backgroundGraphColor
-        self.backgroundLayer.path = self.makeArc(center: CGPoint(x: bounds.midX, y: bounds.midY), radius: self.radius)
+        self.backgroundLayer.path = self.makeArc(CGPoint(x: bounds.midX, y: bounds.midY), radius: self.radius)
     }
     
-    private func setTotalLayer(){
+    fileprivate func setTotalLayer(){
         
-        let path = self.makeArc(center: CGPoint(x: bounds.midX, y: bounds.midY),radius: self.radius - (self.lineWidth/2))
+        let path = self.makeArc(CGPoint(x: bounds.midX, y: bounds.midY),radius: self.radius - (self.lineWidth/2))
         
         self.totalLayer.strokeColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.3).cgColor
         self.totalLayer.fillColor = UIColor.clear.cgColor
@@ -163,9 +163,9 @@ class CircularGraphView: UIView {
         
     }
     
-    private func setPercentageLayer(){
+    fileprivate func setPercentageLayer(){
         
-        let path = self.makeArc(center: CGPoint(x: bounds.midX, y: bounds.midY), radius: radius - (lineWidth/2))
+        let path = self.makeArc(CGPoint(x: bounds.midX, y: bounds.midY), radius: radius - (lineWidth/2))
         
         self.percentageLayer.strokeColor = self.graphColor
         self.percentageLayer.fillColor = UIColor.clear.cgColor
@@ -175,7 +175,7 @@ class CircularGraphView: UIView {
         
     }
     
-    private func updatePercentage(animated:Bool) {
+    fileprivate func updatePercentage(_ animated:Bool) {
         if animated {
             
             CATransaction.begin()
@@ -207,11 +207,11 @@ class CircularGraphView: UIView {
         CATransaction.commit()
     }
     
-    private func makeArc(center:CGPoint, radius:CGFloat) -> CGPath {
+    fileprivate func makeArc(_ center:CGPoint, radius:CGFloat) -> CGPath {
         
-        let path = UIBezierPath(arcCenter: .zero, radius: radius, startAngle: deg2Rad(degree: 0), endAngle: deg2Rad(degree: 360), clockwise: true)
+        let path = UIBezierPath(arcCenter: .zero, radius: radius, startAngle: deg2Rad(0), endAngle: deg2Rad(360), clockwise: true)
         
-        let rot = CGAffineTransform(rotationAngle: self.deg2Rad(degree: 270))
+        let rot = CGAffineTransform(rotationAngle: self.deg2Rad(270))
         let tra = CGAffineTransform(translationX: center.x, y: center.y)
         path.apply(rot)
         path.apply(tra)
@@ -225,10 +225,10 @@ class CircularGraphView: UIView {
         self.updateLayers()
     }
     
-    func setPercentage(value:Double, animated:Bool) {
+    func setPercentage(_ value:Double, animated:Bool) {
         if (value >= 0 && value <= 1) {
             self.percentage = value
-            self.updatePercentage(animated: animated)
+            self.updatePercentage(animated)
         }
     }
 }

@@ -21,7 +21,7 @@ class DSElegibilityController: NSObject {
     var elegibilityViewController: ORKTaskViewController!
     
     /***/
-    func createTaskWithParentViewController(parentViewController:DSOnboardingViewController, willShowTask showTask:Bool = true){
+    func createTaskWithParentViewController(_ parentViewController:DSOnboardingViewController, willShowTask showTask:Bool = true){
         self.elegibilityViewController = ORKTaskViewController(task:DSElegibilityTask, taskRun: nil)
         self.elegibilityViewController.delegate = self
         self.parentViewController = parentViewController
@@ -55,10 +55,10 @@ extension DSElegibilityController: ORKTaskViewControllerDelegate{
     }
 
     
-    func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: NSError?) {
         switch(reason){
         case .completed:
-            if(self.isUserElegible(taskViewController: taskViewController)){
+            if(self.isUserElegible(taskViewController)){
                 self.elegibilityViewController.dismiss(animated: true, completion: nil)
                 self.parentViewController.proceedToConsent()
             }else{
@@ -79,7 +79,7 @@ extension DSElegibilityController: ORKTaskViewControllerDelegate{
         
         - returns: Bool value indicating if the user is eligible or not
         */
-        func isUserElegible(taskViewController: ORKTaskViewController) -> Bool {
+        func isUserElegible(_ taskViewController: ORKTaskViewController) -> Bool {
             if let path = Bundle.main.path(forResource: kDSElegibilityPlist, ofType: "plist") {
                 if let plistDictionary = NSDictionary(contentsOfFile: path){
                     if let questionsArray = plistDictionary.value(forKey: "question") as? [AnyObject] {

@@ -58,7 +58,7 @@ class DSStartViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
     
-    @IBAction func backFromConsent(segue: UIStoryboardSegue) {
+    @IBAction func backFromConsent(_ segue: UIStoryboardSegue) {
         
     }
     
@@ -77,12 +77,12 @@ class DSStartViewController: UIViewController {
         secondCard.backgroundColor = UIColor.white
         
         var title = "<br>" + NSLocalizedString("About Rett Syndrome", comment:"")
-        title = DSUtils.applyStyleDictionary(dictionary: titleStyle as NSDictionary, onTag: "h1", withText: title)
+        title = DSUtils.applyStyleDictionary(titleStyle as NSDictionary, onTag: "h1", withText: title)
         
         var text = NSLocalizedString("Rett Syndrome About", comment: "")
-        text = DSUtils.applyStyleDictionary(dictionary: textStyle as NSDictionary, onTag: "p", withText: text)
+        text = DSUtils.applyStyleDictionary(textStyle as NSDictionary, onTag: "p", withText: text)
         
-        let body = DSUtils.applyStyleDictionary(dictionary: NSDictionary(), onTag: "body", withText: title + text)
+        let body = DSUtils.applyStyleDictionary(NSDictionary(), onTag: "body", withText: title + text)
         
         secondCard.loadHTMLString(body, baseURL: nil)
         
@@ -90,12 +90,12 @@ class DSStartViewController: UIViewController {
         thirdCard.backgroundColor = UIColor.white
         
         var title2 = "<br>"+NSLocalizedString("About Research Kit", comment:"")
-        title2 = DSUtils.applyStyleDictionary(dictionary: titleStyle as NSDictionary, onTag: "h1", withText: title2)
+        title2 = DSUtils.applyStyleDictionary(titleStyle as NSDictionary, onTag: "h1", withText: title2)
         
         var text2 = NSLocalizedString("Research Kit About", comment: "")
-        text2 = DSUtils.applyStyleDictionary(dictionary: textStyle as NSDictionary, onTag: "p", withText: text2)
+        text2 = DSUtils.applyStyleDictionary(textStyle as NSDictionary, onTag: "p", withText: text2)
         
-        let body2 = DSUtils.applyStyleDictionary(dictionary: NSDictionary(), onTag: "body", withText: title2 + text2)
+        let body2 = DSUtils.applyStyleDictionary(NSDictionary(), onTag: "body", withText: title2 + text2)
         
         thirdCard.loadHTMLString(body2, baseURL: nil)
 
@@ -105,7 +105,7 @@ class DSStartViewController: UIViewController {
         scrollView.contentInset = UIEdgeInsets.zero
     }
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView){
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView){
         // Test the offset and calculate the current page after scrolling ends
         let pageWidth:CGFloat = scrollView.frame.width
         let currentPage:CGFloat = floor((scrollView.contentOffset.x-pageWidth/2)/pageWidth)+1

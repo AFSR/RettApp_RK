@@ -11,44 +11,44 @@ import RealmSwift
 
 class DSBloodType: Object {
     
-    dynamic var bloodType:HKBloodType = .NotSet {
+    dynamic var bloodType:HKBloodType = .notSet {
         didSet{
             var bloodTypeString = ""
             switch(bloodType){
-            case .NotSet:
+            case .notSet:
                 bloodTypeString = ""
                 break
                 
-            case .APositive:
+            case .aPositive:
                 bloodTypeString = "A+"
                 break
                 
-            case .ANegative:
+            case .aNegative:
                 bloodTypeString = "A-"
                 break
                 
-            case .BPositive:
-                bloodTypeString = "A+"
+            case .bPositive:
+                bloodTypeString = "B+"
                 break
                 
-            case .BNegative:
-                bloodTypeString = "A+"
+            case .bNegative:
+                bloodTypeString = "B-"
                 break
                 
-            case .ABPositive:
-                bloodTypeString = "A+"
+            case .abPositive:
+                bloodTypeString = "AB+"
                 break
                 
-            case .ABNegative:
-                bloodTypeString = "A+"
+            case .abNegative:
+                bloodTypeString = "AB-"
                 break
                 
-            case .OPositive:
-                bloodTypeString = "A+"
+            case .oPositive:
+                bloodTypeString = "O+"
                 break
                 
-            case .ONegative:
-                bloodTypeString = "A+"
+            case .oNegative:
+                bloodTypeString = "O-"
                 break
                 
             }

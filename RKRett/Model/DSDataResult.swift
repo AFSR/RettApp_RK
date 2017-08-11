@@ -11,6 +11,6 @@ import ResearchKit
 
 class DSDataResult: ORKResult {
     
-    var data:NSData!
+    var data:Data!
    
 }

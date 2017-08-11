@@ -29,23 +29,23 @@ class DSTaskScheduler: NSObject {
     
     - returns: `Bool` that represent if the registering succeded or not
     */
-    func registerTaskForScheduleWithId(id:String, frequencyNumber:NSNumber){
+    func registerTaskForScheduleWithId(_ id:String, frequencyNumber:NSNumber){
         
     }
     
-    func registerTaskForScheduleWithId(id:String, onWeekDays weekDays:[Int]){
+    func registerTaskForScheduleWithId(_ id:String, onWeekDays weekDays:[Int]){
         let kNotificationsDictionary = "kNotificationsDictionary"
-        var dates = [NSDate]()
+        var dates = [Date]()
         for weekDay in weekDays{
-            dates += [nextDateForWeekday(weekDay, fromDate: NSDate())]
+            dates += [nextDateForWeekday(weekDay, fromDate: Date())]
         }
-        NSUserDefaults.standardUserDefaults().setObject(["taskId":id, "dates":dates], forKey: kNotificationsDictionary)
+        UserDefaults.standard.set(["taskId":id, "dates":dates], forKey: kNotificationsDictionary)
     }
     
-    func nextDateForWeekday(desiredWeekday: Int, fromDate: NSDate) -> NSDate {
+    func nextDateForWeekday(_ desiredWeekday: Int, fromDate: Date) -> Date {
         let weekdayFromDate = fromDate.weekDay
         let difference = desiredWeekday-weekdayFromDate
-        let daysToDay = (difference == 0 && NSDate().timeIntervalSinceNow < fromDate.timeIntervalSinceNow) ? 0 : (difference > 0 ? difference : difference+7)
+        let daysToDay = (difference == 0 && Date().timeIntervalSinceNow < fromDate.timeIntervalSinceNow) ? 0 : (difference > 0 ? difference : difference+7)
         
         self.registerTaskForScheduleWithId("", frequencyNumber: 2)
         

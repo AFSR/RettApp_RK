@@ -16,23 +16,23 @@ class DSTimeBasedGraphViewController: UIViewController {
     var questionId = ""
     var graphTitle = ""
     var graphSubtitle = ""
-    private var timeUnit = TimeUnit.Hour
-    private var color = UIColor.blackColor()
-    private var points = [(Any, Any)]()
-    private var data:Results<DSTaskAnswerRealm>!
-    private var yHighlightedLines = NSMutableArray()
-    private var maxValue = 0.0
-    private var minValue = 0.0
+    fileprivate var timeUnit = TimeUnit.hour
+    fileprivate var color = UIColor.black
+    fileprivate var points = [(Any, Any)]()
+    fileprivate var data:Results<DSTaskAnswerRealm>!
+    fileprivate var yHighlightedLines = NSMutableArray()
+    fileprivate var maxValue = 0.0
+    fileprivate var minValue = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let cell = (NSBundle.mainBundle().loadNibNamed("TimeBasedGraphCell", owner: self, options: nil) as NSArray).objectAtIndex(0) as! TimeBasedGraphCell
+        let cell = (Bundle.main.loadNibNamed("TimeBasedGraphCell", owner: self, options: nil) as! NSArray).object(at: 0) as! TimeBasedGraphCell
         self.view = cell
     }
     
     func loadPlistData(){
         var dict:NSDictionary?
-        if let path = NSBundle.mainBundle().pathForResource(self.taskId, ofType: "plist") {
+        if let path = Bundle.main.path(forResource: self.taskId, ofType: "plist") {
             dict = NSDictionary(contentsOfFile: path)
         }
         
@@ -52,19 +52,19 @@ class DSTimeBasedGraphViewController: UIViewController {
                             if let timeUnit = (dashboard["timeUnit"] as? String) {
                                 switch (timeUnit) {
                                 case "Second" :
-                                    self.timeUnit = .Second
+                                    self.timeUnit = .second
                                 case "Minute" :
-                                    self.timeUnit = .Minute
+                                    self.timeUnit = .minute
                                 case "Hour" :
-                                    self.timeUnit = .Hour
+                                    self.timeUnit = .hour
                                 case "Day" :
-                                    self.timeUnit = .Day
+                                    self.timeUnit = .day
                                 case "Week" :
-                                    self.timeUnit = .Week
+                                    self.timeUnit = .week
                                 case "Month" :
-                                    self.timeUnit = .Month
+                                    self.timeUnit = .month
                                 case "Year" :
-                                    self.timeUnit = .Year
+                                    self.timeUnit = .year
                                 default:
                                     break
                                 }
@@ -83,7 +83,7 @@ class DSTimeBasedGraphViewController: UIViewController {
 //                                    yHighlightedLines.addObjectsFromArray(yhl as [AnyObject])
 //                                }
                                 if let yhl = (highlightedLines["y"] as? NSArray) {
-                                    self.yHighlightedLines.addObjectsFromArray(yhl as [AnyObject])
+                                    self.yHighlightedLines.addObjects(from: yhl as [AnyObject])
                                 }
                             }
                         }
@@ -93,7 +93,7 @@ class DSTimeBasedGraphViewController: UIViewController {
         }
     }
     
-    private func colorFromDictionary(dict:NSDictionary) -> UIColor {
+    fileprivate func colorFromDictionary(_ dict:NSDictionary) -> UIColor {
         
         let r = CGFloat(dict["red"] as! NSNumber)
         let g = CGFloat(dict["green"] as! NSNumber)
@@ -121,9 +121,9 @@ class DSTimeBasedGraphViewController: UIViewController {
         var unorderedPoints = [(Any, Any)]()
         
         for obj in data {
-            let jsonData = obj.json.dataUsingEncoding(NSUTF8StringEncoding)
+            let jsonData = obj.json.data(using: String.Encoding.utf8)
             do {
-                json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.AllowFragments)
+                json = try JSONSerialization.jsonObject(with: jsonData!, options: JSONSerialization.ReadingOptions.AllowFragments) as? [String : AnyObject]
             }catch let error as NSError {
                 print(error.localizedDescription)
             }
@@ -148,7 +148,7 @@ class DSTimeBasedGraphViewController: UIViewController {
         
         print("\(self.taskId) - \(self.questionId)")
         
-        unorderedPoints.sortInPlace({($0.0 as! NSDate).timeIntervalSinceDate($1.0 as! NSDate) < 0})
+        unorderedPoints.sort(by: {($0.0 as! Date).timeIntervalSince($1.0 as! Date) < 0})
         
         self.points = unorderedPoints
     
@@ -165,8 +165,8 @@ class DSTimeBasedGraphViewController: UIViewController {
 //            let totalTime = CGFloat(lastDate.timeIntervalSinceDate(firstDate)/cell.graphView.getTimeMultiplier())
 //            xScale = graphWidth/totalTime
             let point = self.points[0] as (date:Any, value:Any)
-            let min = point.date as! NSDate
-            let max = NSDate()
+            let min = point.date as! Date
+            let max = Date()
             cell.graphView.setXValuesRange((min, max))
 //            print(xScale)
         }
@@ -176,12 +176,12 @@ class DSTimeBasedGraphViewController: UIViewController {
         
     }
     
-    func showDataFrom(initialDate:NSDate ,toDate finalDate:NSDate){
+    func showDataFrom(_ initialDate:Date ,toDate finalDate:Date){
         
     }
     
     func updateView() {
-        if self.view.isKindOfClass(TimeBasedGraphCell) {
+        if self.view.isKind(of: TimeBasedGraphCell.self) {
             let cell = (self.view as! TimeBasedGraphCell)
             cell.lblTitle.text = self.graphTitle
             cell.lblSubtitle.text = self.graphSubtitle
@@ -198,7 +198,7 @@ class DSTimeBasedGraphViewController: UIViewController {
     }
     
     func updatePoints() {
-        if self.view.isKindOfClass(TimeBasedGraphCell) {
+        if self.view.isKind(of: TimeBasedGraphCell.self) {
             let cell = (self.view as! TimeBasedGraphCell)
             cell.graphView.setPoints(self.points)
         }

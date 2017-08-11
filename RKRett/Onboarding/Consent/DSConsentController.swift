@@ -39,7 +39,7 @@ class DSConsentController: NSObject {
     
     - returns: `Void`
     */
-    func createTaskWithParentViewController(parentViewController:DSOnboardingViewController, willShowTask showTask:Bool = true){
+    func createTaskWithParentViewController(_ parentViewController:DSOnboardingViewController, willShowTask showTask:Bool = true){
         self.consentViewController = ORKTaskViewController(task:DSConsentTask, taskRun: nil)
         self.consentViewController.view.tintColor = .purple
         self.consentViewController.delegate = self

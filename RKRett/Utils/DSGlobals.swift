@@ -10,27 +10,27 @@ import Foundation
 
 var alreadyParticipating:Bool {
     get{
-        return NSUserDefaults.standardUserDefaults().boolForKey(kUserHasConsentedKey)
+        return UserDefaults.standard.bool(forKey: kUserHasConsentedKey)
     }
     set{
-        NSUserDefaults.standardUserDefaults().setBool(newValue, forKey: kUserHasConsentedKey)
-        NSUserDefaults.standardUserDefaults().synchronize()
+        UserDefaults.standard.set(newValue, forKey: kUserHasConsentedKey)
+        UserDefaults.standard.synchronize()
     }
 }
 
 var useTouchId:Bool{
     get{
-        return NSUserDefaults.standardUserDefaults().boolForKey(Constants.PasswordUseTouchId)
+        return UserDefaults.standard.bool(forKey: Constants.PasswordUseTouchId)
     }
     set{
-        NSUserDefaults.standardUserDefaults().setBool(newValue, forKey: Constants.PasswordUseTouchId)
-        NSUserDefaults.standardUserDefaults().synchronize()
+        UserDefaults.standard.set(newValue, forKey: Constants.PasswordUseTouchId)
+        UserDefaults.standard.synchronize()
     }
 }
 
 var tasks : [DSTask] {
     get{
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.appTasks
     }
 }
@@ -44,25 +44,25 @@ var isAllTasksCompleted:Bool{
     }
 }
 
-func createSideViewForCell(cell: UITableViewCell, withColor color:UIColor){
-    let frame = CGRectMake(0, 0, 4, cell.frame.height)
+func createSideViewForCell(_ cell: UITableViewCell, withColor color:UIColor){
+    let frame = CGRect(x: 0,y: 0,width: 4,height: cell.frame.height)
     let leftView = UIView(frame: frame)
     leftView.backgroundColor = color
     leftView.translatesAutoresizingMaskIntoConstraints = false
-    leftView.autoresizingMask = UIViewAutoresizing.FlexibleHeight
+    leftView.autoresizingMask = UIViewAutoresizing.flexibleHeight
     cell.contentView.addSubview(leftView)
 }
 
-var dateDidEnterBackground:NSDate?{
+var dateDidEnterBackground:Date?{
     get{
-        return NSUserDefaults.standardUserDefaults().objectForKey(kDateDidEnterBackgroundKey) as? NSDate
+        return UserDefaults.standard.object(forKey: kDateDidEnterBackgroundKey) as? NSDate as! Date
     }
     set{
-        NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: kDateDidEnterBackgroundKey)
-        NSUserDefaults.standardUserDefaults().synchronize()
+        UserDefaults.standard.set(newValue, forKey: kDateDidEnterBackgroundKey)
+        UserDefaults.standard.synchronize()
     }
 }
 
 var bundleId:String{
-    return NSBundle.mainBundle().bundleIdentifier ?? "No bundle identifier!"
+    return Bundle.main.bundleIdentifier ?? "No bundle identifier!"
 }

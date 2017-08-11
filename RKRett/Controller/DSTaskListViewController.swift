@@ -111,7 +111,7 @@ class DSTaskListViewController: UIViewController{
 // MARK: - TableViewDataSource
 extension DSTaskListViewController: UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return tasksCount
     }
     
@@ -119,7 +119,7 @@ extension DSTaskListViewController: UITableViewDataSource {
         return 1
     }
     
-    private func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    internal func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return (section == 0) ? sectionLabel : nil
     }
     
@@ -133,12 +133,12 @@ extension DSTaskListViewController: UITableViewDataSource {
         }
     }
     
-    private func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    internal func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
         case 0:
             let dateFormatter = DateFormatter()
             dateFormatter.setLocalizedDateFormatFromTemplate("MMMM dd")
-            dateFormatter.locale = NSLocale.current
+            dateFormatter.locale = Locale.current
             
             let now = Date()
             let stringDate = dateFormatter.string(from: now)

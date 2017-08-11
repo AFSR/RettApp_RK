@@ -147,7 +147,7 @@ enum UserType:String{
 
 //MARK: TabBarIndexes
 enum TabBarItemIndexes:Int{
-    case Tasks = 0, Dashboard = 1, LearnMore = 2, Profile = 3
+    case tasks = 0, dashboard = 1, learnMore = 2, profile = 3
     
     var description:Int{
         return self.rawValue

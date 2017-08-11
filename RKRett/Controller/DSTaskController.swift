@@ -44,9 +44,9 @@ class DSTaskController: NSObject {
     
     - returns: `Void`
     */
-    func createTaskWithDictionary(dictionary:NSDictionary, andParentViewController parentViewController:UIViewController, willShowTask showTask:Bool = false){
+    func createTaskWithDictionary(_ dictionary:NSDictionary, andParentViewController parentViewController:UIViewController, willShowTask showTask:Bool = false){
         self.parentViewController = parentViewController
-        self.taskViewControllerInstance = ORKTaskViewController(task: DSTaskCreator(dictionary), taskRunUUID: nil)
+        self.taskViewControllerInstance = ORKTaskViewController(task: DSTaskCreator(dictionary), taskRun: nil)
         self.taskViewControllerInstance.delegate = self
         if showTask{
             self.showTask()
@@ -65,11 +65,11 @@ class DSTaskController: NSObject {
     func showTask(){
         let requiredProperties = ["parentViewController", "taskViewControllerInstance"]
         for prop in requiredProperties{
-            if self.respondsToSelector(NSSelectorFromString(prop)){
-                assert(self.valueForKey(prop) != nil, "You shoud set the property '\(prop)' in DSTaskController in order to show the task")
+            if self.responds(to: NSSelectorFromString(prop)){
+                assert(self.value(forKey: prop) != nil, "You shoud set the property '\(prop)' in DSTaskController in order to show the task")
             }
         }
-        self.parentViewController.presentViewController(self.taskViewControllerInstance, animated: true, completion: nil)
+        self.parentViewController.present(self.taskViewControllerInstance, animated: true, completion: nil)
     }
     
     
@@ -82,7 +82,7 @@ class DSTaskController: NSObject {
     */
     static func loadTasks() -> [DSTask]{
         var tasks = [DSTask]()
-        if let path = NSBundle.mainBundle().pathForResource(kDSTasksListFileName, ofType: "plist") {
+        if let path = Bundle.main.path(forResource: kDSTasksListFileName, ofType: "plist") {
             if let surveysArray = NSArray(contentsOfFile: path){
                 for survey in surveysArray as! [String]{
                     let dsTask = DSTask(plistFileName: survey)
@@ -96,14 +96,33 @@ class DSTaskController: NSObject {
 
 //MARK: - ORKTaskViewControllerDelegate
 extension DSTaskController: ORKTaskViewControllerDelegate {
+    /**
+     Tells the delegate that the task has finished.
+     
+     The task view controller calls this method when an unrecoverable error occurs,
+     when the user has canceled the task (with or without saving), or when the user
+     completes the last step in the task.
+     
+     In most circumstances, the receiver should dismiss the task view controller
+     in response to this method, and may also need to collect and process the results
+     of the task.
+     
+     @param taskViewController  The `ORKTaskViewController `instance that is returning the result.
+     @param reason              An `ORKTaskViewControllerFinishReason` value indicating how the user chose to complete the task.
+     @param error               If failure occurred, an `NSError` object indicating the reason for the failure. The value of this parameter is `nil` if `result` does not indicate failure.
+     */
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+        //code
+    }
+
   
-    func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: NSError?) {
         switch(reason){
-        case ORKTaskViewControllerFinishReason.Completed:
+        case ORKTaskViewControllerFinishReason.completed:
             print("Completed")
             var jsonString = ""
             if let data = DSJSONSerializer.taskResultToJsonData(taskViewController.result){
-                jsonString = String(data: data, encoding: NSUTF8StringEncoding)!
+                jsonString = String(data: data as Data, encoding: String.Encoding.utf8)!
                 let answer = DSTaskAnswerRealm()
                 answer.taskName = (taskViewController.task?.identifier)!
                 DSUtils.updateUserDefaultsFor(self.task)
@@ -115,30 +134,30 @@ extension DSTaskController: ORKTaskViewControllerDelegate {
                     let realm = try Realm()
                     try realm.write{
                         realm.add(answer)
-                        self.taskViewControllerInstance.dismissViewControllerAnimated(true, completion: nil)
+                        self.taskViewControllerInstance.dismiss(animated: true, completion: nil)
                     }
                 }catch let error as NSError{
                     print(error.localizedDescription)
                 }
             }
             
-        case ORKTaskViewControllerFinishReason.Discarded:
+        case ORKTaskViewControllerFinishReason.discarded:
 //            print("Discarded")
-            self.taskViewControllerInstance.dismissViewControllerAnimated(true, completion: nil)
+            self.taskViewControllerInstance.dismiss(animated: true, completion: nil)
             
-        case ORKTaskViewControllerFinishReason.Failed:
+        case ORKTaskViewControllerFinishReason.failed:
 //            print("Failed: \(error?.localizedDescription)")
-            self.taskViewControllerInstance.dismissViewControllerAnimated(true, completion: nil)
+            self.taskViewControllerInstance.dismiss(animated: true, completion: nil)
             
-        case ORKTaskViewControllerFinishReason.Saved:
+        case ORKTaskViewControllerFinishReason.saved:
 //            print("Saved")
-            self.taskViewControllerInstance.dismissViewControllerAnimated(true, completion: nil)
+            self.taskViewControllerInstance.dismiss(animated: true, completion: nil)
         }
     }
     
-    func taskViewController(taskViewController: ORKTaskViewController, recorder: ORKRecorder, didFailWithError error: NSError) {
+    func taskViewController(_ taskViewController: ORKTaskViewController, recorder: ORKRecorder, didFailWithError error: NSError) {
         print("didFailWithError \(error.localizedDescription)")
-        taskViewController.dismissViewControllerAnimated(true, completion: nil)
+        taskViewController.dismiss(animated: true, completion: nil)
     }
     
 }

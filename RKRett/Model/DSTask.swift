@@ -7,6 +7,30 @@
 //
 
 import UIKit
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l >= r
+  default:
+    return !(lhs < rhs)
+  }
+}
+
 
 class DSTask: DSReflect {
     
@@ -20,7 +44,7 @@ class DSTask: DSReflect {
     init(plistFileName:String){
         super.init()
         self.file = plistFileName
-        if let path = NSBundle.mainBundle().pathForResource(plistFileName, ofType: "plist") {
+        if let path = Bundle.main.path(forResource: plistFileName, ofType: "plist") {
             if let taskDictionary = NSDictionary(contentsOfFile: path){
                 let properties = self.properties()
                 for property in properties{
@@ -29,7 +53,7 @@ class DSTask: DSReflect {
                         continue
                         
                     case "questions":
-                        if let questionsArray = taskDictionary.objectForKey(property) as? NSArray{
+                        if let questionsArray = taskDictionary.object(forKey: property) as? NSArray{
                             for questionDictionary in questionsArray as! [NSDictionary]{
                                 let question = DSQuestion(questionDictionary: questionDictionary)
                                 questions += [question]
@@ -42,7 +66,7 @@ class DSTask: DSReflect {
                         print(property)
                     }
                     
-                    let propertyValue: AnyObject? = taskDictionary.objectForKey(property)
+                    let propertyValue: AnyObject? = taskDictionary.object(forKey: property) as AnyObject
                     assert(propertyValue != nil, "\(property) in task \(self.name) is nil")
                     self.setValue(propertyValue, forKey: property)
                 }
@@ -53,16 +77,16 @@ class DSTask: DSReflect {
         Returns true if the Frequency is set to OnDemand
     */
     func isComplete() -> Bool{
-        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let userDefaults = UserDefaults.standard
         var numberOfTasksCompletedes:AnyObject!
         
-        if let taskDic = userDefaults.objectForKey(self.taskId) as? [String:AnyObject]{
+        if let taskDic = userDefaults.object(forKey: self.taskId) as? [String:AnyObject]{
             numberOfTasksCompletedes = (taskDic[PlistFile.Task.FrequencyNumber.rawValue] as! Int == 0) ? nil : taskDic[PlistFile.Task.FrequencyNumber.rawValue]
         } else {
             numberOfTasksCompletedes = nil
         }
         
-        if(numberOfTasksCompletedes?.integerValue >= self.frequencyNumber.integerValue) && (self.frequencyType != Frequency.OnDemand.rawValue){
+        if(numberOfTasksCompletedes?.intValue >= self.frequencyNumber.intValue) && (self.frequencyType != Frequency.OnDemand.rawValue){
             return true
         } else if(self.frequencyType == Frequency.OnDemand.rawValue){
             return true

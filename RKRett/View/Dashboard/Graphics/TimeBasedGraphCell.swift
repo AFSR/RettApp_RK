@@ -19,7 +19,7 @@ class TimeBasedGraphCell: UITableViewCell {
         self.graphView.animate = true
     }
     
-    func setColor(color:UIColor) {
+    func setColor(_ color:UIColor) {
         self.graphView.lineColor = color
         self.lblTitle.textColor = color
     }

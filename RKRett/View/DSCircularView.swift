@@ -29,9 +29,9 @@ class DSCircularView: UIView {
     }
     
     @IBInspectable
-    var borderColor: UIColor = UIColor.whiteColor(){
+    var borderColor: UIColor = UIColor.white{
         didSet {
-            self.layer.borderColor = borderColor.CGColor
+            self.layer.borderColor = borderColor.cgColor
             if (self.layer.borderWidth == 0){
                 self.layer.borderWidth = 1.0;
             }

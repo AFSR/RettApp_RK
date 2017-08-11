@@ -10,11 +10,11 @@ import UIKit
 
 // MARK: - Enums
 enum Section: Int{
-    case Developer = 0
+    case developer = 0
 }
 
 enum RowNumberSectionDeveloper: Int{
-    case ResetConsent = 0, Test, ResetDefaults, Watch
+    case resetConsent = 0, test, resetDefaults, watch
 }
 
 // MARK: - UITableViewController
@@ -24,29 +24,30 @@ class DSDeveloperTableViewController: UITableViewController {
 
 // MARK: - UITableViewDelegate
 extension DSDeveloperTableViewController{
-     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         let sectionAndRow = (Section: indexPath.section, Row: indexPath.row)
         
         switch sectionAndRow {
-        case (Section: Section.Developer.rawValue, Row: RowNumberSectionDeveloper.ResetConsent.rawValue):
-            KeychainWrapper.removeObject(kDSPasswordKey)
+        case (Section: Section.developer.rawValue, Row: RowNumberSectionDeveloper.resetConsent.rawValue):
+            
+            //KeychainWrapper.removeObjectForKey(kDSPasswordKey as! String)
             alreadyParticipating = false
-            assert(UserDefaults.standardUserDefaults.synchronize(), "Error while reseting consent")
+            assert(UserDefaults.standard.synchronize(), "Error while reseting consent")
             print("Consent reseted")
             break
             
-        case (Section: Section.Developer.rawValue, Row: RowNumberSectionDeveloper.Test.rawValue):
+        case (Section: Section.developer.rawValue, Row: RowNumberSectionDeveloper.test.rawValue):
             let not = DSNotification()
-            let next = not.nextDateForWeekday(desiredWeekday: 5, fromDate: NSDate())
+            let next = not.nextDateForWeekday(5, fromDate: Date())
             print(next as! String)
             break
         
-        case (Section: Section.Developer.rawValue, Row: RowNumberSectionDeveloper.ResetDefaults.rawValue):
+        case (Section: Section.developer.rawValue, Row: RowNumberSectionDeveloper.resetDefaults.rawValue):
             DSUtils.resetUserDefaults()
             break
-        case (Section: Section.Developer.rawValue, Row: RowNumberSectionDeveloper.Watch.rawValue):
-            let storyboard = UIStoryboard(name: "SensorData", bundle: Bundle.mainBundle)
+        case (Section: Section.developer.rawValue, Row: RowNumberSectionDeveloper.watch.rawValue):
+            let storyboard = UIStoryboard(name: "SensorData", bundle: Bundle.main)
             let viewController = storyboard.instantiateInitialViewController()
             self.navigationController!.pushViewController(viewController!, animated: true)
             break

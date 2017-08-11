@@ -8,10 +8,10 @@
 
 import Foundation
 
-public class CSV {
-    static private let comma: Character = ","
+open class CSV {
+    static fileprivate let comma: Character = ","
     
-    public var header: [String]!
+    open var header: [String]!
     var _rows: [[String: String]]? = nil
     var _columns: [String: [String]]? = nil
     
@@ -54,14 +54,14 @@ public class CSV {
     /// delimiter: character to split row and header fields by (default is ',')
     /// encoding: encoding used to read file (default is NSUTF8StringEncoding)
     /// loadColumns: whether to populate the columns dictionary (default is true)
-    public convenience init(url: NSURL, delimiter: Character = comma, encoding: String.Encoding = String.Encoding.utf8, loadColumns: Bool = true) throws {
+    public convenience init(url: URL, delimiter: Character = comma, encoding: String.Encoding = String.Encoding.utf8, loadColumns: Bool = true) throws {
         let contents = try String(contentsOfURL: url as! String, encoding: encoding)
         
         self.init(string: contents, delimiter: delimiter, loadColumns: loadColumns)
     }
     
     /// Turn the CSV data into NSData using a given encoding
-    public func dataUsingEncoding(encoding: String.Encoding) -> NSData? {
-        return description.data(using: encoding) as! NSData
+    open func dataUsingEncoding(_ encoding: String.Encoding) -> Data? {
+        return description.data(using: encoding) as! NSData as Data
     }
 }

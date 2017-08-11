@@ -21,25 +21,25 @@ class DSJSONSerializer: DSReflect {
     
     -returns: A `NSData` object containing the JSON serialized from the results.
     */
-    static func taskResultToJsonData(taskResult: ORKTaskResult) -> NSData?{
+    static func taskResultToJsonData(_ taskResult: ORKTaskResult) -> Data?{
         // - FIXME: Verificar a possibilidade de fazer a funcao retornar a String do JSON ao inves da NSData pois o model esta recebendo String
-        var jsonData: NSData?
+        var jsonData: Data?
         if let results = taskResult.results{ // NSArray/*<ORKResult>*/
-            let resultsArray = self.resultsArrayToDictionary(results)
+            let resultsArray = self.resultsArrayToDictionary(results as NSArray)
             let json = NSDictionary(dictionary: ["taskId" : taskResult.identifier, "results": resultsArray])
             jsonData = self.JSONObjectToData(json)
         }
         return jsonData
     }
     
-    private static func resultsArrayToJsonArray(results: NSArray/*<ORKResult>*/) -> [NSMutableDictionary]{
+    fileprivate static func resultsArrayToJsonArray(_ results: NSArray/*<ORKResult>*/) -> [NSMutableDictionary]{
         var dictArray = [NSMutableDictionary]()
         for stepResultAux in results{
             let dict = NSMutableDictionary()
             if let stepResult = stepResultAux as? ORKStepResult{
                 if let result: AnyObject = stepResult.results?.first{
                     let answerKey = getAnswerKeyForResult(result as! ORKResult)
-                    assert(result.respondsToSelector(NSSelectorFromString(answerKey)), "Result '\(NSStringFromClass(result.classForCoder))' doesn't respond to selector '\(answerKey)'")
+                    assert(result.responds(NSSelectorFromString(answerKey)), "Result '\(NSStringFromClass(result.classForCoder))' doesn't respond to selector '\(answerKey)'")
                     if let value: AnyObject = result.valueForKey(answerKey){
                         if let key = result.identifier as String?{
                             dict.setValue(value, forKey: key)
@@ -63,13 +63,13 @@ class DSJSONSerializer: DSReflect {
     
     - returns: `NSDictionary` containing the results argument passed.
     */
-    private static func resultsArrayToDictionary(results: NSArray/*<ORKResult>*/) -> NSDictionary{
+    fileprivate static func resultsArrayToDictionary(_ results: NSArray/*<ORKResult>*/) -> NSDictionary{
         let dict = NSMutableDictionary()
         for stepResultAux in results {
             if let stepResult = stepResultAux as? ORKStepResult{
                 if let result: AnyObject = stepResult.results?.first{
                     let answerKey = getAnswerKeyForResult(result as! ORKResult)
-                    assert(result.respondsToSelector(NSSelectorFromString(answerKey)), "Result '\(NSStringFromClass(result.classForCoder))' doesn't respond to selector '\(answerKey)'")
+                    assert(result.responds(NSSelectorFromString(answerKey)), "Result '\(NSStringFromClass(result.classForCoder))' doesn't respond to selector '\(answerKey)'")
                     if let value: AnyObject = result.valueForKey(answerKey){
                         if let key = result.identifier as String?{
                             let valueToSave = extractValue(value, forKey: answerKey)
@@ -87,15 +87,15 @@ class DSJSONSerializer: DSReflect {
     
     // - FIXME: Verificar o tipo de question pra quem sabe salvar os timeofday como hh:mm:ss
     // Avaliar a possibilidade de criar os models pros results e/ou salvar o ORKResult inteiro pq senao vai ter que ir no plist ver o tipo da variavel pq é ambiguo uma data e um timeofday
-    private static func extractValue(value:AnyObject, forKey key:String = "") -> AnyObject{
+    fileprivate static func extractValue(_ value:AnyObject, forKey key:String = "") -> AnyObject{
         var extractedValue:AnyObject
         // - FIXME: Verificar singleChoice vs multipleChoice
         if key == "choiceAnswers"{
-            extractedValue = (value as! NSArray).firstObject!
+            extractedValue = (value as! NSArray).firstObject! as AnyObject
         }else{
             switch(value){
-            case is NSDate, is NSDateComponents:
-                extractedValue = getValueFromDateClasses(value)
+            case is Date, is DateComponents:
+                extractedValue = getValueFromDateClasses(value) as AnyObject
                 break
                 
             default:
@@ -106,19 +106,19 @@ class DSJSONSerializer: DSReflect {
         return extractedValue
     }
     
-    private static func getValueFromDateClasses(value:AnyObject) -> String{
+    fileprivate static func getValueFromDateClasses(_ value:AnyObject) -> String{
         var stringValue = ""
-        var date:NSDate!
+        var date:Date!
         
         switch(value){
-        case is NSDate:
+        case is Date:
             print("NSDate")
-            date = value as! NSDate
+            date = value as! Date
             break
             
-        case is NSDateComponents:
+        case is DateComponents:
             print("NSDateComponents")
-            date = NSCalendar.currentCalendar().dateFromComponents((value as! NSDateComponents))!
+            date = Calendar.current.date(from: (value as! DateComponents))!
             break
             
         default:
@@ -137,7 +137,7 @@ class DSJSONSerializer: DSReflect {
     
     - returns: `String` with the key that contains the answer.
     */
-    private static func getAnswerKeyForResult(result:ORKResult) -> String{
+    fileprivate static func getAnswerKeyForResult(_ result:ORKResult) -> String{
         var answerKey = ""
         
         switch(result){
@@ -164,10 +164,10 @@ class DSJSONSerializer: DSReflect {
     
     - returns: `AnyObject?` containing the JSON object created.
     */
-    private static func dictionaryToJSONObject(dictionary:NSDictionary) -> AnyObject?{
+    fileprivate static func dictionaryToJSONObject(_ dictionary:NSDictionary) -> AnyObject?{
         do {
-            let data = try NSJSONSerialization.dataWithJSONObject(dictionary, options: NSJSONWritingOptions.PrettyPrinted)
-            let json: AnyObject = try NSJSONSerialization.JSONObjectWithData(data, options: [NSJSONReadingOptions.MutableContainers])
+            let data = try JSONSerialization.data(withJSONObject: dictionary, options: JSONSerialization.WritingOptions.prettyPrinted)
+            let json: AnyObject = try JSONSerialization.jsonObject(with: data, options: [JSONSerialization.ReadingOptions.mutableContainers])
             return json
         } catch let error as NSError {
             print(error.localizedDescription)
@@ -182,10 +182,10 @@ class DSJSONSerializer: DSReflect {
     
     - returns: `NSData?` object that represent the JSON object passed as parameter.
     */
-    private static func JSONObjectToData(jsonObject:AnyObject) -> NSData?{
-        let data: NSData?
+    fileprivate static func JSONObjectToData(_ jsonObject:AnyObject) -> Data?{
+        let data: Data?
         do {
-            data = try NSJSONSerialization.dataWithJSONObject(jsonObject, options: [])
+            data = try JSONSerialization.data(withJSONObject: jsonObject, options: [])
         } catch let error as NSError {
             print(error.localizedDescription)
             data = nil

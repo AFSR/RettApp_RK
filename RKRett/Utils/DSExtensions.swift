@@ -9,17 +9,17 @@
 //MARK: - Date
 //MARK: Formats
 extension Date{
-    func stringDateWithFormat(format: String = "yyyyMMdd-HHmmss") -> String {
+    func stringDateWithFormat(_ format: String = "yyyyMMdd-HHmmss") -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: self)
     }
     
     func ISOStringFromDate() -> String {
-        return self.stringDateWithFormat(format: "yyyy-MM-dd'T'HH:mm:ss.SSS").appending("Z")
+        return self.stringDateWithFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").appending("Z")
     }
     
-    func dateFromISOString(string: String) -> Date {
+    func dateFromISOString(_ string: String) -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
         dateFormatter.timeZone = NSTimeZone.local
@@ -73,7 +73,7 @@ extension Date {
         return str
     }
     
-    func stringWithDateFormat(dateFormater: DateFormatter) -> String?{
+    func stringWithDateFormat(_ dateFormater: DateFormatter) -> String?{
         let str = dateFormater.string(from: self)
         return str
     }
@@ -125,7 +125,7 @@ extension Date {
 //MARK: - NSError
 //MARK: Utils
 extension NSError {
-    func codeIn(arrayCodes: [Int]) -> Bool {
+    func codeIn(_ arrayCodes: [Int]) -> Bool {
         return arrayCodes.contains(self.code)
     }
     
@@ -156,7 +156,7 @@ extension UIColor{
 //MARK: - UIButton
 //MARK: Utils
 extension UIButton {
-    private func imageWithColor(color: UIColor) -> UIImage {
+    fileprivate func imageWithColor(_ color: UIColor) -> UIImage {
         let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
@@ -169,8 +169,8 @@ extension UIButton {
         return image!
     }
     
-    func setBackgroundColor(color: UIColor, forUIControlState state: UIControlState) {
-        setBackgroundImage(imageWithColor(color: color), for: state)
+    func setBackgroundColor(_ color: UIColor, forUIControlState state: UIControlState) {
+        setBackgroundImage(imageWithColor(color), for: state)
     }
 }
 
@@ -181,7 +181,7 @@ extension Array {
 }
 
 extension UIImage{
-    class func imageWithColor(color: UIColor) -> UIImage {
+    class func imageWithColor(_ color: UIColor) -> UIImage {
         
         let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
         UIGraphicsBeginImageContext(rect.size)

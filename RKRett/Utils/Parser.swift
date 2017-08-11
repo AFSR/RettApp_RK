@@ -8,7 +8,7 @@
 extension CSV {
     /// Parse the file and call a block on each row, passing it in as a list of fields
     /// limitTo will limit the result to a certain number of lines
-    func enumerateAsArray(block: @escaping ([String]) -> (), limitTo: Int?, startAt: Int = 0) {
+    func enumerateAsArray(_ block: @escaping ([String]) -> (), limitTo: Int?, startAt: Int = 0) {
         var currentIndex = text.startIndex
         let endIndex = text.endIndex
         
@@ -41,7 +41,7 @@ extension CSV {
                 } else if char == self.delimiter {
                     fields.append(String(field))
                     field = [Character]()
-                } else if CSV.isNewline(char: char) {
+                } else if CSV.isNewline(char) {
                     callBlock()
                 } else {
                     parsingField = true
@@ -65,7 +65,7 @@ extension CSV {
                         innerQuotes = false
                         fields.append(String(field))
                         field = [Character]()
-                    } else if CSV.isNewline(char: char) {
+                    } else if CSV.isNewline(char) {
                         atStart = true
                         parsingField = false
                         innerQuotes = false
@@ -85,7 +85,7 @@ extension CSV {
                         innerQuotes = false
                         fields.append(String(field))
                         field = [Character]()
-                    } else if CSV.isNewline(char: char) {
+                    } else if CSV.isNewline(char) {
                         atStart = true
                         parsingQuotes = false
                         innerQuotes = false
@@ -108,10 +108,11 @@ extension CSV {
         
         while currentIndex < endIndex {
             let char = text[currentIndex]
-            if changeState(char) {
+            if changeState(char){
                 break
             }
-            currentIndex = currentIndex.index(after: currentIndex)
+            //currentIndex = currentIndex.index(after: currentIndex)
+            currentIndex = text.index(after: currentIndex)
         }
         
         if fields.count != 0 || field.count != 0 || (doLimit && count < limitTo!) {
@@ -120,7 +121,7 @@ extension CSV {
         }
     }
     
-    private static func isNewline(char: Character) -> Bool {
+    fileprivate static func isNewline(_ char: Character) -> Bool {
         return char == "\n" || char == "\r\n"
     }
 }

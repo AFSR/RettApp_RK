@@ -34,17 +34,17 @@ class DSOnboardingViewController: UIViewController {
     
     func proceedToElegibility(){
         elegibilityController = DSElegibilityController()
-        self.elegibilityController.createTaskWithParentViewController(parentViewController: self)
+        self.elegibilityController.createTaskWithParentViewController(self)
     }
     
     func proceedToConsent(){
         self.consentController = DSConsentController()
-        self.consentController.createTaskWithParentViewController(parentViewController: self)
+        self.consentController.createTaskWithParentViewController(self)
     }
     
     func proceedToQuiz(){
         self.quizController = DSQuizController()
-        self.quizController.createTaskParentViewController(parentViewController: self)
+        self.quizController.createTaskParentViewController(self)
     }
     
     func proceedToAuthorization(){

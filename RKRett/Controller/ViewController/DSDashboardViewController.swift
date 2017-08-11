@@ -17,11 +17,11 @@ class DSDashboardViewController: UIViewController {
     let TaskIdKey = "taskId"
     let QuestionIdKey = "questionId"
     
-    func serializeTuple(tuple: DSGraphIdentifierType) -> DSGraphIdentifierTypeDictionary {
+    func serializeTuple(_ tuple: DSGraphIdentifierType) -> DSGraphIdentifierTypeDictionary {
         return [TaskIdKey : tuple.taskId, QuestionIdKey : tuple.questionId]
     }
     
-    func deserializeDictionary(dictionary: DSGraphIdentifierTypeDictionary) -> DSGraphIdentifierType {
+    func deserializeDictionary(_ dictionary: DSGraphIdentifierTypeDictionary) -> DSGraphIdentifierType {
         return DSGraphIdentifierType(dictionary[TaskIdKey] as String!, dictionary[QuestionIdKey] as String!)
     }
     
@@ -42,7 +42,7 @@ class DSDashboardViewController: UIViewController {
         
         if let unwrapped = UserDefaults.standard.object(forKey: kQuestionsGraphArrayKey) as? [DSGraphIdentifierTypeDictionary]{
             unwrapped.forEach({ (element) -> () in
-                graphIdentifiers += [deserializeDictionary(dictionary: element)]
+                graphIdentifiers += [deserializeDictionary(element)]
             })
         }
         
@@ -66,11 +66,11 @@ class DSDashboardViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         for vc in viewControllers{
-            updateViewController(vc: vc)
+            updateViewController(vc)
         }
     }
     
-    fileprivate func viewController(graphId:DSGraphIdentifierType) -> UIViewController? {
+    fileprivate func viewController(_ graphId:DSGraphIdentifierType) -> UIViewController? {
         for vc in viewControllers {
             if vc is DSTimeBasedGraphViewController {
                 let tbvc = (vc as! DSTimeBasedGraphViewController)
@@ -82,7 +82,7 @@ class DSDashboardViewController: UIViewController {
         return nil
     }
     
-    fileprivate func containsViewController(graphId: DSGraphIdentifierType) -> Bool {
+    fileprivate func containsViewController(_ graphId: DSGraphIdentifierType) -> Bool {
         for vc in viewControllers /*where vc.isKindOfClass(DSTimeBasedGraphViewController)*/ {
             switch(vc){
             case is DSTimeBasedGraphViewController:
@@ -109,7 +109,7 @@ class DSDashboardViewController: UIViewController {
         }
     }
     
-    func updateViewController(vc:UIViewController) {
+    func updateViewController(_ vc:UIViewController) {
         if vc is DSTimeBasedGraphViewController {
             let tvc = vc as! DSTimeBasedGraphViewController
             tvc.loadLocalData()
@@ -118,7 +118,7 @@ class DSDashboardViewController: UIViewController {
         }
     }
     
-    fileprivate func graphTypeForId(graphId:DSGraphIdentifierType) -> GraphType {
+    fileprivate func graphTypeForId(_ graphId:DSGraphIdentifierType) -> GraphType {
         // Esta retornando somente quando da certo pq o programador tem que criar o plist certo
         if let path = Bundle.main.path(forResource: graphId.taskId, ofType: "plist"){
             if let plistFile = NSDictionary(contentsOfFile: path){
@@ -137,7 +137,7 @@ class DSDashboardViewController: UIViewController {
         return GraphType(rawValue: String())!
     }
     
-    private func getGraphIds() -> [DSGraphIdentifierType]{
+    fileprivate func getGraphIds() -> [DSGraphIdentifierType]{
         var graphIds = [DSGraphIdentifierType]()
         
         if let path = Bundle.main.path(forResource: "DSTasks", ofType: "plist"){
@@ -165,7 +165,7 @@ class DSDashboardViewController: UIViewController {
 
 extension DSDashboardViewController : UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return graphIdentifiers.count
     }
     
@@ -177,12 +177,12 @@ extension DSDashboardViewController : UITableViewDataSource {
         
         let graphId = graphIdentifiers[indexPath.section]
         
-        let graphType = graphTypeForId(graphId: graphIdentifiers[indexPath.section])
+        let graphType = graphTypeForId(graphIdentifiers[indexPath.section])
         switch(graphType){
         case GraphType.TimeBased:
             let vc:DSTimeBasedGraphViewController
-            if containsViewController(graphId: graphId) {
-                vc = viewController(graphId: graphId) as! DSTimeBasedGraphViewController
+            if containsViewController(graphId) {
+                vc = viewController(graphId) as! DSTimeBasedGraphViewController
             } else {
                 vc = DSTimeBasedGraphViewController()
                 vc.taskId = graphId.taskId
@@ -207,8 +207,8 @@ extension DSDashboardViewController : UITableViewDataSource {
         return UITableViewCell()
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: IndexPath) -> CGFloat {
-        if graphTypeForId(graphId: graphIdentifiers[indexPath.section]) == .Circular {
+    func tableView(_ tableView: UITableView, heightForRowAtIndexPath indexPath: IndexPath) -> CGFloat {
+        if graphTypeForId(graphIdentifiers[indexPath.section]) == .Circular {
             return 265
         }
         return 290

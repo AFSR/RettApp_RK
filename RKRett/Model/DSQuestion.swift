@@ -39,21 +39,21 @@ class DSQuestion: DSReflect {
         super.init()
         let properties = self.properties()
         for property in properties{
-            let value = questionDictionary.objectForKey(property)
+            let value = questionDictionary.object(forKey: property)
             switch(property){
             case "answerRange":
                 // value tera um dictionary
                 if let valueDictionary = value as? NSDictionary{
-                    answerRange?.setValue(valueDictionary.objectForKey("minimum"), forKey: "minimum")
-                    answerRange?.setValue(valueDictionary.objectForKey("maximum"), forKey: "maximum")
+                    answerRange?.setValue(valueDictionary.object(forKey: "minimum"), forKey: "minimum")
+                    answerRange?.setValue(valueDictionary.object(forKey: "maximum"), forKey: "maximum")
                     continue
                 }
             case "dashboard":
                 // value tera um dictionary
                 if let valueDictionary = value as? NSDictionary{
-                    dashboard?.setValue(valueDictionary.objectForKey("graphicType"), forKey: "graphicType")
-                    dashboard?.setValue(valueDictionary.objectForKey("xAxisColName"), forKey: "xAxisColName")
-                    dashboard?.setValue(valueDictionary.objectForKey("yAxisColName"), forKey: "yAxisColName")
+                    dashboard?.setValue(valueDictionary.object(forKey: "graphicType"), forKey: "graphicType")
+                    dashboard?.setValue(valueDictionary.object(forKey: "xAxisColName"), forKey: "xAxisColName")
+                    dashboard?.setValue(valueDictionary.object(forKey: "yAxisColName"), forKey: "yAxisColName")
                     continue
                 }
                 print(property)

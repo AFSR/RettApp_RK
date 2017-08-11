@@ -24,25 +24,28 @@ public var DSElegibilityTask: ORKOrderedTask {
                     let questionIdentifier = questionDictionary.value(forKey: "identifier") as? String
                     let questionTitle = questionDictionary.value(forKey: "title") as? String
                     
-                    var questionStep = ORKQuestionStep()
+                    var questionStep = ORKQuestionStep(identifier: questionIdentifier!)
                     
                     switch(dictionary.value(forKey: "type") as! String){
                     case "Boolean":
-                        questionStep = ORKQuestionStep(identifier: questionIdentifier!, title: questionTitle, answer: ORKAnswerFormat.booleanAnswerFormat())
+                        let questionStep = ORKQuestionStep(identifier: questionIdentifier!, title: questionTitle, answer: ORKAnswerFormat.booleanAnswerFormat())
                         
                     case "SingleChoice":
-                        var questionTextChoices = [String]()
+                        
+                        var questionTextChoices = [ORKTextChoice]()
                         for choice in questionDictionary.value(forKey: "choices") as! Array<AnyObject>{
-                            questionTextChoices.append(choice as! String)
+                            questionTextChoices.append(choice as! ORKTextChoice)
                         }
-                        let questionAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: ORKChoiceAnswerStyle.singleChoice, textChoices: questionTextChoices!)
-                        questionStep = ORKQuestionStep(identifier: questionIdentifier!, title: questionTitle, answer: questionAnswerFormat)
+                        //let questionAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: ORKChoiceAnswerStyle.singleChoice, textChoices: questionTextChoices as! ORKTextChoice)
+                        let questionAnswerFormat: ORKTextChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: questionTextChoices)
+                        
+                        let questionStep = ORKQuestionStep(identifier: questionIdentifier!, title: questionTitle, answer: questionAnswerFormat)
 
                         
                     default:
                         break
                     }
-                    questionStep.isOptional = false
+                    //questionStep.optional = NO
                     steps += [questionStep]
                 }
             }

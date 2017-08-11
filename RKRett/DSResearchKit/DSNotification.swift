@@ -33,7 +33,7 @@ class DSNotification: NSObject {
             let interval = getIntervalForFrequency(frequency)
             not.repeatInterval = interval
 //            let fireDate = getNextFireDate()
-            not.fireDate = NSDate()
+            not.fireDate = Date()
         }
     }
     
@@ -45,25 +45,25 @@ class DSNotification: NSObject {
         }
     }
     
-    func getIntervalForFrequency(frequency:DSFrequencyType) -> NSCalendarUnit{
-        var repeatInterval = NSCalendarUnit()
+    func getIntervalForFrequency(_ frequency:DSFrequencyType) -> Calendar.Component{
+        var repeatInterval = NSCalendar.Unit()
         switch(frequency){
         case .None:
             print("None")
             break
             
         case .Daily:
-            repeatInterval = NSCalendarUnit.Day
+            repeatInterval = NSCalendar.Unit.day
             print("Daily")
             break
 
         case .Weekly:
-            repeatInterval = NSCalendarUnit.Weekday
+            repeatInterval = NSCalendar.Unit.weekday
             print("Weekly")
             break
         
         case .Monthly:
-            repeatInterval = NSCalendarUnit.Month
+            repeatInterval = NSCalendar.Unit.month
             print("Monthly")
             break
         }
@@ -88,17 +88,17 @@ class DSNotification: NSObject {
         return repeatInterval
     }
     
-    func nextDateForWeekday(desiredWeekday: Int, fromDate: NSDate) -> NSDate {
+    func nextDateForWeekday(_ desiredWeekday: Int, fromDate: Date) -> Date {
         let weekdayFromDate = fromDate.weekDay
         let difference = desiredWeekday-weekdayFromDate
-        let daysToDay = (difference == 0 && NSDate().timeIntervalSinceNow < fromDate.timeIntervalSinceNow) ? 0 : (difference > 0 ? difference : difference+7)
+        let daysToDay = (difference == 0 && Date().timeIntervalSinceNow < fromDate.timeIntervalSinceNow) ? 0 : (difference > 0 ? difference : difference+7)
         
         return fromDate.dateByAddingTimeInterval((60 * 60 * 24 * Double(daysToDay)) as NSTimeInterval);
     }
     
-    func rescheduleAlerts(includingReminders: Bool = false) {
+    func rescheduleAlerts(_ includingReminders: Bool = false) {
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.background).async(execute: {
             
 //            for notification in (UIApplication.sharedApplication().scheduledLocalNotifications){
 //                //                notification.
@@ -147,7 +147,7 @@ class DSNotification: NSObject {
             //                }
             //            }
             
-            print("Amount of notifications scheduled: \(UIApplication.sharedApplication().scheduledLocalNotifications!.count)", terminator: "")
+            print("Amount of notifications scheduled: \(UIApplication.shared.scheduledLocalNotifications!.count)", terminator: "")
             
         });
     }

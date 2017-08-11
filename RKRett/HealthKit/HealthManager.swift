@@ -2,9 +2,9 @@ import HealthKit
 
 class HealthManager{
     
-    private let healthKitStore:HKHealthStore = HKHealthStore()
-    private let readTypes:[HKObjectType?] = [HKObjectType.characteristicType(forIdentifier: .bloodType)]
-    private let writeTypes: [HKSampleType?] = []
+    let healthKitStore:HKHealthStore = HKHealthStore()
+    let readTypes:[HKObjectType?] = [HKObjectType.characteristicType(forIdentifier: .bloodType)]
+    let writeTypes: [HKSampleType?] = []
     
     var isAuthorized:Bool {
         for readType in readTypes where readType != nil {
@@ -20,7 +20,7 @@ class HealthManager{
         return true
     }
     
-    func authorizeHealthKit(completion: ((_ success: Bool, _ error: NSError?) -> Void)?) {
+    func authorizeHealthKit(_ completion: ((_ success: Bool, _ error: NSError?) -> Void)?) {
         // If the store is not available (for instance, iPad) return an error and don't go on.
         if HKHealthStore.isHealthDataAvailable(){
             var healthKitTypesToRead:Set<HKObjectType> = Set()
@@ -57,12 +57,12 @@ class HealthManager{
         }
     }
     
-    func readProfile() -> (dateOfBirth:NSDate?, biologicalsex:HKBiologicalSexObject?, bloodtype:HKBloodTypeObject?){
-        var dateOfBirth: NSDate?
+    func readProfile() -> (dateOfBirth:Date?, biologicalsex:HKBiologicalSexObject?, bloodtype:HKBloodTypeObject?){
+        var dateOfBirth: Date?
         var bio: HKBiologicalSexObject?
         var blood: HKBloodTypeObject?
         do{
-            dateOfBirth = try healthKitStore.dateOfBirth() as NSDate
+            dateOfBirth = try healthKitStore.dateOfBirth() as Date
             bio = try healthKitStore.biologicalSex()
             blood = try healthKitStore.bloodType()
         }catch let error{
@@ -72,7 +72,7 @@ class HealthManager{
         return (dateOfBirth, bio, blood)
     }
     
-    func readBPM(completion: @escaping (_ sampleQuery: HKSampleQuery, _ sample: [HKSample]?, _ error: Error?) -> ()) {
+    func readBPM(_ completion: @escaping (_ sampleQuery: HKSampleQuery, _ sample: [HKSample]?, _ error: Error?) -> ()) {
         let sampleType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)
         let predicate = HKQuery.predicateForSamples(withStart: Date(timeIntervalSince1970: 1.0), end: Date(), options: .strictEndDate)
         

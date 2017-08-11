@@ -16,7 +16,7 @@ class DSPasswordController:UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var labelCreatePasscode: UILabel!
     
-    private var password:String!
+    fileprivate var password:String!
     let kPasswordUseTouchId = "kPasswordUseTouchId"
     
     var isTouchIdEnrolled: Bool{
@@ -161,7 +161,7 @@ class DSPasswordController:UIViewController {
         passwordField.resignFirstResponder()
         animateViews { (suc) -> () in
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.gotoStoryboard(initialStoryboard: StoryboardName.Main.rawValue)
+            appDelegate.gotoStoryboard(StoryboardName.Main.rawValue)
         }
     }
     

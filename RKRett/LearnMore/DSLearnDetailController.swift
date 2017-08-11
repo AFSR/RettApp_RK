@@ -25,28 +25,28 @@ class DSLearnDetailController:UIViewController{
         
         let textStyle = ["font-family":"Helvetica Neue", "font-size":"20px", "font-style":"normal", "font-weight":"normal", "color":"000000", "text-align": "left", "margin-left": "20px", "margin-right":"20px"]
         
-        let contentString = DSUtils.applyStyleDictionary(textStyle, onTag: "p", withText: "<br>"+section.text)
-        let htmlString = DSUtils.applyStyleDictionary(bodyStyleDictionary, onTag: "body", withText: contentString)
+        let contentString = DSUtils.applyStyleDictionary(textStyle as NSDictionary, onTag: "p", withText: "<br>"+section.text)
+        let htmlString = DSUtils.applyStyleDictionary(bodyStyleDictionary as NSDictionary, onTag: "body", withText: contentString)
         
         webView.loadHTMLString(htmlString, baseURL: nil)
     }
     
     func configureLayout(){
-        let frame = CGRectMake(0, 0, 3, self.view.frame.size.height)
+        let frame = CGRect(x: 0,y: 0,width: 3,height: self.view.frame.size.height)
         let leftView = UIView(frame: frame)
-        leftView.backgroundColor = .purpleColor()
+        leftView.backgroundColor = .purple
         webView.addSubview(leftView)
         
         // To avoid black background on transition
-        webView.opaque = false
+        webView.isOpaque = false
     }
     
 }
 
 extension DSLearnDetailController:UIWebViewDelegate{
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        if navigationType == UIWebViewNavigationType.LinkClicked{
-            UIApplication.sharedApplication().openURL(request.URL!)
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        if navigationType == UIWebViewNavigationType.linkClicked{
+            UIApplication.shared.openURL(request.url!)
             return false
         }
         return true

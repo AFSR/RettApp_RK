@@ -66,7 +66,7 @@ class DSQueryDetailViewController: UIViewController{
                 print(query.url)
                 do{
                     
-                    let csv = try CSV(url: fileURL as NSURL)
+                    let csv = try CSV(url: (fileURL as NSURL) as URL)
                     for (index, dateString) in csv.columns["dateString"]!.enumerated(){
                         let timeInterval: Double! = Double(dateString)
                         let date = NSDate(timeIntervalSince1970: timeInterval)
@@ -113,8 +113,8 @@ class DSQueryDetailViewController: UIViewController{
         let footerView = JBLineChartFooterView(frame: CGRect(x: 0, y: 0, width: 10, height: 30))
         footerView.sectionCount = 100
         if (graphData.count > 0){
-            footerView.leftLabel.text = graphData[0].date.stringDateWithFormat(format: "HH:mm")
-            footerView.rightLabel.text = graphData[graphData.count - 1].date.stringDateWithFormat(format: "HH:mm")
+            footerView.leftLabel.text = graphData[0].date.stringDateWithFormat("HH:mm")
+            footerView.rightLabel.text = graphData[graphData.count - 1].date.stringDateWithFormat("HH:mm")
         }
         lineChart.footerView = footerView
         lineChart.setState(.expanded, animated: true)
@@ -167,17 +167,17 @@ extension DSQueryDetailViewController: JBLineChartViewDelegate, JBLineChartViewD
         let data = graphData[Int(horizontalIndex)]
         switch lineIndex{
         case 0:
-            informationLabel.text = "X -> " + String(data.x) + " at " + data.date.stringDateWithFormat(format: "HH:mm:ss")
+            informationLabel.text = "X -> " + String(data.x) + " at " + data.date.stringDateWithFormat("HH:mm:ss")
         case 1:
-            informationLabel.text = "Y -> " + String(data.y) + " at " + data.date.stringDateWithFormat(format: "HH:mm:ss")
+            informationLabel.text = "Y -> " + String(data.y) + " at " + data.date.stringDateWithFormat("HH:mm:ss")
         case 2:
-            informationLabel.text = "Z -> " + String(data.z) + " at " + data.date.stringDateWithFormat(format: "HH:mm:ss")
+            informationLabel.text = "Z -> " + String(data.z) + " at " + data.date.stringDateWithFormat("HH:mm:ss")
         default:
             informationLabel.text = data.date.description
         }
     }
     
-    func didDeselectLineInLineChartView(lineChartView: JBLineChartView!) {
+    func didDeselectLine(in lineChartView: JBLineChartView!) {
         informationLabel.text = ""
         scrollView.isScrollEnabled = true
     }
@@ -195,7 +195,7 @@ extension DSQueryDetailViewController: JBLineChartViewDelegate, JBLineChartViewD
         return UIColor.white
     }
     
-    func verticalSelectionWidthForLineChartView(lineChartView: JBLineChartView!) -> CGFloat {
+    func verticalSelectionWidth(for lineChartView: JBLineChartView!) -> CGFloat {
         return 2
     }
     

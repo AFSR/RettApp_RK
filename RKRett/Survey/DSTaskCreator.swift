@@ -12,7 +12,7 @@ import ResearchKit
 public var DSTaskCreator:((NSDictionary) -> (ORKOrderedTask)) = { dictionary in
     
     var steps = [ORKStep]()
-    if let questions = dictionary.objectForKey("questions") as? NSArray{
+    if let questions = dictionary.object(forKey: "questions") as? NSArray{
         for question in questions{
             if let dicQuestion = question as? NSDictionary{
                 let step = DSStepCreator.createQuestionStepUsingDictionary(dicQuestion)
@@ -23,7 +23,7 @@ public var DSTaskCreator:((NSDictionary) -> (ORKOrderedTask)) = { dictionary in
         }
     }
     
-    let identifier = dictionary.objectForKey("taskId") as! String
+    let identifier = dictionary.object(forKey: "taskId") as! String
     
     return ORKOrderedTask(identifier: identifier, steps: steps)
 }
