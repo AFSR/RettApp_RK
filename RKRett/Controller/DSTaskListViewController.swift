@@ -81,7 +81,7 @@ class DSTaskListViewController: UIViewController{
         cell.detailTextLabel?.text = detailLabel
         
         var color:UIColor!
-        if (((numberOfTasksCompletedes as AnyObject).integerValue)! >= task.frequencyNumber.intValue) && (task.frequencyType != Frequency.OnDemand.rawValue) {
+        if (numberOfTasksCompletedes != nil && ((numberOfTasksCompletedes as AnyObject).integerValue)! >= task.frequencyNumber.intValue) && (task.frequencyType != Frequency.OnDemand.rawValue) {
             color = .greenColorDarker()
             cell.imageView?.image = UIImage(named: "OvalChecked")
         } else {
