@@ -81,7 +81,7 @@ class AppDelegate: UIResponder {
         UINavigationBar.appearance().tintColor = .purple
         UINavigationBar.appearance().barStyle = UIBarStyle.default
         UINavigationBar.appearance().isTranslucent = true
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.purple]
         
         UILabel.appearance().tintColor = .purple
         UIButton.appearance().tintColor = .purple

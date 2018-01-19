@@ -119,12 +119,12 @@ class DSPasswordController:UIViewController {
         }
     }
     
-    func disappearHUDWithError(){
+    @objc func disappearHUDWithError(){
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.SVProgressHUDDidDisappear, object: nil)
         self.passwordField.becomeFirstResponder()
     }
     
-    func passwordDidChange(sender: UITextField!){
+    @objc func passwordDidChange(sender: UITextField!){
         if let passwordLenght = sender.text?.characters.count{
             if (passwordLenght <= kDSOpenPasswordMaxSize){
                 password = sender.text

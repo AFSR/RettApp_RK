@@ -263,7 +263,7 @@ class StandardGraphView: UIView {
         
         let font = UIFont(name: "Helvetica", size: 13)
         //let attr:CFDictionary = [NSFontAttributeName:font!,NSForegroundColorAttributeName:self.highlightedLinesColor]
-        let attr = [NSFontAttributeName:font!,NSForegroundColorAttributeName:self.highlightedLinesColor] as [String : Any]
+        let attr = [NSAttributedStringKey.font.rawValue:font!,NSAttributedStringKey.foregroundColor:self.highlightedLinesColor] as! [String : Any]
         let affineMatrix = CGAffineTransform(scaleX: 1, y: -1)
         ctx.textMatrix = affineMatrix
 //        let alignment = CTTextAlignment.Right
@@ -325,7 +325,7 @@ class StandardGraphView: UIView {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .right
         //let attr:CFDictionary = [NSFontAttributeName:font!,NSForegroundColorAttributeName:self.textColor, NSParagraphStyleAttributeName:paragraphStyle]
-        let attr = [NSFontAttributeName:font!,NSForegroundColorAttributeName:self.textColor, NSParagraphStyleAttributeName:paragraphStyle] as [String : Any]
+        let attr = [NSAttributedStringKey.font.rawValue:font!,NSAttributedStringKey.foregroundColor:self.textColor, NSAttributedStringKey.paragraphStyle:paragraphStyle] as! [String : Any]
         
         
         ctx.setLineWidth(1.0)

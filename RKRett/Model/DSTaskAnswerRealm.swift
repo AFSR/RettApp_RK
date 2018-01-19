@@ -10,8 +10,8 @@ import RealmSwift
 
 class DSTaskAnswerRealm: Object {
     
-    dynamic var taskName = ""
-    dynamic var json = ""
+    @objc dynamic var taskName = ""
+    @objc dynamic var json = ""
     
 // Specify properties to ignore (Realm won't persist these)
     

@@ -138,8 +138,8 @@ class CircularGraphView: UIView {
         let font1 = UIFont(name: "HelveticaNeue", size: self.radius/2)
         let font2 = UIFont(name: "HelveticaNeue-Light", size: self.radius/5)
         
-        let val = NSMutableAttributedString(string: "\(Int(self.percentage*100))", attributes: [NSFontAttributeName:font1!, NSForegroundColorAttributeName:self.textColor])
-        let perc = NSAttributedString(string: " %", attributes: [NSFontAttributeName:font2!, NSForegroundColorAttributeName:self.textColor])
+        let val = NSMutableAttributedString(string: "\(Int(self.percentage*100))", attributes: [NSAttributedStringKey.font:font1!, NSAttributedStringKey.foregroundColor:self.textColor])
+        let perc = NSAttributedString(string: " %", attributes: [NSAttributedStringKey.font:font2!, NSAttributedStringKey.foregroundColor:self.textColor])
         
         val.append(perc)
         

@@ -11,7 +11,7 @@ import RealmSwift
 
 class DSBloodType: Object {
     
-    dynamic var bloodType:HKBloodType = .notSet {
+    @objc dynamic var bloodType:HKBloodType = .notSet {
         didSet{
             var bloodTypeString = ""
             switch(bloodType){
@@ -57,7 +57,7 @@ class DSBloodType: Object {
         }
     }
     
-    dynamic var bloodTypeString:String = ""
+    @objc dynamic var bloodTypeString:String = ""
     
     convenience init(bloodTypeObject: HKBloodTypeObject){
         self.init()

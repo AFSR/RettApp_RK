@@ -20,7 +20,7 @@ class DSQueryDetailViewController: UIViewController{
     var graphData = [(x: Double, y:Double, z:Double, date: Date)]()
     let lineChart = JBLineChartView(frame: CGRect(x: 0, y: 0, width: 1000, height: 280))
     
-    func showInfo(){
+    @objc func showInfo(){
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -108,7 +108,7 @@ class DSQueryDetailViewController: UIViewController{
         lineChart.setState(.collapsed, animated: true)
     }
     
-    func showChart() {
+    @objc func showChart() {
         lineChart.frame = CGRect(x: 0, y: 0, width: 1000, height: scrollView.frame.height)
         let footerView = JBLineChartFooterView(frame: CGRect(x: 0, y: 0, width: 10, height: 30))
         footerView.sectionCount = 100

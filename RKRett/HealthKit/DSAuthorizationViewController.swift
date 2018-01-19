@@ -89,7 +89,7 @@ class DSAuthorizationViewController: UIViewController {
     
     
     //MARK: Internal functioons
-    func configureButtons(){
+    @objc func configureButtons(){
         
         //Configure healthKit button
         /* healthManager.readProfile({ (success: Bool, error: NSError?) -> Void in
@@ -125,7 +125,7 @@ class DSAuthorizationViewController: UIViewController {
     func registerForPushForiOS7AndAbove(){
         UIApplication.shared
         let application = UIApplication.shared
-        if application.responds(to: Selector("registerUserNotificationSettings:")) {
+        if application.responds(to: #selector(UIApplication.registerUserNotificationSettings(_:))) {
             let notifSettings = UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil)
             application.registerUserNotificationSettings(notifSettings)
             application.registerForRemoteNotifications()
