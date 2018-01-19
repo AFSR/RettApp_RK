@@ -325,7 +325,7 @@ class StandardGraphView: UIView {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .right
         //let attr:CFDictionary = [NSFontAttributeName:font!,NSForegroundColorAttributeName:self.textColor, NSParagraphStyleAttributeName:paragraphStyle]
-        let attr = [NSAttributedStringKey.font.rawValue:font!,NSAttributedStringKey.foregroundColor:self.textColor, NSAttributedStringKey.paragraphStyle:paragraphStyle] as! [String : Any]
+        let attr = [NSAttributedStringKey.font.rawValue:font!,NSAttributedStringKey.foregroundColor:self.textColor as String, NSAttributedStringKey.paragraphStyle:paragraphStyle] as! [String : Any]
         
         
         ctx.setLineWidth(1.0)

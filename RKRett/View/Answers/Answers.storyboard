@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaskAnswerCell" textLabel="1hd-ad-QrF" detailTextLabel="wXC-g8-JfY" rowHeight="109" style="IBUITableViewCellStyleSubtitle" id="O4w-n8-XfR">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaskAnswerCell" textLabel="1hd-ad-QrF" detailTextLabel="wXC-g8-JfY" rowHeight="109" style="IBUITableViewCellStyleSubtitle" id="O4w-n8-XfR">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="109"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O4w-n8-XfR" id="bql-Fw-dyg">

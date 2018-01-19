@@ -150,7 +150,6 @@
 		2F3193541F3CFD1500F35E09 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = Utils/Parser.swift; sourceTree = "<group>"; };
 		2F3193561F3D08A900F35E09 /* Description.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Description.swift; path = Utils/Description.swift; sourceTree = "<group>"; };
 		2F3193581F3D0B4F00F35E09 /* ParserHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParserHelpers.swift; path = Utils/ParserHelpers.swift; sourceTree = "<group>"; };
-		2F4F90041F3E488F009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Task.strings; sourceTree = "<group>"; };
 		2F4F90051F3E488F009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Dashboard1.strings; sourceTree = "<group>"; };
 		2F4F90061F3E488F009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2F4F90071F3E488F009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Learn.strings; sourceTree = "<group>"; };
@@ -164,6 +163,8 @@
 		2F958FFF2012694A0037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSO2SaturationTask.plist; sourceTree = "<group>"; };
 		2F959000201269550037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSSleepTask.plist; sourceTree = "<group>"; };
 		2F9590012012695B0037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSBloodPressureTask.plist; sourceTree = "<group>"; };
+		2F95900220126BC60037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Task.strings; sourceTree = "<group>"; };
+		2F95900320126D660037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSQuiz.plist; sourceTree = "<group>"; };
 		35812B771BC6EB0700D4FB68 /* CSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSV.swift; path = Utils/CSV.swift; sourceTree = "<group>"; };
 		358824631BD8B35F00276C63 /* JBBarChartFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartFooterView.h; sourceTree = "<group>"; };
 		358824641BD8B35F00276C63 /* JBBarChartFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartFooterView.m; sourceTree = "<group>"; };
@@ -1195,6 +1196,7 @@
 			children = (
 				52CB18A81BBE9A1700B1B096 /* en */,
 				52CB18AA1BBE9A1900B1B096 /* pt */,
+				2F95900320126D660037F542 /* fr */,
 			);
 			name = DSQuiz.plist;
 			path = Onboarding/Quiz;
@@ -1205,7 +1207,7 @@
 			children = (
 				52CD0AAB1BBF305800D61C8D /* Base */,
 				52031F771BC2DD5500A6402A /* pt */,
-				2F4F90041F3E488F009852D0 /* fr */,
+				2F95900220126BC60037F542 /* fr */,
 			);
 			name = Task.storyboard;
 			sourceTree = "<group>";
