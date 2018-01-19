@@ -158,6 +158,12 @@
 		2F4F90091F3E4890009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = View/Onboarding/fr.lproj/Password.strings; sourceTree = "<group>"; };
 		2F4F900A1F3E4890009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Onboarding.strings; sourceTree = "<group>"; };
 		2F4F900B1F3E48CF009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2F958FFC2012692B0037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSMoodTask.plist; sourceTree = "<group>"; };
+		2F958FFD2012693C0037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSTemperatureTask.plist; sourceTree = "<group>"; };
+		2F958FFE201269440037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSSeizureTask.plist; sourceTree = "<group>"; };
+		2F958FFF2012694A0037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSO2SaturationTask.plist; sourceTree = "<group>"; };
+		2F959000201269550037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSSleepTask.plist; sourceTree = "<group>"; };
+		2F9590012012695B0037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSBloodPressureTask.plist; sourceTree = "<group>"; };
 		35812B771BC6EB0700D4FB68 /* CSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSV.swift; path = Utils/CSV.swift; sourceTree = "<group>"; };
 		358824631BD8B35F00276C63 /* JBBarChartFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartFooterView.h; sourceTree = "<group>"; };
 		358824641BD8B35F00276C63 /* JBBarChartFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartFooterView.m; sourceTree = "<group>"; };
@@ -1134,6 +1140,7 @@
 			children = (
 				52783EA41BBEA77700AB2BB9 /* en */,
 				5298A51E1BBEA79800605A75 /* pt */,
+				2F958FFD2012693C0037F542 /* fr */,
 			);
 			name = DSTemperatureTask.plist;
 			path = Surveys;
@@ -1144,6 +1151,7 @@
 			children = (
 				5298A5201BBEA7A100605A75 /* en */,
 				5298A5221BBEA7A300605A75 /* pt */,
+				2F958FFE201269440037F542 /* fr */,
 			);
 			name = DSSeizureTask.plist;
 			path = Surveys;
@@ -1154,6 +1162,7 @@
 			children = (
 				5298A5241BBEA7AA00605A75 /* en */,
 				5298A5261BBEA7AB00605A75 /* pt */,
+				2F958FFF2012694A0037F542 /* fr */,
 			);
 			name = DSO2SaturationTask.plist;
 			path = Surveys;
@@ -1175,6 +1184,7 @@
 			children = (
 				52CA57701BBEB820000534FD /* en */,
 				52CA57721BBEB822000534FD /* pt */,
+				2F959000201269550037F542 /* fr */,
 			);
 			name = DSSleepTask.plist;
 			path = Surveys;
@@ -1205,6 +1215,7 @@
 			children = (
 				52E600DA1BBC4FE400910E56 /* en */,
 				52E974A91BBC7740004601DB /* pt */,
+				2F9590012012695B0037F542 /* fr */,
 			);
 			name = DSBloodPressureTask.plist;
 			path = Surveys;
@@ -1245,6 +1256,7 @@
 			children = (
 				52EED4BB1BBC4F030032B7DF /* en */,
 				52E9749D1BBC5406004601DB /* pt */,
+				2F958FFC2012692B0037F542 /* fr */,
 			);
 			name = DSMoodTask.plist;
 			path = Surveys;
