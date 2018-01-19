@@ -108,7 +108,7 @@ class DSTimeBasedGraphViewController: UIViewController {
         do{
             let realm = try Realm()
 //            dispatch_sync(kBgQueue) {
-                self.data = realm.objects(DSTaskAnswerRealm).filter("taskName = '\(self.taskId)'")
+            self.data = realm.objects(DSTaskAnswerRealm.self).filter("taskName = '\(self.taskId)'")
 //                dispatch_async(dispatch_get_main_queue(), { () -> Void in
 //                    self.updatePoints(true)
 //                })

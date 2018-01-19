@@ -19,7 +19,7 @@ class DSRealmExporter: NSObject {
         var fileContent = "Date,Task,ResultKey,ResultValue"
         do{
             let realm = try Realm()
-            let taskAnswers = realm.objects(DSTaskAnswerRealm).sorted(byKeyPath: "taskName")
+            let taskAnswers = realm.objects(DSTaskAnswerRealm.self).sorted(byKeyPath: "taskName")
             if taskAnswers.isEmpty {
                 throw NSError(domain: "io.darkshine", code: 1, userInfo: [NSLocalizedDescriptionKey : NSLocalizedString("No results to export!", comment:"")])
             }
