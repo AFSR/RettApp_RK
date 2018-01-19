@@ -551,7 +551,7 @@ ret =
           })),
   ENTRY(ORKTextChoice,
         ^id(NSDictionary *dict, ORKESerializationPropertyGetter getter) {
-            return [[ORKTextChoice alloc] initWithText:GETPROP(dict, text) detailText:GETPROP(dict, detailText) value:GETPROP(dict, value)];
+            return [[ORKTextChoice alloc] initWithText:GETPROP(dict, text) detailText:GETPROP(dict, detailText) value:GETPROP(dict, value) exclusive:NO];
         },
         (@{
           PROPERTY(text, NSString, NSObject, NO, nil, nil),

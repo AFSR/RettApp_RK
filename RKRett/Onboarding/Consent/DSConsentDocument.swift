@@ -36,7 +36,7 @@ public var DSConsentDocument: ORKConsentDocument {
                         }
                     
                     } else {
-                        switch(sectionDictionary.value(forKey: PlistFile.Consent.Section.Type.rawValue) as! String){
+                        switch(sectionDictionary.value(forKey: PlistFile.Consent.Section.type.rawValue) as! String){
                         case "Overview":
                             consentSection = ORKConsentSection(type: ORKConsentSectionType.overview)
                         case "DataGathering":

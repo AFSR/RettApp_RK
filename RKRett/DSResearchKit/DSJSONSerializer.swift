@@ -37,10 +37,10 @@ class DSJSONSerializer: DSReflect {
         for stepResultAux in results{
             let dict = NSMutableDictionary()
             if let stepResult = stepResultAux as? ORKStepResult{
-                if let result: AnyObject = stepResult.results?.first{
-                    let answerKey = getAnswerKeyForResult(result as! ORKResult)
-                    assert(result.responds(NSSelectorFromString(answerKey)), "Result '\(NSStringFromClass(result.classForCoder))' doesn't respond to selector '\(answerKey)'")
-                    if let value: AnyObject = result.value(forKey: answerKey){
+                if let result = stepResult.results?.first{
+                    let answerKey = getAnswerKeyForResult(result)
+                    assert(result.responds(to: Selector.init(answerKey)), "Result '\(NSStringFromClass(result.classForCoder))' doesn't respond to selector '\(answerKey)'")
+                    if let value = result.value(forKey: answerKey){
                         if let key = result.identifier as String?{
                             dict.setValue(value, forKey: key)
                         }
@@ -67,13 +67,13 @@ class DSJSONSerializer: DSReflect {
         let dict = NSMutableDictionary()
         for stepResultAux in results {
             if let stepResult = stepResultAux as? ORKStepResult{
-                if let result: AnyObject = stepResult.results?.first{
-                    let answerKey = getAnswerKeyForResult(result as! ORKResult)
-                    assert(result.responds(NSSelectorFromString(answerKey)), "Result '\(NSStringFromClass(result.classForCoder))' doesn't respond to selector '\(answerKey)'")
-                    if let value: AnyObject = result.valueForKey(answerKey){
+                if let result = stepResult.results?.first{
+                    let answerKey = getAnswerKeyForResult(result)
+                    assert(result.responds(to: Selector.init(answerKey)), "Result '\(NSStringFromClass(result.classForCoder))' doesn't respond to selector '\(answerKey)'")
+                    if let value = result.value(forKey: answerKey){
                         if let key = result.identifier as String?{
-                            let valueToSave = extractValue(value, forKey: answerKey)
-                            let dictAnswer = NSDictionary(dictionary: ["result":valueToSave, "date":result.startDate!!.ISOStringFromDate()])
+                            let valueToSave = extractValue(value as AnyObject, forKey: answerKey)
+                            let dictAnswer = NSDictionary(dictionary: ["result":valueToSave, "date":result.startDate.ISOStringFromDate()])
                             dict.setValue(dictAnswer, forKey: key)
                         }
                     }else{

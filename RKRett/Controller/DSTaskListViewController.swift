@@ -142,8 +142,8 @@ extension DSTaskListViewController: UITableViewDataSource {
             
             let now = Date()
             let stringDate = dateFormatter.string(from: now)
-            
-            sectionLabel.text = NSLocalizedString("Today", comment: "") + ", \(now.weekDayString), \(stringDate)\n" + NSLocalizedString("To start an activity tap below", comment: "")
+            sectionLabel.text = "\(NSLocalizedString("Today", comment: "")), \(now.weekDayString), \(stringDate)\n\(NSLocalizedString("To start an activity tap below", comment: ""))"
+
             sectionLabel.numberOfLines = 0
             sectionLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
             sectionLabel.textAlignment = NSTextAlignment.center

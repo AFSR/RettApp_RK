@@ -210,7 +210,7 @@ public struct PlistFile {
     enum Consent:String, CustomStringConvertible{
         enum Section:String, CustomStringConvertible{
             case Title = "title"
-            case `Type` = "type"
+            case type = "type"
             case Animation = "animation"
             case Image = "image"
             case Summary = "summary"

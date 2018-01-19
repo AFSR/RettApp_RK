@@ -18,6 +18,8 @@
 		35812B781BC6EB0700D4FB68 /* CSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35812B771BC6EB0700D4FB68 /* CSV.swift */; };
 		3588246F1BD8B35F00276C63 /* JBBarChartFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358824641BD8B35F00276C63 /* JBBarChartFooterView.m */; };
 		358824741BD8B35F00276C63 /* JBLineChartFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3588246E1BD8B35F00276C63 /* JBLineChartFooterView.m */; };
+		359682262011EFA8003870B5 /* data.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 359682242011EFA8003870B5 /* data.m4v */; };
+		359682272011EFA8003870B5 /* overview.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 359682252011EFA8003870B5 /* overview.m4v */; };
 		35ABC8231BE983DC0036A3AE /* DSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ABC8221BE983DC0036A3AE /* DSError.swift */; };
 		35BDDE741BAC745B00A65EF2 /* DSSensorDataQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BDDE731BAC745B00A65EF2 /* DSSensorDataQuery.swift */; };
 		35EE6F251BC5A7FF00855E3A /* DSQueryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EE6F231BC5A7FF00855E3A /* DSQueryDetailViewController.swift */; };
@@ -38,8 +40,6 @@
 		5298A51F1BBEA7A100605A75 /* DSSeizureTask.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5298A5211BBEA7A100605A75 /* DSSeizureTask.plist */; };
 		5298A5231BBEA7AA00605A75 /* DSO2SaturationTask.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5298A5251BBEA7AA00605A75 /* DSO2SaturationTask.plist */; };
 		52A06FBC1B90B8B400DA4AEC /* DSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A06FBB1B90B8B400DA4AEC /* DSConstants.swift */; };
-		52A3E38E1BBD9A910051CA4C /* data.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 52A3E38C1BBD9A910051CA4C /* data.m4v */; };
-		52A3E38F1BBD9A910051CA4C /* overview.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 52A3E38D1BBD9A910051CA4C /* overview.m4v */; };
 		52A436921B84DAE500188433 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A436911B84DAE500188433 /* AppDelegate.swift */; };
 		52A436991B84DAE500188433 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52A436981B84DAE500188433 /* Images.xcassets */; };
 		52A436A81B84DAE500188433 /* RKRettTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A436A71B84DAE500188433 /* RKRettTests.swift */; };
@@ -163,6 +163,8 @@
 		358824641BD8B35F00276C63 /* JBBarChartFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartFooterView.m; sourceTree = "<group>"; };
 		3588246D1BD8B35F00276C63 /* JBLineChartFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBLineChartFooterView.h; sourceTree = "<group>"; };
 		3588246E1BD8B35F00276C63 /* JBLineChartFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBLineChartFooterView.m; sourceTree = "<group>"; };
+		359682242011EFA8003870B5 /* data.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = data.m4v; sourceTree = "<group>"; };
+		359682252011EFA8003870B5 /* overview.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = overview.m4v; sourceTree = "<group>"; };
 		35ABC8221BE983DC0036A3AE /* DSError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSError.swift; path = Utils/DSError.swift; sourceTree = "<group>"; };
 		35BDDE631BAC6A4800A65EF2 /* RKRett-Watch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RKRett-Watch-Bridging-Header.h"; sourceTree = "<group>"; };
 		35BDDE731BAC745B00A65EF2 /* DSSensorDataQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSSensorDataQuery.swift; path = Model/DSSensorDataQuery.swift; sourceTree = "<group>"; };
@@ -193,8 +195,6 @@
 		5298A5241BBEA7AA00605A75 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/DSO2SaturationTask.plist; sourceTree = "<group>"; };
 		5298A5261BBEA7AB00605A75 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = pt; path = pt.lproj/DSO2SaturationTask.plist; sourceTree = "<group>"; };
 		52A06FBB1B90B8B400DA4AEC /* DSConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSConstants.swift; path = Utils/DSConstants.swift; sourceTree = "<group>"; };
-		52A3E38C1BBD9A910051CA4C /* data.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; name = data.m4v; path = ../../../../../rkrett/RKRett/Onboarding/Consent/Animations/data.m4v; sourceTree = "<group>"; };
-		52A3E38D1BBD9A910051CA4C /* overview.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; name = overview.m4v; path = ../../../../../rkrett/RKRett/Onboarding/Consent/Animations/overview.m4v; sourceTree = "<group>"; };
 		52A4368C1B84DAE500188433 /* RKRett.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RKRett.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A436911B84DAE500188433 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52A436981B84DAE500188433 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -439,8 +439,8 @@
 		52A3E38B1BBD9A6D0051CA4C /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				52A3E38C1BBD9A910051CA4C /* data.m4v */,
-				52A3E38D1BBD9A910051CA4C /* overview.m4v */,
+				359682242011EFA8003870B5 /* data.m4v */,
+				359682252011EFA8003870B5 /* overview.m4v */,
 			);
 			name = Animations;
 			path = Onboarding/Consent/Animations;
@@ -832,15 +832,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52A3E38F1BBD9A910051CA4C /* overview.m4v in Resources */,
 				624633891BABB05700EDAB1F /* Answers.storyboard in Resources */,
 				5249284E1BC2F0080091F35A /* Password.storyboard in Resources */,
-				52A3E38E1BBD9A910051CA4C /* data.m4v in Resources */,
 				52AB7C8D1BAC0477006E3B77 /* _DSConsent.plist in Resources */,
+				359682272011EFA8003870B5 /* overview.m4v in Resources */,
 				623938261BD1555C00B1BC09 /* Learn.storyboard in Resources */,
 				620943AD1BAC293100C1A9B9 /* Certificados in Resources */,
 				52EED4B61BBC49F80032B7DF /* Localizable.strings in Resources */,
 				52031F7A1BC2E1D600A6402A /* DSLearnMore.plist in Resources */,
+				359682262011EFA8003870B5 /* data.m4v in Resources */,
 				52031F621BC2DC5600A6402A /* Main.storyboard in Resources */,
 				52C657DE1BC2EE66000CE353 /* Onboarding.storyboard in Resources */,
 				62482FE61F3C834E00B83B25 /* DSAuthorizationViewController.xib in Resources */,
