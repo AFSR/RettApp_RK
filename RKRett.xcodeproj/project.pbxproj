@@ -14,6 +14,8 @@
 		2F3193551F3CFD1500F35E09 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3193541F3CFD1500F35E09 /* Parser.swift */; };
 		2F3193571F3D08A900F35E09 /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3193561F3D08A900F35E09 /* Description.swift */; };
 		2F3193591F3D0B4F00F35E09 /* ParserHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3193581F3D0B4F00F35E09 /* ParserHelpers.swift */; };
+		2F959004201270D10037F542 /* DSAuthorizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F959006201270D10037F542 /* DSAuthorizationViewController.xib */; };
+		2F95900B201271E80037F542 /* Answers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F95900D201271E80037F542 /* Answers.storyboard */; };
 		31FF5F1FC603400F0BAB2928 /* Pods_RKRettTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85D054C5D01128D7353EAB5 /* Pods_RKRettTests.framework */; };
 		35812B781BC6EB0700D4FB68 /* CSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35812B771BC6EB0700D4FB68 /* CSV.swift */; };
 		3588246F1BD8B35F00276C63 /* JBBarChartFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358824641BD8B35F00276C63 /* JBBarChartFooterView.m */; };
@@ -76,9 +78,7 @@
 		620E7A271BD570FA004AC520 /* Dashboard1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 620E7A251BD570FA004AC520 /* Dashboard1.storyboard */; };
 		622AEADF1BFBCE7E009191FC /* DSReflect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FBBC461B8776EE002462DE /* DSReflect.swift */; };
 		623938261BD1555C00B1BC09 /* Learn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 623938211BD1555C00B1BC09 /* Learn.storyboard */; };
-		624633891BABB05700EDAB1F /* Answers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 624633881BABB05700EDAB1F /* Answers.storyboard */; };
 		62482FE51F3C834E00B83B25 /* DSAuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62482FE31F3C834E00B83B25 /* DSAuthorizationViewController.swift */; };
-		62482FE61F3C834E00B83B25 /* DSAuthorizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62482FE41F3C834E00B83B25 /* DSAuthorizationViewController.xib */; };
 		62482FE81F3C852900B83B25 /* DSActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62482FE71F3C852900B83B25 /* DSActivityCell.swift */; };
 		62482FED1F3C854E00B83B25 /* CircularGraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62482FE91F3C854E00B83B25 /* CircularGraphCell.swift */; };
 		62482FEE1F3C854E00B83B25 /* CircularGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62482FEA1F3C854E00B83B25 /* CircularGraphCell.xib */; };
@@ -165,6 +165,11 @@
 		2F9590012012695B0037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSBloodPressureTask.plist; sourceTree = "<group>"; };
 		2F95900220126BC60037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Task.strings; sourceTree = "<group>"; };
 		2F95900320126D660037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSQuiz.plist; sourceTree = "<group>"; };
+		2F959005201270D10037F542 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DSAuthorizationViewController.xib; sourceTree = "<group>"; };
+		2F95900A201270DA0037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/DSAuthorizationViewController.strings; sourceTree = "<group>"; };
+		2F95900C201271E80037F542 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Answers.storyboard; sourceTree = "<group>"; };
+		2F95900F201271EB0037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Answers.strings; sourceTree = "<group>"; };
+		2F9590102012752B0037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSLearnMore.plist; sourceTree = "<group>"; };
 		35812B771BC6EB0700D4FB68 /* CSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSV.swift; path = Utils/CSV.swift; sourceTree = "<group>"; };
 		358824631BD8B35F00276C63 /* JBBarChartFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartFooterView.h; sourceTree = "<group>"; };
 		358824641BD8B35F00276C63 /* JBBarChartFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartFooterView.m; sourceTree = "<group>"; };
@@ -249,9 +254,7 @@
 		620943AC1BAC293100C1A9B9 /* Certificados */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Certificados; sourceTree = SOURCE_ROOT; };
 		620E7A261BD570FA004AC520 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Dashboard1.storyboard; sourceTree = "<group>"; };
 		623938221BD1555C00B1BC09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Learn.storyboard; sourceTree = "<group>"; };
-		624633881BABB05700EDAB1F /* Answers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Answers.storyboard; path = View/Answers/Answers.storyboard; sourceTree = "<group>"; };
 		62482FE31F3C834E00B83B25 /* DSAuthorizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSAuthorizationViewController.swift; sourceTree = "<group>"; };
-		62482FE41F3C834E00B83B25 /* DSAuthorizationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSAuthorizationViewController.xib; sourceTree = "<group>"; };
 		62482FE71F3C852900B83B25 /* DSActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSActivityCell.swift; sourceTree = "<group>"; };
 		62482FE91F3C854E00B83B25 /* CircularGraphCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularGraphCell.swift; sourceTree = "<group>"; };
 		62482FEA1F3C854E00B83B25 /* CircularGraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CircularGraphCell.xib; sourceTree = "<group>"; };
@@ -646,7 +649,7 @@
 			isa = PBXGroup;
 			children = (
 				62482FE31F3C834E00B83B25 /* DSAuthorizationViewController.swift */,
-				62482FE41F3C834E00B83B25 /* DSAuthorizationViewController.xib */,
+				2F959006201270D10037F542 /* DSAuthorizationViewController.xib */,
 				626E1EE21C10B64A00A19674 /* HealthManager.swift */,
 			);
 			path = HealthKit;
@@ -713,7 +716,7 @@
 			isa = PBXGroup;
 			children = (
 				52E1BED51BA1F4FE0039BA6D /* Activity */,
-				624633881BABB05700EDAB1F /* Answers.storyboard */,
+				2F95900D201271E80037F542 /* Answers.storyboard */,
 				6274FF321B8F87CE0002EB02 /* Dashboard */,
 				52845FD51BA8AF8400441877 /* DSCircularView.swift */,
 				52031F5D1BC2DBFB00A6402A /* LaunchScreen */,
@@ -839,7 +842,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				624633891BABB05700EDAB1F /* Answers.storyboard in Resources */,
+				2F95900B201271E80037F542 /* Answers.storyboard in Resources */,
 				5249284E1BC2F0080091F35A /* Password.storyboard in Resources */,
 				52AB7C8D1BAC0477006E3B77 /* _DSConsent.plist in Resources */,
 				359682272011EFA8003870B5 /* overview.m4v in Resources */,
@@ -850,7 +853,7 @@
 				359682262011EFA8003870B5 /* data.m4v in Resources */,
 				52031F621BC2DC5600A6402A /* Main.storyboard in Resources */,
 				52C657DE1BC2EE66000CE353 /* Onboarding.storyboard in Resources */,
-				62482FE61F3C834E00B83B25 /* DSAuthorizationViewController.xib in Resources */,
+				2F959004201270D10037F542 /* DSAuthorizationViewController.xib in Resources */,
 				52031F6F1BC2DCB100A6402A /* LaunchScreen.xib in Resources */,
 				62482FEE1F3C854E00B83B25 /* CircularGraphCell.xib in Resources */,
 				52CB18A71BBE9A1700B1B096 /* DSQuiz.plist in Resources */,
@@ -1088,6 +1091,25 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2F959006201270D10037F542 /* DSAuthorizationViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F959005201270D10037F542 /* Base */,
+				2F95900A201270DA0037F542 /* fr */,
+			);
+			name = DSAuthorizationViewController.xib;
+			sourceTree = "<group>";
+		};
+		2F95900D201271E80037F542 /* Answers.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F95900C201271E80037F542 /* Base */,
+				2F95900F201271EB0037F542 /* fr */,
+			);
+			name = Answers.storyboard;
+			path = View/Answers;
+			sourceTree = "<group>";
+		};
 		52031F641BC2DC5600A6402A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1113,6 +1135,7 @@
 			children = (
 				52031F7B1BC2E1D600A6402A /* en */,
 				521FB7341BC2E1F6002686ED /* pt */,
+				2F9590102012752B0037F542 /* fr */,
 			);
 			name = DSLearnMore.plist;
 			path = LearnMore;
@@ -1337,6 +1360,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = AppRett;
 				SDKROOT = iphoneos;
 				STRIP_BITCODE_FROM_COPIED_FILES = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1386,6 +1410,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = AppRett;
 				SDKROOT = iphoneos;
 				STRIP_BITCODE_FROM_COPIED_FILES = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

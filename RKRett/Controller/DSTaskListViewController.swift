@@ -59,15 +59,16 @@ class DSTaskListViewController: UIViewController{
         let userDefaults = UserDefaults.standard
         var numberOfTasksCompletedes: Any? = nil
         if let taskDic = userDefaults.object(forKey: task.taskId) as? [String:AnyObject] {
-            numberOfTasksCompletedes = (taskDic[PlistFile.Task.FrequencyNumber.rawValue] as! Int == 0) ? nil : taskDic[PlistFile.Task.FrequencyNumber.rawValue]
+            numberOfTasksCompletedes = (taskDic[PlistFile.Task.FrequencyNumber.rawValue] as! Int == 0) ? nil : taskDic[PlistFile.Task.FrequencyNumber.rawValue] as? String
         }
         
         let tasksCompleted = numberOfTasksCompletedes ?? NSLocalizedString("No tasks", comment: "")
         var detailLabel:String!
         switch(task.frequencyType){
         case Frequency.Daily.Key.rawValue:
-            detailLabel = "\(tasksCompleted) " + NSLocalizedString("of", comment:"") + " \(task.frequencyNumber) " + NSLocalizedString("for today", comment:"")
-            
+            //detailLabel = task.frequencyNumber.description
+             //   task.frequencyNumber!.stringValue
+            detailLabel = (tasksCompleted as! String) + " " + NSLocalizedString("of", comment: "") + " " + (task.frequencyNumber.description) + " " + NSLocalizedString("for today", comment: "")
         case Frequency.Weekly.Key.rawValue:
             detailLabel = (tasksCompleted as! String) + NSLocalizedString("of", comment: "") + (task.frequencyNumber.stringValue) + NSLocalizedString("for this week", comment: "")
             

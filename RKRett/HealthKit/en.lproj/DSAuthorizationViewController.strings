@@ -1,0 +1,24 @@
+
+/* Class = "UIButton"; normalTitle = "Authorize HealthKit"; ObjectID = "aCh-eA-Feo"; */
+"aCh-eA-Feo.normalTitle" = "Authorize HealthKit";
+
+/* Class = "UILabel"; text = "The app will use HealthKit to get Heart Rate  info, and all the info related to the Diet"; ObjectID = "abO-4v-0n4"; */
+"abO-4v-0n4.text" = "The app will use HealthKit to get Heart Rate  info, and all the info related to the Diet";
+
+/* Class = "UIButton"; normalTitle = "Authorize Motion"; ObjectID = "m8m-Kp-fO8"; */
+"m8m-Kp-fO8.normalTitle" = "Authorize Motion";
+
+/* Class = "UILabel"; text = "Authorizations"; ObjectID = "nHS-C9-RTV"; */
+"nHS-C9-RTV.text" = "Authorizations";
+
+/* Class = "UILabel"; text = "We will use notifications to remind you about all  tasks and activities"; ObjectID = "pPd-Z3-boX"; */
+"pPd-Z3-boX.text" = "We will use notifications to remind you about all  tasks and activities";
+
+/* Class = "UILabel"; text = "We need the otion authorization to record accelerometer data from the Apple Watch"; ObjectID = "tYg-1C-0hn"; */
+"tYg-1C-0hn.text" = "We need the otion authorization to record accelerometer data from the Apple Watch";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "wzS-cr-fSP"; */
+"wzS-cr-fSP.normalTitle" = "Done";
+
+/* Class = "UIButton"; normalTitle = "Authorize Notifications"; ObjectID = "xGM-lX-q6H"; */
+"xGM-lX-q6H.normalTitle" = "Authorize Notifications";

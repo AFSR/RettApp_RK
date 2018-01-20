@@ -1,9 +1,9 @@
 
 /* Class = "UITabBarItem"; title = "Dashboard"; ObjectID = "Pif-5Q-A8a"; */
-"Pif-5Q-A8a.title" = "Dashboard";
+"Pif-5Q-A8a.title" = "Suivi";
 
 /* Class = "UITabBarItem"; title = "Task"; ObjectID = "UqQ-YU-rzM"; */
-"UqQ-YU-rzM.title" = "Task";
+"UqQ-YU-rzM.title" = "Tâches";
 
 /* Class = "UITabBarItem"; title = "Learn"; ObjectID = "ZPq-Fk-mwF"; */
-"ZPq-Fk-mwF.title" = "Learn";
+"ZPq-Fk-mwF.title" = "En savoir plus";

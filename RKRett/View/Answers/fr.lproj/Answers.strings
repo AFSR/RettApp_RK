@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "1hd-ad-QrF"; */
+"1hd-ad-QrF.text" = "Titre";
+
+/* Class = "UINavigationItem"; title = "Answers"; ObjectID = "cFN-pS-ac7"; */
+"cFN-pS-ac7.title" = "Réponses";
+
+/* Class = "UITabBarItem"; title = "Answers"; ObjectID = "grN-yS-NBz"; */
+"grN-yS-NBz.title" = "Réponses";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "wXC-g8-JfY"; */
+"wXC-g8-JfY.text" = "Sous-titre";

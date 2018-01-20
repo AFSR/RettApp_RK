@@ -1,39 +1,39 @@
 
 /* Class = "UILabel"; text = "Swipe to preview"; ObjectID = "06K-rz-XKy"; */
-"06K-rz-XKy.text" = "Swipe to preview";
+"06K-rz-XKy.text" = "Balayez pour visualiser";
 
 /* Class = "UIViewController"; title = "Sign In"; ObjectID = "0Cf-B5-aWT"; */
-"0Cf-B5-aWT.title" = "Sign In";
+"0Cf-B5-aWT.title" = "S'enregistrer";
 
 /* Class = "UITextField"; placeholder = "password"; ObjectID = "AnS-l8-bB1"; */
-"AnS-l8-bB1.placeholder" = "password";
+"AnS-l8-bB1.placeholder" = "mot de passe";
 
 /* Class = "UITextField"; placeholder = "email"; ObjectID = "I2Y-xS-vcL"; */
 "I2Y-xS-vcL.placeholder" = "email";
 
 /* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "RXj-XW-zL7"; */
-"RXj-XW-zL7.normalTitle" = "Sign Up";
+"RXj-XW-zL7.normalTitle" = "S'enregistrer";
 
 /* Class = "UILabel"; text = "Rett Syndrome"; ObjectID = "b9l-uD-e13"; */
-"b9l-uD-e13.text" = "Rett Syndrome";
+"b9l-uD-e13.text" = "Syndrome de Rett";
 
 /* Class = "UITextField"; placeholder = "name"; ObjectID = "doP-yM-cZC"; */
-"doP-yM-cZC.placeholder" = "name";
+"doP-yM-cZC.placeholder" = "nom";
 
 /* Class = "UITextField"; placeholder = "password"; ObjectID = "okZ-bS-b0P"; */
-"okZ-bS-b0P.placeholder" = "password";
+"okZ-bS-b0P.placeholder" = "mot de passe";
 
 /* Class = "UIButton"; normalTitle = "Sign In"; ObjectID = "qNt-bE-QKJ"; */
-"qNt-bE-QKJ.normalTitle" = "Sign In";
+"qNt-bE-QKJ.normalTitle" = "S'enregistrer";
 
 /* Class = "UITextField"; placeholder = "name"; ObjectID = "rb4-ZH-L3p"; */
-"rb4-ZH-L3p.placeholder" = "name";
+"rb4-ZH-L3p.placeholder" = "nom";
 
 /* Class = "UILabel"; text = "Welcome to the Rett Syndrome Research"; ObjectID = "uGM-T1-CXK"; */
-"uGM-T1-CXK.text" = "Welcome to the Rett Syndrome Research";
+"uGM-T1-CXK.text" = "Bienvenue dans la recherche sur le Syndrome de Rett";
 
 /* Class = "UIButton"; normalTitle = "Already participating?"; ObjectID = "vDj-lo-48Y"; */
-"vDj-lo-48Y.normalTitle" = "Already participating?";
+"vDj-lo-48Y.normalTitle" = "Déjà participant?";
 
 /* Class = "UIButton"; normalTitle = "Join Study"; ObjectID = "zmB-7N-srP"; */
-"zmB-7N-srP.normalTitle" = "Join Study";
+"zmB-7N-srP.normalTitle" = "Rejoindre l'étude";

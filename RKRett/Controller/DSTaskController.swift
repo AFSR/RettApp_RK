@@ -113,6 +113,42 @@ extension DSTaskController: ORKTaskViewControllerDelegate {
      */
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         //code
+        switch(reason){
+        case ORKTaskViewControllerFinishReason.completed:
+            print("Completed")
+            var jsonString = ""
+            if let data = DSJSONSerializer.taskResultToJsonData(taskViewController.result){
+                jsonString = String(data: data as Data, encoding: String.Encoding.utf8)!
+                let answer = DSTaskAnswerRealm()
+                answer.taskName = (taskViewController.task?.identifier)!
+                DSUtils.updateUserDefaultsFor(self.task)
+                if let taskListVC = self.parentViewController as? DSTaskListViewController{
+                    taskListVC.tableView.reloadData()
+                }
+                answer.json = jsonString
+                do{
+                    let realm = try Realm()
+                    try realm.write{
+                        realm.add(answer)
+                        self.taskViewControllerInstance.dismiss(animated: true, completion: nil)
+                    }
+                }catch let error as NSError{
+                    print(error.localizedDescription)
+                }
+            }
+            
+        case ORKTaskViewControllerFinishReason.discarded:
+            //            print("Discarded")
+            self.taskViewControllerInstance.dismiss(animated: true, completion: nil)
+            
+        case ORKTaskViewControllerFinishReason.failed:
+            //            print("Failed: \(error?.localizedDescription)")
+            self.taskViewControllerInstance.dismiss(animated: true, completion: nil)
+            
+        case ORKTaskViewControllerFinishReason.saved:
+            //            print("Saved")
+            self.taskViewControllerInstance.dismiss(animated: true, completion: nil)
+        }
     }
 
   
