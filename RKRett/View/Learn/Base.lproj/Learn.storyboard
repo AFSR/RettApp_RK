@@ -42,32 +42,37 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="80" sectionHeaderHeight="1" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="qpT-yb-PsP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RettLogo" id="e6e-E7-j1B">
+                                <stackView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" id="qwo-3c-07l">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="128" id="PId-cS-hFm"/>
-                                        <constraint firstAttribute="width" constant="144" id="tfv-Qn-dqQ"/>
-                                    </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="tfv-Qn-dqQ"/>
-                                        </mask>
-                                    </variation>
-                                </imageView>
-                                <imageView key="tableFooterView" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="afsr_logo" id="Jke-Kh-EfB" userLabel="AFSRLogo">
-                                    <rect key="frame" x="0.0" y="289.5" width="375" height="128"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="144" id="GJc-Io-tgL"/>
-                                        <constraint firstAttribute="height" constant="128" id="amF-VU-tLb"/>
-                                    </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="GJc-Io-tgL"/>
-                                        </mask>
-                                    </variation>
-                                </imageView>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RettLogo" translatesAutoresizingMaskIntoConstraints="NO" id="e6e-E7-j1B">
+                                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="128"/>
+                                            <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="128" id="PId-cS-hFm"/>
+                                                <constraint firstAttribute="width" constant="144" id="tfv-Qn-dqQ"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="tfv-Qn-dqQ"/>
+                                                </mask>
+                                            </variation>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="afsr_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Jke-Kh-EfB" userLabel="AFSRLogo">
+                                            <rect key="frame" x="187.5" y="0.0" width="187.5" height="128"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="144" id="GJc-Io-tgL"/>
+                                                <constraint firstAttribute="height" constant="128" id="amF-VU-tLb"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="GJc-Io-tgL"/>
+                                                </mask>
+                                            </variation>
+                                        </imageView>
+                                    </subviews>
+                                </stackView>
                                 <prototypes>
                                     <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BlankCell" rowHeight="16" id="Vah-sL-SmM">
                                         <rect key="frame" x="0.0" y="183.5" width="375" height="16"/>
