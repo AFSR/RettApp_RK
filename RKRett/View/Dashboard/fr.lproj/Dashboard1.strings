@@ -2,6 +2,15 @@
 /* Class = "UINavigationItem"; title = "Dashboard"; ObjectID = "0DM-cp-b98"; */
 "0DM-cp-b98.title" = "Suivi";
 
+/* Class = "UISegmentedControl"; Pgd-Os-xCt.segmentTitles[0] = "Day"; ObjectID = "Pgd-Os-xCt"; */
+"Pgd-Os-xCt.segmentTitles[0]" = "Jour";
+
+/* Class = "UISegmentedControl"; Pgd-Os-xCt.segmentTitles[1] = "Month"; ObjectID = "Pgd-Os-xCt"; */
+"Pgd-Os-xCt.segmentTitles[1]" = "Mois";
+
+/* Class = "UISegmentedControl"; Pgd-Os-xCt.segmentTitles[2] = "Year"; ObjectID = "Pgd-Os-xCt"; */
+"Pgd-Os-xCt.segmentTitles[2]" = "Année";
+
 /* Class = "UITabBarItem"; title = "Dashboard"; ObjectID = "grs-qr-Drj"; */
 "grs-qr-Drj.title" = "Suivi";
 

@@ -28,9 +28,15 @@ class DSDashboardViewController: UIViewController {
     
     // -------------------------------------------------
     
+    @IBOutlet weak var timeSegment: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     var graphIdentifiers = [DSGraphIdentifierType]()
     var viewControllers = [UIViewController]()
+    
+    
+    @IBAction func timeSegmentAction(_ sender: Any) {
+        print("Time has changed");
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
