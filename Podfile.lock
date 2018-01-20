@@ -6,6 +6,7 @@ PODS:
   - RealmSwift (2.9.1):
     - Realm (= 2.9.1)
   - ResearchKit (1.5.2)
+  - ScrollableGraphView (4.0.4)
   - SVProgressHUD (2.1.2)
   - SwiftKeychainWrapper (3.0.1)
   - SwiftyJSON (3.1.4)
@@ -14,6 +15,7 @@ DEPENDENCIES:
   - JBChartView
   - RealmSwift
   - ResearchKit (~> 1.0)
+  - ScrollableGraphView
   - SVProgressHUD
   - SwiftKeychainWrapper
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
@@ -32,10 +34,11 @@ SPEC CHECKSUMS:
   Realm: f91fb43bd474c4f731a116ebf7392c75dd015920
   RealmSwift: 207f12a4a36b696c5183c60a1c06d70234a23e56
   ResearchKit: a5770681dd61afddd3d1f24d232b9abf00cba454
+  ScrollableGraphView: 072ea302f4ca27779692656a49d51fe537b2b1e7
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   SwiftyJSON: 05cf0e98a950e2ba343735264f5a96b81e755d00
 
-PODFILE CHECKSUM: 30528006494c13b3246f12e95842dada82677052
+PODFILE CHECKSUM: 4e42108bf76e91ab6fd217861960b2569e4000da
 
 COCOAPODS: 1.4.0

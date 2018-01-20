@@ -153,7 +153,9 @@ class StandardGraphView: UIView {
     }
     
     fileprivate func distanceBetweenPoints(_ p1:CGPoint, p2:CGPoint) -> Double{
-        return Double(abs(p2.x-p1.x) + abs(p2.y-p1.y))
+        let X = Double(abs(p2.x-p1.x));
+        let Y = Double(abs(p2.y-p1.y));
+        return Double(X + Y)
     }
     
     fileprivate func updateGraphMeasurements() {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ScrollableGraphView
 
 class DSDashboardViewController: UIViewController {
     //MARK: - Serialize/Deserialize Tuples
@@ -178,6 +179,7 @@ extension DSDashboardViewController : UITableViewDataSource {
         let graphId = graphIdentifiers[indexPath.section]
         
         let graphType = graphTypeForId(graphIdentifiers[indexPath.section])
+        
         switch(graphType){
         case GraphType.TimeBased:
             let vc:DSTimeBasedGraphViewController

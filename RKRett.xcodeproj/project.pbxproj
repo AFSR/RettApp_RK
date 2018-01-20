@@ -16,6 +16,7 @@
 		2F3193591F3D0B4F00F35E09 /* ParserHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3193581F3D0B4F00F35E09 /* ParserHelpers.swift */; };
 		2F959004201270D10037F542 /* DSAuthorizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F959006201270D10037F542 /* DSAuthorizationViewController.xib */; };
 		2F95900B201271E80037F542 /* Answers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F95900D201271E80037F542 /* Answers.storyboard */; };
+		2F95901220135E350037F542 /* img in Resources */ = {isa = PBXBuildFile; fileRef = 2F95901120135E340037F542 /* img */; };
 		31FF5F1FC603400F0BAB2928 /* Pods_RKRettTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85D054C5D01128D7353EAB5 /* Pods_RKRettTests.framework */; };
 		35812B781BC6EB0700D4FB68 /* CSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35812B771BC6EB0700D4FB68 /* CSV.swift */; };
 		3588246F1BD8B35F00276C63 /* JBBarChartFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358824641BD8B35F00276C63 /* JBBarChartFooterView.m */; };
@@ -26,7 +27,7 @@
 		35BDDE741BAC745B00A65EF2 /* DSSensorDataQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BDDE731BAC745B00A65EF2 /* DSSensorDataQuery.swift */; };
 		35EE6F251BC5A7FF00855E3A /* DSQueryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EE6F231BC5A7FF00855E3A /* DSQueryDetailViewController.swift */; };
 		35EE6F351BC5AF0000855E3A /* DSDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EE6F341BC5AF0000855E3A /* DSDashboardViewController.swift */; };
-		40DFAAD11BDC22BC006D822A /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		40DFAAD11BDC22BC006D822A /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		52031F621BC2DC5600A6402A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52031F641BC2DC5600A6402A /* Main.storyboard */; };
 		52031F6F1BC2DCB100A6402A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52031F711BC2DCB100A6402A /* LaunchScreen.xib */; };
 		52031F7A1BC2E1D600A6402A /* DSLearnMore.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52031F7C1BC2E1D600A6402A /* DSLearnMore.plist */; };
@@ -133,7 +134,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				40DFAAD11BDC22BC006D822A /* (null) in Embed Frameworks */,
+				40DFAAD11BDC22BC006D822A /* BuildFile in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,6 +171,7 @@
 		2F95900C201271E80037F542 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Answers.storyboard; sourceTree = "<group>"; };
 		2F95900F201271EB0037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Answers.strings; sourceTree = "<group>"; };
 		2F9590102012752B0037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSLearnMore.plist; sourceTree = "<group>"; };
+		2F95901120135E340037F542 /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
 		35812B771BC6EB0700D4FB68 /* CSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSV.swift; path = Utils/CSV.swift; sourceTree = "<group>"; };
 		358824631BD8B35F00276C63 /* JBBarChartFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartFooterView.h; sourceTree = "<group>"; };
 		358824641BD8B35F00276C63 /* JBBarChartFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartFooterView.m; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 		52A4368E1B84DAE500188433 /* RKRett */ = {
 			isa = PBXGroup;
 			children = (
+				2F95901120135E340037F542 /* img */,
 				52A436911B84DAE500188433 /* AppDelegate.swift */,
 				52A436C31B85131F00188433 /* Controller */,
 				625EB8C11B8E4131002BBEBD /* DSResearchKit */,
@@ -842,6 +845,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F95901220135E350037F542 /* img in Resources */,
 				2F95900B201271E80037F542 /* Answers.storyboard in Resources */,
 				5249284E1BC2F0080091F35A /* Password.storyboard in Resources */,
 				52AB7C8D1BAC0477006E3B77 /* _DSConsent.plist in Resources */,
@@ -948,6 +952,7 @@
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ResearchKit/ResearchKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/ScrollableGraphView/ScrollableGraphView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
@@ -958,6 +963,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ResearchKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ScrollableGraphView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);

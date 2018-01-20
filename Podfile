@@ -9,6 +9,7 @@ target 'RKRett' do
     pod 'SwiftKeychainWrapper'
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
     pod 'JBChartView'
+    pod 'ScrollableGraphView'
 end
 
 post_install do |installer|
