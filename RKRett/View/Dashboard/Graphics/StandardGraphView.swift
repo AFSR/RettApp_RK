@@ -265,7 +265,20 @@ class StandardGraphView: UIView {
         
         let font = UIFont(name: "Helvetica", size: 13)
         //let attr:CFDictionary = [NSFontAttributeName:font!,NSForegroundColorAttributeName:self.highlightedLinesColor]
-        let attr = [NSAttributedStringKey.font.rawValue:font!,NSAttributedStringKey.foregroundColor:self.highlightedLinesColor] as! [String : Any]
+       // if NSAttributedStringKey.foregroundColor != nil && NSAttributedStringKey.font.rawValue != nil {
+        //let color1 = font?.description ?? UIColor.black.description
+        //let color2 = self.highlightedLinesColor.description ?? UIColor.black.description
+        //let attr = [color1,color2] as! [String:Any]
+        
+        let attr = [NSAttributedStringKey.font:font!,NSAttributedStringKey.foregroundColor:self.highlightedLinesColor] as [NSAttributedStringKey : Any]
+        
+        //let attr = [NSAttributedStringKey.font.rawValue:font!,NSAttributedStringKey.foregroundColor:self.highlightedLinesColor] as! [String: Any] ?? [UIColor.black.description,UIColor.black.description]
+        /*if let attr = [NSAttributedStringKey.font.rawValue:font!,NSAttributedStringKey.foregroundColor:self.highlightedLinesColor] as! [String : AnyObject] {
+         
+        } else {
+            
+        }*/
+        //}
         let affineMatrix = CGAffineTransform(scaleX: 1, y: -1)
         ctx.textMatrix = affineMatrix
 //        let alignment = CTTextAlignment.Right

@@ -35,7 +35,16 @@ class DSDashboardViewController: UIViewController {
     
     
     @IBAction func timeSegmentAction(_ sender: Any) {
-        print("Time has changed");
+        
+        if timeSegment.selectedSegmentIndex == 0 {
+            print("Day is selected");
+        }
+        if timeSegment.selectedSegmentIndex == 1 {
+            print("Month is selected");
+        }
+        if timeSegment.selectedSegmentIndex == 2 {
+            print("Year is selected");
+        }
     }
     
     override func viewDidLoad() {

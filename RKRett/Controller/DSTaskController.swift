@@ -113,6 +113,7 @@ extension DSTaskController: ORKTaskViewControllerDelegate {
      */
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         //code
+        print("Out of a Task");
         switch(reason){
         case ORKTaskViewControllerFinishReason.completed:
             print("Completed")

@@ -39,8 +39,11 @@ class DSTimeBasedGraphViewController: UIViewController {
         if let task = dict {
             if let questions = (task["questions"] as? NSArray) {
                 for question in questions {
-               /*     if question["questionId"] as! [String] == self.questionId  {
-                        if let answerRange = question["answerRange"] as? NSDictionary {
+                    
+                    let quest = question as? NSDictionary;
+                    
+                    if (quest!["questionId"] as? String) == self.questionId  {
+                        if let answerRange = (quest!["answerRange"] as? NSDictionary) {
                             if let max = answerRange["maximum"] as? Double {
                                 self.maxValue = max
                             }
@@ -48,7 +51,7 @@ class DSTimeBasedGraphViewController: UIViewController {
                                 self.minValue = min
                             }
                         }
-                        if let dashboard = (question["dashboard"] as? NSDictionary) {
+                        if let dashboard = (quest!["dashboard"] as? NSDictionary) {
                             if let timeUnit = (dashboard["timeUnit"] as? String) {
                                 switch (timeUnit) {
                                 case "Second" :
@@ -86,7 +89,9 @@ class DSTimeBasedGraphViewController: UIViewController {
                                     self.yHighlightedLines.addObjects(from: yhl as [AnyObject])
                                 }
                             }
-                        }*/
+                        }
+                    }
+                        //
                 }
             }
         }
@@ -107,12 +112,14 @@ class DSTimeBasedGraphViewController: UIViewController {
         
         do{
             let realm = try Realm()
-//            dispatch_sync(kBgQueue) {
+            kBgQueue.sync() {
             self.data = realm.objects(DSTaskAnswerRealm.self).filter("taskName = '\(self.taskId)'")
-//                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                    self.updatePoints(true)
-//                })
-//            }
+               
+                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                    self.updatePoints()
+                }
+                
+            }
         }catch let error as NSError{
             print(error.localizedDescription)
             return
@@ -129,7 +136,7 @@ class DSTimeBasedGraphViewController: UIViewController {
             }
             
             if json != nil {
-                /*if let results = json!["results"] as? [NSDictionary] {
+                /*if let results = json!["results"] as? NSDictionary {
                     if let result = results[self.questionId] as? NSDictionary{
                         if let value = result["result"] {
                             if let dateString = result["date"] as? String {
