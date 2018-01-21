@@ -66,8 +66,6 @@ class DSTaskListViewController: UIViewController{
         var detailLabel:String!
         switch(task.frequencyType){
         case Frequency.Daily.Key.rawValue:
-            //detailLabel = task.frequencyNumber.description
-             //   task.frequencyNumber!.stringValue
             detailLabel = (tasksCompleted as! String) + " " + NSLocalizedString("of", comment: "") + " " + (task.frequencyNumber.description) + " " + NSLocalizedString("for today", comment: "")
         case Frequency.Weekly.Key.rawValue:
             detailLabel = (tasksCompleted as! String) + NSLocalizedString("of", comment: "") + (task.frequencyNumber.stringValue) + NSLocalizedString("for this week", comment: "")

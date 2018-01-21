@@ -82,9 +82,9 @@ class DSTimeBasedGraphViewController: UIViewController {
                                 self.color = self.colorFromDictionary(color)
                             }
                             if let highlightedLines = (dashboard["highlightedLines"] as? NSDictionary) {
-//                                if let xhl = (highlightedLines["x"] as? NSArray) {
-//                                    yHighlightedLines.addObjectsFromArray(yhl as [AnyObject])
-//                                }
+                                if let xhl = (highlightedLines["x"] as? NSArray) {
+                                    self.yHighlightedLines.addObjects(from: xhl as [AnyObject])
+                                }
                                 if let yhl = (highlightedLines["y"] as? NSArray) {
                                     self.yHighlightedLines.addObjects(from: yhl as [AnyObject])
                                 }
@@ -124,28 +124,35 @@ class DSTimeBasedGraphViewController: UIViewController {
             print(error.localizedDescription)
             return
         }
-        var json: AnyObject?
+        //var json: AnyObject?
+        var json = [String : Any]()
         var unorderedPoints = [(Any, Any)]()
         
         for obj in data {
             let jsonData = obj.json.data(using: String.Encoding.utf8)
             do {
-                json = try JSONSerialization.jsonObject(with: jsonData!, options: JSONSerialization.ReadingOptions.allowFragments) as AnyObject
+                json = (try JSONSerialization.jsonObject(with: jsonData!, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: Any])!
             }catch let error as NSError {
                 print(error.localizedDescription)
             }
             
             if json != nil {
-                /*if let results = json!["results"] as? NSDictionary {
-                    if let result = results[self.questionId] as? NSDictionary{
+                if let results = json["results"] as? [String : Any] {
+                    if let result = results[self.questionId] as? [String : Any] {
                         if let value = result["result"] {
                             if let dateString = result["date"] as? String {
-                                let date = NSDate().dateFromISOString(dateString)
+                                let dateFormatter = DateFormatter()
+                                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                                guard let date = dateFormatter.date(from: dateString) else {
+                                    fatalError("ERROR: Date conversion failed due to mismatched format.")
+                                }
+
+                                //let date = NSDate().dateFromISOString(dateString)
                                 unorderedPoints+=[(date as Any, value as Any)]
                             }
                         }
                     }
-                }*/
+                }
             }
         }
         
@@ -164,18 +171,19 @@ class DSTimeBasedGraphViewController: UIViewController {
     func showAllData(){
         if self.view is TimeBasedGraphCell && self.points.count >= 2 {
             let cell = self.view as! TimeBasedGraphCell
-//            let xScale:CGFloat
-//            let graphWidth = cell.graphView.frame.width - (cell.graphView.edgeInsets.left + cell.graphView.edgeInsets.right)
-//            print(graphWidth)
-//            let firstDate = self.points.first!.0 as! NSDate
-//            let lastDate = self.points.last!.0 as! NSDate
-//            let totalTime = CGFloat(lastDate.timeIntervalSinceDate(firstDate)/cell.graphView.getTimeMultiplier())
-//            xScale = graphWidth/totalTime
+            let xScale:CGFloat
+            let graphWidth = cell.graphView.frame.width - (cell.graphView.edgeInsets.left + cell.graphView.edgeInsets.right)
+            print(graphWidth)
+            let firstDate = self.points.first!.0 as! NSDate
+            let lastDate = self.points.last!.0 as! NSDate
+            //let totalTime = CGFloat(lastDate.timeIntervalSinceDate(firstDate as Date)/cell.graphView.getTimeMultiplier())
+            let totalTime = CGFloat(lastDate.timeIntervalSince(firstDate as Date)/lastDate.timeIntervalSince(lastDate as Date))
+            xScale = graphWidth/totalTime
             let point = self.points[0] as (date:Any, value:Any)
             let min = point.date as! Date
             let max = Date()
             cell.graphView.setXValuesRange((min, max))
-//            print(xScale)
+            print(xScale)
         }
     }
     
