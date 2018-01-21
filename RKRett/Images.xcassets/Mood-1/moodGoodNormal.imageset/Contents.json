@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "moodGoodNormal-1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "moodGoodNormal.png"
+      "filename" : "moodGoodNormal.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "moodGoodNormal-2.png",
       "scale" : "3x"
     }
   ],
