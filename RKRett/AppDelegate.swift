@@ -12,6 +12,7 @@
 //import Parse
 import SVProgressHUD
 import UIKit
+import Buglife
 
 //MARK: - AppDelegate
 @UIApplicationMain
@@ -146,6 +147,15 @@ extension AppDelegate: UIApplicationDelegate{
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         configureAppearance()
         initApp()
+        
+        
+        //Buglife setup
+        print("Buglife Setup")
+        Buglife.shared().start(withAPIKey: "aqXSsXuIBBCd4BAu9tdcVwtt")
+        //Buglife.shared().invocationOptions = .floatingButton
+        Buglife.shared().invocationOptions = .screenshot
+
+        
         return true
     }
     
@@ -175,7 +185,7 @@ extension AppDelegate: UIApplicationDelegate{
             }
         }
     }
-    
+
     func applicationSignificantTimeChange(_ application: UIApplication) {
         DSUtils.resetUserDefaults()
     }

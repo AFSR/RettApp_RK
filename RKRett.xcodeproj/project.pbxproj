@@ -27,7 +27,7 @@
 		35BDDE741BAC745B00A65EF2 /* DSSensorDataQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BDDE731BAC745B00A65EF2 /* DSSensorDataQuery.swift */; };
 		35EE6F251BC5A7FF00855E3A /* DSQueryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EE6F231BC5A7FF00855E3A /* DSQueryDetailViewController.swift */; };
 		35EE6F351BC5AF0000855E3A /* DSDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EE6F341BC5AF0000855E3A /* DSDashboardViewController.swift */; };
-		40DFAAD11BDC22BC006D822A /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		40DFAAD11BDC22BC006D822A /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		52031F621BC2DC5600A6402A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52031F641BC2DC5600A6402A /* Main.storyboard */; };
 		52031F6F1BC2DCB100A6402A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52031F711BC2DCB100A6402A /* LaunchScreen.xib */; };
 		52031F7A1BC2E1D600A6402A /* DSLearnMore.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52031F7C1BC2E1D600A6402A /* DSLearnMore.plist */; };
@@ -134,7 +134,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				40DFAAD11BDC22BC006D822A /* (null) in Embed Frameworks */,
+				40DFAAD11BDC22BC006D822A /* BuildFile in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -947,6 +947,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RKRett/Pods-RKRett-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Buglife/Buglife.framework",
 				"${BUILT_PRODUCTS_DIR}/JBChartView/JBChartView.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -958,6 +959,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Buglife.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JBChartView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",

@@ -10,6 +10,7 @@ target 'RKRett' do
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
     pod 'JBChartView'
     pod 'ScrollableGraphView'
+    pod 'Buglife'
 end
 
 post_install do |installer|

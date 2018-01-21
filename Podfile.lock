@@ -1,4 +1,5 @@
 PODS:
+  - Buglife (2.1.0)
   - JBChartView (3.0.13)
   - Realm (2.9.1):
     - Realm/Headers (= 2.9.1)
@@ -12,6 +13,7 @@ PODS:
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
+  - Buglife
   - JBChartView
   - RealmSwift
   - ResearchKit (~> 1.0)
@@ -30,6 +32,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
+  Buglife: cbc7c0c86393fc7db7b7be9fed846b5f26c00a6a
   JBChartView: ea240dca7b83a92f47d4ae766beb3714753988a1
   Realm: f91fb43bd474c4f731a116ebf7392c75dd015920
   RealmSwift: 207f12a4a36b696c5183c60a1c06d70234a23e56
@@ -39,6 +42,6 @@ SPEC CHECKSUMS:
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   SwiftyJSON: 05cf0e98a950e2ba343735264f5a96b81e755d00
 
-PODFILE CHECKSUM: 4e42108bf76e91ab6fd217861960b2569e4000da
+PODFILE CHECKSUM: e9d6495d601b396605d45558073b7c110b81aa2d
 
 COCOAPODS: 1.4.0
