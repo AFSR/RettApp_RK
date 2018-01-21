@@ -148,13 +148,12 @@ extension AppDelegate: UIApplicationDelegate{
         configureAppearance()
         initApp()
         
-        
-        //Buglife setup
+        //----Buglife setup
         print("Buglife Setup")
         Buglife.shared().start(withAPIKey: "aqXSsXuIBBCd4BAu9tdcVwtt")
         //Buglife.shared().invocationOptions = .floatingButton
         Buglife.shared().invocationOptions = .screenshot
-
+        //----end Buglife setup
         
         return true
     }

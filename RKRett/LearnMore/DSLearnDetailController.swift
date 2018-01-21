@@ -18,17 +18,19 @@ class DSLearnDetailController:UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationItem.title = section.title
 
         webView.delegate = self
         configureLayout()
         
-        let textStyle = ["font-family":"Helvetica Neue", "font-size":"20px", "font-style":"normal", "font-weight":"normal", "color":"000000", "text-align": "left", "margin-left": "20px", "margin-right":"20px"]
+        let textStyle = ["font-family":"Helvetica Neue", "font-size":"15px", "font-style":"normal", "font-weight":"normal", "color":"000000", "text-align": "left", "margin-left": "15px", "margin-right":"15px"]
         
         let contentString = DSUtils.applyStyleDictionary(textStyle as NSDictionary, onTag: "p", withText: "<br>"+section.text)
         let htmlString = DSUtils.applyStyleDictionary(bodyStyleDictionary as NSDictionary, onTag: "body", withText: contentString)
         
-        webView.loadHTMLString(htmlString, baseURL: nil)
+        //webView.loadHTMLString(htmlString, baseURL: nil)
+        webView.loadHTMLString(htmlString, baseURL: Bundle.main.bundleURL)
     }
     
     func configureLayout(){
@@ -45,6 +47,11 @@ class DSLearnDetailController:UIViewController{
 
 extension DSLearnDetailController:UIWebViewDelegate{
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        //var path = Bundle.path(self) as String
+        //var baseURL = URL.init(fileURLWithPath: path)
+        
+        //webView.loadHTMLString("", baseURL: Bundle.main.bundleURL)
+        
         if navigationType == UIWebViewNavigationType.linkClicked{
             UIApplication.shared.openURL(request.url!)
             return false
