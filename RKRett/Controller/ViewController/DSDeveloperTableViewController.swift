@@ -40,7 +40,7 @@ extension DSDeveloperTableViewController{
         case (Section: Section.developer.rawValue, Row: RowNumberSectionDeveloper.test.rawValue):
             let not = DSNotification()
             let next = not.nextDateForWeekday(5, fromDate: Date())
-            print(next as! String)
+            print(next.description)
             break
         
         case (Section: Section.developer.rawValue, Row: RowNumberSectionDeveloper.resetDefaults.rawValue):

@@ -125,7 +125,7 @@ class DSPasswordController:UIViewController {
     }
     
     @objc func passwordDidChange(sender: UITextField!){
-        if let passwordLenght = sender.text?.characters.count{
+        if let passwordLenght = sender.text?.count{
             if (passwordLenght <= kDSOpenPasswordMaxSize){
                 password = sender.text
                 for (index, circle) in circles.enumerated(){

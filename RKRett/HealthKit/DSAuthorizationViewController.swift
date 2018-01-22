@@ -112,9 +112,10 @@ class DSAuthorizationViewController: UIViewController {
             }
         })
         */
-        healthManager.readProfile()
         
-       
+        //Lecture du profil Health Manager
+        //let profile = healthManager.readProfile()
+        
         //Configure motion button
         buttons[1].isEnabled = !CMSensorRecorder.isAuthorizedForRecording()
         
@@ -123,7 +124,7 @@ class DSAuthorizationViewController: UIViewController {
     }
     
     func registerForPushForiOS7AndAbove(){
-        UIApplication.shared
+        //UIApplication.shared
         let application = UIApplication.shared
         if application.responds(to: #selector(UIApplication.registerUserNotificationSettings(_:))) {
             let notifSettings = UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil)
@@ -146,7 +147,7 @@ class DSAuthorizationViewController: UIViewController {
                 }
             }else{
                 print("HealthKit authorization denied!")
-                print("\(error)")
+                print(error?.description ?? "No error")
             }
         }
     }

@@ -131,7 +131,7 @@ extension AppDelegate: UIApplicationDelegate{
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         if let tab = window?.rootViewController as? UITabBarController{
             tab.selectedIndex = TabBarItemIndexes.tasks.rawValue
-            print((tab.selectedViewController as! UINavigationController).topViewController)
+            print((tab.selectedViewController as! UINavigationController).topViewController as Any)
             if let vc = ((tab.selectedViewController as! UINavigationController).topViewController) as? DSTaskListViewController{
                 vc.restoreUserActivityState(userActivity)
                 return true
@@ -141,7 +141,7 @@ extension AppDelegate: UIApplicationDelegate{
     }
     
     func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
-        print(notification.userInfo)
+        print(notification.userInfo?.description ?? "Notification msg")
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

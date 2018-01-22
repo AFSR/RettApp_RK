@@ -192,7 +192,7 @@ extension DSTaskController: ORKTaskViewControllerDelegate {
         }
     }
     
-    func taskViewController(_ taskViewController: ORKTaskViewController, recorder: ORKRecorder, didFailWithError error: NSError) {
+    private func taskViewController(_ taskViewController: ORKTaskViewController, recorder: ORKRecorder, didFailWithError error: NSError) {
         print("didFailWithError \(error.localizedDescription)")
         taskViewController.dismiss(animated: true, completion: nil)
     }

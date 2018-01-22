@@ -34,14 +34,14 @@ fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 
 class DSTask: DSReflect {
     
-    var taskId:String!
-    var name:String!
-    var file:String!
-    var frequencyNumber:NSNumber!
-    var frequencyType:String!
-    var questions:[DSQuestion] = [DSQuestion]()
+    @objc var taskId:String!
+    @objc var name:String!
+    @objc var file:String!
+    @objc var frequencyNumber:NSNumber!
+    @objc var frequencyType:String!
+    @objc var questions:[DSQuestion] = [DSQuestion]()
     
-    init(plistFileName:String){
+    @objc init(plistFileName:String){
         super.init()
         self.file = plistFileName
         if let path = Bundle.main.path(forResource: plistFileName, ofType: "plist") {

@@ -8,7 +8,8 @@
 
 import UIKit
 
-class DSQuestion: DSReflect {
+@objcMembers class DSQuestion: DSReflect {
+
     
     //        <dict>
     //            <key>answerUnit</key>

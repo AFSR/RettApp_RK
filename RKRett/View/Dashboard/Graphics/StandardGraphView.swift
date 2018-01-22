@@ -44,13 +44,13 @@ class StandardGraphView: UIView {
             self.setNeedsDisplay()
         }
     }
-    @IBInspectable internal var yValuesRange:(min:Double, max:Double) {
+    internal var yValuesRange:(min:Double, max:Double) {
         didSet{
             self.shouldUpdatePoints = true
             self.setNeedsDisplay()
         }
     }
-    @IBInspectable internal var xValuesRange:(min:Double, max:Double) {
+    internal var xValuesRange:(min:Double, max:Double) {
         didSet{
             self.shouldUpdatePoints = true
             self.setNeedsDisplay()

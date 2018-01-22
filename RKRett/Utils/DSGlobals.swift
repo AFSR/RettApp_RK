@@ -55,7 +55,7 @@ func createSideViewForCell(_ cell: UITableViewCell, withColor color:UIColor){
 
 var dateDidEnterBackground:Date?{
     get{
-        return UserDefaults.standard.object(forKey: kDateDidEnterBackgroundKey) as? NSDate as! Date
+        return (UserDefaults.standard.object(forKey: kDateDidEnterBackgroundKey) as! Date)
     }
     set{
         UserDefaults.standard.set(newValue, forKey: kDateDidEnterBackgroundKey)
