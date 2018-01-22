@@ -18,7 +18,7 @@ DEPENDENCIES:
   - CareKit
   - JBChartView
   - RealmSwift
-  - ResearchKit
+  - ResearchKit (~> 1.0)
   - ScrollableGraphView
   - SVProgressHUD
   - SwiftKeychainWrapper
@@ -45,6 +45,6 @@ SPEC CHECKSUMS:
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   SwiftyJSON: 05cf0e98a950e2ba343735264f5a96b81e755d00
 
-PODFILE CHECKSUM: 4efde37841ab8927f084a186686653206ad72bc0
+PODFILE CHECKSUM: 425912ba2ea00e2304dabc07d44e67b0173f58ca
 
 COCOAPODS: 1.4.0

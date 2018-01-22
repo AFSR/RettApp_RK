@@ -18,37 +18,38 @@ public var DSElegibilityTask: ORKOrderedTask {
                 instructionStep.detailText = detailText
                 steps += [instructionStep]
             }
-            if let questionsArray = plistDictionary.value(forKey: "question") as? Array<AnyObject> {
+            
+            if let questionsArray = plistDictionary.value(forKey: "question") as? [AnyObject] {
                 for dictionary in questionsArray{
-                    let questionDictionary = dictionary as! NSDictionary
-                    let questionIdentifier = questionDictionary.value(forKey: "identifier") as? String
-                    let questionTitle = questionDictionary.value(forKey: "title") as? String
-                    
-                    var questionStep = ORKQuestionStep(identifier: questionIdentifier!)
-                    
-                    switch(dictionary.value(forKey: "type") as! String){
-                    case "Boolean":
-                        let questionStep = ORKQuestionStep(identifier: questionIdentifier!, title: questionTitle, answer: ORKAnswerFormat.booleanAnswerFormat())
-                        
-                    case "SingleChoice":
-                        
-                        var questionTextChoices = [ORKTextChoice]()
-                        for choice in questionDictionary.value(forKey: "choices") as! Array<AnyObject>{
-                            questionTextChoices.append(choice as! ORKTextChoice)
+                    // - FIXME: Use guard, tem que ver a syntax dessa porra
+                    if let questionDictionary = dictionary as? NSDictionary{
+                        if let questionTitle = questionDictionary.value(forKey: "title") as? String{
+                            if let questionIdentifier = questionDictionary.value(forKey: "identifier") as? String{
+                                var questionStep = ORKQuestionStep(identifier: questionIdentifier)
+                                
+                                switch(dictionary.value(forKey: "type") as! String){
+                                case "Boolean":
+                                    questionStep = ORKQuestionStep(identifier: questionIdentifier, title: questionTitle, answer: ORKAnswerFormat.booleanAnswerFormat())
+                                    
+                                case "SingleChoice":
+                                    var questionTextChoices = [ORKTextChoice]()
+                                    for choice in questionDictionary.value(forKey: "choices") as! [AnyObject]{
+                                        questionTextChoices.append(ORKTextChoice(text: choice as! String, value: choice as! String as NSCoding & NSCopying & NSObjectProtocol))
+                                    }
+                                    let questionAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: ORKChoiceAnswerStyle.singleChoice, textChoices: questionTextChoices)
+                                    questionStep = ORKQuestionStep(identifier: questionIdentifier, title: questionTitle, answer: questionAnswerFormat)
+                                    
+                                default:
+                                    break
+                                }
+                                questionStep.isOptional = false
+                                steps += [questionStep]
+                            }
                         }
-                        //let questionAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: ORKChoiceAnswerStyle.singleChoice, textChoices: questionTextChoices as! ORKTextChoice)
-                        let questionAnswerFormat: ORKTextChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: questionTextChoices)
-                        
-                        let questionStep = ORKQuestionStep(identifier: questionIdentifier!, title: questionTitle, answer: questionAnswerFormat)
-
-                        
-                    default:
-                        break
                     }
-                    //questionStep.optional = NO
-                    steps += [questionStep]
                 }
             }
+            
         }
     }
     

@@ -86,7 +86,7 @@ extension DSQuizController: ORKTaskViewControllerDelegate{
                             case "Boolean":
                             if let stepResult = taskViewController.result.result(forIdentifier: questionIdentifier!) as? ORKStepResult{
                                 if let booleanResult = stepResult.results?.first as? ORKBooleanQuestionResult{
-                                    if(booleanResult.booleanAnswer as! Int != expectedAnswer as! Int){
+                                    if(booleanResult.booleanAnswer?.description != expectedAnswer?.description){
                                         return false
                                     }
                                 }
@@ -95,8 +95,18 @@ extension DSQuizController: ORKTaskViewControllerDelegate{
                             if let stepResult = taskViewController.result.result(forIdentifier: questionIdentifier!) as? ORKStepResult{
                                 if let textResult = stepResult.results?.first as? ORKChoiceQuestionResult{
                                     if((textResult.choiceAnswers?.first as! String) != expectedAnswer){
+                                        print("---Faux---")
+                                        print(textResult.choiceAnswers?.first as! String)
+                                        print("VS")
+                                        print(expectedAnswer)
+                                        print("---------")
                                         return false
                                     }
+                                    print("---Autre---")
+                                    print(textResult.choiceAnswers?.first as! String)
+                                    print("VS")
+                                    print(expectedAnswer)
+                                    print("---------")
                                 }
                             }
                         default:

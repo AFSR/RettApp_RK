@@ -22,7 +22,8 @@ class DSElegibilityController: NSObject {
     
     /***/
     func createTaskWithParentViewController(_ parentViewController:DSOnboardingViewController, willShowTask showTask:Bool = true){
-        self.elegibilityViewController = ORKTaskViewController(task:DSElegibilityTask, taskRun: nil)
+        self.elegibilityViewController = ORKTaskViewController(task: DSElegibilityTask, taskRun: nil)
+
         self.elegibilityViewController.delegate = self
         self.parentViewController = parentViewController
         self.parentViewController.present(self.elegibilityViewController, animated: true, completion: nil)
@@ -51,9 +52,32 @@ extension DSElegibilityController: ORKTaskViewControllerDelegate{
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         
         // code
+        switch(reason){
+        case .completed:
+            if(self.isUserElegible(taskViewController)){
+                self.elegibilityViewController.dismiss(animated: true, completion: nil)
+                self.parentViewController.proceedToConsent()
+            }else{
+                self.elegibilityViewController.dismiss(animated: true, completion: nil)
+                self.parentViewController.userFailedElegibility()
+                print("Failed Elegibility")
+            }
+            
+        default:
+            self.elegibilityViewController.dismiss(animated: true, completion: nil)
+            self.parentViewController.userFailedElegibility()
+            print("Elegibility canceled")
+        }
         
     }
 
+    func taskViewController(_ taskViewController: ORKTaskViewController, _ recorder:ORKRecorder, didFailWithError error: Error?) {
+        
+        // code
+        print("Error")
+        print(error?.localizedDescription)
+        
+    }
     
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: NSError?) {
         switch(reason){
@@ -92,7 +116,7 @@ extension DSElegibilityController: ORKTaskViewControllerDelegate{
                             case "Boolean":
                                 if let stepResult = taskViewController.result.result(forIdentifier: questionIdentifier!) as? ORKStepResult{
                                     if let booleanResult = stepResult.results?.first as? ORKBooleanQuestionResult{
-                                        if(booleanResult.booleanAnswer as! Int != Int((expectedAnswer) as! Int)){
+                                        if(booleanResult.booleanAnswer?.description != expectedAnswer?.description ){
                                             return false
                                         }
                                     }

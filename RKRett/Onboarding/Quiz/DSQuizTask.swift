@@ -53,7 +53,7 @@ public var DSQuizTask: ORKOrderedTask {
             }
         }
         
-        //    steps += [visualConsentStep, sharingConsentStep, reviewConsentStep]
+        //steps += [visualConsentStep, sharingConsentStep, reviewConsentStep]
     }
     return ORKOrderedTask(identifier: "QuizTask", steps: steps)
 }

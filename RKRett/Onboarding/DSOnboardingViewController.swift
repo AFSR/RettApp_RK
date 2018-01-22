@@ -18,7 +18,7 @@ class DSOnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        self.proceedToElegibility()
+        self.proceedToElegibility()
         //        self.proceedToConsent()
         self.proceedToAuthorization()
     }
