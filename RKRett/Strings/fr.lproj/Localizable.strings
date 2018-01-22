@@ -40,6 +40,31 @@
 "No results to export!" = "Aucun resultat à exporter!";
 "Rett Syndrome" = "Syndrome de Rett";
 
+"Rett Syndrome" = "Rett Syndrome";
+
+"About Rett Syndrome" = "A propos du Syndrome de Rett";
+
+"Rett Syndrome About" = "Le syndrome de Rett typique est associé dans près de 95 à 97 % des cas à une mutation dans le gène MECP2 (Méthyl-CpG-binding protein 2), localisé sur le bras long du chromosome X, dans la région Xq281. Il s'agit d'une encéphalopathie neurodéveloppementale très particulière, touchant essentiellement les filles, et étant dans plus de 99 % une mutation de novo.
+
+Dans sa forme typique, elle est caractérisée par une décélération globale du développement psychomoteur, puis d’une perte des acquisitions cognitives et motrices, survenant après une période de développement normal.
+
+Dans les formes atypiques, des mutations dans le gène CDKL5 (Cyclin dependent kinaselike 5) et dans le gène FOXG1 (Forkhead box G1) ont été retrouvées chez des enfants avec épilepsie précoce ou porteurs de formes congénitales. Certains patients diagnostiqués en raison de leur phénotype, mais négatifs pour les mutations dans les gènes MECP2, CDKL5 ou FOXG1, ont été soumis au séquençage complet de l'exome, ce qui a permis d'identifier plusieurs dizaines de nouveaux gènes.";
+
+"About Research Kit" = "A propos de Research Kit";
+
+"Research Kit" = "Research Kit";
+
+"Research Kit About" = "ResearchKit est un canevas logiciel open source introduit par Apple qui aide les chercheurs à recueillir des données médicales pour leurs travaux. Il facilite le recrutement de participants aux études et la réalisation de ces études. Depuis son lancement, la quantité de données recueillies, et par conséquent l’ampleur des connaissances acquises, battent tous les records.";
+
+"About AFSR" = "A propos de l'AFSR";
+
+"AFSR About" = "L’Association Française du Syndrome de Rett (AFSR) a été créée en 1988 par des parents de petites filles atteintes du Syndrome de Rett avec l’objectif d’aider les familles, de récolter des fonds pour la recherche médicale et de faire connaître cette maladie. Plus de 25 ans plus tard, l’esprit qui anime cette association est toujours le même. Reconnue d’utilité publique en 2008, elle bénéficie aujourd’hui d’une véritable reconnaissance dans le milieu médical autour de cette maladie. Animée presque exclusivement par des bénévoles parents de filles Rett, l’association bénéficie de l’appui de son Conseil Médical et Scientifique et recherche systématiquement des partenariats solides pour monter ses projets.";
+
+"About CoRe" = "A propos de CoRe";
+
+"CoRe About" = "L’AFSR a conçu un projet d’application intelligente sur smartphone permettant de recueillir des données biométriques sur une cohorte de filles Rett volontaires. Un partenariat a été signé avec des entreprises majeures du secteur de l’équipement informatique grand public pour développer cette application grâce à l’aide d’étudiants de l’Université Pontificale Catholique du Rio Grande Sul au Brésil. L’objectif de cette application est de recueillir des données à l’aide d’une montre connectée (mouvements de la main, température, rythme cardiaque) et de les compléter par des données saisies manuellement (humeur, nombre de crises d’épilepsie, tension artérielle, calories, alimentation, variables environnementales, …). Ces données ont vocation à alimenter un dossier électronique de suivi quotidien des filles handicapées.
+
+Une fois ces données rendues non identifiables, toutes ces données sont collectées sur un serveur pour être analysées par des méthodes de fouille de données afin notamment, de rechercher des corrélations entre les différents paramètres mesurés. Pour mener ces analyses, l’AFSR a signé un partenariat avec l’Institut Hypercube, spécialiste en France du datamining sur les big-data de santé.";
 
 "Uploading your consent..." = "Transmission de l'autorisation";
 "Ops, an error occurred..."= "Désolé, erreur est survenue...";

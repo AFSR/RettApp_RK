@@ -3,7 +3,9 @@ platform :ios, '9.1'
 use_frameworks!
 
 target 'RKRett' do
-    pod 'ResearchKit', '~> 1.0'
+    #pod 'ResearchKit', '~> 1.0'
+    pod 'ResearchKit'
+    pod 'CareKit'
     pod 'SVProgressHUD'
     pod 'RealmSwift'
     pod 'SwiftKeychainWrapper'

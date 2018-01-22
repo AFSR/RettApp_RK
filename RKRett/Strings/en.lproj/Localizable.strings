@@ -49,7 +49,15 @@
 
 "Research Kit About" = "ResearchKit is an open source framework introduced by Apple that allows researchers and developers to create powerful apps for medical research. Easily create visual consent flows, real-time dynamic active tasks, and surveys using a variety of customizable modules that you can build upon and share with the community. And since ResearchKit works seamlessly with HealthKit, researchers can access even more relevant data for their studies — like daily step counts, calorie use, and heart rate.";
 
+"AFSR About" = "The French Association of the Rett Syndrome (AFSR) was created in 1988 by parents of young girls affected by Rett Syndrome with the main objectives to help families, collect fund for medical research and raise awareness about this disease. 25 years later, the spirit of the early years is still the same. Officialy declared as non-profit organisation in 2008, the association is well settled inside the medical community around this disease.
+
+Mainly animated by volunteer parents of Rett girls, this association is supported by a medical and scientific board and is always looking for solid partnership to develop new projects.";
+
 "You can't share data with an Apple TV/Doctor without being logged! Please go to Profile tab and sign up or log in." = "You can't share data with an Apple TV/Doctor without being logged! Please go to Profile tab and sign up or log in.";
+
+"CoRe About" = "AFSR build a smart application collecting health data on an international cohort of Rett girls. A partnership has been signed with major companies specialized in information technology for developping this application with the help of students from the Catholic Pontifical University from Rio Grande Sul in Brazil. The main objective of this application is to collect data from a smart watch (hand movments, temperature, bpm) and to add manual inputs (humor, number of seizures, arterial pressure, calories, diet, …). These data will be stored electronicaly inside the smartphone for each disabled girl.
+
+Once these data anonymized, they will be transfered on a server to be analysed with datamining solutions in order to find correlations between the differents parameters. This analysis process will be done by Institut Hypercube wich is a French specialist on datamining over Health big data.";
 
 "On Demand" = "On Demand";
 "Complete" = "Complete";
