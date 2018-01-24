@@ -16,7 +16,7 @@ class DSTimeBasedGraphViewController: UIViewController {
     var questionId = ""
     var graphTitle = ""
     var graphSubtitle = ""
-    fileprivate var timeUnit = TimeUnit.hour
+    var timeUnit = TimeUnit.hour
     fileprivate var color = UIColor.black
     fileprivate var points = [(Any, Any)]()
     fileprivate var data:Results<DSTaskAnswerRealm>!
@@ -100,9 +100,9 @@ class DSTimeBasedGraphViewController: UIViewController {
     
     fileprivate func colorFromDictionary(_ dict:NSDictionary) -> UIColor {
         
-        let r = CGFloat(dict["red"] as! NSNumber)
-        let g = CGFloat(dict["green"] as! NSNumber)
-        let b = CGFloat(dict["blue"] as! NSNumber)
+        let r = CGFloat(truncating: dict["red"] as! NSNumber)
+        let g = CGFloat(truncating: dict["green"] as! NSNumber)
+        let b = CGFloat(truncating: dict["blue"] as! NSNumber)
         
         return UIColor(red: r, green: g, blue: b, alpha: 1.0)
         
@@ -183,12 +183,45 @@ class DSTimeBasedGraphViewController: UIViewController {
             let min = point.date as! Date
             let max = Date()
             cell.graphView.setXValuesRange((min, max))
-            print(xScale)
+            //print(xScale)
         }
     }
     
     func showTodayData(){
+        if self.view is TimeBasedGraphCell  {
+            let cell = self.view as! TimeBasedGraphCell
+            cell.graphView.setXValuesRange((((Date() - 3600 * 24) as Date),Date()))
+            cell.graphView.timeUnit = .hour
+            self.view.setNeedsDisplay()
+        }
         
+    }
+    
+    func showWeekData(){
+        if self.view is TimeBasedGraphCell {
+            let cell = self.view as! TimeBasedGraphCell
+            cell.graphView.setXValuesRange((((Date() - 3600 * 24 * 7) as Date),Date()))
+            cell.graphView.timeUnit = .day
+            self.view.setNeedsDisplay()
+        }
+    }
+    
+    func showMonthData(){
+        if self.view is TimeBasedGraphCell {
+            let cell = self.view as! TimeBasedGraphCell
+            cell.graphView.setXValuesRange((((Date() - 3600 * 24 * 31) as Date),Date()))
+            cell.graphView.timeUnit = .week
+            self.view.setNeedsDisplay()
+        }
+    }
+    
+    func showYearData(){
+        if self.view is TimeBasedGraphCell {
+            let cell = self.view as! TimeBasedGraphCell
+            cell.graphView.setXValuesRange((((Date() - 3600 * 24 * 365) as Date),Date()))
+            cell.graphView.timeUnit = .month
+            self.view.setNeedsDisplay()
+        }
     }
     
     func showDataFrom(_ initialDate:Date ,toDate finalDate:Date){
@@ -208,7 +241,7 @@ class DSTimeBasedGraphViewController: UIViewController {
                 cell.graphView.addYHighlightedLine(CGFloat(line as! Double))
             }
         } else {
-            print("deu ruim")
+            //print("deu ruim")
         }
     }
     

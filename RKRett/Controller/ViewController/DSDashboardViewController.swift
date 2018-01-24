@@ -38,12 +38,33 @@ class DSDashboardViewController: UIViewController {
         
         if timeSegment.selectedSegmentIndex == 0 {
             print("Day is selected");
+            
+            for vc in viewControllers {
+                if vc is DSTimeBasedGraphViewController {
+                    let tvc = vc as! DSTimeBasedGraphViewController
+                    tvc.showTodayData()
+                }
+            }
         }
         if timeSegment.selectedSegmentIndex == 1 {
             print("Month is selected");
+            
+            for vc in viewControllers {
+                if vc is DSTimeBasedGraphViewController {
+                    let tvc = vc as! DSTimeBasedGraphViewController
+                    tvc.showMonthData()
+                }
+            }
         }
         if timeSegment.selectedSegmentIndex == 2 {
             print("Year is selected");
+            
+            for vc in viewControllers {
+                if vc is DSTimeBasedGraphViewController {
+                    let tvc = vc as! DSTimeBasedGraphViewController
+                    tvc.showYearData()
+                }
+            }
         }
     }
     

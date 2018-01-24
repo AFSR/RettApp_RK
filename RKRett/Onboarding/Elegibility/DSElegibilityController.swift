@@ -71,11 +71,11 @@ extension DSElegibilityController: ORKTaskViewControllerDelegate{
         
     }
 
-    func taskViewController(_ taskViewController: ORKTaskViewController, _ recorder:ORKRecorder, didFailWithError error: Error?) {
+    private func taskViewController(_ taskViewController: ORKTaskViewController, _ recorder:ORKRecorder, didFailWithError error: Error?) {
         
         // code
         print("Error")
-        print(error?.localizedDescription)
+        print(error?.localizedDescription ?? "Local Description")
         
     }
     

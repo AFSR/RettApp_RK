@@ -3,7 +3,7 @@ import HealthKit
 class HealthManager{
     
     let healthKitStore:HKHealthStore = HKHealthStore()
-    let readTypes:[HKObjectType?] = [HKObjectType.characteristicType(forIdentifier: .bloodType)]
+    let readTypes:[HKObjectType?] = [HKObjectType.characteristicType(forIdentifier: .bloodType),HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!,HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis)!]
     let writeTypes: [HKSampleType?] = []
     
     var isAuthorized:Bool {
@@ -18,6 +18,18 @@ class HealthManager{
             }
         }
         return true
+    }
+    
+    func showHealthKitAlert() -> UIAlertController? {
+        
+        let alertController: UIAlertController?
+        let title = NSLocalizedString("You changed HealthKit permissions", comment: "")
+        let msg = NSLocalizedString("Please, go to the Health App and give permissions back manually", comment: "")
+        alertController = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController!.addAction(action)
+        
+        return alertController
     }
     
     func authorizeHealthKit(_ completion: ((_ success: Bool, _ error: NSError?) -> Void)?) {

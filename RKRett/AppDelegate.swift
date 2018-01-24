@@ -22,6 +22,8 @@ class AppDelegate: UIResponder {
     let kTagForViewDidEnterBackground = 99
     
     let appTasks : [DSTask] = DSTaskController.loadTasks()
+    var healthManager = HealthManager()
+    let healthStore = HKHealthStore()
     
     func createNotificationForDay(_ day: Int, hour: Int, minute: Int) -> UILocalNotification{
         let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
@@ -59,9 +61,10 @@ class AppDelegate: UIResponder {
     func initApp(){
         if(alreadyParticipating){
             gotoStoryboard(StoryboardName.Password.rawValue)
+            populateDashboardWithHealthData()
         } else {
             gotoStoryboard(StoryboardName.Consent.rawValue)
-            //KeychainWrapper.removeObject(forKey: kDSPasswordKey as! String)
+            KeychainWrapper.standard.removeObject(forKey: kDSPasswordKey)
         }
     }
     
@@ -89,6 +92,53 @@ class AppDelegate: UIResponder {
         UITabBar.appearance().tintColor = .purple
     }
     
+    func populateDashboardWithHealthData(){
+        
+        print("Populate Dashboard with Health Data in Progress")
+        //Recheck HealthStore Access
+        self.healthManager.authorizeHealthKit { (authorized,  error) -> Void in
+            if error == nil {
+                print("HealthKit authorization received.")
+                if(!alreadyParticipating){
+                    DispatchQueue.main.async(execute: { () -> Void in
+                        self.healthManager.showHealthKitAlert()
+                    })
+                }
+            }else{
+                print("HealthKit authorization denied!")
+                print(error?.description ?? "No error")
+            }
+        }
+        
+        // first, we define the object type we want
+        if let sleepType = HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.sleepAnalysis) {
+            
+            // Use a sortDescriptor to get the recent data first
+            let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
+            
+            // we create our query with a block completion to execute
+            let query = HKSampleQuery(sampleType: sleepType, predicate: nil, limit: 30, sortDescriptors: [sortDescriptor]) { (query, tmpResult, error) -> Void in
+                if error != nil {
+                    // something happened
+                    return
+                }
+                if let result = tmpResult {
+                    // do something with my data
+                    for item in result {
+                        if let sample = item as? HKCategorySample {
+                            let value = (sample.value == HKCategoryValueSleepAnalysis.inBed.rawValue) ? "InBed" : "Asleep"
+                            print("Healthkit sleep: \(sample.startDate) \(sample.endDate) - value: \(value)")
+                        }
+                    }
+                }
+            }
+            
+            // finally, we execute our query
+            healthStore.execute(query)
+        }
+        
+    }
+    
     //Should be called on the first viewController that appear
     func configureTabBar(){
         //use this array to add news selectedIamges whem you add a new tab.
@@ -97,7 +147,8 @@ class AppDelegate: UIResponder {
             let tabBarImages = [
                 0:["activities", "tabSelectedActivities"],
                 1:["dashboard", "tabSelectedDash"],
-                2:["learn", "tabSelectedLearn"]
+                2:["learn", "tabSelectedLearn"],
+                3:["settings", "tabSelectedSettings"]
             ]
             
             for (i, item) in tab.items!.enumerated(){
@@ -149,7 +200,6 @@ extension AppDelegate: UIApplicationDelegate{
         initApp()
         
         //----Buglife setup
-        print("Buglife Setup")
         Buglife.shared().start(withAPIKey: "aqXSsXuIBBCd4BAu9tdcVwtt")
         //Buglife.shared().invocationOptions = .floatingButton
         Buglife.shared().invocationOptions = .screenshot

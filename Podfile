@@ -3,8 +3,8 @@ platform :ios, '9.1'
 use_frameworks!
 
 target 'RKRett' do
-    pod 'ResearchKit', '~> 1.0'
-    #pod 'ResearchKit'
+    #pod 'ResearchKit', '~> 1.0'
+    pod 'ResearchKit'
     pod 'CareKit'
     pod 'SVProgressHUD'
     pod 'RealmSwift'
@@ -12,7 +12,7 @@ target 'RKRett' do
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
     pod 'JBChartView'
     pod 'ScrollableGraphView'
-    pod 'Buglife'
+    pod 'Buglife', '~> 2.5'
 end
 
 post_install do |installer|

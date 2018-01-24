@@ -29,7 +29,6 @@ class DSLearnDetailController:UIViewController{
         let contentString = DSUtils.applyStyleDictionary(textStyle as NSDictionary, onTag: "p", withText: "<br>"+section.text)
         let htmlString = DSUtils.applyStyleDictionary(bodyStyleDictionary as NSDictionary, onTag: "body", withText: contentString)
         
-        //webView.loadHTMLString(htmlString, baseURL: nil)
         webView.loadHTMLString(htmlString, baseURL: Bundle.main.bundleURL)
     }
     

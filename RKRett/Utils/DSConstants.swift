@@ -37,6 +37,7 @@ public let kUserHasConsentedKey = "DSUserHasConsentedKey"
 
 public let kDSTasksListFileName = "DSTasks"
 public let kDSLearnMorePlist = "DSLearnMore"
+public let kDSSettingsPlist = "DSSettings"
 
 public let kDSOpenPasswordMaxSize = 4
 public let kDSPasswordKey = "DSPasswordKey"
@@ -228,6 +229,19 @@ public struct PlistFile {
         
         var description:String{
             return self.rawValue
+        }
+    }
+    
+    //MARK: - Settings
+    enum Settings{
+        enum Section:String, CustomStringConvertible{
+            case Key = "sections"
+            case Title = "sectionTitle"
+            case Text = "sectionText"
+            
+            var description:String{
+                return self.rawValue
+            }
         }
     }
     

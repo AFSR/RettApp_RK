@@ -59,7 +59,12 @@ class DSTaskListViewController: UIViewController{
         let userDefaults = UserDefaults.standard
         var numberOfTasksCompletedes: Any? = nil
         if let taskDic = userDefaults.object(forKey: task.taskId) as? [String:AnyObject] {
-            numberOfTasksCompletedes = (taskDic[PlistFile.Task.FrequencyNumber.rawValue] as! Int == 0) ? nil : taskDic[PlistFile.Task.FrequencyNumber.rawValue] as? String
+            numberOfTasksCompletedes = taskDic[PlistFile.Task.FrequencyNumber.rawValue] as! Int
+            if numberOfTasksCompletedes as! Int  == 0 {
+                numberOfTasksCompletedes = nil
+            }else{
+                numberOfTasksCompletedes = taskDic[PlistFile.Task.FrequencyNumber.rawValue]?.description
+            }
         }
         
         let tasksCompleted = numberOfTasksCompletedes ?? NSLocalizedString("No tasks", comment: "")
@@ -123,9 +128,9 @@ extension DSTaskListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        if(section == tableView.numberOfSections - ondemandTasks.count){
+        if(section == tableView.numberOfSections - 1 - ondemandTasks.count){
             return NSLocalizedString("On Demand", comment: "")
-        }else if (section == tableView.numberOfSections - ondemandTasks.count - completedTasks.count){
+        }else if (section == tableView.numberOfSections - 1  - ondemandTasks.count - completedTasks.count){
             return NSLocalizedString("Complete", comment: "")
         }else{
             return nil
@@ -152,12 +157,12 @@ extension DSTaskListViewController: UITableViewDataSource {
             
             return sectionLabel.frame.size.height + 10
             
-        case (tableView.numberOfSections - completedTasks.count - ondemandTasks.count):
-            return 20
-            
-        case (tableView.numberOfSections - ondemandTasks.count):
-            return 20
-            
+//        case (tableView.numberOfSections - 1 - completedTasks.count - ondemandTasks.count):
+//            return 20
+//            
+//        case (tableView.numberOfSections - 1 - ondemandTasks.count):
+//            return 20
+//
         default:
             return 0.5
         }

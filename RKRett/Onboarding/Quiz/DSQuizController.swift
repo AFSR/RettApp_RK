@@ -98,14 +98,14 @@ extension DSQuizController: ORKTaskViewControllerDelegate{
                                         print("---Faux---")
                                         print(textResult.choiceAnswers?.first as! String)
                                         print("VS")
-                                        print(expectedAnswer)
+                                        print(expectedAnswer ?? "Expected Answer")
                                         print("---------")
                                         return false
                                     }
                                     print("---Autre---")
                                     print(textResult.choiceAnswers?.first as! String)
                                     print("VS")
-                                    print(expectedAnswer)
+                                    print(expectedAnswer ?? "Expected Answer")
                                     print("---------")
                                 }
                             }

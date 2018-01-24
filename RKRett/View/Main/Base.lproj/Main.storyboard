@@ -23,6 +23,7 @@
                         <segue destination="Hki-NW-SER" kind="relationship" relationship="viewControllers" id="E4M-jj-oZP"/>
                         <segue destination="bPU-ws-UAY" kind="relationship" relationship="viewControllers" id="Zdz-LB-Uh2"/>
                         <segue destination="h1Y-Zz-U4P" kind="relationship" relationship="viewControllers" id="y6B-Fj-5Fa"/>
+                        <segue destination="R9S-FA-UFi" kind="relationship" relationship="viewControllers" id="fH8-rQ-2TU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="03H-ur-t90" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -37,7 +38,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EOv-4J-9nO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-697" y="724"/>
+            <point key="canvasLocation" x="-838" y="723"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="GMf-aX-xRv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" id="R9S-FA-UFi" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" id="IvW-YS-Zu2"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M23-qM-MtZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18" y="723"/>
         </scene>
         <!--Learn-->
         <scene sceneID="ebj-C1-n7Q">
@@ -47,7 +58,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNN-vY-j9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-226" y="724"/>
+            <point key="canvasLocation" x="-299" y="723"/>
         </scene>
         <!--Dashboard1-->
         <scene sceneID="CKX-3W-rSC">
@@ -57,7 +68,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wzg-NJ-Glg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-418" y="768"/>
+            <point key="canvasLocation" x="-549" y="723"/>
         </scene>
     </scenes>
 </document>

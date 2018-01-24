@@ -279,7 +279,7 @@ class StandardGraphView: UIView {
                 highlightedLines.move(to: CGPoint(x: self.edgeInsets.left + v, y: self.frame.height - self.edgeInsets.bottom))
                 highlightedLines.addLine(to: CGPoint(x: self.edgeInsets.left + v, y: self.edgeInsets.top))
                 
-                let text = CFAttributedStringCreate(nil, String(format: "%.1f", arguments: [Float(x as! NSNumber)]) as CFString, attr as CFDictionary)
+                let text = CFAttributedStringCreate(nil, String(format: "%.1f", arguments: [Float( x as! NSNumber)]) as CFString, attr as CFDictionary)
                 let line = CTLineCreateWithAttributedString(text!)
                 let bounds = CTLineGetBoundsWithOptions(line, CTLineBoundsOptions.useOpticalBounds)
                 
@@ -330,7 +330,7 @@ class StandardGraphView: UIView {
         //let attr:CFDictionary = [NSFontAttributeName:font!,NSForegroundColorAttributeName:self.textColor, NSParagraphStyleAttributeName:paragraphStyle]
         //let attr = [NSAttributedStringKey.font.rawValue:font!,NSAttributedStringKey.foregroundColor:self.textColor, NSAttributedStringKey.paragraphStyle:paragraphStyle] as! [String : Any]
 
-        let attr = [NSAttributedStringKey.font:font!,NSAttributedStringKey.foregroundColor:self.textColor, NSAttributedStringKey.paragraphStyle:paragraphStyle] as! [NSAttributedStringKey: Any]
+        let attr = [NSAttributedStringKey.font:font!,NSAttributedStringKey.foregroundColor:self.textColor, NSAttributedStringKey.paragraphStyle:paragraphStyle] as [NSAttributedStringKey : Any]
 
         
         ctx.setLineWidth(1.0)
@@ -407,7 +407,7 @@ class StandardGraphView: UIView {
                 lineLength = lineLength + self.distanceBetweenPoints(lastPoint!, p2: correctPoint)
             }
             
-            let circle = UIBezierPath(arcCenter: correctPoint, radius: 4.0, startAngle: 0, endAngle: CGFloat(2 * M_PI), clockwise: false)
+            let circle = UIBezierPath(arcCenter: correctPoint, radius: 4.0, startAngle: 0, endAngle: CGFloat(2 * Double.pi), clockwise: false)
             points.append(circle)
             
             lastPoint = correctPoint
@@ -473,6 +473,7 @@ class StandardGraphView: UIView {
                 self.drawPoints()
             }
         }
+        
     }
     
 }

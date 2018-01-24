@@ -167,6 +167,9 @@ extension DSTaskController: ORKTaskViewControllerDelegate {
                     taskListVC.tableView.reloadData()
                 }
                 answer.json = jsonString
+  
+                print(jsonString)
+                
                 do{
                     let realm = try Realm()
                     try realm.write{
