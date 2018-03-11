@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,9 @@
 		0AB33C8E1BC6DF30007904BA /* StandardGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB33C8B1BC6DF30007904BA /* StandardGraphView.swift */; };
 		0AB33C8F1BC6DF30007904BA /* TimeBasedGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB33C8C1BC6DF30007904BA /* TimeBasedGraphView.swift */; };
 		0AD1F8D21BA9B7DA00B8BFEF /* DSTimeBasedGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD1F8D11BA9B7DA00B8BFEF /* DSTimeBasedGraphViewController.swift */; };
+		1C1FDE4FE2AC1C4678D1FB27 /* Pods_RKRett.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD67037406173830249EC74 /* Pods_RKRett.framework */; };
+		2F1189FD201955BC00F6D27D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1189FC201955BC00F6D27D /* DetailView.swift */; };
+		2F1189FF201955E100F6D27D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1189FE201955E100F6D27D /* DetailViewController.swift */; };
 		2F3193551F3CFD1500F35E09 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3193541F3CFD1500F35E09 /* Parser.swift */; };
 		2F3193571F3D08A900F35E09 /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3193561F3D08A900F35E09 /* Description.swift */; };
 		2F3193591F3D0B4F00F35E09 /* ParserHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3193581F3D0B4F00F35E09 /* ParserHelpers.swift */; };
@@ -109,10 +112,93 @@
 		6282414D1BA9FF0C00041DE3 /* DSJSONSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6282414C1BA9FF0C00041DE3 /* DSJSONSerializer.swift */; };
 		62D53CC31B8BC84B006ED5CC /* DSTaskAnswerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D53CC21B8BC84B006ED5CC /* DSTaskAnswerListViewController.swift */; };
 		62F31F651BAB3E9300EE689F /* DSExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F31F641BAB3E9300EE689F /* DSExtensions.swift */; };
-		A24213B207408B4247DE6590 /* Pods_RKRett.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD67037406173830249EC74 /* Pods_RKRett.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2F9FD37C20552FD40024752A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F9FD36D20552FD30024752A /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 76E8D3586B58082FA55556930451F5EB;
+			remoteInfo = Buglife;
+		};
+		2F9FD37E20552FD40024752A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F9FD36D20552FD30024752A /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7954A22796769864D2D9F993FAC89AE8;
+			remoteInfo = CareKit;
+		};
+		2F9FD38020552FD40024752A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F9FD36D20552FD30024752A /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 90E662B05C9F09972A1E4376B61FC903;
+			remoteInfo = JBChartView;
+		};
+		2F9FD38220552FD40024752A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F9FD36D20552FD30024752A /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8F168826529B7EF397CA37F9811D09AA;
+			remoteInfo = "Pods-RKRett";
+		};
+		2F9FD38420552FD40024752A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F9FD36D20552FD30024752A /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 177B5346B6F344D20DA5268E7F08C21D;
+			remoteInfo = "Pods-RKRettTests";
+		};
+		2F9FD38620552FD40024752A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F9FD36D20552FD30024752A /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 87F1835373D6E8971C0134CC3BB45A59;
+			remoteInfo = Realm;
+		};
+		2F9FD38820552FD40024752A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F9FD36D20552FD30024752A /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 08E1469883B3794842C96EEEE878AD65;
+			remoteInfo = RealmSwift;
+		};
+		2F9FD38A20552FD40024752A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F9FD36D20552FD30024752A /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 859A64E3C7A5ED2191A2B946A68968AB;
+			remoteInfo = ResearchKit;
+		};
+		2F9FD38C20552FD40024752A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F9FD36D20552FD30024752A /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 91730DABEC48E05326F81630CEFDAF63;
+			remoteInfo = ScrollableGraphView;
+		};
+		2F9FD38E20552FD40024752A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F9FD36D20552FD30024752A /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2ACBCB4DFA921E7B18034FA21C8BB6A4;
+			remoteInfo = SVProgressHUD;
+		};
+		2F9FD39020552FD40024752A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F9FD36D20552FD30024752A /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 66884D178015E6402DA34E0E8A86ED6D;
+			remoteInfo = SwiftKeychainWrapper;
+		};
+		2F9FD39220552FD40024752A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F9FD36D20552FD30024752A /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0B724930BA66BF6162840C7D8B31305C;
+			remoteInfo = SwiftyJSON;
+		};
 		52A436A21B84DAE500188433 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 52A436841B84DAE500188433 /* Project object */;
@@ -153,6 +239,9 @@
 		0AD1F8D11BA9B7DA00B8BFEF /* DSTimeBasedGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSTimeBasedGraphViewController.swift; sourceTree = "<group>"; };
 		293BB9B129CF7CD70AB32D70 /* Pods-RKRettTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RKRettTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RKRettTests/Pods-RKRettTests.release.xcconfig"; sourceTree = "<group>"; };
 		2CB967C4F8016B5A64889490 /* Pods-RKRett.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RKRett.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RKRett/Pods-RKRett.debug.xcconfig"; sourceTree = "<group>"; };
+		2F1189FB20194E4400F6D27D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Dashboard1.strings; sourceTree = "<group>"; };
+		2F1189FC201955BC00F6D27D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		2F1189FE201955E100F6D27D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Controller/ViewController/DetailViewController.swift; sourceTree = "<group>"; };
 		2F3193541F3CFD1500F35E09 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = Utils/Parser.swift; sourceTree = "<group>"; };
 		2F3193561F3D08A900F35E09 /* Description.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Description.swift; path = Utils/Description.swift; sourceTree = "<group>"; };
 		2F3193581F3D0B4F00F35E09 /* ParserHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParserHelpers.swift; path = Utils/ParserHelpers.swift; sourceTree = "<group>"; };
@@ -176,7 +265,7 @@
 		2F95900F201271EB0037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Answers.strings; sourceTree = "<group>"; };
 		2F9590102012752B0037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSLearnMore.plist; sourceTree = "<group>"; };
 		2F95901120135E340037F542 /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
-		2F95901720137B2E0037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Dashboard1.strings; sourceTree = "<group>"; };
+		2F9FD36D20552FD30024752A /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		2FA8999920174C370096AB35 /* DSSettings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DSSettings.plist; sourceTree = "<group>"; };
 		2FA8999B201761890096AB35 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		2FA8999D201769A30096AB35 /* DSSettingsSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSSettingsSection.swift; sourceTree = "<group>"; };
@@ -310,7 +399,7 @@
 			files = (
 				626E1EE01C10B51A00A19674 /* HealthKit.framework in Frameworks */,
 				620943AB1BAC037600C1A9B9 /* LocalAuthentication.framework in Frameworks */,
-				A24213B207408B4247DE6590 /* Pods_RKRett.framework in Frameworks */,
+				1C1FDE4FE2AC1C4678D1FB27 /* Pods_RKRett.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +434,25 @@
 			path = View/Settings;
 			sourceTree = "<group>";
 		};
+		2F9FD36E20552FD30024752A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2F9FD37D20552FD40024752A /* Buglife.framework */,
+				2F9FD37F20552FD40024752A /* CareKit.framework */,
+				2F9FD38120552FD40024752A /* JBChartView.framework */,
+				2F9FD38320552FD40024752A /* Pods_RKRett.framework */,
+				2F9FD38520552FD40024752A /* Pods_RKRettTests.framework */,
+				2F9FD38720552FD40024752A /* Realm.framework */,
+				2F9FD38920552FD40024752A /* RealmSwift.framework */,
+				2F9FD38B20552FD40024752A /* ResearchKit.framework */,
+				2F9FD38D20552FD40024752A /* ScrollableGraphView.framework */,
+				2F9FD38F20552FD40024752A /* SVProgressHUD.framework */,
+				2F9FD39120552FD40024752A /* SwiftKeychainWrapper.framework */,
+				2F9FD39320552FD40024752A /* SwiftyJSON.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		358824621BD8B35F00276C63 /* JBChart */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,6 +468,7 @@
 		3D368D852E7B167EA9E9B657 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2F9FD36D20552FD30024752A /* Pods.xcodeproj */,
 				626E1EDF1C10B51A00A19674 /* HealthKit.framework */,
 				620943AA1BAC037600C1A9B9 /* LocalAuthentication.framework */,
 				BFD67037406173830249EC74 /* Pods_RKRett.framework */,
@@ -711,6 +820,7 @@
 				0AB33C8A1BC6DF30007904BA /* CircularGraphView.swift */,
 				0AB33C8B1BC6DF30007904BA /* StandardGraphView.swift */,
 				0AB33C8C1BC6DF30007904BA /* TimeBasedGraphView.swift */,
+				2F1189FC201955BC00F6D27D /* DetailView.swift */,
 			);
 			path = Graphics;
 			sourceTree = "<group>";
@@ -724,6 +834,7 @@
 				62D53CC21B8BC84B006ED5CC /* DSTaskAnswerListViewController.swift */,
 				62632C521B865AF80010B5F8 /* DSTaskListViewController.swift */,
 				0AD1F8D11BA9B7DA00B8BFEF /* DSTimeBasedGraphViewController.swift */,
+				2F1189FE201955E100F6D27D /* DetailViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -855,7 +966,7 @@
 				};
 			};
 			buildConfigurationList = 52A436871B84DAE500188433 /* Build configuration list for PBXProject "RKRett" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -867,6 +978,12 @@
 			mainGroup = 52A436831B84DAE500188433;
 			productRefGroup = 52A4368D1B84DAE500188433 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2F9FD36E20552FD30024752A /* Products */;
+					ProjectRef = 2F9FD36D20552FD30024752A /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				52A4368B1B84DAE500188433 /* RKRett */,
@@ -874,6 +991,93 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		2F9FD37D20552FD40024752A /* Buglife.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Buglife.framework;
+			remoteRef = 2F9FD37C20552FD40024752A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2F9FD37F20552FD40024752A /* CareKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CareKit.framework;
+			remoteRef = 2F9FD37E20552FD40024752A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2F9FD38120552FD40024752A /* JBChartView.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JBChartView.framework;
+			remoteRef = 2F9FD38020552FD40024752A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2F9FD38320552FD40024752A /* Pods_RKRett.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_RKRett.framework;
+			remoteRef = 2F9FD38220552FD40024752A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2F9FD38520552FD40024752A /* Pods_RKRettTests.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_RKRettTests.framework;
+			remoteRef = 2F9FD38420552FD40024752A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2F9FD38720552FD40024752A /* Realm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Realm.framework;
+			remoteRef = 2F9FD38620552FD40024752A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2F9FD38920552FD40024752A /* RealmSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RealmSwift.framework;
+			remoteRef = 2F9FD38820552FD40024752A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2F9FD38B20552FD40024752A /* ResearchKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ResearchKit.framework;
+			remoteRef = 2F9FD38A20552FD40024752A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2F9FD38D20552FD40024752A /* ScrollableGraphView.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ScrollableGraphView.framework;
+			remoteRef = 2F9FD38C20552FD40024752A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2F9FD38F20552FD40024752A /* SVProgressHUD.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SVProgressHUD.framework;
+			remoteRef = 2F9FD38E20552FD40024752A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2F9FD39120552FD40024752A /* SwiftKeychainWrapper.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftKeychainWrapper.framework;
+			remoteRef = 2F9FD39020552FD40024752A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2F9FD39320552FD40024752A /* SwiftyJSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyJSON.framework;
+			remoteRef = 2F9FD39220552FD40024752A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		52A4368A1B84DAE500188433 /* Resources */ = {
@@ -1085,6 +1289,7 @@
 				62632C511B86548B0010B5F8 /* DSTaskController.swift in Sources */,
 				52AB7C8F1BB06C54006E3B77 /* DSLearnViewController.swift in Sources */,
 				2FA899A2201769A40096AB35 /* DSSettingsViewController.swift in Sources */,
+				2F1189FF201955E100F6D27D /* DetailViewController.swift in Sources */,
 				62482FE51F3C834E00B83B25 /* DSAuthorizationViewController.swift in Sources */,
 				52CD1E891BB1915700529E84 /* DSUtils.swift in Sources */,
 				52AB7C711BABD453006E3B77 /* DSQuizController.swift in Sources */,
@@ -1105,6 +1310,7 @@
 				62632C531B865AF80010B5F8 /* DSTaskListViewController.swift in Sources */,
 				62D53CC31B8BC84B006ED5CC /* DSTaskAnswerListViewController.swift in Sources */,
 				35BDDE741BAC745B00A65EF2 /* DSSensorDataQuery.swift in Sources */,
+				2F1189FD201955BC00F6D27D /* DetailView.swift in Sources */,
 				625D46C91B9F5CEF0077D7AB /* DSNotification.swift in Sources */,
 				6261D6FC1B87C10C00443C72 /* DSDataResult.swift in Sources */,
 				625D46C71B9F54710077D7AB /* DSTaskScheduler.swift in Sources */,
@@ -1344,7 +1550,7 @@
 			children = (
 				620E7A261BD570FA004AC520 /* Base */,
 				527D10581BF51CD900D1F15B /* pt */,
-				2F95901720137B2E0037F542 /* fr */,
+				2F1189FB20194E4400F6D27D /* fr */,
 			);
 			name = Dashboard1.storyboard;
 			sourceTree = "<group>";

@@ -128,6 +128,7 @@ class DSTimeBasedGraphViewController: UIViewController {
         var json = [String : Any]()
         var unorderedPoints = [(Any, Any)]()
         
+        
         for obj in data {
             let jsonData = obj.json.data(using: String.Encoding.utf8)
             do {

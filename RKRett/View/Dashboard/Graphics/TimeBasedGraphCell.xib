@@ -60,6 +60,14 @@
                         <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AF5-Wk-iEe">
+                        <rect key="frame" x="282" y="11" width="22" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="Button" image="zoom"/>
+                        <connections>
+                            <action selector="buttonTapped:" destination="-2" eventType="touchUpInside" id="1UQ-Tb-9hE"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="9KY-qP-8yd" firstAttribute="trailing" secondItem="xeT-ar-Jcm" secondAttribute="trailingMargin" id="4jZ-Sr-rHU"/>
@@ -92,4 +100,7 @@
             <point key="canvasLocation" x="493" y="489"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="zoom" width="720" height="720"/>
+    </resources>
 </document>

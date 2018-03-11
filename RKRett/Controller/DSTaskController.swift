@@ -136,6 +136,9 @@ extension DSTaskController: ORKTaskViewControllerDelegate {
                 }catch let error as NSError{
                     print(error.localizedDescription)
                 }
+                print("--Regular answer")
+                print(jsonString)
+                print("---")
             }
             
         case ORKTaskViewControllerFinishReason.discarded:

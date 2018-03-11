@@ -47,6 +47,16 @@ class DSDashboardViewController: UIViewController {
             }
         }
         if timeSegment.selectedSegmentIndex == 1 {
+            print("Week is selected");
+            
+            for vc in viewControllers {
+                if vc is DSTimeBasedGraphViewController {
+                    let tvc = vc as! DSTimeBasedGraphViewController
+                    tvc.showWeekData()
+                }
+            }
+        }
+        if timeSegment.selectedSegmentIndex == 2 {
             print("Month is selected");
             
             for vc in viewControllers {
@@ -56,7 +66,8 @@ class DSDashboardViewController: UIViewController {
                 }
             }
         }
-        if timeSegment.selectedSegmentIndex == 2 {
+        
+        if timeSegment.selectedSegmentIndex == 3 {
             print("Year is selected");
             
             for vc in viewControllers {

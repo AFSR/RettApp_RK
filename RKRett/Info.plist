@@ -23,13 +23,21 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>24</string>
+	<string>26</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera is used to record some video at the user descretion if it can help to understand informations.</string>
 	<key>NSHealthShareUsageDescription</key>
 	<string>$(PRODUCT_NAME) heath share use</string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>$(PRODUCT_NAME) heath update use</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone is used to record some sound or noise at the user descretion if it can help to understand informations.</string>
+	<key>NSMotionUsageDescription</key>
+	<string>Motion sensor is used to record some mouvements at the user descretion if it can help to understand informations.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo Library access is used to upload some photos at the user descretion if it can help to understand informations.</string>
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>

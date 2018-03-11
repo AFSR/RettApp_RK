@@ -13,6 +13,7 @@
 import SVProgressHUD
 import UIKit
 import Buglife
+import RealmSwift
 
 //MARK: - AppDelegate
 @UIApplicationMain
@@ -117,20 +118,68 @@ class AppDelegate: UIResponder {
             let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
             
             // we create our query with a block completion to execute
-            let query = HKSampleQuery(sampleType: sleepType, predicate: nil, limit: 30, sortDescriptors: [sortDescriptor]) { (query, tmpResult, error) -> Void in
+            let query = HKSampleQuery(sampleType: sleepType, predicate: nil, limit: 100, sortDescriptors: [sortDescriptor]) { (query, tmpResult, error) -> Void in
                 if error != nil {
                     // something happened
                     return
                 }
                 if let result = tmpResult {
                     // do something with my data
+                    if let data = DSJSONSerializer.hkSampleQueryResultToJsonData(result){
+                        
+                        var jsonString = String(data: data as Data, encoding: String.Encoding.utf8)!
+                        let answer = DSTaskAnswerRealm()
+                        answer.taskName = "DSSleepTask"
+                        answer.json = jsonString
+                        do{
+                            let realm = try Realm()
+                            try realm.write{
+                                realm.add(answer)
+                            }
+                        }catch let error as NSError{
+                            print(error.localizedDescription)
+                        }
+                        print("--")
+                        print(jsonString)
+                        print("Conversion in progress")
+                    }
                     for item in result {
+                        
                         if let sample = item as? HKCategorySample {
                             let value = (sample.value == HKCategoryValueSleepAnalysis.inBed.rawValue) ? "InBed" : "Asleep"
-                            print("Healthkit sleep: \(sample.startDate) \(sample.endDate) - value: \(value)")
+                            //print("Healthkit sleep: \(sample.startDate) \(sample.endDate) - value: \(value)")
+                            //print("Task Ready")
+                            
                         }
                     }
                 }
+                
+                
+//                var jsonString = ""
+//                if let data = DSJSONSerializer.taskResultToJsonData(taskViewController.result){
+//                    jsonString = String(data: data as Data, encoding: String.Encoding.utf8)!
+//                    let answer = DSTaskAnswerRealm()
+//                    answer.taskName = (taskViewController.task?.identifier)!
+//                    DSUtils.updateUserDefaultsFor(self.task)
+//                    if let taskListVC = self.parentViewController as? DSTaskListViewController{
+//                        taskListVC.tableView.reloadData()
+//                    }
+//                    answer.json = jsonString
+//                    do{
+//                        let realm = try Realm()
+//                        try realm.write{
+//                            realm.add(answer)
+//                            self.taskViewControllerInstance.dismiss(animated: true, completion: nil)
+//                        }
+//                    }catch let error as NSError{
+//                        print(error.localizedDescription)
+//                    }
+//                }
+                
+                
+                
+                
+                
             }
             
             // finally, we execute our query

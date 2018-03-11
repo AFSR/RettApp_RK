@@ -8,11 +8,20 @@
 
 import UIKit
 import ResearchKit
+import RealmSwift
 
 /**
 `DSJSONSerializer` is used to serialize ORKResult into JSON data.
 */
 class DSJSONSerializer: DSReflect {
+    
+    
+    
+    static func convertDateHKtoRK(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        return dateFormatter.string(from: date)
+    }
     
     /**
     Convert an `NSArray` of ORKResult objects into a serialized JSON and return its `NSData` object.
@@ -27,10 +36,96 @@ class DSJSONSerializer: DSReflect {
         if let results = taskResult.results{ // NSArray/*<ORKResult>*/
             let resultsArray = self.resultsArrayToDictionary(results as NSArray)
             let json = NSDictionary(dictionary: ["taskId" : taskResult.identifier, "results": resultsArray])
+            print("---JSON---")
+            print(resultsArray.description)
+            print("----------")
             jsonData = self.JSONObjectToData(json)
         }
         return jsonData
     }
+    
+    /**
+     Convert an `NSArray` of HKSampleQuery objects into a serialized JSON and return its `NSData` object.
+     
+     -param results: `NSArray` of HKSample. Usually the value from `HKSampleQuery`.
+     
+     -returns: A `NSData` object containing the JSON serialized from the results.
+     */
+    static func hkSampleQueryResultToJsonData(_ queryResult: [HKSample]?) -> Data?{
+        var dict = NSMutableDictionary()
+        var jsonData: Data?
+        if let result = queryResult {
+            for item in result {
+                if let sample = item as? HKCategorySample {
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+                    //let startSate = dateFormatter.dateFromString(sample.startDate)!
+                    //let endDate = dateFormatter.dateFromString(sample.endDate)!
+                    
+                    let formatter = DateComponentsFormatter()
+                    formatter.allowedUnits = [.hour]
+                    formatter.unitsStyle = .positional
+                    formatter.allowedUnits = [ .hour]
+                    let hoursAsleep = formatter.string(from: sample.startDate, to: sample.endDate)!
+
+                    if hoursAsleep != "0" {
+                        
+                        var data:Results<DSTaskAnswerRealm>!
+                        var json = [String : Any]()
+                        
+                        //Check if there is already the data in local database
+                        do{
+                            let realm = try Realm()
+                            kBgQueue.sync() {
+                                data = realm.objects(DSTaskAnswerRealm.self).filter("taskName = 'DSSleepTask'")
+                            }
+                            realm.delete(data)
+                            
+                        }catch let error as NSError{
+                            print(error.localizedDescription)
+                        }
+                        
+                        for obj in data {
+                            let jsonLocalData = obj.json.data(using: String.Encoding.utf8)
+                            do {
+                                json = (try JSONSerialization.jsonObject(with: jsonLocalData!, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: Any])!
+                            }catch let error as NSError {
+                                print(error.localizedDescription)
+                            }
+                            
+                            if json != nil {
+                                if let results = json["results"] as? [String : Any] {
+                                    if let result = results["DSSleepTask"] as? [String : Any] {
+                                        if result["date"] as? String != convertDateHKtoRK(sample.startDate){
+                                            var dictAnswer = NSDictionary(dictionary: ["result": "" , "date":convertDateHKtoRK(sample.startDate)])
+                                            
+                                            dict.setValue(dictAnswer, forKey: "DSSleepDescription")
+                                            
+                                            dictAnswer = NSDictionary(dictionary: ["result": hoursAsleep , "date":convertDateHKtoRK(sample.startDate)])
+                                            dict.setValue(dictAnswer, forKey: "hoursSleep")
+                                            
+                                            let json = NSDictionary(dictionary: ["taskId" : "DSSleepTask", "results": dict])
+                                            jsonData = self.JSONObjectToData(json)
+                                            print("---NEW JSON---")
+                                            print(dict.description)
+                                            print("----------")
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+//                    print("---NEW JSON---")
+//                    print(dict.description)
+//                    print("----------")
+//                    
+                }
+            }
+        }
+       return jsonData
+    }
+    
     
     fileprivate static func resultsArrayToJsonArray(_ results: NSArray/*<ORKResult>*/) -> [NSMutableDictionary]{
         var dictArray = [NSMutableDictionary]()
