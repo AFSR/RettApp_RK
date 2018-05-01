@@ -37,7 +37,7 @@
 			<key>prompt</key>
 			<string>Comment décririez-vous l&apos;intensité de la crise?</string>
 			<key>questionId</key>
-			<string>seizureIntensity</string>
+			<string>DSSeizureIntensity</string>
 			<key>textChoice</key>
 			<array>
 				<dict>
@@ -78,7 +78,7 @@
 				<key>yScale</key>
 				<integer>20</integer>
 				<key>title</key>
-				<string>Frequence des crises d&apos;épilepsie</string>
+				<string>Fréq. des crises d&apos;épilepsie</string>
 				<key>subtitle</key>
 				<string></string>
 				<key>color</key>
@@ -108,7 +108,7 @@
 			<key>answerType</key>
 			<string>String</string>
 			<key>prompt</key>
-			<string>Utiliser cette espace pour décrire la crise</string>
+			<string>Utilisez cet espace pour décrire la crise.</string>
 			<key>questionId</key>
 			<string>DSSeizureDescription</string>
 		</dict>

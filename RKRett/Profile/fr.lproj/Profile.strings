@@ -1,0 +1,51 @@
+
+/* Class = "UINavigationItem"; title = "Informations"; ObjectID = "3Ex-Xw-rDy"; */
+"3Ex-Xw-rDy.title" = "Informations";
+
+/* Class = "UILabel"; text = "Password:"; ObjectID = "5FG-Q4-TB2"; */
+"5FG-Q4-TB2.text" = "Mot de passe:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "97E-xU-jH4"; */
+"97E-xU-jH4.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "EaX-UN-gv4"; */
+"EaX-UN-gv4.title" = "Profil";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "FMS-Mo-iBg"; */
+"FMS-Mo-iBg.placeholder" = "Email";
+
+/* Class = "UITableViewSection"; headerTitle = "Log In Informations"; ObjectID = "JMT-4S-h6I"; */
+"JMT-4S-h6I.headerTitle" = "Informations de connexion";
+
+/* Class = "UIBarButtonItem"; title = "Log Out"; ObjectID = "PTD-lI-Z7c"; */
+"PTD-lI-Z7c.title" = "Deconnexion";
+
+/* Class = "UILabel"; text = "You are about to sign up or log in with your credentials from AFSR.\nThis will allow in the future to provide data from different devices and have access to your data from the web.\n"; ObjectID = "T4S-wJ-2nE"; */
+"T4S-wJ-2nE.text" = "Vous allez vous connecter/enregister sur le sereur de l'AFSR.\nCette connexion servira plus tard à pousser les données recueillies dans l'application vers les serveurs et à enregistrer des informations depuis plusieurs appareils.";
+
+/* Class = "UILabel"; text = "Email:"; ObjectID = "WOc-tM-YZ9"; */
+"WOc-tM-YZ9.text" = "Email:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "co9-av-DXP"; */
+"co9-av-DXP.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Sign up / Log In"; ObjectID = "i1O-A1-A3I"; */
+"i1O-A1-A3I.normalTitle" = "S'enregistrer / Se connecter";
+
+/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "kZm-pV-ak4"; */
+"kZm-pV-ak4.title" = "Profil";
+
+/* Class = "UILabel"; text = "Password:"; ObjectID = "lF2-ak-MQX"; */
+"lF2-ak-MQX.text" = "Mot de passe:";
+
+/* Class = "UIButton"; normalTitle = "Update my informations."; ObjectID = "oc8-5B-YXU"; */
+"oc8-5B-YXU.normalTitle" = "Mettre à jour mes informations.";
+
+/* Class = "UILabel"; text = "Email:"; ObjectID = "pHp-9n-DCq"; */
+"pHp-9n-DCq.text" = "Email:";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "zK6-9M-lMH"; */
+"zK6-9M-lMH.placeholder" = "Mot de passe";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "zqt-ah-TgQ"; */
+"zqt-ah-TgQ.title" = "Profil";

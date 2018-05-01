@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>sectionGroup</key>
+		<true/>
+		<key>sectionTitle</key>
+		<string>HealthKit</string>
+		<key>sectionText</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>sections</key>
+		<string>HealthKit</string>
+		<key>sectionType</key>
+		<string>onOffCell</string>
+		<key>sectionTitle</key>
+		<string>Personnal device of disease child</string>
+		<key>sectionText</key>
+		<string>Check if the device is the personnal device of the child</string>
+	</dict>
+	<dict>
+		<key>sections</key>
+		<string>HealthKit</string>
+		<key>sectionType</key>
+		<string>onOffCell</string>
+		<key>sectionTitle</key>
+		<string>View HealthKit Authorization</string>
+		<key>sectionText</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>sections</key>
+		<string>sections</string>
+		<key>sectionType</key>
+		<string>onOffCell</string>
+		<key>sectionTitle</key>
+		<string>Developer Section</string>
+		<key>sectionText</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>sections</key>
+		<string>Bug</string>
+		<key>sectionType</key>
+		<string>onOffCell</string>
+		<key>sectionTitle</key>
+		<string>Report a bug</string>
+		<key>sectionText</key>
+		<string>Launch BugLife to report a bug.</string>
+	</dict>
+</array>
+</plist>

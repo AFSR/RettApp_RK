@@ -37,7 +37,7 @@
 			<key>prompt</key>
 			<string>How would you describe the seizure?</string>
 			<key>questionId</key>
-			<string>seizureIntensity</string>
+			<string>DSSeizureIntensity</string>
 			<key>textChoice</key>
 			<array>
 				<dict>

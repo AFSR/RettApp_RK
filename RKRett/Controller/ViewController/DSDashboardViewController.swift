@@ -9,7 +9,7 @@
 import UIKit
 import ScrollableGraphView
 
-class DSDashboardViewController: UIViewController {
+class DSDashboardViewController: UIViewController,TimeBasedGraphCellDelegate {
     //MARK: - Serialize/Deserialize Tuples
     typealias DSGraphIdentifierType = (taskId: String, questionId: String)
     typealias DSGraphIdentifierTypeDictionary = [String: String]
@@ -22,22 +22,35 @@ class DSDashboardViewController: UIViewController {
         return [TaskIdKey : tuple.taskId, QuestionIdKey : tuple.questionId]
     }
     
+    
     func deserializeDictionary(_ dictionary: DSGraphIdentifierTypeDictionary) -> DSGraphIdentifierType {
         return DSGraphIdentifierType(dictionary[TaskIdKey] as String!, dictionary[QuestionIdKey] as String!)
     }
     
-    // -------------------------------------------------
+    // ------------------------------------------------?
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC : DashboardGraphTableViewController = segue.destination as! DashboardGraphTableViewController
+        destVC.originCell = sender as! TimeBasedGraphCell
+    }
+    
+ 
+    func didTapShowGraph(_ sender: TimeBasedGraphCell) {
+        
+        performSegue(withIdentifier: "showGraph", sender: sender)
+        
+    }
     
     @IBOutlet weak var timeSegment: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
-    var graphIdentifiers = [DSGraphIdentifierType]()
-    var viewControllers = [UIViewController]()
     
+    
+    var graphIdentifiers = [DSGraphIdentifierType]()
+    
+    var viewControllers = [UIViewController]()
     
     @IBAction func timeSegmentAction(_ sender: Any) {
         
         if timeSegment.selectedSegmentIndex == 0 {
-            print("Day is selected");
             
             for vc in viewControllers {
                 if vc is DSTimeBasedGraphViewController {
@@ -47,7 +60,6 @@ class DSDashboardViewController: UIViewController {
             }
         }
         if timeSegment.selectedSegmentIndex == 1 {
-            print("Week is selected");
             
             for vc in viewControllers {
                 if vc is DSTimeBasedGraphViewController {
@@ -57,7 +69,6 @@ class DSDashboardViewController: UIViewController {
             }
         }
         if timeSegment.selectedSegmentIndex == 2 {
-            print("Month is selected");
             
             for vc in viewControllers {
                 if vc is DSTimeBasedGraphViewController {
@@ -68,7 +79,6 @@ class DSDashboardViewController: UIViewController {
         }
         
         if timeSegment.selectedSegmentIndex == 3 {
-            print("Year is selected");
             
             for vc in viewControllers {
                 if vc is DSTimeBasedGraphViewController {
@@ -82,6 +92,10 @@ class DSDashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        //tableView.isEditing = true
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -94,9 +108,19 @@ class DSDashboardViewController: UIViewController {
             })
         }
         
+        //Init view with Today view
+        timeSegment.selectedSegmentIndex = 0
+        for vc in viewControllers {
+            if vc is DSTimeBasedGraphViewController {
+                let tvc = vc as! DSTimeBasedGraphViewController
+                tvc.showTodayData()
+            }
+        }
+        
         graphIdentifiers = getGraphIds()
         tableView.reloadData()
         configureSpotlightSearch()
+        
     }
     
     func configureSpotlightSearch(){
@@ -207,6 +231,28 @@ class DSDashboardViewController: UIViewController {
                 }
             }
         }
+        
+        if let path = Bundle.main.path(forResource: "DSHealthKitData", ofType: "plist"){
+            if let tasks = NSArray(contentsOfFile: path) {
+                for taskId in tasks {
+                    if let taskPath = Bundle.main.path(forResource: (taskId as! String), ofType: "plist") {
+                        if let task = NSDictionary(contentsOfFile: taskPath) {
+                            if let questions = task["questions"] as? NSArray {
+                                for question in questions {
+                                    if (question as! NSDictionary)["dashboard"] != nil {
+                                        if let questionId = (question as! NSDictionary)["questionId"] as? String {
+                                            graphIds += [(taskId as! String, questionId)]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        
         return graphIds
     }
 }
@@ -214,18 +260,22 @@ class DSDashboardViewController: UIViewController {
 extension DSDashboardViewController : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return graphIdentifiers.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return graphIdentifiers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let graphId = graphIdentifiers[indexPath.section]
+        print("Cell: ",indexPath)
+        let graphId = graphIdentifiers[indexPath.row]
         
-        let graphType = graphTypeForId(graphIdentifiers[indexPath.section])
+        //let graphId = tableView.dequeueReusableCell(withIdentifier: "TimeBasedGraphCell", for: indexPath)
+        
+        
+        let graphType = graphTypeForId(graphIdentifiers[indexPath.row])
         
         switch(graphType){
         case GraphType.TimeBased:
@@ -244,7 +294,13 @@ extension DSDashboardViewController : UITableViewDataSource {
                 viewControllers += [vc]
             }
             
-            return vc.view as! TimeBasedGraphCell
+            let cell = vc.view as! TimeBasedGraphCell
+            cell.taskId = vc.taskId
+            cell.questionId = vc.questionId
+            
+            cell.delegate = self
+            
+            return cell
             
         case GraphType.Circular:
             //                let vc = DSCircularGraphViewController()
@@ -257,7 +313,7 @@ extension DSDashboardViewController : UITableViewDataSource {
     }
     
     @objc(tableView:heightForRowAtIndexPath:) func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if graphTypeForId(graphIdentifiers[indexPath.section]) == .Circular {
+        if graphTypeForId(graphIdentifiers[indexPath.row]) == .Circular {
             return 265
         }
         return 290
@@ -269,4 +325,54 @@ extension DSDashboardViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        tableView.setEditing(editing, animated: animated)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete{
+            print(graphIdentifiers)
+            graphIdentifiers.remove(at: indexPath.row)
+            print(graphIdentifiers)
+            tableView.reloadData()
+        }
+        
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        print(sourceIndexPath,"->",destinationIndexPath)
+        print(graphIdentifiers)
+        let source = graphIdentifiers[sourceIndexPath.row]
+        graphIdentifiers.remove(at: sourceIndexPath.row)
+        graphIdentifiers.insert(source, at: destinationIndexPath.row)
+        
+        print("---")
+        print(graphIdentifiers)
+        
+//        print("VC")
+//        print(viewControllers)
+//        let sourceVC = viewControllers[sourceIndexPath.section]
+//        viewControllers.remove(at: sourceIndexPath.section)
+//        viewControllers.insert(sourceVC, at: destinationIndexPath.section)
+//        print("---")
+//        print(viewControllers)
+//        //tableView.reloadData()
+        
+    }
+
+    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+        tableView.setEditing(true, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        tableView.setEditing(false, animated: true)
+    }
+    
 }
+

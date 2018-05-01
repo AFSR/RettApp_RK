@@ -80,7 +80,7 @@ class DSJSONSerializer: DSReflect {
                             kBgQueue.sync() {
                                 data = realm.objects(DSTaskAnswerRealm.self).filter("taskName = 'DSSleepTask'")
                             }
-                            realm.delete(data)
+                            //realm.delete(data)
                             
                         }catch let error as NSError{
                             print(error.localizedDescription)

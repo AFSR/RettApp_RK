@@ -1,4 +1,14 @@
 
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "Dk0-bC-NMw"; */
+"Dk0-bC-NMw.title" = "Profil";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "IvW-YS-Zu2"; */
+//"IvW-YS-Zu2.title" = "Réglages";
+
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "e3s-3H-FGe"; */
+"e3s-3H-FGe.title" = "Réglages";
+
 /* Class = "UITabBarItem"; title = "Dashboard"; ObjectID = "Pif-5Q-A8a"; */
 "Pif-5Q-A8a.title" = "Suivi";
 

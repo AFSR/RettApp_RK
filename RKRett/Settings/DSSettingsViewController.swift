@@ -12,26 +12,6 @@ import Realm
 import RealmSwift
 import Buglife
 
-extension UITableViewCell {
-    
-//    func highlightWithColor(_ color: UIColor) {
-//        let bgView = UIView(frame: CGRect(x: contentView.frame.width, y: 0, width: contentView.frame.width, height: contentView.frame.height))
-//        bgView.backgroundColor = color
-//        bgView.tag = kCellBackgroundViewTag
-//        print(bgView)
-//        UIView.beginAnimations("SelectedCell", context: nil)
-//        UIView.setAnimationCurve(UIViewAnimationCurve.easeIn)
-//        UIView.setAnimationDuration(1.0)
-//        selectedBackgroundView?.addSubview(bgView)
-//        bgView.frame = contentView.frame
-//        UIView.commitAnimations()
-//        print(bgView)
-//    }
-    
-}
-
-//let kCellBackgroundViewTag = 1
-
 class DSSettingsViewController:UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
@@ -43,9 +23,8 @@ class DSSettingsViewController:UIViewController{
     var sectionShareDataTv:Int!
     var sectionDeveloper:Int!
     
-    //var healthManager = HealthManager()
-    
-
+    var settingsSection = ["HealthKit", "Configure","Developer Section"]
+    var settingsItems = [["Personal device of disease child", "Authorize HealthKit"],["Select Data"],["Report a bug"]]
     
     fileprivate enum SegueIdentifier:String{
         case SettingsDetail = "gotoSettingsDetail", ShareDataWithDoctor = "gotoShareDataWithDoctor"
@@ -61,7 +40,6 @@ class DSSettingsViewController:UIViewController{
         self.tableView.delegate = self
         self.tableView.dataSource = self
         loadSettingsPlistSections()
-        
         tableView.contentInset = .zero
     }
     
@@ -73,7 +51,6 @@ class DSSettingsViewController:UIViewController{
         default:
             print("Identifier: \(String(describing: segue.identifier))")
         }
-        
     }
     
     // MARK: - Functions
@@ -81,14 +58,14 @@ class DSSettingsViewController:UIViewController{
         if let path = Bundle.main.path(forResource: kDSSettingsPlist, ofType: "plist"){
             if let sectionsArray = NSArray(contentsOfFile: path){
                 for section in sectionsArray as! [NSDictionary]{
-                    //                    print(section)
                     let dsSection = DSSettingsSection(fromDictionary: section)
-                    self.settingsArray += [dsSection]
+                        self.settingsArray += [dsSection]
                 }
                 self.tableView.reloadData()
             }
         }
     }
+
 }
 
 // MARK: - UITableViewDelegate
@@ -105,7 +82,6 @@ extension DSSettingsViewController:UITableViewDelegate{
         alertController = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController!.addAction(action)
-        
         self.present(alertController!, animated: true, completion: nil)
     }
     
@@ -114,6 +90,7 @@ extension DSSettingsViewController:UITableViewDelegate{
         switch indexPath.section{
         
         case 0:
+            
             
             tableView.deselectRow(at: indexPath as IndexPath, animated: true)
             
@@ -125,7 +102,6 @@ extension DSSettingsViewController:UITableViewDelegate{
                     if(!alreadyParticipating){
                         DispatchQueue.main.async(execute: { () -> Void in
                             self.present(appDelegate.healthManager.showHealthKitAlert()!, animated: true, completion: nil)
-                            //self.showHealthKitAlert()
                         })
                     }
                 }else{
@@ -153,25 +129,35 @@ extension DSSettingsViewController:UITableViewDelegate{
 extension DSSettingsViewController: UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.settingsArray.count
+        //return self.settingsArray.count
+        return settingsSection.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-        
+        return settingsItems[section].count
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return settingsSection[section]
+    }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "settingsCell")
         
-        //createSideViewForCell(cell, withColor: .purple)
-        cell.textLabel?.text = self.settingsArray[indexPath.section].title
+//        if self.settingsArray[indexPath.section].title == "" {
+//        }
+//        let cell = UITableViewCell(style: .default, reuseIdentifier: "settingsCell")
+//        cell.textLabel?.text = self.settingsArray[indexPath.section].title
+//        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell")
+        cell?.textLabel?.text = settingsItems[indexPath.section][indexPath.row]
+        return cell!
         
-        return cell
+        
     }
     
-    internal func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? 0 : 0.5
-    }
+//    internal func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return section == 0 ? 0 : 0.5
+//    }
     
 }

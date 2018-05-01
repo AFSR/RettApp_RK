@@ -9,8 +9,8 @@
 
 class DSSettingsSection: NSObject{
     
-    var title:String!
-    var text:String!
+    var title: String!
+    var text: String!
 
     init(fromDictionary dic:NSDictionary){
         super.init()

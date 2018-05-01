@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class DSTaskListViewController: UIViewController{
     
@@ -16,6 +17,7 @@ class DSTaskListViewController: UIViewController{
     var completedTasks = [DSTask]()
     var uncompletedTasks = [DSTask]()
     var ondemandTasks = [DSTask]()
+    var healthKitTasks = [DSTask]()
     var tasksCount = 0
     
     override func viewDidLoad() {
@@ -24,7 +26,8 @@ class DSTaskListViewController: UIViewController{
         self.tableView.dataSource = self
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, -69, 0)
         UIApplication.shared.statusBarStyle = .default
-    }
+        
+     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -35,6 +38,7 @@ class DSTaskListViewController: UIViewController{
     }
     
     func updateTasksStatus(){
+        //tasksCount = tasks.filter({$2 != -1}).count
         tasksCount = tasks.count
         completedTasks.removeAll()
         uncompletedTasks.removeAll()
@@ -69,18 +73,17 @@ class DSTaskListViewController: UIViewController{
         
         let tasksCompleted = numberOfTasksCompletedes ?? NSLocalizedString("No tasks", comment: "")
         var detailLabel:String!
-        switch(task.frequencyType){
-        case Frequency.Daily.Key.rawValue:
-            detailLabel = (tasksCompleted as! String) + " " + NSLocalizedString("of", comment: "") + " " + (task.frequencyNumber.description) + " " + NSLocalizedString("for today", comment: "")
-        case Frequency.Weekly.Key.rawValue:
-            detailLabel = (tasksCompleted as! String) + NSLocalizedString("of", comment: "") + (task.frequencyNumber.stringValue) + NSLocalizedString("for this week", comment: "")
-            
-        case Frequency.Monthly.Key.rawValue:
-            detailLabel = (tasksCompleted as! String) + NSLocalizedString("of", comment: "") + (task.frequencyNumber.stringValue) + NSLocalizedString("for this month", comment: "")
-            
-        default:
-            detailLabel = NSLocalizedString("Fill this in as needed", comment: "")
-        }
+        
+            switch(task.frequencyType){
+            case Frequency.Daily.Key.rawValue:
+                detailLabel = (tasksCompleted as! String) + " " + NSLocalizedString("of", comment: "") + " " + (task.frequencyNumber.description) + " " + NSLocalizedString("for today", comment: "")
+            case Frequency.Weekly.Key.rawValue:
+                detailLabel = (tasksCompleted as! String) + NSLocalizedString("of", comment: "") + (task.frequencyNumber.stringValue) + NSLocalizedString("for this week", comment: "")
+            case Frequency.Monthly.Key.rawValue:
+                detailLabel = (tasksCompleted as! String) + NSLocalizedString("of", comment: "") + (task.frequencyNumber.stringValue) + NSLocalizedString("for this month", comment: "")
+            default:
+                detailLabel = NSLocalizedString("Fill this in as needed", comment: "")
+            }
         
         cell.detailTextLabel?.text = detailLabel
         
@@ -146,7 +149,7 @@ extension DSTaskListViewController: UITableViewDataSource {
             
             let now = Date()
             let stringDate = dateFormatter.string(from: now)
-            sectionLabel.text = "\(NSLocalizedString("Today", comment: "")), \(now.weekDayString), \(stringDate)\n\(NSLocalizedString("To start an activity tap below", comment: ""))"
+            sectionLabel.text = "\(NSLocalizedString("Today", comment: "")), \(now.weekDayString) \(stringDate)\n\(NSLocalizedString("To start an activity tap below", comment: ""))"
 
             sectionLabel.numberOfLines = 0
             sectionLabel.lineBreakMode = NSLineBreakMode.byWordWrapping

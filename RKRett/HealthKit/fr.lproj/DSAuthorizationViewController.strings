@@ -18,7 +18,7 @@
 "tYg-1C-0hn.text" = "Cette application enregistre les données de l'accéléromètre de l'Apple Watch.";
 
 /* Class = "UIButton"; normalTitle = "Done"; ObjectID = "wzS-cr-fSP"; */
-"wzS-cr-fSP.normalTitle" = "Fait.";
+"wzS-cr-fSP.normalTitle" = "OK";
 
 /* Class = "UIButton"; normalTitle = "Authorize Notifications"; ObjectID = "xGM-lX-q6H"; */
 "xGM-lX-q6H.normalTitle" = "Autoriser les notifications";

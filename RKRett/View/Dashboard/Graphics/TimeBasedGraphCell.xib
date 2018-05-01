@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14111" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -51,37 +51,43 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9KY-qP-8yd">
-                        <rect key="frame" x="8" y="28" width="304" height="23"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9KY-qP-8yd">
+                        <rect key="frame" x="16" y="28" width="296" height="23"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="WDp-16-K4y"/>
+                            <constraint firstAttribute="height" constant="23" id="jHt-5w-AnA"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AF5-Wk-iEe">
-                        <rect key="frame" x="282" y="11" width="22" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AF5-Wk-iEe">
+                        <rect key="frame" x="286" y="11" width="18" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="18" id="VNm-7Y-dAw"/>
+                        </constraints>
+                        <color key="tintColor" red="0.58105844259999995" green="0.12855249639999999" blue="0.57453137639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <state key="normal" title="Button" image="zoom"/>
                         <connections>
-                            <action selector="buttonTapped:" destination="-2" eventType="touchUpInside" id="1UQ-Tb-9hE"/>
+                            <action selector="showGraph:" destination="bv3-UU-rLN" eventType="touchUpInside" id="BoK-0M-w0T"/>
                         </connections>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="9KY-qP-8yd" firstAttribute="trailing" secondItem="xeT-ar-Jcm" secondAttribute="trailingMargin" id="4jZ-Sr-rHU"/>
                     <constraint firstItem="bVk-2Z-BFH" firstAttribute="bottom" secondItem="xeT-ar-Jcm" secondAttribute="bottomMargin" constant="-25" id="5x0-IK-s6V"/>
-                    <constraint firstItem="9KY-qP-8yd" firstAttribute="top" secondItem="WXT-gz-Bu0" secondAttribute="bottom" constant="-1" id="COl-yU-bYc"/>
+                    <constraint firstItem="9KY-qP-8yd" firstAttribute="leading" secondItem="WXT-gz-Bu0" secondAttribute="leading" id="9B2-L3-Fjk"/>
+                    <constraint firstItem="9KY-qP-8yd" firstAttribute="top" secondItem="AF5-Wk-iEe" secondAttribute="bottom" id="FNq-V8-Lcy"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="9KY-qP-8yd" secondAttribute="trailing" constant="-8" id="IwG-bX-FqM"/>
                     <constraint firstItem="bVk-2Z-BFH" firstAttribute="bottom" secondItem="xeT-ar-Jcm" secondAttribute="bottomMargin" id="Jac-Ae-en9"/>
                     <constraint firstItem="WXT-gz-Bu0" firstAttribute="trailing" secondItem="xeT-ar-Jcm" secondAttribute="trailingMargin" id="KA3-6E-Cdn"/>
                     <constraint firstItem="bVk-2Z-BFH" firstAttribute="trailing" secondItem="xeT-ar-Jcm" secondAttribute="trailingMargin" id="QHQ-9H-8I1"/>
+                    <constraint firstItem="AF5-Wk-iEe" firstAttribute="top" secondItem="WXT-gz-Bu0" secondAttribute="top" id="XsT-hm-BDK"/>
                     <constraint firstItem="WXT-gz-Bu0" firstAttribute="leading" secondItem="xeT-ar-Jcm" secondAttribute="leadingMargin" id="ZdG-1V-jt4"/>
                     <constraint firstItem="bVk-2Z-BFH" firstAttribute="leading" secondItem="xeT-ar-Jcm" secondAttribute="leadingMargin" id="fyv-RK-Ua5"/>
                     <constraint firstItem="bVk-2Z-BFH" firstAttribute="bottom" secondItem="xeT-ar-Jcm" secondAttribute="bottomMargin" id="itP-qe-7lp"/>
                     <constraint firstItem="WXT-gz-Bu0" firstAttribute="top" secondItem="xeT-ar-Jcm" secondAttribute="topMargin" id="jX4-5W-1MC"/>
+                    <constraint firstItem="AF5-Wk-iEe" firstAttribute="trailing" secondItem="WXT-gz-Bu0" secondAttribute="trailing" id="l0r-XB-V4F"/>
                     <constraint firstAttribute="topMargin" secondItem="WXT-gz-Bu0" secondAttribute="top" id="mpu-2t-4P3"/>
-                    <constraint firstItem="9KY-qP-8yd" firstAttribute="leading" secondItem="xeT-ar-Jcm" secondAttribute="leadingMargin" id="pTO-L3-9u4"/>
+                    <constraint firstItem="9KY-qP-8yd" firstAttribute="top" secondItem="xeT-ar-Jcm" secondAttribute="topMargin" constant="17" id="n7X-yx-qzv"/>
                     <constraint firstItem="bVk-2Z-BFH" firstAttribute="top" secondItem="WXT-gz-Bu0" secondAttribute="bottom" constant="8" id="tcD-fd-1mn"/>
                 </constraints>
                 <variation key="default">
@@ -96,6 +102,7 @@
                 <outlet property="graphView" destination="bVk-2Z-BFH" id="U1V-bH-9ye"/>
                 <outlet property="lblSubtitle" destination="9KY-qP-8yd" id="jDR-Xr-yCL"/>
                 <outlet property="lblTitle" destination="WXT-gz-Bu0" id="JzY-ET-bBT"/>
+                <outlet property="wideButton" destination="AF5-Wk-iEe" id="ThH-0d-MSJ"/>
             </connections>
             <point key="canvasLocation" x="493" y="489"/>
         </tableViewCell>

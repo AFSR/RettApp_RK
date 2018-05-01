@@ -29,9 +29,6 @@ public let kQuizIntroductionStepIdentifier = "QuizIntroductionStep"
 
 public let kDSElegibilityPlist = "DSElegibility"
 
-public let kParseApplicationId = "9T1MqzJWJ5LFZCzCrmqgmo9Egt60jjHL5gIO2s23"
-public let kParseClientKey = "XUCH19yUKrsm9r3GYAS80S5HfAapZHJrFy1JP1Wq"
-
 public let kDSConsentPlist = "DSConsent"
 public let kUserHasConsentedKey = "DSUserHasConsentedKey"
 
@@ -148,7 +145,7 @@ enum UserType:String{
 
 //MARK: TabBarIndexes
 enum TabBarItemIndexes:Int{
-    case tasks = 0, dashboard = 1, learnMore = 2, profile = 3
+    case tasks = 0, dashboard = 1, learnMore = 2, settings = 3, profile = 4
     
     var description:Int{
         return self.rawValue

@@ -201,7 +201,7 @@ class DSStepCreator: NSObject {
         if let questionIdentifier = dictionary.object(forKey: PlistFile.Task.Question.QuestionID.rawValue) as? String,
             let prompt = dictionary.object(forKey: PlistFile.Task.Question.Prompt.rawValue) as? String{
                 
-                let answerFormat = ORKTimeOfDayAnswerFormat(defaultComponents: DateComponents())
+            let answerFormat = ORKTimeOfDayAnswerFormat(defaultComponents: nil)
                 step = ORKQuestionStep(identifier: questionIdentifier, title: prompt, answer: answerFormat)
         }else{
             assertionFailure("Some value couldn't be unwrapped in DSStepCreator.createTimeOfDayStepUsingDictionary")

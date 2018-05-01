@@ -17,14 +17,24 @@
 		2F3193551F3CFD1500F35E09 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3193541F3CFD1500F35E09 /* Parser.swift */; };
 		2F3193571F3D08A900F35E09 /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3193561F3D08A900F35E09 /* Description.swift */; };
 		2F3193591F3D0B4F00F35E09 /* ParserHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3193581F3D0B4F00F35E09 /* ParserHelpers.swift */; };
+		2F823CF02095C1E800E36FC3 /* DSProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F823CEF2095C1E800E36FC3 /* DSProfileTableViewController.swift */; };
+		2F823CF22095C76800E36FC3 /* DSProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F823CF12095C76800E36FC3 /* DSProfileViewController.swift */; };
+		2F823CF42095F84500E36FC3 /* DSUpdateInfosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F823CF32095F84500E36FC3 /* DSUpdateInfosTableViewController.swift */; };
+		2F823CFC2096019600E36FC3 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F823CFA2096019500E36FC3 /* Profile.storyboard */; };
+		2F823D19209620D000E36FC3 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F823D1B209620D000E36FC3 /* Settings.storyboard */; };
+		2F823D5C2098C4AA00E36FC3 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F823D5B2098C4AA00E36FC3 /* Dashboard.storyboard */; };
+		2F823D5E2098DF9E00E36FC3 /* TimeBasedGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F823D5D2098DF9D00E36FC3 /* TimeBasedGraphCell.xib */; };
+		2F823D642098F5A100E36FC3 /* DashboardGraphTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F823D632098F5A100E36FC3 /* DashboardGraphTableViewController.swift */; };
+		2F823D66209926C000E36FC3 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F823D65209926C000E36FC3 /* Keys.plist */; };
 		2F959004201270D10037F542 /* DSAuthorizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F959006201270D10037F542 /* DSAuthorizationViewController.xib */; };
 		2F95900B201271E80037F542 /* Answers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F95900D201271E80037F542 /* Answers.storyboard */; };
 		2F95901220135E350037F542 /* img in Resources */ = {isa = PBXBuildFile; fileRef = 2F95901120135E340037F542 /* img */; };
-		2FA8999A20174C370096AB35 /* DSSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FA8999920174C370096AB35 /* DSSettings.plist */; };
-		2FA8999C201761890096AB35 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FA8999B201761890096AB35 /* Settings.storyboard */; };
 		2FA899A0201769A40096AB35 /* DSSettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA8999D201769A30096AB35 /* DSSettingsSection.swift */; };
 		2FA899A1201769A40096AB35 /* DSSettingsDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA8999E201769A30096AB35 /* DSSettingsDetailController.swift */; };
 		2FA899A2201769A40096AB35 /* DSSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA8999F201769A40096AB35 /* DSSettingsViewController.swift */; };
+		2FE38BA92093BC8100194603 /* DSSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FE38BAB2093BC8100194603 /* DSSettings.plist */; };
+		2FE38BBC2093C17200194603 /* DSStepTask.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FE38BBB2093C17100194603 /* DSStepTask.plist */; };
+		2FE38BC020947AFD00194603 /* DSHealthKitData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FE38BBF20947AFD00194603 /* DSHealthKitData.plist */; };
 		31FF5F1FC603400F0BAB2928 /* Pods_RKRettTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85D054C5D01128D7353EAB5 /* Pods_RKRettTests.framework */; };
 		35812B781BC6EB0700D4FB68 /* CSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35812B771BC6EB0700D4FB68 /* CSV.swift */; };
 		3588246F1BD8B35F00276C63 /* JBBarChartFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 358824641BD8B35F00276C63 /* JBBarChartFooterView.m */; };
@@ -83,8 +93,6 @@
 		52EED4BA1BBC4F030032B7DF /* DSMoodTask.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52EED4BC1BBC4F030032B7DF /* DSMoodTask.plist */; };
 		6207E2641BB4623800EC2E8F /* DSRealmExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6207E2631BB4623800EC2E8F /* DSRealmExporter.swift */; };
 		620943AB1BAC037600C1A9B9 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 620943AA1BAC037600C1A9B9 /* LocalAuthentication.framework */; };
-		620943AD1BAC293100C1A9B9 /* Certificados in Resources */ = {isa = PBXBuildFile; fileRef = 620943AC1BAC293100C1A9B9 /* Certificados */; };
-		620E7A271BD570FA004AC520 /* Dashboard1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 620E7A251BD570FA004AC520 /* Dashboard1.storyboard */; };
 		622AEADF1BFBCE7E009191FC /* DSReflect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FBBC461B8776EE002462DE /* DSReflect.swift */; };
 		623938261BD1555C00B1BC09 /* Learn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 623938211BD1555C00B1BC09 /* Learn.storyboard */; };
 		62482FE51F3C834E00B83B25 /* DSAuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62482FE31F3C834E00B83B25 /* DSAuthorizationViewController.swift */; };
@@ -92,7 +100,6 @@
 		62482FED1F3C854E00B83B25 /* CircularGraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62482FE91F3C854E00B83B25 /* CircularGraphCell.swift */; };
 		62482FEE1F3C854E00B83B25 /* CircularGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62482FEA1F3C854E00B83B25 /* CircularGraphCell.xib */; };
 		62482FEF1F3C854E00B83B25 /* TimeBasedGraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62482FEB1F3C854E00B83B25 /* TimeBasedGraphCell.swift */; };
-		62482FF01F3C854E00B83B25 /* TimeBasedGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62482FEC1F3C854E00B83B25 /* TimeBasedGraphCell.xib */; };
 		625222981BAA6799007A325E /* DSTaskAnswerRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625222971BAA6799007A325E /* DSTaskAnswerRealm.swift */; };
 		625CB1F61BB32CA400D4855D /* DSGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625CB1F51BB32CA400D4855D /* DSGlobals.swift */; };
 		625D46C71B9F54710077D7AB /* DSTaskScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625D46C61B9F54710077D7AB /* DSTaskScheduler.swift */; };
@@ -115,6 +122,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2F823CE72095C15A00E36FC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F9FD36D20552FD30024752A /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 775483202F6A471C332321082FC6B124;
+			remoteInfo = Bolts;
+		};
+		2F823CE92095C15A00E36FC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F9FD36D20552FD30024752A /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC4F92AEC535A757D9E113374549D2E6;
+			remoteInfo = Parse;
+		};
+		2F823CEB2095C15A00E36FC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F9FD36D20552FD30024752A /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 63FFBE7EA5E7751830D12FB2D956E637;
+			remoteInfo = "Parse-Parse";
+		};
 		2F9FD37C20552FD40024752A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2F9FD36D20552FD30024752A /* Pods.xcodeproj */;
@@ -239,7 +267,6 @@
 		0AD1F8D11BA9B7DA00B8BFEF /* DSTimeBasedGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSTimeBasedGraphViewController.swift; sourceTree = "<group>"; };
 		293BB9B129CF7CD70AB32D70 /* Pods-RKRettTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RKRettTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RKRettTests/Pods-RKRettTests.release.xcconfig"; sourceTree = "<group>"; };
 		2CB967C4F8016B5A64889490 /* Pods-RKRett.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RKRett.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RKRett/Pods-RKRett.debug.xcconfig"; sourceTree = "<group>"; };
-		2F1189FB20194E4400F6D27D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Dashboard1.strings; sourceTree = "<group>"; };
 		2F1189FC201955BC00F6D27D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		2F1189FE201955E100F6D27D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Controller/ViewController/DetailViewController.swift; sourceTree = "<group>"; };
 		2F3193541F3CFD1500F35E09 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = Utils/Parser.swift; sourceTree = "<group>"; };
@@ -247,10 +274,22 @@
 		2F3193581F3D0B4F00F35E09 /* ParserHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParserHelpers.swift; path = Utils/ParserHelpers.swift; sourceTree = "<group>"; };
 		2F4F90061F3E488F009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2F4F90071F3E488F009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Learn.strings; sourceTree = "<group>"; };
-		2F4F90081F3E488F009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		2F4F90091F3E4890009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = View/Onboarding/fr.lproj/Password.strings; sourceTree = "<group>"; };
 		2F4F900A1F3E4890009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Onboarding.strings; sourceTree = "<group>"; };
 		2F4F900B1F3E48CF009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2F823CEF2095C1E800E36FC3 /* DSProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSProfileTableViewController.swift; sourceTree = "<group>"; };
+		2F823CF12095C76800E36FC3 /* DSProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSProfileViewController.swift; sourceTree = "<group>"; };
+		2F823CF32095F84500E36FC3 /* DSUpdateInfosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSUpdateInfosTableViewController.swift; sourceTree = "<group>"; };
+		2F823CFD2096019A00E36FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
+		2F823CFF209601AC00E36FC3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Profile.strings; sourceTree = "<group>"; };
+		2F823D1620961C8E00E36FC3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		2F823D1A209620D000E36FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
+		2F823D1D209620D500E36FC3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Settings.strings; sourceTree = "<group>"; };
+		2F823D1E2096220800E36FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/DSSettings.plist; sourceTree = "<group>"; };
+		2F823D5B2098C4AA00E36FC3 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		2F823D5D2098DF9D00E36FC3 /* TimeBasedGraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeBasedGraphCell.xib; sourceTree = "<group>"; };
+		2F823D632098F5A100E36FC3 /* DashboardGraphTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardGraphTableViewController.swift; sourceTree = "<group>"; };
+		2F823D65209926C000E36FC3 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		2F958FFC2012692B0037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSMoodTask.plist; sourceTree = "<group>"; };
 		2F958FFD2012693C0037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSTemperatureTask.plist; sourceTree = "<group>"; };
 		2F958FFE201269440037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSSeizureTask.plist; sourceTree = "<group>"; };
@@ -260,19 +299,20 @@
 		2F95900220126BC60037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Task.strings; sourceTree = "<group>"; };
 		2F95900320126D660037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSQuiz.plist; sourceTree = "<group>"; };
 		2F959005201270D10037F542 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DSAuthorizationViewController.xib; sourceTree = "<group>"; };
-		2F95900A201270DA0037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/DSAuthorizationViewController.strings; sourceTree = "<group>"; };
 		2F95900C201271E80037F542 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Answers.storyboard; sourceTree = "<group>"; };
 		2F95900F201271EB0037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Answers.strings; sourceTree = "<group>"; };
 		2F9590102012752B0037F542 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSLearnMore.plist; sourceTree = "<group>"; };
 		2F95901120135E340037F542 /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
 		2F9FD36D20552FD30024752A /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
-		2FA8999920174C370096AB35 /* DSSettings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DSSettings.plist; sourceTree = "<group>"; };
-		2FA8999B201761890096AB35 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		2FA8999D201769A30096AB35 /* DSSettingsSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSSettingsSection.swift; sourceTree = "<group>"; };
 		2FA8999E201769A30096AB35 /* DSSettingsDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSSettingsDetailController.swift; sourceTree = "<group>"; };
 		2FA8999F201769A40096AB35 /* DSSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSSettingsViewController.swift; sourceTree = "<group>"; };
 		2FCC20802015FB1A0010080C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSElegibility.plist; sourceTree = "<group>"; };
 		2FCC20812016356E0010080C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSConsent.plist; sourceTree = "<group>"; };
+		2FE38BBB2093C17100194603 /* DSStepTask.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DSStepTask.plist; sourceTree = "<group>"; };
+		2FE38BBF20947AFD00194603 /* DSHealthKitData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DSHealthKitData.plist; sourceTree = "<group>"; };
+		2FE38BC720949B8500194603 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DSAuthorizationViewController.strings; sourceTree = "<group>"; };
+		2FE38BCA20949D1A00194603 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/DSAuthorizationViewController.strings; sourceTree = "<group>"; };
 		35812B771BC6EB0700D4FB68 /* CSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSV.swift; path = Utils/CSV.swift; sourceTree = "<group>"; };
 		358824631BD8B35F00276C63 /* JBBarChartFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartFooterView.h; sourceTree = "<group>"; };
 		358824641BD8B35F00276C63 /* JBBarChartFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartFooterView.m; sourceTree = "<group>"; };
@@ -301,7 +341,6 @@
 		52783E9E1BBE9FBB00AB2BB9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52783EA11BBEA08400AB2BB9 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		52783EA41BBEA77700AB2BB9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/DSTemperatureTask.plist; sourceTree = "<group>"; };
-		527D10581BF51CD900D1F15B /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Dashboard1.strings; sourceTree = "<group>"; };
 		52845FD51BA8AF8400441877 /* DSCircularView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSCircularView.swift; path = View/DSCircularView.swift; sourceTree = "<group>"; };
 		528F5D441B8CE99200E98383 /* DSSignUpTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSSignUpTask.swift; path = SignUp/DSSignUpTask.swift; sourceTree = "<group>"; };
 		5298A51E1BBEA79800605A75 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = pt; path = pt.lproj/DSTemperatureTask.plist; sourceTree = "<group>"; };
@@ -354,15 +393,12 @@
 		52EED4BB1BBC4F030032B7DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/DSMoodTask.plist; sourceTree = "<group>"; };
 		6207E2631BB4623800EC2E8F /* DSRealmExporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSRealmExporter.swift; path = Utils/DSRealmExporter.swift; sourceTree = "<group>"; };
 		620943AA1BAC037600C1A9B9 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
-		620943AC1BAC293100C1A9B9 /* Certificados */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Certificados; sourceTree = SOURCE_ROOT; };
-		620E7A261BD570FA004AC520 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Dashboard1.storyboard; sourceTree = "<group>"; };
 		623938221BD1555C00B1BC09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Learn.storyboard; sourceTree = "<group>"; };
 		62482FE31F3C834E00B83B25 /* DSAuthorizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSAuthorizationViewController.swift; sourceTree = "<group>"; };
 		62482FE71F3C852900B83B25 /* DSActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSActivityCell.swift; sourceTree = "<group>"; };
 		62482FE91F3C854E00B83B25 /* CircularGraphCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularGraphCell.swift; sourceTree = "<group>"; };
 		62482FEA1F3C854E00B83B25 /* CircularGraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CircularGraphCell.xib; sourceTree = "<group>"; };
 		62482FEB1F3C854E00B83B25 /* TimeBasedGraphCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeBasedGraphCell.swift; sourceTree = "<group>"; };
-		62482FEC1F3C854E00B83B25 /* TimeBasedGraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeBasedGraphCell.xib; sourceTree = "<group>"; };
 		625222971BAA6799007A325E /* DSTaskAnswerRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSTaskAnswerRealm.swift; path = Model/DSTaskAnswerRealm.swift; sourceTree = "<group>"; };
 		625CB1F51BB32CA400D4855D /* DSGlobals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSGlobals.swift; path = Utils/DSGlobals.swift; sourceTree = "<group>"; };
 		625D46C61B9F54710077D7AB /* DSTaskScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSTaskScheduler.swift; path = DSResearchKit/DSTaskScheduler.swift; sourceTree = "<group>"; };
@@ -417,18 +453,29 @@
 		2F48EC2F2017478600672E27 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				2F823D1B209620D000E36FC3 /* Settings.storyboard */,
 				2FA8999E201769A30096AB35 /* DSSettingsDetailController.swift */,
 				2FA8999D201769A30096AB35 /* DSSettingsSection.swift */,
 				2FA8999F201769A40096AB35 /* DSSettingsViewController.swift */,
-				2FA8999920174C370096AB35 /* DSSettings.plist */,
+				2FE38BAB2093BC8100194603 /* DSSettings.plist */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		2F823CD72095C15900E36FC3 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				2F823CFA2096019500E36FC3 /* Profile.storyboard */,
+				2F823CF12095C76800E36FC3 /* DSProfileViewController.swift */,
+				2F823CEF2095C1E800E36FC3 /* DSProfileTableViewController.swift */,
+				2F823CF32095F84500E36FC3 /* DSUpdateInfosTableViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		2F83CDD820174AB2005C06F1 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				2FA8999B201761890096AB35 /* Settings.storyboard */,
 			);
 			name = Settings;
 			path = View/Settings;
@@ -437,9 +484,12 @@
 		2F9FD36E20552FD30024752A /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				2F823CE82095C15A00E36FC3 /* Bolts.framework */,
 				2F9FD37D20552FD40024752A /* Buglife.framework */,
 				2F9FD37F20552FD40024752A /* CareKit.framework */,
 				2F9FD38120552FD40024752A /* JBChartView.framework */,
+				2F823CEA2095C15A00E36FC3 /* Parse.framework */,
+				2F823CEC2095C15A00E36FC3 /* Parse.bundle */,
 				2F9FD38320552FD40024752A /* Pods_RKRett.framework */,
 				2F9FD38520552FD40024752A /* Pods_RKRettTests.framework */,
 				2F9FD38720552FD40024752A /* Realm.framework */,
@@ -623,6 +673,7 @@
 		52A4368E1B84DAE500188433 /* RKRett */ = {
 			isa = PBXGroup;
 			children = (
+				2F823CD72095C15900E36FC3 /* Profile */,
 				2F95901120135E340037F542 /* img */,
 				52A436911B84DAE500188433 /* AppDelegate.swift */,
 				52A436C31B85131F00188433 /* Controller */,
@@ -648,7 +699,7 @@
 			isa = PBXGroup;
 			children = (
 				52783E9E1BBE9FBB00AB2BB9 /* Info.plist */,
-				620943AC1BAC293100C1A9B9 /* Certificados */,
+				2F823D65209926C000E36FC3 /* Keys.plist */,
 				52A436981B84DAE500188433 /* Images.xcassets */,
 				52A436C01B84E27F00188433 /* RKRett-Bridging-Header.h */,
 				35BDDE631BAC6A4800A65EF2 /* RKRett-Watch-Bridging-Header.h */,
@@ -691,6 +742,7 @@
 		52A436BE1B84E0B300188433 /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
+				2FE38BBB2093C17100194603 /* DSStepTask.plist */,
 				52E600DB1BBC4FE400910E56 /* DSBloodPressureTask.plist */,
 				52A436B91B84E0AA00188433 /* DSTasks.plist */,
 				52EED4BC1BBC4F030032B7DF /* DSMoodTask.plist */,
@@ -793,6 +845,7 @@
 		626E1EE11C10B60D00A19674 /* HealthKit */ = {
 			isa = PBXGroup;
 			children = (
+				2FE38BBF20947AFD00194603 /* DSHealthKitData.plist */,
 				62482FE31F3C834E00B83B25 /* DSAuthorizationViewController.swift */,
 				2F959006201270D10037F542 /* DSAuthorizationViewController.xib */,
 				626E1EE21C10B64A00A19674 /* HealthManager.swift */,
@@ -803,7 +856,8 @@
 		6274FF321B8F87CE0002EB02 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				620E7A251BD570FA004AC520 /* Dashboard1.storyboard */,
+				2F823D5B2098C4AA00E36FC3 /* Dashboard.storyboard */,
+				2F823D632098F5A100E36FC3 /* DashboardGraphTableViewController.swift */,
 				6274FF331B8F87D70002EB02 /* Graphics */,
 			);
 			name = Dashboard;
@@ -816,8 +870,8 @@
 				62482FE91F3C854E00B83B25 /* CircularGraphCell.swift */,
 				62482FEA1F3C854E00B83B25 /* CircularGraphCell.xib */,
 				62482FEB1F3C854E00B83B25 /* TimeBasedGraphCell.swift */,
-				62482FEC1F3C854E00B83B25 /* TimeBasedGraphCell.xib */,
 				0AB33C8A1BC6DF30007904BA /* CircularGraphView.swift */,
+				2F823D5D2098DF9D00E36FC3 /* TimeBasedGraphCell.xib */,
 				0AB33C8B1BC6DF30007904BA /* StandardGraphView.swift */,
 				0AB33C8C1BC6DF30007904BA /* TimeBasedGraphView.swift */,
 				2F1189FC201955BC00F6D27D /* DetailView.swift */,
@@ -900,7 +954,6 @@
 				352A83CB1BA8AACA0018C4D3 /* Embed Watch Content */,
 				40DFAAD21BDC22BC006D822A /* Embed Frameworks */,
 				8178772FCEA780FD775FB292 /* [CP] Embed Pods Frameworks */,
-				4E5C6ECF91B4F9F269314CAD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -920,7 +973,6 @@
 				52A4369E1B84DAE500188433 /* Frameworks */,
 				52A4369F1B84DAE500188433 /* Resources */,
 				F53E0753AD3105FBA863C107 /* [CP] Embed Pods Frameworks */,
-				1FFC3C78B2C10DB674E2CBFC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -941,7 +993,7 @@
 				CLASSPREFIX = DS;
 				LastSwiftMigration = 0710;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = AFSR;
 				TargetAttributes = {
 					52A4368B1B84DAE500188433 = {
@@ -993,6 +1045,27 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		2F823CE82095C15A00E36FC3 /* Bolts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Bolts.framework;
+			remoteRef = 2F823CE72095C15A00E36FC3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2F823CEA2095C15A00E36FC3 /* Parse.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Parse.framework;
+			remoteRef = 2F823CE92095C15A00E36FC3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2F823CEC2095C15A00E36FC3 /* Parse.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Parse.bundle;
+			remoteRef = 2F823CEB2095C15A00E36FC3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		2F9FD37D20552FD40024752A /* Buglife.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1084,32 +1157,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F823D66209926C000E36FC3 /* Keys.plist in Resources */,
 				2F95901220135E350037F542 /* img in Resources */,
 				2F95900B201271E80037F542 /* Answers.storyboard in Resources */,
-				2FA8999A20174C370096AB35 /* DSSettings.plist in Resources */,
+				2FE38BA92093BC8100194603 /* DSSettings.plist in Resources */,
 				5249284E1BC2F0080091F35A /* Password.storyboard in Resources */,
 				52AB7C8D1BAC0477006E3B77 /* _DSConsent.plist in Resources */,
 				359682272011EFA8003870B5 /* overview.m4v in Resources */,
 				623938261BD1555C00B1BC09 /* Learn.storyboard in Resources */,
-				620943AD1BAC293100C1A9B9 /* Certificados in Resources */,
 				52EED4B61BBC49F80032B7DF /* Localizable.strings in Resources */,
 				52031F7A1BC2E1D600A6402A /* DSLearnMore.plist in Resources */,
 				359682262011EFA8003870B5 /* data.m4v in Resources */,
+				2F823D5C2098C4AA00E36FC3 /* Dashboard.storyboard in Resources */,
 				52031F621BC2DC5600A6402A /* Main.storyboard in Resources */,
 				52C657DE1BC2EE66000CE353 /* Onboarding.storyboard in Resources */,
 				2F959004201270D10037F542 /* DSAuthorizationViewController.xib in Resources */,
-				2FA8999C201761890096AB35 /* Settings.storyboard in Resources */,
 				52031F6F1BC2DCB100A6402A /* LaunchScreen.xib in Resources */,
 				62482FEE1F3C854E00B83B25 /* CircularGraphCell.xib in Resources */,
 				52CB18A71BBE9A1700B1B096 /* DSQuiz.plist in Resources */,
+				2F823D5E2098DF9E00E36FC3 /* TimeBasedGraphCell.xib in Resources */,
+				2F823CFC2096019600E36FC3 /* Profile.storyboard in Resources */,
+				2FE38BBC2093C17200194603 /* DSStepTask.plist in Resources */,
 				5227AA401BEBC31C000FA4B1 /* main.js in Resources */,
 				5227AA411BEBC31C000FA4B1 /* index.html in Resources */,
 				52CD0AAA1BBF305800D61C8D /* Task.storyboard in Resources */,
-				62482FF01F3C854E00B83B25 /* TimeBasedGraphCell.xib in Resources */,
 				5298A51F1BBEA7A100605A75 /* DSSeizureTask.plist in Resources */,
+				2F823D19209620D000E36FC3 /* Settings.storyboard in Resources */,
 				52783EA21BBEA08400AB2BB9 /* InfoPlist.strings in Resources */,
 				5227AA3F1BEBC31C000FA4B1 /* .parse.project in Resources */,
-				620E7A271BD570FA004AC520 /* Dashboard1.storyboard in Resources */,
 				52A436991B84DAE500188433 /* Images.xcassets in Resources */,
 				52E974A51BBC6C4D004601DB /* DSConsent.plist in Resources */,
 				52E600D91BBC4FE400910E56 /* DSBloodPressureTask.plist in Resources */,
@@ -1119,6 +1194,7 @@
 				52783EA31BBEA77700AB2BB9 /* DSTemperatureTask.plist in Resources */,
 				52A436BC1B84E0AA00188433 /* DSTasks.plist in Resources */,
 				5227AA3E1BEBC31C000FA4B1 /* .parse.local in Resources */,
+				2FE38BC020947AFD00194603 /* DSHealthKitData.plist in Resources */,
 				5298A5231BBEA7AA00605A75 /* DSO2SaturationTask.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1133,36 +1209,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1FFC3C78B2C10DB674E2CBFC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RKRettTests/Pods-RKRettTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4E5C6ECF91B4F9F269314CAD /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RKRett/Pods-RKRett-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6DADA888186D3468E68D1A26 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1188,9 +1234,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RKRett/Pods-RKRett-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Buglife/Buglife.framework",
 				"${BUILT_PRODUCTS_DIR}/CareKit/CareKit.framework",
 				"${BUILT_PRODUCTS_DIR}/JBChartView/JBChartView.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ResearchKit/ResearchKit.framework",
@@ -1201,9 +1249,11 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Buglife.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CareKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JBChartView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ResearchKit.framework",
@@ -1280,6 +1330,7 @@
 				52AB7C721BABD453006E3B77 /* DSQuizTask.swift in Sources */,
 				52AB7C831BABD472006E3B77 /* DSElegibilityController.swift in Sources */,
 				52AB7C841BABD472006E3B77 /* DSElegibilityTask.swift in Sources */,
+				2F823CF22095C76800E36FC3 /* DSProfileViewController.swift in Sources */,
 				625222981BAA6799007A325E /* DSTaskAnswerRealm.swift in Sources */,
 				0AB33C8E1BC6DF30007904BA /* StandardGraphView.swift in Sources */,
 				62F31F651BAB3E9300EE689F /* DSExtensions.swift in Sources */,
@@ -1290,6 +1341,7 @@
 				52AB7C8F1BB06C54006E3B77 /* DSLearnViewController.swift in Sources */,
 				2FA899A2201769A40096AB35 /* DSSettingsViewController.swift in Sources */,
 				2F1189FF201955E100F6D27D /* DetailViewController.swift in Sources */,
+				2F823CF42095F84500E36FC3 /* DSUpdateInfosTableViewController.swift in Sources */,
 				62482FE51F3C834E00B83B25 /* DSAuthorizationViewController.swift in Sources */,
 				52CD1E891BB1915700529E84 /* DSUtils.swift in Sources */,
 				52AB7C711BABD453006E3B77 /* DSQuizController.swift in Sources */,
@@ -1307,6 +1359,7 @@
 				6282414D1BA9FF0C00041DE3 /* DSJSONSerializer.swift in Sources */,
 				358824741BD8B35F00276C63 /* JBLineChartFooterView.m in Sources */,
 				52A436921B84DAE500188433 /* AppDelegate.swift in Sources */,
+				2F823D642098F5A100E36FC3 /* DashboardGraphTableViewController.swift in Sources */,
 				62632C531B865AF80010B5F8 /* DSTaskListViewController.swift in Sources */,
 				62D53CC31B8BC84B006ED5CC /* DSTaskAnswerListViewController.swift in Sources */,
 				35BDDE741BAC745B00A65EF2 /* DSSensorDataQuery.swift in Sources */,
@@ -1322,6 +1375,7 @@
 				626E1EE31C10B64A00A19674 /* HealthManager.swift in Sources */,
 				52845FD61BA8AF8400441877 /* DSCircularView.swift in Sources */,
 				52AB7C941BB08288006E3B77 /* DSLearnMoreSection.swift in Sources */,
+				2F823CF02095C1E800E36FC3 /* DSProfileTableViewController.swift in Sources */,
 				528F5D451B8CE99200E98383 /* DSSignUpTask.swift in Sources */,
 				62740BBD1B87A79400F12A81 /* ORKESerialization.m in Sources */,
 				35EE6F351BC5AF0000855E3A /* DSDashboardViewController.swift in Sources */,
@@ -1347,11 +1401,30 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2F823CFA2096019500E36FC3 /* Profile.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F823CFD2096019A00E36FC3 /* Base */,
+				2F823CFF209601AC00E36FC3 /* fr */,
+			);
+			name = Profile.storyboard;
+			sourceTree = "<group>";
+		};
+		2F823D1B209620D000E36FC3 /* Settings.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F823D1A209620D000E36FC3 /* Base */,
+				2F823D1D209620D500E36FC3 /* fr */,
+			);
+			name = Settings.storyboard;
+			sourceTree = "<group>";
+		};
 		2F959006201270D10037F542 /* DSAuthorizationViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				2F959005201270D10037F542 /* Base */,
-				2F95900A201270DA0037F542 /* fr */,
+				2FE38BC720949B8500194603 /* en */,
+				2FE38BCA20949D1A00194603 /* fr */,
 			);
 			name = DSAuthorizationViewController.xib;
 			sourceTree = "<group>";
@@ -1366,12 +1439,20 @@
 			path = View/Answers;
 			sourceTree = "<group>";
 		};
+		2FE38BAB2093BC8100194603 /* DSSettings.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F823D1E2096220800E36FC3 /* Base */,
+			);
+			name = DSSettings.plist;
+			sourceTree = "<group>";
+		};
 		52031F641BC2DC5600A6402A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				52031F631BC2DC5600A6402A /* Base */,
 				52031F741BC2DCD200A6402A /* pt */,
-				2F4F90081F3E488F009852D0 /* fr */,
+				2F823D1620961C8E00E36FC3 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1545,16 +1626,6 @@
 			path = Surveys;
 			sourceTree = "<group>";
 		};
-		620E7A251BD570FA004AC520 /* Dashboard1.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				620E7A261BD570FA004AC520 /* Base */,
-				527D10581BF51CD900D1F15B /* pt */,
-				2F1189FB20194E4400F6D27D /* fr */,
-			);
-			name = Dashboard1.storyboard;
-			sourceTree = "<group>";
-		};
 		623938211BD1555C00B1BC09 /* Learn.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1581,12 +1652,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1639,12 +1712,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

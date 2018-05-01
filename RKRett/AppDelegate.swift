@@ -14,6 +14,7 @@ import SVProgressHUD
 import UIKit
 import Buglife
 import RealmSwift
+import Parse
 
 //MARK: - AppDelegate
 @UIApplicationMain
@@ -248,12 +249,37 @@ extension AppDelegate: UIApplicationDelegate{
         configureAppearance()
         initApp()
         
-        //----Buglife setup
-        Buglife.shared().start(withAPIKey: "aqXSsXuIBBCd4BAu9tdcVwtt")
-        //Buglife.shared().invocationOptions = .floatingButton
-        Buglife.shared().invocationOptions = .screenshot
-        //----end Buglife setup
+        //---Grab Keys from Keys.plist
+        var keys: NSDictionary?
         
+        if let path = Bundle.main.path(forResource: "Keys", ofType: "plist") {
+            keys = NSDictionary(contentsOfFile: path)
+        }
+        
+        if let dict = keys {
+            
+            let parseApplicationId = dict["parseApplicationId"] as? String
+            let parseClientKey = dict["parseClientKey"] as? String
+            let bugLifeApplicationId = dict["BuglifeAPIKey"] as? String
+            let parseURL = dict ["parseURL"] as? String
+  
+            //----Buglife setup
+            Buglife.shared().start(withAPIKey: bugLifeApplicationId!)
+            //Buglife.shared().invocationOptions = .floatingButton
+            Buglife.shared().invocationOptions = .screenshot
+            //----end Buglife setup
+            
+            //---AWS Parse Server
+            let configuration = ParseClientConfiguration {
+                $0.applicationId = parseApplicationId
+                $0.clientKey = parseClientKey
+                $0.server = parseURL!
+            }
+            Parse.initialize(with: configuration)
+            //---end AWS Parse Server
+
+         }
+
         return true
     }
     

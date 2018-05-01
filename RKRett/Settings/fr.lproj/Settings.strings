@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "B6J-7U-WUm"; */
+"B6J-7U-WUm.text" = "Titre";
+
+/* Class = "UIViewController"; title = "Settings"; ObjectID = "Eud-XG-z85"; */
+"Eud-XG-z85.title" = "Réglages";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "SdE-Re-ki2"; */
+"SdE-Re-ki2.title" = "Réglages";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "nO6-96-6mR"; */
+"nO6-96-6mR.title" = "Titre";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "shz-nk-2vT"; */
+"shz-nk-2vT.title" = "Réglages";
+
+/* Class = "UIBarButtonItem"; title = "OK"; ObjectID = "ugD-2T-IWV"; */
+"ugD-2T-IWV.title" = "OK";

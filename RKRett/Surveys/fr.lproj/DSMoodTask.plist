@@ -46,7 +46,7 @@
 					<key>normalImage</key>
 					<string>moodGoodNormal</string>
 					<key>text</key>
-					<string>Good</string>
+					<string>Bonne</string>
 					<key>value</key>
 					<integer>1</integer>
 				</dict>
@@ -56,7 +56,7 @@
 					<key>normalImage</key>
 					<string>moodRegularNormal</string>
 					<key>text</key>
-					<string>Regular</string>
+					<string>Moyenne</string>
 					<key>value</key>
 					<integer>2</integer>
 				</dict>
@@ -66,7 +66,7 @@
 					<key>normalImage</key>
 					<string>moodBadNormal</string>
 					<key>text</key>
-					<string>Bad</string>
+					<string>Mauvaise</string>
 					<key>value</key>
 					<integer>3</integer>
 				</dict>
@@ -104,7 +104,7 @@
 			<key>answerType</key>
 			<string>String</string>
 			<key>prompt</key>
-			<string>Utiliser cette espace pour saisir toutes les informations que vous jugez pertinentes.</string>
+			<string>Utilisez cet espace pour saisir toutes les informations que vous jugez pertinentes.</string>
 			<key>questionId</key>
 			<string>DSMoodDescription</string>
 		</dict>

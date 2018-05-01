@@ -67,7 +67,7 @@ class DSAuthorizationViewController: UIViewController {
         let application = UIApplication.shared
         application.statusBarStyle = UIStatusBarStyle.default
         
-        self.lblAuthorizations.text = NSLocalizedString("Authorizations", comment: "")
+        /*self.lblAuthorizations.text = NSLocalizedString("Authorizations", comment: "")
         self.lblHealthKit.text = NSLocalizedString("HealthKit Authorization", comment: "")
         self.lblMotion.text = NSLocalizedString("Motion Authorization", comment: "")
         self.lblNotifications.text = NSLocalizedString("Notifications Authorization", comment: "")
@@ -75,7 +75,7 @@ class DSAuthorizationViewController: UIViewController {
         self.btnHealthKit.setTitle(NSLocalizedString("Authorize HealthKit", comment: ""), for: UIControlState.normal)
         self.btnMotion.setTitle(NSLocalizedString("Authorize Motion", comment: ""), for: UIControlState.normal)
         self.btnNotifications.setTitle(NSLocalizedString("Authorize Notifications", comment: ""), for: UIControlState.normal)
-        
+        */
     }
     
     override func awakeFromNib() {

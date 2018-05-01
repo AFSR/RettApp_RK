@@ -67,7 +67,7 @@ Dans les formes atypiques, des mutations dans le gène CDKL5 (Cyclin dependent k
 Une fois ces données rendues non identifiables, toutes ces données sont collectées sur un serveur pour être analysées par des méthodes de fouille de données afin notamment, de rechercher des corrélations entre les différents paramètres mesurés. Pour mener ces analyses, l’AFSR a signé un partenariat avec l’Institut Hypercube, spécialiste en France du datamining sur les big-data de santé.";
 
 "Uploading your consent..." = "Transmission de l'autorisation";
-"Ops, an error occurred..."= "Désolé, erreur est survenue...";
+"Ops, an error occurred..."= "Désolé, une erreur est survenue...";
 "Signing up..." = "S'enregistrer...";
 "Signing in..." = "Connectez-vous...";
 
@@ -75,3 +75,16 @@ Une fois ces données rendues non identifiables, toutes ces données sont collec
 
 "On Demand" = "Sur Demande";
 "Complete" = "Achevée";
+"Settings" = "Réglages";
+
+"You are about to sign up or log in with your credentials from AFSR. This will allow in the future to provide data from different devices and have access to your data from the web." = "Vous allez vous connecter/enregister sur le sereur de l'AFSR.\nCette connexion servira plus tard à pousser les données recueillies dans l'application vers les serveurs et à enregistrer des informations depuis plusieurs appareils.";
+
+"You are logged in." = "Vous êtes connecté.";
+"Error" = "Erreur";
+"Enter an email and a password." = "Entrez un email et un mot de passe.";
+"Login impossible" = "Connexion impossible";
+
+
+
+
+
