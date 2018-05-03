@@ -77,6 +77,8 @@
 				<string>Seizure Frequency</string>
 				<key>subtitle</key>
 				<string></string>
+				<key>rank</key>
+				<integer>0</integer>
 				<key>color</key>
 				<dict>
 					<key>red</key>

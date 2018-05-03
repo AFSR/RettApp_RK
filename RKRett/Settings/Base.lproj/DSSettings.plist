@@ -2,53 +2,43 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<dict>
-		<key>sectionGroup</key>
-		<true/>
-		<key>sectionTitle</key>
-		<string>HealthKit</string>
-		<key>sectionText</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>sections</key>
-		<string>HealthKit</string>
-		<key>sectionType</key>
-		<string>onOffCell</string>
-		<key>sectionTitle</key>
-		<string>Personnal device of disease child</string>
-		<key>sectionText</key>
-		<string>Check if the device is the personnal device of the child</string>
-	</dict>
-	<dict>
-		<key>sections</key>
-		<string>HealthKit</string>
-		<key>sectionType</key>
-		<string>onOffCell</string>
-		<key>sectionTitle</key>
-		<string>View HealthKit Authorization</string>
-		<key>sectionText</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>sections</key>
-		<string>sections</string>
-		<key>sectionType</key>
-		<string>onOffCell</string>
-		<key>sectionTitle</key>
-		<string>Developer Section</string>
-		<key>sectionText</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>sections</key>
-		<string>Bug</string>
-		<key>sectionType</key>
-		<string>onOffCell</string>
-		<key>sectionTitle</key>
-		<string>Report a bug</string>
-		<key>sectionText</key>
-		<string>Launch BugLife to report a bug.</string>
-	</dict>
+	<array>
+		<array>
+			<string>HealthKit</string>
+			<string>Header</string>
+		</array>
+		<array>
+			<string>Personal device of disease child</string>
+			<string>ToggleCell</string>
+			<string>personalDevice</string>
+		</array>
+		<array>
+			<string>Authorize HealthKit</string>
+			<string>ToggleCell</string>
+			<string>authorizeHK</string>
+		</array>
+	</array>
+	<array>
+		<array>
+			<string>Configure</string>
+			<string>Header</string>
+		</array>
+		<array>
+			<string>Select Data in Dashboard</string>
+			<string>MoreCell</string>
+			<string>selectData</string>
+		</array>
+	</array>
+	<array>
+		<array>
+			<string>Developer Section</string>
+			<string>Header</string>
+		</array>
+		<array>
+			<string>Report a bug</string>
+			<string>SettingsCell</string>
+			<string>reportBug</string>
+		</array>
+	</array>
 </array>
 </plist>

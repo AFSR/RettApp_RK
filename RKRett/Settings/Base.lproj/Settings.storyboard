@@ -95,11 +95,44 @@
                     <connections>
                         <outlet property="tableView" destination="Url-BC-yQY" id="kCg-Sn-qaU"/>
                         <segue destination="khL-UW-lTw" kind="show" identifier="gotoSettingsDetail" id="kwZ-1y-nWZ"/>
+                        <segue destination="m05-ZZ-akQ" kind="show" identifier="viewDashboardConf" id="cX7-4A-onf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fIU-1V-7dZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1252" y="-70.614692653673174"/>
+        </scene>
+        <!--Dashboard Configuration-->
+        <scene sceneID="FAZ-pj-nMC">
+            <objects>
+                <viewController id="m05-ZZ-akQ" customClass="DSSettingsDashboardConfTableViewController" customModule="RKRett" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="47A-HM-Ief">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AkB-7u-bwg">
+                                <rect key="frame" x="0.0" y="25" width="375" height="642"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="m05-ZZ-akQ" id="xEX-pO-ffZ"/>
+                                    <outlet property="delegate" destination="m05-ZZ-akQ" id="K7d-bg-U6e"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="AkB-7u-bwg" firstAttribute="top" secondItem="47A-HM-Ief" secondAttribute="topMargin" constant="-39" id="15g-98-isa"/>
+                            <constraint firstItem="AkB-7u-bwg" firstAttribute="leading" secondItem="47A-HM-Ief" secondAttribute="leading" id="Hm6-bi-0yc"/>
+                            <constraint firstAttribute="bottom" secondItem="AkB-7u-bwg" secondAttribute="bottom" id="VFc-BO-qGr"/>
+                            <constraint firstAttribute="trailing" secondItem="AkB-7u-bwg" secondAttribute="trailing" id="fsr-dG-BhC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dQU-c3-eJl"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Dashboard Configuration" id="WF4-0f-5on"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rxW-y2-tzx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2880.8000000000002" y="-836.13193403298362"/>
         </scene>
         <!--Title-->
         <scene sceneID="y8V-Ho-enW">
@@ -117,7 +150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2L4-4P-LOS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2158" y="-71"/>
+            <point key="canvasLocation" x="2881" y="-71"/>
         </scene>
     </scenes>
     <resources>

@@ -42,6 +42,8 @@
 				<string>Nombre de pas</string>
 				<key>subtitle</key>
 				<string>Pas/Jour</string>
+				<key>rank</key>
+				<integer>0</integer>
 				<key>color</key>
 				<dict>
 					<key>red</key>

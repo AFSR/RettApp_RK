@@ -16,7 +16,6 @@ class DSSettingsViewController:UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
     
-    //var settingsArray:[DSSettingsSection] = [DSSettingsSection]()
     var url:URL?
     var rowSendEmail = 1
     var sectionSendEmail:Int!
@@ -38,9 +37,9 @@ class DSSettingsViewController:UIViewController{
         }
     }
     
-    internal func getTableData(){
+    internal func getSettingsTableData(){
         
-        let url = Bundle.main.url(forResource:"Table", withExtension: "plist")!
+        let url = Bundle.main.url(forResource:"DSSettings", withExtension: "plist")!
         do {
             let data = try Data(contentsOf:url)
             let sections = try PropertyListSerialization.propertyList(from: data, format: nil) as! [[[String]]]
@@ -64,9 +63,10 @@ class DSSettingsViewController:UIViewController{
         self.tableView.dataSource = self
         //loadSettingsPlistSections()
         tableView.contentInset = .zero
-        getTableData()
+        getSettingsTableData()
     }
-    
+
+    // MARK: - Functions
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch(segue.identifier!){
         case SegueIdentifier.SettingsDetail.rawValue:
@@ -77,18 +77,6 @@ class DSSettingsViewController:UIViewController{
         }
     }
     
-    // MARK: - Functions
-//    func loadSettingsPlistSections(){
-//        if let path = Bundle.main.path(forResource: kDSSettingsPlist, ofType: "plist"){
-//            if let sectionsArray = NSArray(contentsOfFile: path){
-//                for section in sectionsArray as! [NSDictionary]{
-//                    let dsSection = DSSettingsSection(fromDictionary: section)
-//                        self.settingsArray += [dsSection]
-//                }
-//                self.tableView.reloadData()
-//            }
-//        }
-//    }
 
 }
 
@@ -114,48 +102,15 @@ extension DSSettingsViewController:UITableViewDelegate{
         switch settingsArray[indexPath.section][indexPath.row + 1][2] {
         case "authorizeHK":
             print("HealthKit")
+        case "selectData":
+            tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+            performSegue(withIdentifier: "viewDashboardConf", sender: self)
         case "reportBug":
             tableView.deselectRow(at: indexPath as IndexPath, animated: true)
-            Buglife.shared().start(withAPIKey: "aqXSsXuIBBCd4BAu9tdcVwtt")
             Buglife.shared().presentReporter()
         default:
             tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         }
-        
-//        switch indexPath.section{
-//        
-//        case 0:
-//            
-//            
-//            tableView.deselectRow(at: indexPath as IndexPath, animated: true)
-//            
-//            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//            
-//            appDelegate.healthManager.authorizeHealthKit { (authorized,  error) -> Void in
-//                if error == nil {
-//                    print("HealthKit authorization received.")
-//                    if(!alreadyParticipating){
-//                        DispatchQueue.main.async(execute: { () -> Void in
-//                            self.present(appDelegate.healthManager.showHealthKitAlert()!, animated: true, completion: nil)
-//                        })
-//                    }
-//                }else{
-//                    print("HealthKit authorization denied!")
-//                    print(error?.description ?? "No error")
-//                }
-//            }
-//            
-//        case 1:
-//            tableView.deselectRow(at: indexPath as IndexPath, animated: true)
-//            Buglife.shared().start(withAPIKey: "aqXSsXuIBBCd4BAu9tdcVwtt")
-//            Buglife.shared().presentReporter()
-//            
-//        default:
-//            
-//            tableView.deselectRow(at: indexPath as IndexPath, animated: true)
-//            performSegue(withIdentifier: SegueIdentifier.SettingsDetail.rawValue, sender: settingsArray[indexPath.section])
-//            
-//        }
         
     }
 }
@@ -250,10 +205,7 @@ extension DSSettingsViewController:ToggleCellDelegate{
                     present(alert, animated: true)
                 }
                 
-                
-                
             }
-            
             
         }
         tableView.reloadData()

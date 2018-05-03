@@ -8,34 +8,34 @@
 			<string>Header</string>
 		</array>
 		<array>
-			<string>Personal device of disease child</string>
+			<string>Appareil personnel du patient</string>
 			<string>ToggleCell</string>
 			<string>personalDevice</string>
 		</array>
 		<array>
-			<string>Authorize HealthKit</string>
+			<string>Authoriser HealthKit</string>
 			<string>ToggleCell</string>
 			<string>authorizeHK</string>
 		</array>
 	</array>
 	<array>
 		<array>
-			<string>Configure</string>
+			<string>Configurer</string>
 			<string>Header</string>
 		</array>
 		<array>
-			<string>Select Data</string>
+			<string>Données du Suivi</string>
 			<string>MoreCell</string>
-			<string>selctData</string>
+			<string>selectData</string>
 		</array>
 	</array>
 	<array>
 		<array>
-			<string>Developer Section</string>
+			<string>Développement</string>
 			<string>Header</string>
 		</array>
 		<array>
-			<string>Report a bug</string>
+			<string>Signaler un bug</string>
 			<string>SettingsCell</string>
 			<string>reportBug</string>
 		</array>

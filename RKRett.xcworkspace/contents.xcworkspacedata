@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/jfieschi/Documents/RettApp/RKRett/Settings/DSSettingsDashboardConfTableViewController.swift">
+   </FileRef>
+   <FileRef
       location = "group:RKRett.xcodeproj">
    </FileRef>
    <FileRef

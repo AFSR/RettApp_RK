@@ -50,6 +50,8 @@
 				<string>Sleep</string>
 				<key>subtitle</key>
 				<string>Hours/Day</string>
+				<key>rank</key>
+				<integer>0</integer>
 				<key>color</key>
 				<dict>
 					<key>red</key>
