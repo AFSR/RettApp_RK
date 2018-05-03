@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<array>
+		<array>
+			<string>HealthKit</string>
+			<string>Header</string>
+		</array>
+		<array>
+			<string>Personal device of disease child</string>
+			<string>ToggleCell</string>
+			<string>personalDevice</string>
+		</array>
+		<array>
+			<string>Authorize HealthKit</string>
+			<string>ToggleCell</string>
+			<string>authorizeHK</string>
+		</array>
+	</array>
+	<array>
+		<array>
+			<string>Configure</string>
+			<string>Header</string>
+		</array>
+		<array>
+			<string>Select Data</string>
+			<string>MoreCell</string>
+			<string>selctData</string>
+		</array>
+	</array>
+	<array>
+		<array>
+			<string>Developer Section</string>
+			<string>Header</string>
+		</array>
+		<array>
+			<string>Report a bug</string>
+			<string>SettingsCell</string>
+			<string>reportBug</string>
+		</array>
+	</array>
+</array>
+</plist>

@@ -177,11 +177,7 @@ class AppDelegate: UIResponder {
 //                    }
 //                }
                 
-                
-                
-                
-                
-            }
+             }
             
             // finally, we execute our query
             healthStore.execute(query)
