@@ -33,22 +33,21 @@ class HealthManager{
     }
     
     func authorizeHealthKit(_ completion: ((_ success: Bool, _ error: NSError?) -> Void)?) {
+        
+        
         // If the store is not available (for instance, iPad) return an error and don't go on.
         if HKHealthStore.isHealthDataAvailable(){
             var healthKitTypesToRead:Set<HKObjectType> = Set()
             for readType in self.readTypes where readType != nil {
                 healthKitTypesToRead.insert(readType!)
             }
-            print(healthKitTypesToRead)
             
             var healthKitTypesToWrite: Set<HKSampleType> = Set()
             for writeType in self.writeTypes where writeType != nil {
                 healthKitTypesToWrite.insert(writeType!)
             }
-            print(healthKitTypesToWrite)
             
-            
-            //            healthKitStore.
+            //healthKitStore.
             healthKitStore.requestAuthorization(toShare: healthKitTypesToWrite, read: healthKitTypesToRead) { (success: Bool, error: Error?) -> Void in
                 completion?(success, error as NSError?)
             }

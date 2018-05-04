@@ -1011,7 +1011,6 @@
 				TargetAttributes = {
 					52A4368B1B84DAE500188433 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = WG7ACRM2BU;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
