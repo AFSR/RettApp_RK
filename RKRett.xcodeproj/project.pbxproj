@@ -272,7 +272,7 @@
 		293BB9B129CF7CD70AB32D70 /* Pods-RKRettTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RKRettTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RKRettTests/Pods-RKRettTests.release.xcconfig"; sourceTree = "<group>"; };
 		2CB967C4F8016B5A64889490 /* Pods-RKRett.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RKRett.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RKRett/Pods-RKRett.debug.xcconfig"; sourceTree = "<group>"; };
 		2F1189FC201955BC00F6D27D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		2F1189FE201955E100F6D27D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Controller/ViewController/DetailViewController.swift; sourceTree = "<group>"; };
+		2F1189FE201955E100F6D27D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2F3193541F3CFD1500F35E09 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = Utils/Parser.swift; sourceTree = "<group>"; };
 		2F3193561F3D08A900F35E09 /* Description.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Description.swift; path = Utils/Description.swift; sourceTree = "<group>"; };
 		2F3193581F3D0B4F00F35E09 /* ParserHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParserHelpers.swift; path = Utils/ParserHelpers.swift; sourceTree = "<group>"; };
@@ -462,6 +462,7 @@
 		2F48EC2F2017478600672E27 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				2F1189FE201955E100F6D27D /* DetailViewController.swift */,
 				2FDC1D25209BBC3900B489D7 /* DSSettingsDashboardConfTableViewController.swift */,
 				2FDC1D29209BCC5D00B489D7 /* DSSettings.plist */,
 				2FDC1D0B209BA77B00B489D7 /* MoreCell.swift */,
@@ -901,7 +902,6 @@
 				62D53CC21B8BC84B006ED5CC /* DSTaskAnswerListViewController.swift */,
 				62632C521B865AF80010B5F8 /* DSTaskListViewController.swift */,
 				0AD1F8D11BA9B7DA00B8BFEF /* DSTimeBasedGraphViewController.swift */,
-				2F1189FE201955E100F6D27D /* DetailViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
