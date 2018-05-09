@@ -17,6 +17,7 @@
 		2F3193551F3CFD1500F35E09 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3193541F3CFD1500F35E09 /* Parser.swift */; };
 		2F3193571F3D08A900F35E09 /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3193561F3D08A900F35E09 /* Description.swift */; };
 		2F3193591F3D0B4F00F35E09 /* ParserHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3193581F3D0B4F00F35E09 /* ParserHelpers.swift */; };
+		2F6F5E2520A38AB300EA408B /* DSRespiratoryTask.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F6F5E1520A38AB300EA408B /* DSRespiratoryTask.plist */; };
 		2F823CF02095C1E800E36FC3 /* DSProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F823CEF2095C1E800E36FC3 /* DSProfileTableViewController.swift */; };
 		2F823CF22095C76800E36FC3 /* DSProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F823CF12095C76800E36FC3 /* DSProfileViewController.swift */; };
 		2F823CF42095F84500E36FC3 /* DSUpdateInfosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F823CF32095F84500E36FC3 /* DSUpdateInfosTableViewController.swift */; };
@@ -273,6 +274,7 @@
 		2CB967C4F8016B5A64889490 /* Pods-RKRett.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RKRett.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RKRett/Pods-RKRett.debug.xcconfig"; sourceTree = "<group>"; };
 		2F1189FC201955BC00F6D27D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		2F1189FE201955E100F6D27D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		2F219A47209C7F0900241EC3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/DSAuthorizationViewController.strings; sourceTree = "<group>"; };
 		2F3193541F3CFD1500F35E09 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = Utils/Parser.swift; sourceTree = "<group>"; };
 		2F3193561F3D08A900F35E09 /* Description.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Description.swift; path = Utils/Description.swift; sourceTree = "<group>"; };
 		2F3193581F3D0B4F00F35E09 /* ParserHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParserHelpers.swift; path = Utils/ParserHelpers.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 		2F4F90091F3E4890009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = View/Onboarding/fr.lproj/Password.strings; sourceTree = "<group>"; };
 		2F4F900A1F3E4890009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Onboarding.strings; sourceTree = "<group>"; };
 		2F4F900B1F3E48CF009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2F6F5E1520A38AB300EA408B /* DSRespiratoryTask.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DSRespiratoryTask.plist; sourceTree = "<group>"; };
 		2F823CEF2095C1E800E36FC3 /* DSProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSProfileTableViewController.swift; sourceTree = "<group>"; };
 		2F823CF12095C76800E36FC3 /* DSProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSProfileViewController.swift; sourceTree = "<group>"; };
 		2F823CF32095F84500E36FC3 /* DSUpdateInfosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSUpdateInfosTableViewController.swift; sourceTree = "<group>"; };
@@ -320,8 +323,6 @@
 		2FDC1D2A209BCC5F00B489D7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSSettings.plist; sourceTree = "<group>"; };
 		2FE38BBB2093C17100194603 /* DSStepTask.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DSStepTask.plist; sourceTree = "<group>"; };
 		2FE38BBF20947AFD00194603 /* DSHealthKitData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DSHealthKitData.plist; sourceTree = "<group>"; };
-		2FE38BC720949B8500194603 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DSAuthorizationViewController.strings; sourceTree = "<group>"; };
-		2FE38BCA20949D1A00194603 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/DSAuthorizationViewController.strings; sourceTree = "<group>"; };
 		35812B771BC6EB0700D4FB68 /* CSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSV.swift; path = Utils/CSV.swift; sourceTree = "<group>"; };
 		358824631BD8B35F00276C63 /* JBBarChartFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartFooterView.h; sourceTree = "<group>"; };
 		358824641BD8B35F00276C63 /* JBBarChartFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartFooterView.m; sourceTree = "<group>"; };
@@ -757,6 +758,7 @@
 			isa = PBXGroup;
 			children = (
 				2FE38BBB2093C17100194603 /* DSStepTask.plist */,
+				2F6F5E1520A38AB300EA408B /* DSRespiratoryTask.plist */,
 				52E600DB1BBC4FE400910E56 /* DSBloodPressureTask.plist */,
 				52A436B91B84E0AA00188433 /* DSTasks.plist */,
 				52EED4BC1BBC4F030032B7DF /* DSMoodTask.plist */,
@@ -1184,6 +1186,7 @@
 				52C657DE1BC2EE66000CE353 /* Onboarding.storyboard in Resources */,
 				2F959004201270D10037F542 /* DSAuthorizationViewController.xib in Resources */,
 				52031F6F1BC2DCB100A6402A /* LaunchScreen.xib in Resources */,
+				2F6F5E2520A38AB300EA408B /* DSRespiratoryTask.plist in Resources */,
 				62482FEE1F3C854E00B83B25 /* CircularGraphCell.xib in Resources */,
 				52CB18A71BBE9A1700B1B096 /* DSQuiz.plist in Resources */,
 				2F823D5E2098DF9E00E36FC3 /* TimeBasedGraphCell.xib in Resources */,
@@ -1439,8 +1442,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2F959005201270D10037F542 /* Base */,
-				2FE38BC720949B8500194603 /* en */,
-				2FE38BCA20949D1A00194603 /* fr */,
+				2F219A47209C7F0900241EC3 /* fr */,
 			);
 			name = DSAuthorizationViewController.xib;
 			sourceTree = "<group>";

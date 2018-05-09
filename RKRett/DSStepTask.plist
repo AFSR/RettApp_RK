@@ -12,24 +12,21 @@
 	<string>Step Log</string>
 	<key>type</key>
 	<string>HealthKit</string>
+	<key>status</key>
+	<true/>
 	<key>questions</key>
 	<array>
 		<dict>
-			<key>answerRange</key>
-			<dict>
-				<key>maximum</key>
-				<integer>20</integer>
-				<key>minimum</key>
-				<integer>0</integer>
-			</dict>
-			<key>answerUnit</key>
-			<string>hours</string>
 			<key>answerType</key>
-			<string>NSNumber</string>
+			<string>Introduction</string>
 			<key>prompt</key>
-			<string>How many hours did she sleep?</string>
+			<string>Please provide the number of steps.</string>
 			<key>questionId</key>
-			<string>hoursSleep</string>
+			<string>DSStepIntroduction</string>
+		</dict>
+		<dict>
+			<key>questionId</key>
+			<string>step</string>
 			<key>dashboard</key>
 			<dict>
 				<key>graphType</key>
@@ -39,9 +36,9 @@
 				<key>timeUnit</key>
 				<string>Hour</string>
 				<key>title</key>
-				<string>Nombre de pas</string>
+				<string>Number of step</string>
 				<key>subtitle</key>
-				<string>Pas/Jour</string>
+				<string>Step/day</string>
 				<key>rank</key>
 				<integer>0</integer>
 				<key>color</key>

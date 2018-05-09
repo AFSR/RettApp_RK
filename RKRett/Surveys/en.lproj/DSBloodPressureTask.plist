@@ -12,6 +12,8 @@
 	<string>Blood Pressure</string>
 	<key>type</key>
 	<string>Survey</string>
+	<key>status</key>
+	<true/>
 	<key>questions</key>
 	<array>
 		<dict>

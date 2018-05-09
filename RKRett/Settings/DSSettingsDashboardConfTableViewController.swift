@@ -11,32 +11,53 @@ import UIKit
 
 class DSSettingsDashboardConfTableViewController: UIViewController {
     
-    var dashboardList:[String] = []
+    var dashboardList:[[(String,String,Bool)]] = [[]]
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    func changeStatus(_ section: Int, _ index: Int, _ status: Bool){
+        if let taskPath = Bundle.main.path(forResource: (dashboardList[section][index].1), ofType: "plist") {
+            if let taskFromPlist = NSMutableDictionary(contentsOfFile: taskPath){
+                taskFromPlist.setValue(status, forKeyPath: "status")
+                taskFromPlist.write(toFile: taskPath, atomically: true)
+            }
+        }
+    }
     
     func getDashBoardList(){
         
+        dashboardList = [[]]
         if let path = Bundle.main.path(forResource: "DSTasks", ofType: "plist"){
             if let tasks = NSArray(contentsOfFile: path) {
-                var itemNb = 0
                 for taskId in tasks {
                     if let taskPath = Bundle.main.path(forResource: (taskId as! String), ofType: "plist") {
                         if let task = NSDictionary(contentsOfFile: taskPath) {
-                            if let questions = task["questions"] as? NSArray {
-                                for question in questions {
-                                    if (question as! NSDictionary)["dashboard"] != nil {
-                                        if let item = (question as! NSDictionary)["dashboard"] as? NSDictionary {
-                                            dashboardList.append(item["title"] as! String)
-                                        }
-                                    }
-                                }
+                            let status =  task["status"] as? Bool
+                            if let title = task["name"]{
+                                dashboardList[0].append((title as! String, taskId as! String, status!))
                             }
                         }
                     }
-                    itemNb += 1
                 }
             }
         }
-        
+        var dashboardList2:[(String,String,Bool)] = []
+        if let path = Bundle.main.path(forResource: "DSHealthKitData", ofType: "plist"){
+            if let tasks = NSArray(contentsOfFile: path) {
+                for taskId in tasks {
+                    if let taskPath = Bundle.main.path(forResource: (taskId as! String), ofType: "plist") {
+                        if let task = NSDictionary(contentsOfFile: taskPath) {
+                            let status =  task["status"] as? Bool
+                            if let title = task["name"]{
+                                dashboardList2.append((title as! String, taskId as! String, status!))
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        dashboardList.append(dashboardList2)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,6 +66,8 @@ class DSSettingsDashboardConfTableViewController: UIViewController {
     
     override func viewDidLoad() {
         getDashBoardList()
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
     }
     
 }
@@ -54,21 +77,120 @@ extension DSSettingsDashboardConfTableViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
     }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        tableView.setEditing(editing, animated: animated)
+    }
+    
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Hide") { (action, indexPath) in
+            //Set status to false to hide the task
+            self.changeStatus(indexPath.section, indexPath.row, false)
+            self.getDashBoardList()
+            tableView.reloadData()
+            print("Hide:",indexPath)
+        }
+        
+        let share = UITableViewRowAction(style: .normal, title: "Show") { (action, indexPath) in
+            //Set status to true to show the task
+            self.changeStatus(indexPath.section, indexPath.row, true)
+            self.getDashBoardList()
+            tableView.reloadData()
+            print("Hide:",indexPath)
+        }
+        
+        share.backgroundColor = UIColor.green
+        
+        return [delete, share]
+    }
+    
+    func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) {
+
+    }
+
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            
+            //Set status to false to hide the task
+            if let taskPath = Bundle.main.path(forResource: (dashboardList[indexPath.section][indexPath.row].1), ofType: "plist") {
+                if let taskFromPlist = NSMutableDictionary(contentsOfFile: taskPath){
+                    taskFromPlist.setValue(false, forKeyPath: "status")
+                    taskFromPlist.write(toFile: taskPath, atomically: true)
+                }
+            }
+            getDashBoardList()
+            tableView.reloadData()
+            print("Hide:",indexPath)
+        }
+    }
+    
 }
 
 extension DSSettingsDashboardConfTableViewController: UITableViewDataSource{
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dashboardList.count
+        return dashboardList[section].count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0{
+            return "Manual Task"
+        }else{
+            return "Health App"
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = UITableViewCell()
-        
-        cell.textLabel?.text = dashboardList[indexPath.row]
-        
+        let cell = UITableViewCell(style:UITableViewCellStyle.subtitle, reuseIdentifier:"Cell")
+        cell.textLabel?.text = dashboardList[indexPath.section][indexPath.row].0
+        if indexPath.section == 0 {
+            cell.detailTextLabel?.text = "Task"
+        }else{
+            cell.detailTextLabel?.text = "HealthApp"
+        }
+        if dashboardList[indexPath.section][indexPath.row].2 == false {
+            cell.textLabel?.isEnabled = false
+            cell.detailTextLabel?.isEnabled = false
+        }else{
+            cell.textLabel?.isEnabled = true
+            cell.detailTextLabel?.isEnabled = true
+        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        print(sourceIndexPath,"->",destinationIndexPath)
+        
+        let dashboardListPlistPath = Bundle.main.path(forResource: "DSTasks", ofType: "plist")
+        let dashboardListFromPlist = NSMutableArray(contentsOfFile: dashboardListPlistPath!)
+        
+        let source = dashboardListFromPlist![sourceIndexPath.row]
+        dashboardListFromPlist?.removeObject(at: sourceIndexPath.row)
+        dashboardListFromPlist?.insert(source, at: destinationIndexPath.row)
+
+        dashboardListFromPlist?.write(toFile: dashboardListPlistPath!, atomically: true)
+
+        getDashBoardList()
+
+        
+    }
+    
+    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+        tableView.setEditing(true, animated: true)
+
+    }
+    
+    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        tableView.setEditing(false, animated: true)
     }
     
 }

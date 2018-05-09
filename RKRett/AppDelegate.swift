@@ -9,7 +9,7 @@
 // How to document:
 // http://nshipster.com/swift-documentation/
 
-//import Parse
+
 import SVProgressHUD
 import UIKit
 import Buglife
@@ -184,42 +184,7 @@ class AppDelegate: UIResponder {
         }
         
     }
-    
-    //Should be called on the first viewController that appear
-    func configureTabBar(){
-        //use this array to add news selectedIamges whem you add a new tab.
-        if let tabBarController = self.window?.rootViewController as? UITabBarController{
-            let tab = tabBarController.tabBar
-            let tabBarImages = [
-                0:["activities", "tabSelectedActivities"],
-                1:["dashboard", "tabSelectedDash"],
-                2:["learn", "tabSelectedLearn"],
-                3:["settings", "tabSelectedSettings"]
-            ]
-            
-            for (i, item) in tab.items!.enumerated(){
-                if let imgsName = tabBarImages[i]{
-                    let img = UIImage(named: imgsName[0])?.withRenderingMode(.alwaysOriginal)
-                    let selectedImg = UIImage(named: imgsName[1])?.withRenderingMode(.alwaysOriginal)
-                    item.image = img
-                    item.selectedImage = selectedImg
-                }
-            }
-        }
-        
-//        let imageNames = ["tabSelectedActivities", "tabSelectedDash", "tabSelectedLearn"]
-//        
-//        if let tabBarController = self.window?.rootViewController as? UITabBarController{
-//            let tab = tabBarController.tabBar
-//            for (i, item) in tab.items!.enumerate(){
-//                if let imageName = imageNames[safe : i]{
-//                    let img = UIImage(named: imageName)?.imageWithRenderingMode(.AlwaysOriginal)
-//                    item.image = img
-//                    item.selectedImage = img
-//                }
-//            }
-//        }
-    }
+     
 }
 
 //MARK: UIApplicationDelegate

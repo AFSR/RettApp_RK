@@ -2,8 +2,8 @@
 /* Class = "UIButton"; normalTitle = "Authorize HealthKit"; ObjectID = "aCh-eA-Feo"; */
 "aCh-eA-Feo.normalTitle" = "Autoriser l'utilisation d'HealthKit";
 
-/* Class = "UILabel"; text = "The app will use HealthKit to get Heart Rate  info, and all the info related to the Diet"; ObjectID = "abO-4v-0n4"; */
-"abO-4v-0n4.text" = "Cette aplication utilisera HealthKit pour obtenir les informations sur le rythme cardiaque ainsi que les informations de nutrition.";
+/* Class = "UILabel"; text = "The app will use HealthKit to get Heart Rate  info, and all the info related to the Diet.\n\nWe strongly recommand to authorize HealthKit only on patient device in order to prevent mixed datas."; ObjectID = "abO-4v-0n4"; */
+"abO-4v-0n4.text" = "Cette aplication utilisera HealthKit pour obtenir les informations sur le rythme cardiaque ainsi que les informations de nutrition.\n\nNous vons recommandons d'authoriser l'accès à HealthKit uniquement sur l'appareil du patient pour éviter de mélanger les donnes.";
 
 /* Class = "UIButton"; normalTitle = "Authorize Motion"; ObjectID = "m8m-Kp-fO8"; */
 "m8m-Kp-fO8.normalTitle" = "Autoriser l'utilisation de Motion";
@@ -14,11 +14,12 @@
 /* Class = "UILabel"; text = "We will use notifications to remind you about all  tasks and activities"; ObjectID = "pPd-Z3-boX"; */
 "pPd-Z3-boX.text" = "Cette application utilisera les notifications pour vous rappeler les tâches et les activités à réaliser.";
 
-/* Class = "UILabel"; text = "We need the otion authorization to record accelerometer data from the Apple Watch"; ObjectID = "tYg-1C-0hn"; */
-"tYg-1C-0hn.text" = "Cette application enregistre les données de l'accéléromètre de l'Apple Watch.";
+/* Class = "UILabel"; text = "We need the otion authorization to record accelerometer data from the Apple Watch.\n\nWe strongly recommand to authorize HealthKit only on patient device in order to prevent mixed datas."; ObjectID = "tYg-1C-0hn"; */
+"tYg-1C-0hn.text" = "Cette application enregistre les données de l'accéléromètre de l'Apple Watch.\n\nNous recommandons d'authoriser l'accès aux données de l'Apple Watch uniquement sur l'appareil du patient.";
 
 /* Class = "UIButton"; normalTitle = "Done"; ObjectID = "wzS-cr-fSP"; */
-"wzS-cr-fSP.normalTitle" = "OK";
+"wzS-cr-fSP.normalTitle" = "Ok";
 
 /* Class = "UIButton"; normalTitle = "Authorize Notifications"; ObjectID = "xGM-lX-q6H"; */
+
 "xGM-lX-q6H.normalTitle" = "Autoriser les notifications";
