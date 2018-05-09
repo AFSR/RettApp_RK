@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>taskId</key>
+	<string>DSRespiratoryTask</string>
+	<key>frequencyType</key>
+	<string>daily</string>
+	<key>frequencyNumber</key>
+	<string>-1</string>
+	<key>name</key>
+	<string>Respiratory Log</string>
+	<key>type</key>
+	<string>HealthKit</string>
+	<key>status</key>
+	<true/>
+	<key>questions</key>
+	<array>
+		<dict>
+			<key>questionId</key>
+			<string>DSStepIntroduction</string>
+			<key>dashboard</key>
+			<dict>
+				<key>graphType</key>
+				<string>timeBased</string>
+				<key>yAxisColName</key>
+				<string></string>
+				<key>timeUnit</key>
+				<string>Hour</string>
+				<key>title</key>
+				<string>Respiratory Frequency</string>
+				<key>subtitle</key>
+				<string></string>
+				<key>rank</key>
+				<integer>0</integer>
+				<key>color</key>
+				<dict>
+					<key>red</key>
+					<real>1</real>
+					<key>green</key>
+					<real>0.2113</real>
+					<key>blue</key>
+					<real>0.3618</real>
+				</dict>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
