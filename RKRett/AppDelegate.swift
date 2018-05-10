@@ -27,6 +27,17 @@ class AppDelegate: UIResponder {
     var healthManager = HealthManager()
     let healthStore = HKHealthStore()
     
+    func getTask(taskID:String)->DSTask{
+        for task in appTasks{
+            print(task.taskId)
+            if task.taskId == taskID {
+                print(taskID)
+                return task
+            }
+        }
+        return DSTask(plistFileName: "DSMoodTask")
+    }
+    
     func createNotificationForDay(_ day: Int, hour: Int, minute: Int) -> UILocalNotification{
         let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
         var components = DateComponents()

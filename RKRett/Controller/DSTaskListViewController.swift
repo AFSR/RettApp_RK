@@ -18,6 +18,7 @@ class DSTaskListViewController: UIViewController{
     var uncompletedTasks = [DSTask]()
     var ondemandTasks = [DSTask]()
     var healthKitTasks = [DSTask]()
+    var hideTasks = [DSTask]()
     var tasksCount = 0
     
     override func viewDidLoad() {
@@ -39,21 +40,28 @@ class DSTaskListViewController: UIViewController{
     
     func updateTasksStatus(){
         //tasksCount = tasks.filter({$2 != -1}).count
-        tasksCount = tasks.count
         completedTasks.removeAll()
         uncompletedTasks.removeAll()
         ondemandTasks.removeAll()
+        hideTasks.removeAll()
         for task in tasks{
-            if task.isComplete(){
-                if (task.frequencyNumber.intValue == 0){
-                    ondemandTasks += [task]
+            if task.status == true{
+                if task.isComplete(){
+                    if (task.frequencyNumber.intValue == 0){
+                        ondemandTasks += [task]
+                    }else{
+                        completedTasks += [task]
+                    }
                 }else{
-                    completedTasks += [task]
+                    uncompletedTasks += [task]
                 }
             }else{
-                uncompletedTasks += [task]
+                hideTasks += [task]
             }
+            
         }
+        tasksCount = ondemandTasks.count + completedTasks.count + uncompletedTasks.count
+        
         self.tableView.reloadData()
     }
     

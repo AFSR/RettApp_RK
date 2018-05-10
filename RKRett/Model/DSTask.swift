@@ -41,6 +41,7 @@ class DSTask: DSReflect {
     @objc var frequencyType:String!
     @objc var questions:[DSQuestion] = [DSQuestion]()
     @objc var type:String!
+    @objc var status:Bool = true
     
     @objc init(plistFileName:String){
         super.init()
@@ -104,18 +105,16 @@ class DSTask: DSReflect {
         }
     }
     
-    /*
-     Returns true if the Task is getting data from HealthApp
-     */
-    func dataSourceHK() -> Bool{
-        let userDefaults = UserDefaults.standard
-        
-        if let taskDic = userDefaults.object(forKey: self.taskId) as? [String:AnyObject]{
-            print(taskDic)
-        } else {
-            print("No TaskDic")
+    func writeProperties()->Bool{
+        if let taskPath = Bundle.main.path(forResource: taskId, ofType: "plist") {
+            if let taskFromPlist = NSMutableDictionary(contentsOfFile: taskPath){
+                taskFromPlist.setValue(type, forKeyPath: "type")
+                taskFromPlist.setValue(status, forKeyPath: "status")
+                taskFromPlist.write(toFile: taskPath, atomically: true)
+                return true
+            }
         }
-        return true
+        return false
     }
     
     

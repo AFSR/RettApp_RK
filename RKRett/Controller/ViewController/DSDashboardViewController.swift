@@ -317,6 +317,12 @@ extension DSDashboardViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete{
+             if let taskPath = Bundle.main.path(forResource: graphIdentifiers[indexPath.row].taskId, ofType: "plist") {
+                if let taskFromPlist = NSMutableDictionary(contentsOfFile: taskPath){
+                    taskFromPlist.setValue(false, forKeyPath: "status")
+                    taskFromPlist.write(toFile: taskPath, atomically: true)
+                }
+            }
             graphIdentifiers.remove(at: indexPath.row)
             tableView.reloadData()
         }

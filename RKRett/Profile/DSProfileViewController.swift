@@ -68,12 +68,13 @@ class DSProfileViewController: UIViewController {
                 user.password = passwordTextField.text
                 user.email = emailTextField.text
                 
+                print(user.username,"-",user.password,"-",user.email)
+                
                 user.signUpInBackground(block: {(success, error) in
                     
                     if let error = error {
-                        //let errorString = error.userInfo["error"] as? NSString
-                        // Show the errorString somewhere and let the user try again.
-                        
+                       
+                        print("Error in background signin process")
                         PFUser.logInWithUsername(inBackground: self.emailTextField.text!, password: self.passwordTextField.text!, block: { (user, error) in
                             if user != nil{
                                 self.switchMode(status: true)

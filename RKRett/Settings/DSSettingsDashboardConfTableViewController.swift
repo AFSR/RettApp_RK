@@ -11,21 +11,28 @@ import UIKit
 
 class DSSettingsDashboardConfTableViewController: UIViewController {
     
-    var dashboardList:[[(String,String,Bool)]] = [[]]
-    var manualTaskList:[(String,String,Bool)] = []
-    var healthAppTaskList:[(String,String,Bool)] = []
+    var dashboardList:[[(String,String,Bool,DSTask)]] = [[]]
+    var manualTaskList:[(String,String,Bool,DSTask)] = []
+    var healthAppTaskList:[(String,String,Bool,DSTask)] = []
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     
     
     @IBOutlet weak var tableView: UITableView!
     
     
     func changeStatus(_ section: Int, _ index: Int, _ status: Bool){
-        if let taskPath = Bundle.main.path(forResource: (dashboardList[section][index].1), ofType: "plist") {
-            if let taskFromPlist = NSMutableDictionary(contentsOfFile: taskPath){
-                taskFromPlist.setValue(status, forKeyPath: "status")
-                taskFromPlist.write(toFile: taskPath, atomically: true)
-            }
+        dashboardList[section][index].3.status = status
+        if dashboardList[section][index].3.writeProperties(){
+            print("update OK")
         }
+//        if let taskPath = Bundle.main.path(forResource: (dashboardList[section][index].1), ofType: "plist") {
+//            if let taskFromPlist = NSMutableDictionary(contentsOfFile: taskPath){
+//                taskFromPlist.setValue(status, forKeyPath: "status")
+//                taskFromPlist.write(toFile: taskPath, atomically: true)
+//            }
+//        }
     }
     
     func getDashBoardList(){
@@ -42,9 +49,9 @@ class DSSettingsDashboardConfTableViewController: UIViewController {
                             let status =  task["status"] as? Bool
                             if let title = task["name"] {
                                 if task["type"] as? String == "Survey" {
-                                    manualTaskList.append((title as! String, taskId as! String, status!))
+                                    manualTaskList.append((title as! String, taskId as! String, status!, appDelegate.getTask(taskID: (taskId as! String))))
                                 }else{
-                                    healthAppTaskList.append((title as! String, taskId as! String, status!))
+                                    healthAppTaskList.append((title as! String, taskId as! String, status!, appDelegate.getTask(taskID: (taskId as! String))))
                                 }
                             }
                         }
@@ -109,21 +116,25 @@ extension DSSettingsDashboardConfTableViewController: UITableViewDelegate{
 
     
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == UITableViewCellEditingStyle.delete) {
-            
-            //Set status to false to hide the task
-            if let taskPath = Bundle.main.path(forResource: (dashboardList[indexPath.section][indexPath.row].1), ofType: "plist") {
-                if let taskFromPlist = NSMutableDictionary(contentsOfFile: taskPath){
-                    taskFromPlist.setValue(false, forKeyPath: "status")
-                    taskFromPlist.write(toFile: taskPath, atomically: true)
-                }
-            }
-            getDashBoardList()
-            tableView.reloadData()
-            print("Hide:",indexPath)
-        }
-    }
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if (editingStyle == UITableViewCellEditingStyle.delete) {
+//
+//            //Set status to false to hide the task
+//            dashboardList[indexPath.section][indexPath.row].3.status = false
+//            if dashboardList[indexPath.section][indexPath.row].3.writeProperties() {
+//                print("update ok")
+//            }
+////            if let taskPath = Bundle.main.path(forResource: (dashboardList[indexPath.section][indexPath.row].1), ofType: "plist") {
+////                if let taskFromPlist = NSMutableDictionary(contentsOfFile: taskPath){
+////                    taskFromPlist.setValue(false, forKeyPath: "status")
+////                    taskFromPlist.write(toFile: taskPath, atomically: true)
+////                }
+////            }
+//            getDashBoardList()
+//            tableView.reloadData()
+//            print("Hide:",indexPath)
+//        }
+//    }
     
 }
 
@@ -180,31 +191,36 @@ extension DSSettingsDashboardConfTableViewController: UITableViewDataSource{
         case 1:
             //From Manual to Health
             print("M->H",dashboardList[sourceIndexPath.section][sourceIndexPath.row].1)
-            if let taskPath = Bundle.main.path(forResource: (dashboardList[sourceIndexPath.section][sourceIndexPath.row].1), ofType: "plist") {
-                if let taskFromPlist = NSMutableDictionary(contentsOfFile: taskPath){
-                    taskFromPlist.setValue("HealthKit", forKeyPath: "type")
-                    taskFromPlist.write(toFile: taskPath, atomically: true)
-                }
+            dashboardList[sourceIndexPath.section][sourceIndexPath.row].3.type = "HealthKit"
+            if dashboardList[sourceIndexPath.section][sourceIndexPath.row].3.writeProperties(){
+                print("Update OK")
             }
+//            if let taskPath = Bundle.main.path(forResource: (dashboardList[sourceIndexPath.section][sourceIndexPath.row].1), ofType: "plist") {
+//                if let taskFromPlist = NSMutableDictionary(contentsOfFile: taskPath){
+//                    taskFromPlist.setValue("HealthKit", forKeyPath: "type")
+//                    taskFromPlist.write(toFile: taskPath, atomically: true)
+//                }
+//            }
         case -1:
             //From Health to  Manual
             print("H->M",dashboardList[destinationIndexPath.section][destinationIndexPath.row].1)
-            if let taskPath = Bundle.main.path(forResource: (dashboardList[destinationIndexPath.section][destinationIndexPath.row].1), ofType: "plist") {
-                if let taskFromPlist = NSMutableDictionary(contentsOfFile: taskPath){
-                    taskFromPlist.setValue("Survey", forKeyPath: "type")
-                    taskFromPlist.write(toFile: taskPath, atomically: true)
-                }
+            dashboardList[sourceIndexPath.section][sourceIndexPath.row].3.type = "Survey"
+            if dashboardList[sourceIndexPath.section][sourceIndexPath.row].3.writeProperties(){
+                print("update OK")
             }
+//            if let taskPath = Bundle.main.path(forResource: (dashboardList[destinationIndexPath.section][destinationIndexPath.row].1), ofType: "plist") {
+//                if let taskFromPlist = NSMutableDictionary(contentsOfFile: taskPath){
+//                    taskFromPlist.setValue("Survey", forKeyPath: "type")
+//                    taskFromPlist.write(toFile: taskPath, atomically: true)
+//                }
+//            }
         default:
             //No Change
             print("No change")
             
         }
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
         appDelegate.appTasks = DSTaskController.loadTasks()
-        
         getDashBoardList()
         tableView.reloadData()
         
