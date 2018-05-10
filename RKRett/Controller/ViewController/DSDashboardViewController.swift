@@ -239,28 +239,6 @@ class DSDashboardViewController: UIViewController,TimeBasedGraphCellDelegate {
             }
         }
         
-        if let pathHK = Bundle.main.path(forResource: "DSHealthKitData", ofType: "plist"){
-            if let tasksHK = NSArray(contentsOfFile: pathHK) {
-                for taskIdHK in tasksHK {
-                    if let taskPathHK = Bundle.main.path(forResource: (taskIdHK as! String), ofType: "plist") {
-                        if let taskHK = NSDictionary(contentsOfFile: taskPathHK) {
-                            if taskHK["status"] as! Bool == true{
-                                if let questionsHK = taskHK["questions"] as? NSArray {
-                                    for questionHK in questionsHK {
-                                        if (questionHK as! NSDictionary)["dashboard"] != nil {
-                                            if let questionIdHK = (questionHK as! NSDictionary)["questionId"] as? String {
-                                                graphIds += [(taskIdHK as! String, questionIdHK)]
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        
         return graphIds
     }
 }

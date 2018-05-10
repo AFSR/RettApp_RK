@@ -12,6 +12,9 @@ import UIKit
 class DSSettingsDashboardConfTableViewController: UIViewController {
     
     var dashboardList:[[(String,String,Bool)]] = [[]]
+    var manualTaskList:[(String,String,Bool)] = []
+    var healthAppTaskList:[(String,String,Bool)] = []
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -27,37 +30,31 @@ class DSSettingsDashboardConfTableViewController: UIViewController {
     
     func getDashBoardList(){
         
-        dashboardList = [[]]
+        dashboardList.removeAll()
+        manualTaskList.removeAll()
+        healthAppTaskList.removeAll()
+        
         if let path = Bundle.main.path(forResource: "DSTasks", ofType: "plist"){
             if let tasks = NSArray(contentsOfFile: path) {
                 for taskId in tasks {
                     if let taskPath = Bundle.main.path(forResource: (taskId as! String), ofType: "plist") {
                         if let task = NSDictionary(contentsOfFile: taskPath) {
                             let status =  task["status"] as? Bool
-                            if let title = task["name"]{
-                                dashboardList[0].append((title as! String, taskId as! String, status!))
+                            if let title = task["name"] {
+                                if task["type"] as? String == "Survey" {
+                                    manualTaskList.append((title as! String, taskId as! String, status!))
+                                }else{
+                                    healthAppTaskList.append((title as! String, taskId as! String, status!))
+                                }
                             }
                         }
                     }
                 }
             }
         }
-        var dashboardList2:[(String,String,Bool)] = []
-        if let path = Bundle.main.path(forResource: "DSHealthKitData", ofType: "plist"){
-            if let tasks = NSArray(contentsOfFile: path) {
-                for taskId in tasks {
-                    if let taskPath = Bundle.main.path(forResource: (taskId as! String), ofType: "plist") {
-                        if let task = NSDictionary(contentsOfFile: taskPath) {
-                            let status =  task["status"] as? Bool
-                            if let title = task["name"]{
-                                dashboardList2.append((title as! String, taskId as! String, status!))
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        dashboardList.append(dashboardList2)
+        dashboardList.append(manualTaskList)
+        dashboardList.append(healthAppTaskList)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -178,9 +175,38 @@ extension DSSettingsDashboardConfTableViewController: UITableViewDataSource{
         dashboardListFromPlist?.insert(source, at: destinationIndexPath.row)
 
         dashboardListFromPlist?.write(toFile: dashboardListPlistPath!, atomically: true)
-
+        
+        switch destinationIndexPath.section - sourceIndexPath.section {
+        case 1:
+            //From Manual to Health
+            print("M->H",dashboardList[sourceIndexPath.section][sourceIndexPath.row].1)
+            if let taskPath = Bundle.main.path(forResource: (dashboardList[sourceIndexPath.section][sourceIndexPath.row].1), ofType: "plist") {
+                if let taskFromPlist = NSMutableDictionary(contentsOfFile: taskPath){
+                    taskFromPlist.setValue("HealthKit", forKeyPath: "type")
+                    taskFromPlist.write(toFile: taskPath, atomically: true)
+                }
+            }
+        case -1:
+            //From Health to  Manual
+            print("H->M",dashboardList[destinationIndexPath.section][destinationIndexPath.row].1)
+            if let taskPath = Bundle.main.path(forResource: (dashboardList[destinationIndexPath.section][destinationIndexPath.row].1), ofType: "plist") {
+                if let taskFromPlist = NSMutableDictionary(contentsOfFile: taskPath){
+                    taskFromPlist.setValue("Survey", forKeyPath: "type")
+                    taskFromPlist.write(toFile: taskPath, atomically: true)
+                }
+            }
+        default:
+            //No Change
+            print("No change")
+            
+        }
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        appDelegate.appTasks = DSTaskController.loadTasks()
+        
         getDashBoardList()
-
+        tableView.reloadData()
         
     }
     

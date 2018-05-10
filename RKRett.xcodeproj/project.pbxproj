@@ -899,8 +899,8 @@
 			isa = PBXGroup;
 			children = (
 				35EE6F231BC5A7FF00855E3A /* DSQueryDetailViewController.swift */,
-				35EE6F341BC5AF0000855E3A /* DSDashboardViewController.swift */,
 				625FBA971B8CF34B00E47353 /* DSDeveloperTableViewController.swift */,
+				35EE6F341BC5AF0000855E3A /* DSDashboardViewController.swift */,
 				62D53CC21B8BC84B006ED5CC /* DSTaskAnswerListViewController.swift */,
 				62632C521B865AF80010B5F8 /* DSTaskListViewController.swift */,
 				0AD1F8D11BA9B7DA00B8BFEF /* DSTimeBasedGraphViewController.swift */,

@@ -23,7 +23,7 @@ class AppDelegate: UIResponder {
     var window: UIWindow?
     let kTagForViewDidEnterBackground = 99
     
-    let appTasks : [DSTask] = DSTaskController.loadTasks()
+    var appTasks : [DSTask] = DSTaskController.loadTasks()
     var healthManager = HealthManager()
     let healthStore = HKHealthStore()
     

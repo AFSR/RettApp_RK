@@ -8,5 +8,7 @@
 	<string>DSTemperatureTask</string>
 	<string>DSBloodPressureTask</string>
 	<string>DSO2SaturationTask</string>
+	<string>DSRespiratoryTask</string>
+	<string>DSStepTask</string>
 </array>
 </plist>

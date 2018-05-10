@@ -86,7 +86,9 @@ class DSTaskController: NSObject {
             if let surveysArray = NSArray(contentsOfFile: path){
                 for survey in surveysArray as! [String]{
                     let dsTask = DSTask(plistFileName: survey)
-                    tasks += [dsTask]
+                    if dsTask.type == "Survey"{
+                        tasks += [dsTask]
+                    }
                 }
             }
         }   

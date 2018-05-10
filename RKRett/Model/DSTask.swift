@@ -40,6 +40,7 @@ class DSTask: DSReflect {
     @objc var frequencyNumber:NSNumber!
     @objc var frequencyType:String!
     @objc var questions:[DSQuestion] = [DSQuestion]()
+    @objc var type:String!
     
     @objc init(plistFileName:String){
         super.init()
@@ -61,6 +62,8 @@ class DSTask: DSReflect {
                         }else{
                             print("problema ao gerar array das questions na DSTask")
                         }
+                    case "type":
+                        type = taskDictionary.object(forKey: "type") as? String
                         
                     default:
                         print(property)
@@ -68,10 +71,16 @@ class DSTask: DSReflect {
                     
                     let propertyValue: AnyObject? = taskDictionary.object(forKey: property) as AnyObject
                     assert(propertyValue != nil, "\(property) in task \(self.name) is nil")
+                    print(property)
+                    print("-")
+                    print(propertyValue)
                     self.setValue(propertyValue, forKey: property)
                 }
+                
             }
         }
+        print(properties())
+        print(":",taskId,"-",name,"-",type)
     }
     /*
         Returns true if the Frequency is set to OnDemand
@@ -94,5 +103,20 @@ class DSTask: DSReflect {
             return false
         }
     }
+    
+    /*
+     Returns true if the Task is getting data from HealthApp
+     */
+    func dataSourceHK() -> Bool{
+        let userDefaults = UserDefaults.standard
+        
+        if let taskDic = userDefaults.object(forKey: self.taskId) as? [String:AnyObject]{
+            print(taskDic)
+        } else {
+            print("No TaskDic")
+        }
+        return true
+    }
+    
     
 }
