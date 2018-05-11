@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14111" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14112" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -12,15 +12,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TimeBasedGraphCell" rowHeight="456" id="bv3-UU-rLN" customClass="TimeBasedGraphCell" customModule="RKRett" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="290"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TimeBasedGraphCell" rowHeight="480" id="bv3-UU-rLN" customClass="TimeBasedGraphCell" customModule="RKRett" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="680" height="314"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bv3-UU-rLN" id="xeT-ar-Jcm">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="289.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="680" height="313.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXT-gz-Bu0">
-                        <rect key="frame" x="16" y="11" width="288" height="21"/>
+                        <rect key="frame" x="20" y="11" width="640" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="iYi-hi-anJ"/>
                         </constraints>
@@ -29,7 +29,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVk-2Z-BFH" customClass="TimeBasedGraphView" customModule="RKRett">
-                        <rect key="frame" x="16" y="40" width="288" height="239"/>
+                        <rect key="frame" x="16" y="40" width="644" height="263"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="axisColor">
@@ -52,7 +52,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9KY-qP-8yd">
-                        <rect key="frame" x="16" y="28" width="296" height="23"/>
+                        <rect key="frame" x="20" y="28" width="648" height="23"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="23" id="jHt-5w-AnA"/>
                         </constraints>
@@ -61,7 +61,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AF5-Wk-iEe">
-                        <rect key="frame" x="286" y="11" width="18" height="17"/>
+                        <rect key="frame" x="642" y="11" width="18" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="18" id="VNm-7Y-dAw"/>
                         </constraints>
@@ -73,28 +73,24 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="bVk-2Z-BFH" firstAttribute="bottom" secondItem="xeT-ar-Jcm" secondAttribute="bottomMargin" constant="-25" id="5x0-IK-s6V"/>
                     <constraint firstItem="9KY-qP-8yd" firstAttribute="leading" secondItem="WXT-gz-Bu0" secondAttribute="leading" id="9B2-L3-Fjk"/>
+                    <constraint firstItem="bVk-2Z-BFH" firstAttribute="leading" secondItem="xeT-ar-Jcm" secondAttribute="leading" constant="16" id="EKA-zz-YD7"/>
                     <constraint firstItem="9KY-qP-8yd" firstAttribute="top" secondItem="AF5-Wk-iEe" secondAttribute="bottom" id="FNq-V8-Lcy"/>
+                    <constraint firstAttribute="trailing" secondItem="bVk-2Z-BFH" secondAttribute="trailing" constant="20" id="IJ3-Fo-mvV"/>
                     <constraint firstAttribute="trailingMargin" secondItem="9KY-qP-8yd" secondAttribute="trailing" constant="-8" id="IwG-bX-FqM"/>
-                    <constraint firstItem="bVk-2Z-BFH" firstAttribute="bottom" secondItem="xeT-ar-Jcm" secondAttribute="bottomMargin" id="Jac-Ae-en9"/>
                     <constraint firstItem="WXT-gz-Bu0" firstAttribute="trailing" secondItem="xeT-ar-Jcm" secondAttribute="trailingMargin" id="KA3-6E-Cdn"/>
-                    <constraint firstItem="bVk-2Z-BFH" firstAttribute="trailing" secondItem="xeT-ar-Jcm" secondAttribute="trailingMargin" id="QHQ-9H-8I1"/>
                     <constraint firstItem="AF5-Wk-iEe" firstAttribute="top" secondItem="WXT-gz-Bu0" secondAttribute="top" id="XsT-hm-BDK"/>
                     <constraint firstItem="WXT-gz-Bu0" firstAttribute="leading" secondItem="xeT-ar-Jcm" secondAttribute="leadingMargin" id="ZdG-1V-jt4"/>
-                    <constraint firstItem="bVk-2Z-BFH" firstAttribute="leading" secondItem="xeT-ar-Jcm" secondAttribute="leadingMargin" id="fyv-RK-Ua5"/>
-                    <constraint firstItem="bVk-2Z-BFH" firstAttribute="bottom" secondItem="xeT-ar-Jcm" secondAttribute="bottomMargin" id="itP-qe-7lp"/>
                     <constraint firstItem="WXT-gz-Bu0" firstAttribute="top" secondItem="xeT-ar-Jcm" secondAttribute="topMargin" id="jX4-5W-1MC"/>
                     <constraint firstItem="AF5-Wk-iEe" firstAttribute="trailing" secondItem="WXT-gz-Bu0" secondAttribute="trailing" id="l0r-XB-V4F"/>
                     <constraint firstAttribute="topMargin" secondItem="WXT-gz-Bu0" secondAttribute="top" id="mpu-2t-4P3"/>
                     <constraint firstItem="9KY-qP-8yd" firstAttribute="top" secondItem="xeT-ar-Jcm" secondAttribute="topMargin" constant="17" id="n7X-yx-qzv"/>
-                    <constraint firstItem="bVk-2Z-BFH" firstAttribute="top" secondItem="WXT-gz-Bu0" secondAttribute="bottom" constant="8" id="tcD-fd-1mn"/>
+                    <constraint firstAttribute="bottom" secondItem="bVk-2Z-BFH" secondAttribute="bottom" constant="10.5" id="t4z-W8-b0O"/>
+                    <constraint firstItem="bVk-2Z-BFH" firstAttribute="top" secondItem="WXT-gz-Bu0" secondAttribute="bottom" constant="8" id="uRa-nA-gyu"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
                         <exclude reference="jX4-5W-1MC"/>
-                        <exclude reference="5x0-IK-s6V"/>
-                        <exclude reference="Jac-Ae-en9"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
@@ -104,7 +100,7 @@
                 <outlet property="lblTitle" destination="WXT-gz-Bu0" id="JzY-ET-bBT"/>
                 <outlet property="wideButton" destination="AF5-Wk-iEe" id="ThH-0d-MSJ"/>
             </connections>
-            <point key="canvasLocation" x="493" y="489"/>
+            <point key="canvasLocation" x="414" y="129"/>
         </tableViewCell>
     </objects>
     <resources>

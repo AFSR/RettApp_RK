@@ -41,7 +41,7 @@ import UIKit
         let properties = self.properties()
         for property in properties{
             let value = questionDictionary.object(forKey: property)
-            switch(property){
+            switch(property as! String){
             case "answerRange":
                 // value tera um dictionary
                 if let valueDictionary = value as? NSDictionary{
@@ -63,7 +63,7 @@ import UIKit
                 print(property)
                 
             }
-            self.setValue(value, forKey: property)
+            self.setValue(value, forKey: property as! String)
         }
     }
     

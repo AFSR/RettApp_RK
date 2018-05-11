@@ -48,6 +48,7 @@ class DSTask: DSReflect {
         self.file = plistFileName
         if let path = Bundle.main.path(forResource: plistFileName, ofType: "plist") {
             if let taskDictionary = NSDictionary(contentsOfFile: path){
+                print("Clefs:",taskDictionary.allKeys)
                 let properties = self.properties()
                 for property in properties{
                     switch(property){
@@ -65,13 +66,20 @@ class DSTask: DSReflect {
                         }
                     case "type":
                         type = taskDictionary.object(forKey: "type") as? String
-                        
+
+                    case "status":
+                        print(taskDictionary.object(forKey: "status"))
+                        print("---")
+                        print(taskDictionary)
+                        status = (taskDictionary.object(forKey: "status") as! Bool)
+
                     default:
                         print(property)
                     }
                     
                     let propertyValue: AnyObject? = taskDictionary.object(forKey: property) as AnyObject
                     assert(propertyValue != nil, "\(property) in task \(self.name) is nil")
+                    
                     print(property)
                     print("-")
                     print(propertyValue)
