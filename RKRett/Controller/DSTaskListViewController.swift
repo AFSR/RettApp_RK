@@ -33,6 +33,7 @@ class DSTaskListViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateTasksStatus()
+        
         if let tab = self.tabBarController{
             tab.tabBar.items![0].badgeValue = (uncompletedTasks.count == 0 ?  nil : String(uncompletedTasks.count))
         }
@@ -46,14 +47,18 @@ class DSTaskListViewController: UIViewController{
         hideTasks.removeAll()
         for task in tasks{
             if task.status == true{
-                if task.isComplete(){
-                    if (task.frequencyNumber.intValue == 0){
-                        ondemandTasks += [task]
+                if task.type == "Survey"{
+                    if task.isComplete(){
+                        if (task.frequencyNumber.intValue == 0){
+                            ondemandTasks += [task]
+                        }else{
+                            completedTasks += [task]
+                        }
                     }else{
-                        completedTasks += [task]
+                        uncompletedTasks += [task]
                     }
                 }else{
-                    uncompletedTasks += [task]
+                    healthKitTasks += [task]
                 }
             }else{
                 hideTasks += [task]

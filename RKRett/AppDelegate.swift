@@ -24,14 +24,16 @@ class AppDelegate: UIResponder {
     let kTagForViewDidEnterBackground = 99
     
     var appTasks : [DSTask] = DSTaskController.loadTasks()
+    
+    var appTasksGlobalList:[[DSTask]] = [[]]
+    
     var healthManager = HealthManager()
     let healthStore = HKHealthStore()
     
     func getTask(taskID:String)->DSTask{
         for task in appTasks{
-            print(task.taskId)
             if task.taskId == taskID {
-                print(taskID)
+                //print(taskID)
                 return task
             }
         }

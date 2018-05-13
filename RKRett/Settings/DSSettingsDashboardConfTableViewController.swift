@@ -24,15 +24,7 @@ class DSSettingsDashboardConfTableViewController: UIViewController {
     
     func changeStatus(_ section: Int, _ index: Int, _ status: Bool){
         dashboardList[section][index].3.status = status
-        if dashboardList[section][index].3.writeProperties(){
-            print("update OK")
-        }
-//        if let taskPath = Bundle.main.path(forResource: (dashboardList[section][index].1), ofType: "plist") {
-//            if let taskFromPlist = NSMutableDictionary(contentsOfFile: taskPath){
-//                taskFromPlist.setValue(status, forKeyPath: "status")
-//                taskFromPlist.write(toFile: taskPath, atomically: true)
-//            }
-//        }
+        dashboardList[section][index].3.writeProperties()
     }
     
     func getDashBoardList(){
@@ -41,24 +33,14 @@ class DSSettingsDashboardConfTableViewController: UIViewController {
         manualTaskList.removeAll()
         healthAppTaskList.removeAll()
         
-        if let path = Bundle.main.path(forResource: "DSTasks", ofType: "plist"){
-            if let tasks = NSArray(contentsOfFile: path) {
-                for taskId in tasks {
-                    if let taskPath = Bundle.main.path(forResource: (taskId as! String), ofType: "plist") {
-                        if let task = NSDictionary(contentsOfFile: taskPath) {
-                            let status =  task["status"] as? Bool
-                            if let title = task["name"] {
-                                if task["type"] as? String == "Survey" {
-                                    manualTaskList.append((title as! String, taskId as! String, status!, appDelegate.getTask(taskID: (taskId as! String))))
-                                }else{
-                                    healthAppTaskList.append((title as! String, taskId as! String, status!, appDelegate.getTask(taskID: (taskId as! String))))
-                                }
-                            }
-                        }
-                    }
-                }
+        for task in appDelegate.appTasks{
+            if task.type == "Survey" {
+                manualTaskList.append((task.name, task.taskId, task.status, task))
+            }else{
+                healthAppTaskList.append((task.name, task.taskId, task.status, task))
             }
         }
+        
         dashboardList.append(manualTaskList)
         dashboardList.append(healthAppTaskList)
         
@@ -69,6 +51,10 @@ class DSSettingsDashboardConfTableViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
         getDashBoardList()
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
@@ -91,10 +77,12 @@ extension DSSettingsDashboardConfTableViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: "Hide") { (action, indexPath) in
             //Set status to false to hide the task
-            self.changeStatus(indexPath.section, indexPath.row, false)
+            //self.changeStatus(indexPath.section, indexPath.row, false)
+            self.dashboardList[indexPath.section][indexPath.row].3.status = false
+            self.dashboardList[indexPath.section][indexPath.row].3.writeProperties()
             self.getDashBoardList()
             tableView.reloadData()
-            print("Hide:",indexPath)
+            print("Hide index:",indexPath)
         }
         
         let share = UITableViewRowAction(style: .normal, title: "Show") { (action, indexPath) in
@@ -102,39 +90,13 @@ extension DSSettingsDashboardConfTableViewController: UITableViewDelegate{
             self.changeStatus(indexPath.section, indexPath.row, true)
             self.getDashBoardList()
             tableView.reloadData()
-            print("Hide:",indexPath)
+            print("Show:",indexPath)
         }
         
-        share.backgroundColor = UIColor.green
+        share.backgroundColor = UIColor.greenColorDarker()
         
         return [delete, share]
     }
-    
-    func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) {
-
-    }
-
-    
-    
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        if (editingStyle == UITableViewCellEditingStyle.delete) {
-//
-//            //Set status to false to hide the task
-//            dashboardList[indexPath.section][indexPath.row].3.status = false
-//            if dashboardList[indexPath.section][indexPath.row].3.writeProperties() {
-//                print("update ok")
-//            }
-////            if let taskPath = Bundle.main.path(forResource: (dashboardList[indexPath.section][indexPath.row].1), ofType: "plist") {
-////                if let taskFromPlist = NSMutableDictionary(contentsOfFile: taskPath){
-////                    taskFromPlist.setValue(false, forKeyPath: "status")
-////                    taskFromPlist.write(toFile: taskPath, atomically: true)
-////                }
-////            }
-//            getDashBoardList()
-//            tableView.reloadData()
-//            print("Hide:",indexPath)
-//        }
-//    }
     
 }
 
@@ -158,13 +120,13 @@ extension DSSettingsDashboardConfTableViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style:UITableViewCellStyle.subtitle, reuseIdentifier:"Cell")
-        cell.textLabel?.text = dashboardList[indexPath.section][indexPath.row].0
+        cell.textLabel?.text = dashboardList[indexPath.section][indexPath.row].3.name
         if indexPath.section == 0 {
             cell.detailTextLabel?.text = "Task"
         }else{
             cell.detailTextLabel?.text = "HealthApp"
         }
-        if dashboardList[indexPath.section][indexPath.row].2 == false {
+        if dashboardList[indexPath.section][indexPath.row].3.status == false {
             cell.textLabel?.isEnabled = false
             cell.detailTextLabel?.isEnabled = false
         }else{
@@ -178,49 +140,48 @@ extension DSSettingsDashboardConfTableViewController: UITableViewDataSource{
         
         print(sourceIndexPath,"->",destinationIndexPath)
         
-        let dashboardListPlistPath = Bundle.main.path(forResource: "DSTasks", ofType: "plist")
-        let dashboardListFromPlist = NSMutableArray(contentsOfFile: dashboardListPlistPath!)
+//        let dashboardListPlistPath = Bundle.main.path(forResource: kDSTasksListFileName, ofType: "plist")
+//        let dashboardListFromPlist = NSMutableArray(contentsOfFile: dashboardListPlistPath!)
+//
+//        for task in appDelegate.appTasks{
+//            if task.type == "Survey" {
+//                manualTaskList.append((task.name, task.taskId, task.status, task))
+//            }else{
+//                healthAppTaskList.append((task.name, task.taskId, task.status, task))
+//            }
+//        }
+//
+//        let source = dashboardListFromPlist![sourceIndexPath.row]
+//        dashboardListFromPlist?.removeObject(at: sourceIndexPath.row)
+//        dashboardListFromPlist?.insert(source, at: destinationIndexPath.row)
+//
+//        dashboardListFromPlist?.write(toFile: dashboardListPlistPath!, atomically: true)
+//
+        let source = appDelegate.appTasks[sourceIndexPath.row]
+        appDelegate.appTasks.remove(at: sourceIndexPath.row)
+        appDelegate.appTasks.insert(source, at: destinationIndexPath.row)
         
-        let source = dashboardListFromPlist![sourceIndexPath.row]
-        dashboardListFromPlist?.removeObject(at: sourceIndexPath.row)
-        dashboardListFromPlist?.insert(source, at: destinationIndexPath.row)
-
-        dashboardListFromPlist?.write(toFile: dashboardListPlistPath!, atomically: true)
-        
+        DSTaskController.writeTasks(tasksToWrite: appDelegate.appTasks)
         switch destinationIndexPath.section - sourceIndexPath.section {
+            
         case 1:
             //From Manual to Health
             print("M->H",dashboardList[sourceIndexPath.section][sourceIndexPath.row].1)
             dashboardList[sourceIndexPath.section][sourceIndexPath.row].3.type = "HealthKit"
-            if dashboardList[sourceIndexPath.section][sourceIndexPath.row].3.writeProperties(){
-                print("Update OK")
-            }
-//            if let taskPath = Bundle.main.path(forResource: (dashboardList[sourceIndexPath.section][sourceIndexPath.row].1), ofType: "plist") {
-//                if let taskFromPlist = NSMutableDictionary(contentsOfFile: taskPath){
-//                    taskFromPlist.setValue("HealthKit", forKeyPath: "type")
-//                    taskFromPlist.write(toFile: taskPath, atomically: true)
-//                }
-//            }
+            dashboardList[sourceIndexPath.section][sourceIndexPath.row].3.writeProperties()
+
         case -1:
             //From Health to  Manual
             print("H->M",dashboardList[destinationIndexPath.section][destinationIndexPath.row].1)
             dashboardList[sourceIndexPath.section][sourceIndexPath.row].3.type = "Survey"
-            if dashboardList[sourceIndexPath.section][sourceIndexPath.row].3.writeProperties(){
-                print("update OK")
-            }
-//            if let taskPath = Bundle.main.path(forResource: (dashboardList[destinationIndexPath.section][destinationIndexPath.row].1), ofType: "plist") {
-//                if let taskFromPlist = NSMutableDictionary(contentsOfFile: taskPath){
-//                    taskFromPlist.setValue("Survey", forKeyPath: "type")
-//                    taskFromPlist.write(toFile: taskPath, atomically: true)
-//                }
-//            }
+            dashboardList[sourceIndexPath.section][sourceIndexPath.row].3.writeProperties()
+
         default:
             //No Change
-            print("No change")
-            
+            print("No change in section")
         }
         
-        appDelegate.appTasks = DSTaskController.loadTasks()
+        //appDelegate.appTasks = DSTaskController.loadTasks()
         getDashBoardList()
         tableView.reloadData()
         

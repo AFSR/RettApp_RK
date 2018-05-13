@@ -18,6 +18,8 @@ class DSDashboardViewController: UIViewController,TimeBasedGraphCellDelegate {
     let TaskIdKey = "taskId"
     let QuestionIdKey = "questionId"
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     func serializeTuple(_ tuple: DSGraphIdentifierType) -> DSGraphIdentifierTypeDictionary {
         return [TaskIdKey : tuple.taskId, QuestionIdKey : tuple.questionId]
     }
@@ -217,21 +219,13 @@ class DSDashboardViewController: UIViewController,TimeBasedGraphCellDelegate {
     fileprivate func getGraphIds() -> [DSGraphIdentifierType]{
         var graphIds = [DSGraphIdentifierType]()
         
-        if let path = Bundle.main.path(forResource: "DSTasks", ofType: "plist"){
-            if let tasks = NSArray(contentsOfFile: path) {
-                for taskId in tasks {
-                    if let taskPath = Bundle.main.path(forResource: (taskId as! String), ofType: "plist") {
-                        if let task = NSDictionary(contentsOfFile: taskPath) {
-                            if task["status"] as! Bool == true{
-                                if let questions = task["questions"] as? NSArray {
-                                    for question in questions {
-                                        if (question as! NSDictionary)["dashboard"] != nil {
-                                            if let questionId = (question as! NSDictionary)["questionId"] as? String {
-                                                graphIds += [(taskId as! String, questionId)]
-                                            }
-                                        }
-                                    }
-                                }
+        for task in appDelegate.appTasks{
+            if task.status == true{
+                if let questions = task.questions as? NSArray {
+                    for question in questions {
+                        if (question as! NSDictionary)["dashboard"] != nil {
+                            if let questionId = (question as! NSDictionary)["questionId"] as? String {
+                                graphIds += [(task.taskId, questionId)]
                             }
                         }
                     }
@@ -250,7 +244,13 @@ extension DSDashboardViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return graphIdentifiers.count
+        var hiddenTask = 0
+//        for task in appDelegate.appTasks{
+//            if task.status == false {
+//                hiddenTask += 1
+//            }
+//        }
+        return graphIdentifiers.count - hiddenTask
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

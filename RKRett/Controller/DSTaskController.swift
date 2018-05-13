@@ -74,6 +74,27 @@ class DSTaskController: NSObject {
     
     
     /**
+     Write the main plist for tasks in array.
+     
+     */
+    static func writeTasks(tasksToWrite: [DSTask]){
+       
+        if let path = Bundle.main.path(forResource: kDSTasksListFileName, ofType: "plist") {
+            if let taskArray = NSMutableArray(contentsOfFile: path){
+                taskArray.removeAllObjects()
+                var i = 0
+                for task in tasksToWrite{
+                    taskArray[i] = task.name
+                    i+=1
+                }
+                taskArray.write(toFile: path, atomically: true)
+                print("Tasks written")
+            }
+        }
+    }
+    
+    
+    /**
     Reads the main plist for tasks and creates the models from the tasks plists.
     
     :warning: This method should be called once everytime the app is opened and used to populate a global variable making all the tasks accessible.
@@ -82,13 +103,17 @@ class DSTaskController: NSObject {
     */
     static func loadTasks() -> [DSTask]{
         var tasks = [DSTask]()
+        //let dashboardListPlistPath = Bundle.main.path(forResource: "DSTasks", ofType: "plist")
+        //let dashboardListFromPlist = NSMutableArray(contentsOfFile: dashboardListPlistPath!)
+        
+        
         if let path = Bundle.main.path(forResource: kDSTasksListFileName, ofType: "plist") {
-            if let surveysArray = NSArray(contentsOfFile: path){
-                for survey in surveysArray as! [String]{
-                    let dsTask = DSTask(plistFileName: survey)
-                    if dsTask.type == "Survey"{
+            if let taskArray = NSArray(contentsOfFile: path){
+                for task in taskArray as! [String]{
+                    let dsTask = DSTask(plistFileName: task)
+                    //if dsTask.type == "Survey"{
                         tasks += [dsTask]
-                    }
+                    //}
                 }
             }
         }   

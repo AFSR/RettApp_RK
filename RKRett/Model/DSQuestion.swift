@@ -57,10 +57,9 @@ import UIKit
                     dashboard?.setValue(valueDictionary.object(forKey: "yAxisColName"), forKey: "yAxisColName")
                     continue
                 }
-                print(property)
                 
             default:
-                print(property)
+                print("Default questions")
                 
             }
             self.setValue(value, forKey: property as! String)

@@ -48,7 +48,6 @@ class DSTask: DSReflect {
         self.file = plistFileName
         if let path = Bundle.main.path(forResource: plistFileName, ofType: "plist") {
             if let taskDictionary = NSDictionary(contentsOfFile: path){
-                print("Clefs:",taskDictionary.allKeys)
                 let properties = self.properties()
                 for property in properties{
                     switch(property){
@@ -68,28 +67,19 @@ class DSTask: DSReflect {
                         type = taskDictionary.object(forKey: "type") as? String
 
                     case "status":
-                        print(taskDictionary.object(forKey: "status"))
-                        print("---")
-                        print(taskDictionary)
                         status = (taskDictionary.object(forKey: "status") as! Bool)
 
                     default:
-                        print(property)
+                        print("default")
                     }
                     
                     let propertyValue: AnyObject? = taskDictionary.object(forKey: property) as AnyObject
                     assert(propertyValue != nil, "\(property) in task \(self.name) is nil")
-                    
-                    print(property)
-                    print("-")
-                    print(propertyValue)
                     self.setValue(propertyValue, forKey: property)
                 }
                 
             }
         }
-        print(properties())
-        print(":",taskId,"-",name,"-",type)
     }
     /*
         Returns true if the Frequency is set to OnDemand
@@ -113,16 +103,14 @@ class DSTask: DSReflect {
         }
     }
     
-    func writeProperties()->Bool{
-        if let taskPath = Bundle.main.path(forResource: taskId, ofType: "plist") {
+    func writeProperties(){
+        if let taskPath = Bundle.main.path(forResource: file, ofType: "plist") {
             if let taskFromPlist = NSMutableDictionary(contentsOfFile: taskPath){
                 taskFromPlist.setValue(type, forKeyPath: "type")
                 taskFromPlist.setValue(status, forKeyPath: "status")
                 taskFromPlist.write(toFile: taskPath, atomically: true)
-                return true
             }
         }
-        return false
     }
     
     

@@ -86,9 +86,7 @@ class HealthManager{
     func readBPM(_ completion: @escaping (_ sampleQuery: HKSampleQuery, _ sample: [HKSample]?, _ error: Error?) -> ()) {
         let sampleType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)
         let predicate = HKQuery.predicateForSamples(withStart: Date(timeIntervalSince1970: 1.0), end: Date(), options: .strictEndDate)
-        
-        //        let count = NSSortDescriptor(key: "count", ascending: true)
-        
+       
         
         let query = HKSampleQuery(sampleType: sampleType!, predicate: predicate, limit: 0, sortDescriptors: nil) { (sampleQuery, samples: [HKSample]?, error: Error?) in
             completion(sampleQuery, samples, error)
