@@ -69,7 +69,7 @@ class DSOnboardingViewController: UIViewController {
     func userFailedElegibility(){
         let alertTitle = NSLocalizedString("Sorry", comment: "")
         let alertMessage = NSLocalizedString("You are not elegible for this study, please uninstall the app.", comment: "")
-        let alertController = UIAlertController(title: alertTitle , message: alertMessage, preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: alertTitle , message: alertMessage, preferredStyle: UIAlertController.Style.alert)
         
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: { (action) -> Void in
             self.performSegue(withIdentifier: "returnToStart", sender: nil)
@@ -85,7 +85,7 @@ class DSOnboardingViewController: UIViewController {
     func userFailedConsent(){
         let alertTitle = NSLocalizedString("Sorry", comment: "")
         let alertMessage = NSLocalizedString("It is mandatory that you go through and accept the consent.", comment: "")
-        let alertController = UIAlertController(title: alertTitle , message: alertMessage, preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: alertTitle , message: alertMessage, preferredStyle: UIAlertController.Style.alert)
         
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Leave", comment: ""), style: .default, handler: { (action) -> Void in
             self.performSegue(withIdentifier: "returnToStart", sender: nil)
@@ -101,7 +101,7 @@ class DSOnboardingViewController: UIViewController {
     func userFailedQuiz(){
         let alertTitle = NSLocalizedString("Sorry", comment: "")
         let alertMessage = NSLocalizedString("It seems that you did not understand the purpose of this study.", comment: "")
-        let alertController = UIAlertController(title: alertTitle , message: alertMessage, preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: alertTitle , message: alertMessage, preferredStyle: UIAlertController.Style.alert)
         
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Review consent", comment: ""), style: .default, handler: { (action) -> Void in
             self.proceedToConsent()

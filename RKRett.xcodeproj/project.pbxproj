@@ -17,13 +17,20 @@
 		2F3193551F3CFD1500F35E09 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3193541F3CFD1500F35E09 /* Parser.swift */; };
 		2F3193571F3D08A900F35E09 /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3193561F3D08A900F35E09 /* Description.swift */; };
 		2F3193591F3D0B4F00F35E09 /* ParserHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3193581F3D0B4F00F35E09 /* ParserHelpers.swift */; };
-		2F6F5E2520A38AB300EA408B /* DSRespiratoryTask.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F6F5E1520A38AB300EA408B /* DSRespiratoryTask.plist */; };
+		2F40F0B4214FE5DC008FADB1 /* TaskAnswer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F40F0B2214FE5DC008FADB1 /* TaskAnswer.xcdatamodeld */; };
+		2F40F107215111F3008FADB1 /* PDFRett.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F40F106215111F3008FADB1 /* PDFRett.swift */; };
+		2F40F10921514C8F008FADB1 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F40F10821514C8F008FADB1 /* ShareViewController.swift */; };
+		2F4BE835210486F2006DA12F /* TreatmentTask.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F4BE833210486F1006DA12F /* TreatmentTask.plist */; };
+		2F5F796221653B2A00952ADF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5F796121653B2A00952ADF /* CloudKit.framework */; };
+		2F5F7970216747C900952ADF /* RettGrossMotorScale.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F5F796E216747C900952ADF /* RettGrossMotorScale.plist */; };
+		2F5F79762167AD1000952ADF /* DSRespiratoryTask.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F5F79782167AD1000952ADF /* DSRespiratoryTask.plist */; };
+		2F5F797A2167AD2E00952ADF /* DSStepTask.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F5F797C2167AD2E00952ADF /* DSStepTask.plist */; };
+		2F5F797E2167AD8700952ADF /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F5F79802167AD8700952ADF /* Dashboard.storyboard */; };
 		2F823CF02095C1E800E36FC3 /* DSProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F823CEF2095C1E800E36FC3 /* DSProfileTableViewController.swift */; };
 		2F823CF22095C76800E36FC3 /* DSProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F823CF12095C76800E36FC3 /* DSProfileViewController.swift */; };
 		2F823CF42095F84500E36FC3 /* DSUpdateInfosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F823CF32095F84500E36FC3 /* DSUpdateInfosTableViewController.swift */; };
 		2F823CFC2096019600E36FC3 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F823CFA2096019500E36FC3 /* Profile.storyboard */; };
 		2F823D19209620D000E36FC3 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F823D1B209620D000E36FC3 /* Settings.storyboard */; };
-		2F823D5C2098C4AA00E36FC3 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F823D5B2098C4AA00E36FC3 /* Dashboard.storyboard */; };
 		2F823D5E2098DF9E00E36FC3 /* TimeBasedGraphCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F823D5D2098DF9D00E36FC3 /* TimeBasedGraphCell.xib */; };
 		2F823D642098F5A100E36FC3 /* DashboardGraphTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F823D632098F5A100E36FC3 /* DashboardGraphTableViewController.swift */; };
 		2F823D66209926C000E36FC3 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F823D65209926C000E36FC3 /* Keys.plist */; };
@@ -38,7 +45,6 @@
 		2FDC1D1F209BA77C00B489D7 /* ToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDC1D1C209BA77C00B489D7 /* ToggleCell.swift */; };
 		2FDC1D26209BBC3900B489D7 /* DSSettingsDashboardConfTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDC1D25209BBC3900B489D7 /* DSSettingsDashboardConfTableViewController.swift */; };
 		2FDC1D27209BCC5D00B489D7 /* DSSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FDC1D29209BCC5D00B489D7 /* DSSettings.plist */; };
-		2FE38BBC2093C17200194603 /* DSStepTask.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FE38BBB2093C17100194603 /* DSStepTask.plist */; };
 		2FE38BC020947AFD00194603 /* DSHealthKitData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FE38BBF20947AFD00194603 /* DSHealthKitData.plist */; };
 		31FF5F1FC603400F0BAB2928 /* Pods_RKRettTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85D054C5D01128D7353EAB5 /* Pods_RKRettTests.framework */; };
 		35812B781BC6EB0700D4FB68 /* CSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35812B771BC6EB0700D4FB68 /* CSV.swift */; };
@@ -204,13 +210,6 @@
 			remoteGlobalIDString = 859A64E3C7A5ED2191A2B946A68968AB;
 			remoteInfo = ResearchKit;
 		};
-		2F9FD38C20552FD40024752A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2F9FD36D20552FD30024752A /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 91730DABEC48E05326F81630CEFDAF63;
-			remoteInfo = ScrollableGraphView;
-		};
 		2F9FD38E20552FD40024752A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2F9FD36D20552FD30024752A /* Pods.xcodeproj */;
@@ -278,21 +277,32 @@
 		2F3193541F3CFD1500F35E09 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = Utils/Parser.swift; sourceTree = "<group>"; };
 		2F3193561F3D08A900F35E09 /* Description.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Description.swift; path = Utils/Description.swift; sourceTree = "<group>"; };
 		2F3193581F3D0B4F00F35E09 /* ParserHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParserHelpers.swift; path = Utils/ParserHelpers.swift; sourceTree = "<group>"; };
+		2F40F0B3214FE5DC008FADB1 /* TaskAnswer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskAnswer.xcdatamodel; sourceTree = "<group>"; };
+		2F40F106215111F3008FADB1 /* PDFRett.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFRett.swift; sourceTree = "<group>"; };
+		2F40F10821514C8F008FADB1 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		2F4BE834210486F1006DA12F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = Surveys/en.lproj/TreatmentTask.plist; sourceTree = "<group>"; };
 		2F4F90061F3E488F009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2F4F90071F3E488F009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Learn.strings; sourceTree = "<group>"; };
 		2F4F90091F3E4890009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = View/Onboarding/fr.lproj/Password.strings; sourceTree = "<group>"; };
 		2F4F900A1F3E4890009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Onboarding.strings; sourceTree = "<group>"; };
 		2F4F900B1F3E48CF009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2F6F5E1520A38AB300EA408B /* DSRespiratoryTask.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DSRespiratoryTask.plist; sourceTree = "<group>"; };
+		2F5F796121653B2A00952ADF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		2F5F796F216747C900952ADF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = Surveys/en.lproj/RettGrossMotorScale.plist; sourceTree = "<group>"; };
+		2F5F79742167A72100952ADF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = Surveys/fr.lproj/TreatmentTask.plist; sourceTree = "<group>"; };
+		2F5F79752167A7A900952ADF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = Surveys/fr.lproj/RettGrossMotorScale.plist; sourceTree = "<group>"; };
+		2F5F79772167AD1000952ADF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/DSRespiratoryTask.plist; sourceTree = "<group>"; };
+		2F5F79792167AD1300952ADF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSRespiratoryTask.plist; sourceTree = "<group>"; };
+		2F5F797B2167AD2E00952ADF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/DSStepTask.plist; sourceTree = "<group>"; };
+		2F5F797D2167AD3000952ADF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSStepTask.plist; sourceTree = "<group>"; };
+		2F5F797F2167AD8700952ADF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Dashboard.storyboard; sourceTree = "<group>"; };
+		2F5F79822167AD8C00952ADF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Dashboard.strings; sourceTree = "<group>"; };
 		2F823CEF2095C1E800E36FC3 /* DSProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSProfileTableViewController.swift; sourceTree = "<group>"; };
 		2F823CF12095C76800E36FC3 /* DSProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSProfileViewController.swift; sourceTree = "<group>"; };
 		2F823CF32095F84500E36FC3 /* DSUpdateInfosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSUpdateInfosTableViewController.swift; sourceTree = "<group>"; };
 		2F823CFD2096019A00E36FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
-		2F823CFF209601AC00E36FC3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Profile.strings; sourceTree = "<group>"; };
 		2F823D1620961C8E00E36FC3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		2F823D1A209620D000E36FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		2F823D1D209620D500E36FC3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Settings.strings; sourceTree = "<group>"; };
-		2F823D5B2098C4AA00E36FC3 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		2F823D5D2098DF9D00E36FC3 /* TimeBasedGraphCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeBasedGraphCell.xib; sourceTree = "<group>"; };
 		2F823D632098F5A100E36FC3 /* DashboardGraphTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardGraphTableViewController.swift; sourceTree = "<group>"; };
 		2F823D65209926C000E36FC3 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
@@ -318,10 +328,9 @@
 		2FDC1D0B209BA77B00B489D7 /* MoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreCell.swift; sourceTree = "<group>"; };
 		2FDC1D1B209BA77C00B489D7 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		2FDC1D1C209BA77C00B489D7 /* ToggleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleCell.swift; sourceTree = "<group>"; };
-		2FDC1D25209BBC3900B489D7 /* DSSettingsDashboardConfTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DSSettingsDashboardConfTableViewController.swift; path = /Users/jfieschi/Documents/RettApp/RKRett/Settings/DSSettingsDashboardConfTableViewController.swift; sourceTree = "<absolute>"; };
+		2FDC1D25209BBC3900B489D7 /* DSSettingsDashboardConfTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSSettingsDashboardConfTableViewController.swift; sourceTree = "<group>"; };
 		2FDC1D28209BCC5D00B489D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/DSSettings.plist; sourceTree = "<group>"; };
 		2FDC1D2A209BCC5F00B489D7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSSettings.plist; sourceTree = "<group>"; };
-		2FE38BBB2093C17100194603 /* DSStepTask.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DSStepTask.plist; sourceTree = "<group>"; };
 		2FE38BBF20947AFD00194603 /* DSHealthKitData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DSHealthKitData.plist; sourceTree = "<group>"; };
 		35812B771BC6EB0700D4FB68 /* CSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSV.swift; path = Utils/CSV.swift; sourceTree = "<group>"; };
 		358824631BD8B35F00276C63 /* JBBarChartFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartFooterView.h; sourceTree = "<group>"; };
@@ -444,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				626E1EE01C10B51A00A19674 /* HealthKit.framework in Frameworks */,
+				2F5F796221653B2A00952ADF /* CloudKit.framework in Frameworks */,
 				620943AB1BAC037600C1A9B9 /* LocalAuthentication.framework in Frameworks */,
 				1C1FDE4FE2AC1C4678D1FB27 /* Pods_RKRett.framework in Frameworks */,
 			);
@@ -473,6 +483,7 @@
 				2FA8999E201769A30096AB35 /* DSSettingsDetailController.swift */,
 				2FA8999D201769A30096AB35 /* DSSettingsSection.swift */,
 				2FA8999F201769A40096AB35 /* DSSettingsViewController.swift */,
+				2F40F10821514C8F008FADB1 /* ShareViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -510,7 +521,6 @@
 				2F9FD38720552FD40024752A /* Realm.framework */,
 				2F9FD38920552FD40024752A /* RealmSwift.framework */,
 				2F9FD38B20552FD40024752A /* ResearchKit.framework */,
-				2F9FD38D20552FD40024752A /* ScrollableGraphView.framework */,
 				2F9FD38F20552FD40024752A /* SVProgressHUD.framework */,
 				2F9FD39120552FD40024752A /* SwiftKeychainWrapper.framework */,
 				2F9FD39320552FD40024752A /* SwiftyJSON.framework */,
@@ -533,6 +543,7 @@
 		3D368D852E7B167EA9E9B657 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2F5F796121653B2A00952ADF /* CloudKit.framework */,
 				2F9FD36D20552FD30024752A /* Pods.xcodeproj */,
 				626E1EDF1C10B51A00A19674 /* HealthKit.framework */,
 				620943AA1BAC037600C1A9B9 /* LocalAuthentication.framework */,
@@ -706,6 +717,7 @@
 				52A436BE1B84E0B300188433 /* Tasks */,
 				62FBBC451B8776DE002462DE /* Utils */,
 				62FBBC481B878874002462DE /* View */,
+				2F40F0B2214FE5DC008FADB1 /* TaskAnswer.xcdatamodeld */,
 			);
 			path = RKRett;
 			sourceTree = "<group>";
@@ -757,9 +769,11 @@
 		52A436BE1B84E0B300188433 /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
-				2FE38BBB2093C17100194603 /* DSStepTask.plist */,
-				2F6F5E1520A38AB300EA408B /* DSRespiratoryTask.plist */,
+				2F4BE833210486F1006DA12F /* TreatmentTask.plist */,
+				2F5F797C2167AD2E00952ADF /* DSStepTask.plist */,
+				2F5F79782167AD1000952ADF /* DSRespiratoryTask.plist */,
 				52E600DB1BBC4FE400910E56 /* DSBloodPressureTask.plist */,
+				2F5F796E216747C900952ADF /* RettGrossMotorScale.plist */,
 				52A436B91B84E0AA00188433 /* DSTasks.plist */,
 				52EED4BC1BBC4F030032B7DF /* DSMoodTask.plist */,
 				52783EA51BBEA77700AB2BB9 /* DSTemperatureTask.plist */,
@@ -872,7 +886,7 @@
 		6274FF321B8F87CE0002EB02 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				2F823D5B2098C4AA00E36FC3 /* Dashboard.storyboard */,
+				2F5F79802167AD8700952ADF /* Dashboard.storyboard */,
 				2F823D632098F5A100E36FC3 /* DashboardGraphTableViewController.swift */,
 				6274FF331B8F87D70002EB02 /* Graphics */,
 			);
@@ -924,6 +938,7 @@
 				35ABC8221BE983DC0036A3AE /* DSError.swift */,
 				52CD1E881BB1915700529E84 /* DSUtils.swift */,
 				527C41581BABA6AA001A1B24 /* ORKESerializer */,
+				2F40F106215111F3008FADB1 /* PDFRett.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1020,7 +1035,10 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
 							};
 						};
 					};
@@ -1136,13 +1154,6 @@
 			remoteRef = 2F9FD38A20552FD40024752A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2F9FD38D20552FD40024752A /* ScrollableGraphView.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ScrollableGraphView.framework;
-			remoteRef = 2F9FD38C20552FD40024752A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		2F9FD38F20552FD40024752A /* SVProgressHUD.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1181,17 +1192,18 @@
 				52EED4B61BBC49F80032B7DF /* Localizable.strings in Resources */,
 				52031F7A1BC2E1D600A6402A /* DSLearnMore.plist in Resources */,
 				359682262011EFA8003870B5 /* data.m4v in Resources */,
-				2F823D5C2098C4AA00E36FC3 /* Dashboard.storyboard in Resources */,
+				2F5F797E2167AD8700952ADF /* Dashboard.storyboard in Resources */,
 				52031F621BC2DC5600A6402A /* Main.storyboard in Resources */,
 				52C657DE1BC2EE66000CE353 /* Onboarding.storyboard in Resources */,
 				2F959004201270D10037F542 /* DSAuthorizationViewController.xib in Resources */,
 				52031F6F1BC2DCB100A6402A /* LaunchScreen.xib in Resources */,
-				2F6F5E2520A38AB300EA408B /* DSRespiratoryTask.plist in Resources */,
+				2F5F79762167AD1000952ADF /* DSRespiratoryTask.plist in Resources */,
 				62482FEE1F3C854E00B83B25 /* CircularGraphCell.xib in Resources */,
 				52CB18A71BBE9A1700B1B096 /* DSQuiz.plist in Resources */,
 				2F823D5E2098DF9E00E36FC3 /* TimeBasedGraphCell.xib in Resources */,
+				2F4BE835210486F2006DA12F /* TreatmentTask.plist in Resources */,
 				2F823CFC2096019600E36FC3 /* Profile.storyboard in Resources */,
-				2FE38BBC2093C17200194603 /* DSStepTask.plist in Resources */,
+				2F5F797A2167AD2E00952ADF /* DSStepTask.plist in Resources */,
 				2FDC1D27209BCC5D00B489D7 /* DSSettings.plist in Resources */,
 				5227AA401BEBC31C000FA4B1 /* main.js in Resources */,
 				5227AA411BEBC31C000FA4B1 /* index.html in Resources */,
@@ -1211,6 +1223,7 @@
 				5227AA3E1BEBC31C000FA4B1 /* .parse.local in Resources */,
 				2FE38BC020947AFD00194603 /* DSHealthKitData.plist in Resources */,
 				5298A5231BBEA7AA00605A75 /* DSO2SaturationTask.plist in Resources */,
+				2F5F7970216747C900952ADF /* RettGrossMotorScale.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1254,11 +1267,8 @@
 				"${BUILT_PRODUCTS_DIR}/CareKit/CareKit.framework",
 				"${BUILT_PRODUCTS_DIR}/JBChartView/JBChartView.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ResearchKit/ResearchKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/ScrollableGraphView/ScrollableGraphView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
@@ -1269,11 +1279,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CareKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JBChartView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ResearchKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ScrollableGraphView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -1328,6 +1335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				622AEADF1BFBCE7E009191FC /* DSReflect.swift in Sources */,
+				2F40F107215111F3008FADB1 /* PDFRett.swift in Sources */,
 				52AB7C7C1BABD467006E3B77 /* DSConsentTask.swift in Sources */,
 				52AB7C861BABD48E006E3B77 /* DSPasswordController.swift in Sources */,
 				62482FE81F3C852900B83B25 /* DSActivityCell.swift in Sources */,
@@ -1337,6 +1345,7 @@
 				62482FED1F3C854E00B83B25 /* CircularGraphCell.swift in Sources */,
 				52AB7C7A1BABD467006E3B77 /* DSConsentController.swift in Sources */,
 				2FA899A1201769A40096AB35 /* DSSettingsDetailController.swift in Sources */,
+				2F40F0B4214FE5DC008FADB1 /* TaskAnswer.xcdatamodeld in Sources */,
 				35EE6F251BC5A7FF00855E3A /* DSQueryDetailViewController.swift in Sources */,
 				52AB7C7B1BABD467006E3B77 /* DSConsentDocument.swift in Sources */,
 				52A06FBC1B90B8B400DA4AEC /* DSConstants.swift in Sources */,
@@ -1345,6 +1354,7 @@
 				35ABC8231BE983DC0036A3AE /* DSError.swift in Sources */,
 				0AB33C8F1BC6DF30007904BA /* TimeBasedGraphView.swift in Sources */,
 				52AB7C721BABD453006E3B77 /* DSQuizTask.swift in Sources */,
+				2F40F10921514C8F008FADB1 /* ShareViewController.swift in Sources */,
 				52AB7C831BABD472006E3B77 /* DSElegibilityController.swift in Sources */,
 				52AB7C841BABD472006E3B77 /* DSElegibilityTask.swift in Sources */,
 				2F823CF22095C76800E36FC3 /* DSProfileViewController.swift in Sources */,
@@ -1420,11 +1430,55 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2F4BE833210486F1006DA12F /* TreatmentTask.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F4BE834210486F1006DA12F /* en */,
+				2F5F79742167A72100952ADF /* fr */,
+			);
+			name = TreatmentTask.plist;
+			sourceTree = "<group>";
+		};
+		2F5F796E216747C900952ADF /* RettGrossMotorScale.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F5F796F216747C900952ADF /* en */,
+				2F5F79752167A7A900952ADF /* fr */,
+			);
+			name = RettGrossMotorScale.plist;
+			sourceTree = "<group>";
+		};
+		2F5F79782167AD1000952ADF /* DSRespiratoryTask.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F5F79772167AD1000952ADF /* Base */,
+				2F5F79792167AD1300952ADF /* fr */,
+			);
+			name = DSRespiratoryTask.plist;
+			sourceTree = "<group>";
+		};
+		2F5F797C2167AD2E00952ADF /* DSStepTask.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F5F797B2167AD2E00952ADF /* Base */,
+				2F5F797D2167AD3000952ADF /* fr */,
+			);
+			name = DSStepTask.plist;
+			sourceTree = "<group>";
+		};
+		2F5F79802167AD8700952ADF /* Dashboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F5F797F2167AD8700952ADF /* Base */,
+				2F5F79822167AD8C00952ADF /* fr */,
+			);
+			name = Dashboard.storyboard;
+			sourceTree = "<group>";
+		};
 		2F823CFA2096019500E36FC3 /* Profile.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				2F823CFD2096019A00E36FC3 /* Base */,
-				2F823CFF209601AC00E36FC3 /* fr */,
 			);
 			name = Profile.storyboard;
 			sourceTree = "<group>";
@@ -1788,7 +1842,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = RKRett/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
@@ -1799,7 +1853,7 @@
 				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/RKRett/RKRett-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1821,7 +1875,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = RKRett/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D RELEASE";
@@ -1832,7 +1886,7 @@
 				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/RKRett/RKRett-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1912,6 +1966,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2F40F0B2214FE5DC008FADB1 /* TaskAnswer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2F40F0B3214FE5DC008FADB1 /* TaskAnswer.xcdatamodel */,
+			);
+			currentVersion = 2F40F0B3214FE5DC008FADB1 /* TaskAnswer.xcdatamodel */;
+			path = TaskAnswer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 52A436841B84DAE500188433 /* Project object */;
 }

@@ -45,13 +45,13 @@ class DSSettingsDetailController:UIViewController{
 }
 
 extension DSSettingsDetailController:UIWebViewDelegate{
-    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool {
         //var path = Bundle.path(self) as String
         //var baseURL = URL.init(fileURLWithPath: path)
         
         //webView.loadHTMLString("", baseURL: Bundle.main.bundleURL)
         
-        if navigationType == UIWebViewNavigationType.linkClicked{
+        if navigationType == UIWebView.NavigationType.linkClicked{
             UIApplication.shared.openURL(request.url!)
             return false
         }

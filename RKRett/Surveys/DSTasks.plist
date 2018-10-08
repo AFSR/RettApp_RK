@@ -10,5 +10,7 @@
 	<string>DSO2SaturationTask</string>
 	<string>DSRespiratoryTask</string>
 	<string>DSStepTask</string>
+	<string>TreatmentTask</string>
+	<string>RettGrossMotorScale</string>
 </array>
 </plist>

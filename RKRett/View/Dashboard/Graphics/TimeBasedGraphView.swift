@@ -3,6 +3,7 @@
 //  DataGraphics
 //
 //  Created by Mateus Reckziegel on 8/27/15.
+//  Updated by Julien Fieschi on 8/12/18.
 //  Copyright (c) 2015 Mateus Reckziegel. All rights reserved.
 //
 
@@ -41,7 +42,6 @@ class TimeBasedGraphView: StandardGraphView {
     override func setXValuesRange(_ range: (min:Any, max:Any)) {
         self.referenceDate = range.min as! Date
         self.xValuesRange = (0.0, (range.max as! Date).timeIntervalSince(self.referenceDate as Date))
-        print(self.xValuesRange.max)
     }
     override func setPoints(_ points: [(Any, Any)]) {
         self.points = points
@@ -64,7 +64,7 @@ class TimeBasedGraphView: StandardGraphView {
         case .day:
             return "MMM dd"
         case .week:
-            return "'w'W, MMM"
+            return "'s'W, MMM"
         case .month:
             return "MMM"
         case .year:
@@ -75,6 +75,15 @@ class TimeBasedGraphView: StandardGraphView {
     override func XValueForIndex(_ index: CGFloat) -> String {
         let date = self.referenceDate.addingTimeInterval(Double(index*self.guidelinesSpacing/self.xScale))
         return String(format: "%@", arguments: [self.stringFromDate(date)])
+    }
+    
+    func pointIsOnGraph(_ object: (date: Any, value: Any)) -> Bool {
+        let x = (object.date as! Date).timeIntervalSince(self.referenceDate as Date)
+        if (x > self.xValuesRange.min && x < self.xValuesRange.max) {
+            return true
+        }else{
+            return false
+        }
     }
     
     override func pointForObject(_ object: (date: Any, value: Any)) -> CGPoint {

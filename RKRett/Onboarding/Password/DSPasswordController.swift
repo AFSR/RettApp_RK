@@ -29,7 +29,7 @@ class DSPasswordController:UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        passwordField.addTarget(self, action: #selector(passwordDidChange(sender:)), for: UIControlEvents.editingChanged)
+        passwordField.addTarget(self, action: #selector(passwordDidChange(sender:)), for: UIControl.Event.editingChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -151,7 +151,7 @@ class DSPasswordController:UIViewController {
     func animateViews(block: @escaping (Bool)->()) {
         for (index,circle) in circles.enumerated() {
             let timeForCircle = 0.027
-            UIView.animateKeyframes(withDuration: timeForCircle*Double(self.circles.count), delay: Double(index)*timeForCircle, options: UIViewKeyframeAnimationOptions.beginFromCurrentState, animations: { () -> Void in
+            UIView.animateKeyframes(withDuration: timeForCircle*Double(self.circles.count), delay: Double(index)*timeForCircle, options: UIView.KeyframeAnimationOptions.beginFromCurrentState, animations: { () -> Void in
                 circle.backgroundColor = .purple
             }, completion: block)
         }
@@ -168,10 +168,10 @@ class DSPasswordController:UIViewController {
     func wrongPassword(){
         self.passwordField.text = ""
         for (index,circle) in self.circles.enumerated(){
-            UIView.animateKeyframes(withDuration: 0.1, delay: Double(index)*0.05, options: UIViewKeyframeAnimationOptions.beginFromCurrentState, animations: { () -> Void in
+            UIView.animateKeyframes(withDuration: 0.1, delay: Double(index)*0.05, options: UIView.KeyframeAnimationOptions.beginFromCurrentState, animations: { () -> Void in
                 circle.center.y -= 10
             }, completion: { (suc) -> Void in
-                UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.beginFromCurrentState, animations: { () -> Void in
+                UIView.animate(withDuration: 0.3, delay: 0, options: UIView.AnimationOptions.beginFromCurrentState, animations: { () -> Void in
                     circle.center.y += 10
                     circle.backgroundColor =
                         .white
@@ -183,15 +183,15 @@ class DSPasswordController:UIViewController {
     }
     
     func showTouchIdAlert(){
-        let alertController = UIAlertController(title: "RKRett Touch ID", message: "Would you like to use Touch ID to access the app?", preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: "RKRett Touch ID", message: "Would you like to use Touch ID to access the app?", preferredStyle: UIAlertController.Style.alert)
         
-        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+        alertController.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.default, handler: { (action) -> Void in
             useTouchId = false
             self.showLabel()
             self.passwordField.becomeFirstResponder()
         }))
         
-        alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+        alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: { (action) -> Void in
             useTouchId = true
             self.authenticateUser()
         }))

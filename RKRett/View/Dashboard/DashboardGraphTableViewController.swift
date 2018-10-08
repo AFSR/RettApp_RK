@@ -26,10 +26,11 @@ class DashboardGraphTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        let height = tableView.systemLayoutSizeFitting(UILayoutFittingExpandedSize).height
+        let height = tableView.systemLayoutSizeFitting(UIView.layoutFittingExpandedSize).height
         return height
         
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,7 @@ class DashboardGraphTableViewController: UITableViewController {
         UIDevice.current.setValue(value, forKey: "orientation")
 
         self.tableView.estimatedRowHeight = 300;
-        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        self.tableView.rowHeight = UITableView.automaticDimension;
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -50,6 +51,10 @@ class DashboardGraphTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        print("Cell is displayed")
     }
 
     // MARK: - Table view data source
@@ -63,11 +68,11 @@ class DashboardGraphTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         
-        let cell = originCell as UITableViewCell
+        //let cell = originCell as UITableViewCell
 
         let vc:DSTimeBasedGraphViewController
 

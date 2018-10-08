@@ -1,31 +1,29 @@
 PODS:
   - Bolts/Tasks (1.9.0)
-  - Buglife (2.5.0)
+  - Buglife (2.8.1)
   - CareKit (1.2.1)
   - JBChartView (3.0.13)
-  - Parse (1.16.0):
-    - Parse/Core (= 1.16.0)
-  - Parse/Core (1.16.0):
+  - Parse (1.17.1):
+    - Parse/Core (= 1.17.1)
+  - Parse/Core (1.17.1):
     - Bolts/Tasks (~> 1.9)
-  - Realm (2.9.1):
-    - Realm/Headers (= 2.9.1)
-  - Realm/Headers (2.9.1)
-  - RealmSwift (2.9.1):
-    - Realm (= 2.9.1)
+  - Realm (3.11.0):
+    - Realm/Headers (= 3.11.0)
+  - Realm/Headers (3.11.0)
+  - RealmSwift (3.11.0):
+    - Realm (= 3.11.0)
   - ResearchKit (1.5.2)
-  - ScrollableGraphView (4.0.4)
-  - SVProgressHUD (2.1.2)
+  - SVProgressHUD (2.2.5)
   - SwiftKeychainWrapper (3.0.1)
-  - SwiftyJSON (3.1.4)
+  - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
-  - Buglife (~> 2.5)
+  - Buglife
   - CareKit
   - JBChartView
   - Parse
   - RealmSwift
   - ResearchKit
-  - ScrollableGraphView
   - SVProgressHUD
   - SwiftKeychainWrapper
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
@@ -40,7 +38,6 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - ResearchKit
-    - ScrollableGraphView
     - SVProgressHUD
     - SwiftKeychainWrapper
 
@@ -50,23 +47,22 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   SwiftyJSON:
-    :commit: ebc305b69ecca005b636f20e0db4d07d19d333fa
+    :commit: 3f6f1d32df6e5f334593682b20bb829e48bffbee
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
-  Buglife: 12aa06ae50c51d1ca53c8b88bf156e92a306ed85
+  Buglife: cbf83ab8a0e203a76ee640b24c2e3c3cae9f2c8a
   CareKit: aa0c8a57c1a2d7cfb46ff3981fe1503f02ca302e
   JBChartView: ea240dca7b83a92f47d4ae766beb3714753988a1
-  Parse: 5b36dc2c2f0a2fd82a257ae018bc3d68cf2c24e7
-  Realm: f91fb43bd474c4f731a116ebf7392c75dd015920
-  RealmSwift: 207f12a4a36b696c5183c60a1c06d70234a23e56
+  Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
+  Realm: 92f09a102692b96a9a10e9617f214f15c5ab85fc
+  RealmSwift: 5f0481cd658bb751c509314b964a35eaa264d2cf
   ResearchKit: a5770681dd61afddd3d1f24d232b9abf00cba454
-  ScrollableGraphView: 072ea302f4ca27779692656a49d51fe537b2b1e7
-  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
-  SwiftyJSON: 05cf0e98a950e2ba343735264f5a96b81e755d00
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 1a000bbb335a13740f3c266dac9f1f5ad6718cb3
+PODFILE CHECKSUM: 22257830a9dfde18107e273f5d5479d1cba0197a
 
 COCOAPODS: 1.5.0

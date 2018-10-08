@@ -8,9 +8,14 @@
 
 import UIKit
 import Parse
+import CoreData
+import CloudKit
 
+@available(iOS 10.0, *)
 class DSTaskListViewController: UIViewController{
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
     @IBOutlet weak var tableView: UITableView!
     let taskController:DSTaskController = DSTaskController()
     var sectionLabel = UILabel()
@@ -21,12 +26,52 @@ class DSTaskListViewController: UIViewController{
     var hideTasks = [DSTask]()
     var tasksCount = 0
     
+//    private func fetchUserRecord(recordID: CKRecordID) {
+//        // Fetch Default Container
+//        let defaultContainer = CKContainer.default()
+//
+//        // Fetch Private Database
+//        let privateDatabase = defaultContainer.privateCloudDatabase
+//
+//        // Fetch User Record
+//        privateDatabase.fetch(withRecordID: recordID) { (record, error) -> Void in
+//            if let responseError = error {
+//                print(responseError)
+//
+//            } else if let userRecord = record {
+//                print(userRecord)
+//            }
+//        }
+//    }
+//
+//    private func fetchUserRecordID() {
+//        // Fetch Default Container
+//        let defaultContainer = CKContainer.default()
+//
+//        // Fetch User Record
+//        defaultContainer.fetchUserRecordID { (recordID, error) -> Void in
+//            if let responseError = error {
+//                print(responseError)
+//
+//            } else if let userRecordID = recordID {
+//                DispatchQueue.main.sync {
+//                    self.fetchUserRecord(recordID: userRecordID)
+//                }
+//            }
+//        }
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, -69, 0)
+        
+        
         UIApplication.shared.statusBarStyle = .default
+        
+        // Fetch User Record ID
+        //fetchUserRecordID()
+        
         
      }
     
@@ -72,9 +117,12 @@ class DSTaskListViewController: UIViewController{
     
     func configureCellForTask(task: DSTask, cell:UITableViewCell){
         cell.textLabel?.text = task.name
-        
+        //print("Configure Task ",task.name," with Id: ",task.taskId)
         let userDefaults = UserDefaults.standard
         var numberOfTasksCompletedes: Any? = nil
+        
+        var tasksCompleted = 0
+        
         if let taskDic = userDefaults.object(forKey: task.taskId) as? [String:AnyObject] {
             numberOfTasksCompletedes = taskDic[PlistFile.Task.FrequencyNumber.rawValue] as! Int
             if numberOfTasksCompletedes as! Int  == 0 {
@@ -84,16 +132,65 @@ class DSTaskListViewController: UIViewController{
             }
         }
         
-        let tasksCompleted = numberOfTasksCompletedes ?? NSLocalizedString("No tasks", comment: "")
+        //Core Data Check Number of Activity for the Frequency
+        do{
+            //Core Data
+            let context = self.appDelegate.persistentContainer.viewContext
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TaskAnswer")
+            let nameOfTaskPredicate = NSPredicate(format: "taskName = %@", task.taskId)
+            
+            var calendar = Calendar.current
+            calendar.timeZone = NSTimeZone.local
+            
+            
+            switch(task.frequencyType){
+            case Frequency.Daily.Key.rawValue:
+                let dateFrom = calendar.startOfDay(for: Date())
+                let numberOfTaskToday = NSPredicate(format: "date >= %@", dateFrom as NSDate)
+                fetchRequest.predicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [nameOfTaskPredicate,numberOfTaskToday])
+            case Frequency.Weekly.Key.rawValue:
+                let dateFrom = calendar.startOfDay(for: Date(timeIntervalSinceNow: 3600*24*7))
+                let numberOfTaskToday = NSPredicate(format: "date >= %@", dateFrom as NSDate)
+                fetchRequest.predicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [nameOfTaskPredicate,numberOfTaskToday])
+            case Frequency.Monthly.Key.rawValue:
+                let dateFrom = calendar.startOfDay(for: Date(timeIntervalSinceNow: 3600*24*31))
+                let numberOfTaskToday = NSPredicate(format: "date >= %@", dateFrom as NSDate)
+                fetchRequest.predicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [nameOfTaskPredicate,numberOfTaskToday])
+            default:
+                fetchRequest.predicate = NSPredicate(format: "date > %@", Date() as NSDate)
+            }
+            
+            do {
+                let resultsOfDuration = try context.fetch(fetchRequest)
+                //print("NB of Tasks today: ", resultsOfDuration.count)
+                    if resultsOfDuration.count as! Int  == 0 {
+                        numberOfTasksCompletedes = nil
+                    }else{
+                        numberOfTasksCompletedes = resultsOfDuration.count.description
+                    }
+                }catch{
+                print("Error counting Predicate")
+                }
+            
+            }catch let error as NSError{
+            
+            print(error.localizedDescription)
+            return
+            
+        }
+        //---
+        
+        //let nbTasksCompleted = tasksCompleted as! String ?? NSLocalizedString("No tasks", comment: "")
+        let nbTasksCompleted = numberOfTasksCompletedes ?? NSLocalizedString("No tasks", comment: "")
         var detailLabel:String!
         
             switch(task.frequencyType){
             case Frequency.Daily.Key.rawValue:
-                detailLabel = (tasksCompleted as! String) + " " + NSLocalizedString("of", comment: "") + " " + (task.frequencyNumber.description) + " " + NSLocalizedString("for today", comment: "")
+                detailLabel = (nbTasksCompleted as! String) + " " + NSLocalizedString("of", comment: "") + " " + (task.frequencyNumber.description) + " " + NSLocalizedString("for today", comment: "")
             case Frequency.Weekly.Key.rawValue:
-                detailLabel = (tasksCompleted as! String) + NSLocalizedString("of", comment: "") + (task.frequencyNumber.stringValue) + NSLocalizedString("for this week", comment: "")
+                detailLabel = (nbTasksCompleted as! String) + NSLocalizedString("of", comment: "") + (task.frequencyNumber.stringValue) + NSLocalizedString("for this week", comment: "")
             case Frequency.Monthly.Key.rawValue:
-                detailLabel = (tasksCompleted as! String) + NSLocalizedString("of", comment: "") + (task.frequencyNumber.stringValue) + NSLocalizedString("for this month", comment: "")
+                detailLabel = (nbTasksCompleted as! String) + NSLocalizedString("of", comment: "") + (task.frequencyNumber.stringValue) + NSLocalizedString("for this month", comment: "")
             default:
                 detailLabel = NSLocalizedString("Fill this in as needed", comment: "")
             }
@@ -129,6 +226,7 @@ class DSTaskListViewController: UIViewController{
 }
 
 // MARK: - TableViewDataSource
+@available(iOS 10.0, *)
 extension DSTaskListViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -178,7 +276,7 @@ extension DSTaskListViewController: UITableViewDataSource {
 //            
 //        case (tableView.numberOfSections - 1 - ondemandTasks.count):
 //            return 20
-//
+
         default:
             return 0.5
         }
@@ -186,7 +284,7 @@ extension DSTaskListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let kTaskCellReuseIdentifier = "TaskCell"
-        let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: kTaskCellReuseIdentifier)
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: kTaskCellReuseIdentifier)
         if indexPath.section < uncompletedTasks.count{
             configureCellForTask(task: uncompletedTasks[indexPath.section], cell: cell)
         }else if(indexPath.section < completedTasks.count + uncompletedTasks.count){
@@ -203,6 +301,7 @@ extension DSTaskListViewController: UITableViewDataSource {
 }
 
 // MARK: - TableViewDelegate
+@available(iOS 10.0, *)
 extension DSTaskListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)

@@ -6,9 +6,9 @@
 //  Copyright © 2015 DarkShine. All rights reserved.
 //
 
-import RealmSwift
+//import RealmSwift
 
-class DSTaskAnswerRealm: Object {
+class DSTaskAnswerRealm: NSObject {
     
     @objc dynamic var taskName = ""
     @objc dynamic var json = ""

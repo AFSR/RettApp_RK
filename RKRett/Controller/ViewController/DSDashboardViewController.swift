@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ScrollableGraphView
+//import ScrollableGraphView
 
 class DSDashboardViewController: UIViewController,TimeBasedGraphCellDelegate {
     //MARK: - Serialize/Deserialize Tuples
@@ -93,7 +93,22 @@ class DSDashboardViewController: UIViewController,TimeBasedGraphCellDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         graphIdentifiers = getGraphIds()
-        tableView.reloadData()
+        
+        print("Dashboard appear")
+        if UserDefaults.standard.value(forKey: "localDataDeleted") as! Bool == true{
+            self.setNeedsFocusUpdate()
+            for vc in viewControllers {
+                if vc is DSTimeBasedGraphViewController {
+                    let tvc = vc as! DSTimeBasedGraphViewController
+                    tvc.resetValues()
+                    tvc.updateView()
+                }
+            }
+            tableView.reloadData()
+            UserDefaults.standard.set(false, forKey: "localDataDeleted")
+            print("reload dashboard view")
+        }
+        
     }
     
     override func viewDidLoad() {
@@ -237,6 +252,7 @@ class DSDashboardViewController: UIViewController,TimeBasedGraphCellDelegate {
     }
 }
 
+@available(iOS 10.0, *)
 extension DSDashboardViewController : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -314,7 +330,7 @@ extension DSDashboardViewController : UITableViewDelegate {
         tableView.setEditing(editing, animated: animated)
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete{
              if let taskPath = Bundle.main.path(forResource: graphIdentifiers[indexPath.row].taskId, ofType: "plist") {

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 import JBChartView
 
 class DSQueryDetailViewController: UIViewController{
@@ -31,7 +30,7 @@ class DSQueryDetailViewController: UIViewController{
         self.navigationItem.rightBarButtonItem = barButton
         informationLabel.text = ""
         scrollView.addSubview(lineChart)
-        scrollView.contentInset = UIEdgeInsetsMake(0,0,0,0)
+        scrollView.contentInset = UIEdgeInsets(top: 0,left: 0,bottom: 0,right: 0)
         scrollView.clipsToBounds = true
         scrollView.contentSize = lineChart.bounds.size
         scrollView.layer.cornerRadius = 10
@@ -49,42 +48,8 @@ class DSQueryDetailViewController: UIViewController{
         lineChart.minimumValue = 0.0
         lineChart.footerPadding = 5.0
         lineChart.backgroundColor = UIColor.clear
-        do {
-            var text = ""
-            let realm = try Realm()
-            let query = realm.object(ofType: DSSensorDataQuery.self, forPrimaryKey: self.identifier as AnyObject)!
-            for a in query.statusHistory {
-                text += a.status + " --> " + a.timeStamp + "\n"
-            }
-            text += "identifier: \(query.identifier)\n initialDate: \(query.initialDate)\n finalDate: \(query.finalDate)\n expectedDataSize: \(query.expectedDataSize)\n dataSize: \(query.dataSize)\n succed: \(query.succed)\n url: \(query.url)\n gaps: \(query.gaps)"
-            
-            self.textView.text = text
-            if (query.succed){
-                let documents = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
-                let path = documents.appendingPathComponent(query.url)
-                let fileURL = URL(fileURLWithPath: path)
-                print(query.url)
-                do{
-                    
-                    let csv = try CSV(url: fileURL as NSURL)
-                    for (index, dateString) in csv.columns["dateString"]!.enumerated(){
-                        let timeInterval: Double! = Double(dateString)
-                        let date = NSDate(timeIntervalSince1970: timeInterval)
-                        let x = Double(csv.columns["acceleration.x"]![index])
-                        let y = Double(csv.columns["acceleration.y"]![index])
-                        let z = Double(csv.columns["acceleration.z"]![index])
-                        graphData.append((x!, y!, z!, date as Date))
-                    }
-                    lineChart.reloadData()
-                    lineChart.setState(.expanded, animated: true)
-                }catch let error{
-                    print(error)
-                }
-            }
-        }catch let error{
-            print("Problem using REALM or String(contentsOfURL)")
-            print(error)
-        } 
+        //Utilisation de CoreData
+        
 
     }
     

@@ -28,6 +28,18 @@ var useTouchId:Bool{
     }
 }
 
+var lastHKSyncDate : Date{
+    get{
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.lastHKSync
+    }
+    set{
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.lastHKSync = newValue
+        UserDefaults.standard.set(newValue, forKey: "lastHKSync")
+    }
+}
+
 var tasks : [DSTask] {
     get{
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -49,7 +61,7 @@ func createSideViewForCell(_ cell: UITableViewCell, withColor color:UIColor){
     let leftView = UIView(frame: frame)
     leftView.backgroundColor = color
     leftView.translatesAutoresizingMaskIntoConstraints = false
-    leftView.autoresizingMask = UIViewAutoresizing.flexibleHeight
+    leftView.autoresizingMask = UIView.AutoresizingMask.flexibleHeight
     cell.contentView.addSubview(leftView)
 }
 

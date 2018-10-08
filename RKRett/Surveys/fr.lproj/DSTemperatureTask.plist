@@ -28,6 +28,21 @@
 			</dict>
 			<key>answerType</key>
 			<string>NSNumber</string>
+			<key>pickerChoice</key>
+			<array>
+				<dict>
+					<key>text</key>
+					<string>37°C</string>
+					<key>value</key>
+					<string>37</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>38°C</string>
+					<key>value</key>
+					<string>38</string>
+				</dict>
+			</array>
 			<key>prompt</key>
 			<string>Mesurer la température corporelle.</string>
 			<key>questionId</key>

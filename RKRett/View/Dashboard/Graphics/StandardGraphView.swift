@@ -39,7 +39,7 @@ class StandardGraphView: UIView {
     
     var animate = false
     
-    var edgeInsets = UIEdgeInsetsMake(16, 40, 40, 16) {
+    var edgeInsets = UIEdgeInsets(top: 16, left: 40, bottom: 40, right: 16) {
         didSet{
             self.setNeedsDisplay()
         }
@@ -126,15 +126,21 @@ class StandardGraphView: UIView {
 
         super.init(frame: frame)
         
-        self.contentMode = UIViewContentMode.redraw
+        self.contentMode = UIView.ContentMode.redraw
+    }
+    
+    func clearGraph(){
+        self.contentMode = UIView.ContentMode.redraw
     }
     
     required init(coder aDecoder: NSCoder) {
         self.xValuesRange = (0, 1)
         self.yValuesRange = (0, 1)
-        
+        //self.xValuesRange = (0, Double(frame.width - (self.edgeInsets.right + self.edgeInsets.left)))
+        //self.yValuesRange = (0, Double(frame.height - (self.edgeInsets.top + self.edgeInsets.bottom)))
+
         super.init(coder: aDecoder)!
-        self.contentMode = UIViewContentMode.redraw
+        self.contentMode = UIView.ContentMode.redraw
         self.layer.addSublayer(self.lineLayer)
         self.layer.addSublayer(self.pointsLayer)
     }
@@ -265,7 +271,7 @@ class StandardGraphView: UIView {
         
         let font = UIFont(name: "Helvetica", size: 13)
         
-        let attr = [NSAttributedStringKey.font:font!,NSAttributedStringKey.foregroundColor:self.highlightedLinesColor] as [NSAttributedStringKey : Any]
+        let attr = [NSAttributedString.Key.font:font!,NSAttributedString.Key.foregroundColor:self.highlightedLinesColor] as [NSAttributedString.Key : Any]
         
         let affineMatrix = CGAffineTransform(scaleX: 1, y: -1)
         ctx.textMatrix = affineMatrix
@@ -330,7 +336,7 @@ class StandardGraphView: UIView {
         //let attr:CFDictionary = [NSFontAttributeName:font!,NSForegroundColorAttributeName:self.textColor, NSParagraphStyleAttributeName:paragraphStyle]
         //let attr = [NSAttributedStringKey.font.rawValue:font!,NSAttributedStringKey.foregroundColor:self.textColor, NSAttributedStringKey.paragraphStyle:paragraphStyle] as! [String : Any]
 
-        let attr = [NSAttributedStringKey.font:font!,NSAttributedStringKey.foregroundColor:self.textColor, NSAttributedStringKey.paragraphStyle:paragraphStyle] as [NSAttributedStringKey : Any]
+        let attr = [NSAttributedString.Key.font:font!,NSAttributedString.Key.foregroundColor:self.textColor, NSAttributedString.Key.paragraphStyle:paragraphStyle] as [NSAttributedString.Key : Any]
 
         
         ctx.setLineWidth(1.0)
@@ -368,6 +374,7 @@ class StandardGraphView: UIView {
         let x = CGFloat(p.x as! Double - self.xValuesRange.min)
         let y = CGFloat(p.y as! Double - self.yValuesRange.min)
         
+        print("X=",(x*self.xScale),"/Y=",self.graphHeight - (y*self.yScale))
         return CGPoint(x: (x*self.xScale),y: self.graphHeight - (y*self.yScale))
     }
     
@@ -412,8 +419,8 @@ class StandardGraphView: UIView {
             
             lastPoint = correctPoint
             
-//            self.pointsLayer.masksToBounds = true
-//            self.lineLayer.masksToBounds = true
+            self.pointsLayer.masksToBounds = true
+            self.lineLayer.masksToBounds = true
         }
         
         CATransaction.begin()
@@ -429,7 +436,7 @@ class StandardGraphView: UIView {
             anim.duration = lineLength/400
             anim.fromValue = 0.0
             anim.toValue = 1.0
-            anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            anim.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
             
             self.lineLayer.path = line.cgPath
             self.lineLayer.strokeEnd = 1.0

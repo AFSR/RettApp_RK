@@ -68,6 +68,8 @@ extension DSSettingsDashboardConfTableViewController: UITableViewDelegate{
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
     }
     
+    
+    
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         tableView.setEditing(editing, animated: animated)
@@ -119,7 +121,7 @@ extension DSSettingsDashboardConfTableViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style:UITableViewCellStyle.subtitle, reuseIdentifier:"Cell")
+        let cell = UITableViewCell(style:UITableViewCell.CellStyle.subtitle, reuseIdentifier:"Cell")
         cell.textLabel?.text = dashboardList[indexPath.section][indexPath.row].3.name
         if indexPath.section == 0 {
             cell.detailTextLabel?.text = "Task"

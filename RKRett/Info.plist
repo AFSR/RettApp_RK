@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
+	<string>fr_FR</string>
 	<key>CFBundleDisplayName</key>
 	<string>RettApp</string>
 	<key>CFBundleExecutable</key>
@@ -19,11 +19,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.3</string>
+	<string>1.0.9</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>31</string>
+	<string>39</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -33,10 +33,12 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Camera is used to record some video at the user descretion if it can help to understand informations.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>$(EXECUTABLE_NAME) use FaceID to log In.</string>
 	<key>NSHealthShareUsageDescription</key>
-	<string>$(PRODUCT_NAME) heath share use</string>
+	<string>$(EXECUTABLE_NAME) Health share use</string>
 	<key>NSHealthUpdateUsageDescription</key>
-	<string>$(PRODUCT_NAME) heath update use</string>
+	<string>$(EXECUTABLE_NAME) Health update use</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Microphone is used to record some sound or noise at the user descretion if it can help to understand informations.</string>
 	<key>NSMotionUsageDescription</key>
@@ -96,5 +98,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>kDisplayNameKey</key>
+	<string></string>
+	<key>kPeerIDKey</key>
+	<string></string>
 </dict>
 </plist>

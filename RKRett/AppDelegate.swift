@@ -13,8 +13,9 @@
 import SVProgressHUD
 import UIKit
 import Buglife
-import RealmSwift
 import Parse
+import CoreData
+import DeviceCheck
 
 //MARK: - AppDelegate
 @UIApplicationMain
@@ -27,8 +28,30 @@ class AppDelegate: UIResponder {
     
     var appTasksGlobalList:[[DSTask]] = [[]]
     
+    let olderHKSyncDate:Date = Date(timeIntervalSince1970: 1.0)
+    var lastHKSync:Date = Date()
+    
     var healthManager = HealthManager()
     let healthStore = HKHealthStore()
+    
+    //CoreData
+    let moc = NSManagedObjectContext(concurrencyType:.mainQueueConcurrencyType)
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        // Saves changes in the application's managed object context before the application terminates.
+        self.saveContext()
+    }
+
     
     func getTask(taskID:String)->DSTask{
         for task in appTasks{
@@ -100,7 +123,7 @@ class AppDelegate: UIResponder {
         UINavigationBar.appearance().tintColor = .purple
         UINavigationBar.appearance().barStyle = UIBarStyle.default
         UINavigationBar.appearance().isTranslucent = true
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.purple]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.purple]
         
         UILabel.appearance().tintColor = .purple
         UIButton.appearance().tintColor = .purple
@@ -142,17 +165,18 @@ class AppDelegate: UIResponder {
                     if let data = DSJSONSerializer.hkSampleQueryResultToJsonData(result){
                         
                         var jsonString = String(data: data as Data, encoding: String.Encoding.utf8)!
-                        let answer = DSTaskAnswerRealm()
-                        answer.taskName = "DSSleepTask"
-                        answer.json = jsonString
-                        do{
-                            let realm = try Realm()
-                            try realm.write{
-                                realm.add(answer)
-                            }
-                        }catch let error as NSError{
-                            print(error.localizedDescription)
+                        
+                        let data = NSManagedObject(entity: NSEntityDescription.entity(forEntityName: "TaskAnswer", in: self.persistentContainer.viewContext)!, insertInto: self.persistentContainer.viewContext)
+                        
+                        data.setValue("DSSleepTask", forKey: "taskName")
+                        data.setValue(jsonString, forKey: "json")
+                        do {
+                            try data.validateForInsert()
+                        } catch {
+                            print(error)
                         }
+                        self.saveContext()
+                        
                         print("--")
                         print(jsonString)
                         print("Conversion in progress")
@@ -168,28 +192,6 @@ class AppDelegate: UIResponder {
                     }
                 }
                 
-                
-//                var jsonString = ""
-//                if let data = DSJSONSerializer.taskResultToJsonData(taskViewController.result){
-//                    jsonString = String(data: data as Data, encoding: String.Encoding.utf8)!
-//                    let answer = DSTaskAnswerRealm()
-//                    answer.taskName = (taskViewController.task?.identifier)!
-//                    DSUtils.updateUserDefaultsFor(self.task)
-//                    if let taskListVC = self.parentViewController as? DSTaskListViewController{
-//                        taskListVC.tableView.reloadData()
-//                    }
-//                    answer.json = jsonString
-//                    do{
-//                        let realm = try Realm()
-//                        try realm.write{
-//                            realm.add(answer)
-//                            self.taskViewControllerInstance.dismiss(animated: true, completion: nil)
-//                        }
-//                    }catch let error as NSError{
-//                        print(error.localizedDescription)
-//                    }
-//                }
-                
              }
             
             // finally, we execute our query
@@ -197,6 +199,54 @@ class AppDelegate: UIResponder {
         }
         
     }
+    
+    // MARK: - Core Data stack
+    
+    @available(iOS 10.0, *)
+    lazy var persistentContainer: NSPersistentContainer = {
+        /*
+         The persistent container for the application. This implementation
+         creates and returns a container, having loaded the store for the
+         application to it. This property is optional since there are legitimate
+         error conditions that could cause the creation of the store to fail.
+         */
+        let container = NSPersistentContainer(name: "TaskAnswer")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                
+                /*
+                 Typical reasons for an error here include:
+                 * The parent directory does not exist, cannot be created, or disallows writing.
+                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
+                 * The device is out of space.
+                 * The store could not be migrated to the current model version.
+                 Check the error message to determine what the actual problem was.
+                 */
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
+    
+    // MARK: - Core Data Saving support
+    
+    @available(iOS 10.0, *)
+    func saveContext () {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
+    }
+
      
 }
 
@@ -219,10 +269,12 @@ extension AppDelegate: UIApplicationDelegate{
         print(notification.userInfo?.description ?? "Notification msg")
     }
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         configureAppearance()
         initApp()
         
+        persistentContainer.newBackgroundContext()
+
         //---Grab Keys from Keys.plist
         var keys: NSDictionary?
         
@@ -282,6 +334,15 @@ extension AppDelegate: UIApplicationDelegate{
                 break
             }
         }
+        if UserDefaults.standard.object(forKey: "lastHKSync") != nil{
+            //lastHKSync = UserDefaults.standard.object(forKey: "lastHKSync") as! Date
+            lastHKSync = olderHKSyncDate
+        }else{
+            lastHKSync = olderHKSyncDate
+        }
+        print(lastHKSync)
+        healthManager.syncWithHK()
+        print(lastHKSync)
     }
 
     func applicationSignificantTimeChange(_ application: UIApplication) {

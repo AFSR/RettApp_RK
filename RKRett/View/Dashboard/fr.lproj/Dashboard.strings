@@ -1,0 +1,27 @@
+
+/* Class = "UITabBarItem"; title = "Dashboard"; ObjectID = "4uI-z0-A9f"; */
+"4uI-z0-A9f.title" = "Dashboard";
+
+/* Class = "UISegmentedControl"; W7m-oz-j0W.segmentTitles[0] = "Day"; ObjectID = "W7m-oz-j0W"; */
+"W7m-oz-j0W.segmentTitles[0]" = "Jour";
+
+/* Class = "UISegmentedControl"; W7m-oz-j0W.segmentTitles[1] = "Week"; ObjectID = "W7m-oz-j0W"; */
+"W7m-oz-j0W.segmentTitles[1]" = "Sem";
+
+/* Class = "UISegmentedControl"; W7m-oz-j0W.segmentTitles[2] = "Month"; ObjectID = "W7m-oz-j0W"; */
+"W7m-oz-j0W.segmentTitles[2]" = "Mois";
+
+/* Class = "UISegmentedControl"; W7m-oz-j0W.segmentTitles[3] = "Year"; ObjectID = "W7m-oz-j0W"; */
+"W7m-oz-j0W.segmentTitles[3]" = "Année  ";
+
+/* Class = "UITabBarItem"; title = "Dashboard"; ObjectID = "Z0W-DR-g6N"; */
+"Z0W-DR-g6N.title" = "Dashboard";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "aIN-h3-UJz"; */
+"aIN-h3-UJz.title" = "Title";
+
+/* Class = "UINavigationItem"; title = "Dashboard"; ObjectID = "i15-Yt-h15"; */
+"i15-Yt-h15.title" = "Dashboard";
+
+/* Class = "UIViewController"; title = "Dashboard"; ObjectID = "jrE-62-FtM"; */
+"jrE-62-FtM.title" = "Dashboard";

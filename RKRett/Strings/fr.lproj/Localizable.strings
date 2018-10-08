@@ -77,7 +77,7 @@ Une fois ces données rendues non identifiables, toutes ces données sont collec
 "Complete" = "Achevée";
 "Settings" = "Réglages";
 
-"You are about to sign up or log in with your credentials from AFSR. This will allow in the future to provide data from different devices and have access to your data from the web." = "Vous allez vous connecter/enregister sur le sereur de l'AFSR.\nCette connexion servira plus tard à pousser les données recueillies dans l'application vers les serveurs et à enregistrer des informations depuis plusieurs appareils.";
+"You are about to sign up or log in with your credentials from AFSR. This will allow in the future to provide data from different devices and have access to your data from the web." = "Vous allez vous connecter/enregister sur le serveur de l'AFSR.\nCette connexion servira plus tard à pousser les données recueillies dans l'application vers les serveurs et à enregistrer des informations depuis plusieurs appareils.";
 
 "You are logged in." = "Vous êtes connecté.";
 "Error" = "Erreur";

@@ -22,9 +22,9 @@
 			<key>answerRange</key>
 			<dict>
 				<key>maximum</key>
-				<integer>50</integer>
+				<integer>45</integer>
 				<key>minimum</key>
-				<integer>20</integer>
+				<integer>25</integer>
 			</dict>
 			<key>answerType</key>
 			<string>NSNumber</string>

@@ -112,7 +112,7 @@ class CircularGraphView: UIView {
         self.imageLayer.frame = self.bounds
         if self.backgroundImage != nil {
             self.imageLayer.contents = self.backgroundImage
-            self.imageLayer.contentsGravity = kCAGravityResizeAspect
+            self.imageLayer.contentsGravity = CALayerContentsGravity.resizeAspect
             self.imageLayer.mask = self.percentageLayer
         } else {
             self.imageLayer.contents = nil
@@ -120,7 +120,7 @@ class CircularGraphView: UIView {
         self.bImageLayer.frame = self.bounds
         if self.backgroundImage != nil {
             self.bImageLayer.contents = self.backgroundImage
-            self.bImageLayer.contentsGravity = kCAGravityResizeAspect
+            self.bImageLayer.contentsGravity = CALayerContentsGravity.resizeAspect
             self.bImageLayer.mask = self.totalLayer
         } else {
             self.bImageLayer.contents = nil
@@ -132,14 +132,14 @@ class CircularGraphView: UIView {
     fileprivate func setTextLayer(){
         
         self.textLayer.frame = CGRect(x: 0, y: bounds.height/2 - radius*0.3, width: bounds.width, height: (radius * 2) * 0.3)
-        self.textLayer.alignmentMode = "center"
+        self.textLayer.alignmentMode = CATextLayerAlignmentMode(rawValue: "center")
         self.textLayer.contentsScale = UIScreen.main.scale
         
         let font1 = UIFont(name: "HelveticaNeue", size: self.radius/2)
         let font2 = UIFont(name: "HelveticaNeue-Light", size: self.radius/5)
         
-        let val = NSMutableAttributedString(string: "\(Int(self.percentage*100))", attributes: [NSAttributedStringKey.font:font1!, NSAttributedStringKey.foregroundColor:self.textColor])
-        let perc = NSAttributedString(string: " %", attributes: [NSAttributedStringKey.font:font2!, NSAttributedStringKey.foregroundColor:self.textColor])
+        let val = NSMutableAttributedString(string: "\(Int(self.percentage*100))", attributes: [NSAttributedString.Key.font:font1!, NSAttributedString.Key.foregroundColor:self.textColor])
+        let perc = NSAttributedString(string: " %", attributes: [NSAttributedString.Key.font:font2!, NSAttributedString.Key.foregroundColor:self.textColor])
         
         val.append(perc)
         
@@ -158,7 +158,7 @@ class CircularGraphView: UIView {
         self.totalLayer.strokeColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.3).cgColor
         self.totalLayer.fillColor = UIColor.clear.cgColor
         self.totalLayer.lineWidth = self.lineWidth
-        self.totalLayer.lineCap = kCALineCapRound
+        self.totalLayer.lineCap = CAShapeLayerLineCap.round
         self.totalLayer.path = path
         
     }
@@ -170,7 +170,7 @@ class CircularGraphView: UIView {
         self.percentageLayer.strokeColor = self.graphColor
         self.percentageLayer.fillColor = UIColor.clear.cgColor
         self.percentageLayer.lineWidth = self.lineWidth
-        self.percentageLayer.lineCap = kCALineCapRound
+        self.percentageLayer.lineCap = CAShapeLayerLineCap.round
         self.percentageLayer.path = path
         
     }
@@ -184,7 +184,7 @@ class CircularGraphView: UIView {
             anim.duration = abs((self.percentage - Double(lastPercentage))*0.7)
             anim.fromValue = lastPercentage
             anim.toValue = CGFloat(self.percentage)
-            anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            anim.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
             
             self.textLayer.isHidden = true
             self.setTextLayer()

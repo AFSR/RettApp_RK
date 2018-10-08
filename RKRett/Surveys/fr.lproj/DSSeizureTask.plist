@@ -74,7 +74,7 @@
 				<key>yAxisColName</key>
 				<string>DSDateColName</string>
 				<key>timeUnit</key>
-				<string>Week</string>
+				<string>Hour</string>
 				<key>xScale</key>
 				<integer>50</integer>
 				<key>yScale</key>

@@ -8,7 +8,6 @@
 
 import UIKit
 import ResearchKit
-import RealmSwift
 
 /**
 `DSJSONSerializer` is used to serialize ORKResult into JSON data.
@@ -30,11 +29,27 @@ class DSJSONSerializer: DSReflect {
     
     -returns: A `NSData` object containing the JSON serialized from the results.
     */
-    static func taskResultToJsonData(_ taskResult: ORKTaskResult) -> Data?{
+    static func taskResultToJsonData(_ taskResult: ORKTaskResult,_ taskID: String) -> Data?{
         // - FIXME: Verificar a possibilidade de fazer a funcao retornar a String do JSON ao inves da NSData pois o model esta recebendo String
         var jsonData: Data?
         if let results = taskResult.results{ // NSArray/*<ORKResult>*/
             let resultsArray = self.resultsArrayToDictionary(results as NSArray)
+            if taskID == "RettGrossMotorScale"{
+                
+                print("Results")
+                print(resultsArray)
+                
+                for result in resultsArray {
+                    let value = result.value as! NSDictionary
+                    print("Resultat pour",result.key,": ", value.value(forKey: "result"))
+                    
+                }
+                
+                //let sittingScale = taskResult.results["motorSittingFloorSurvey"]
+                //let sittingScale = (resultsArray["motorSittingFloorSurvey"]?["result"] as! Int) + (resultsArray["motorSittingChairSurvey"]?["result"] as! Int) + (resultsArray["motorSittingStoolSurvey"]?["result"] as! Int)
+                //print("Sitting Subscale: ",sittingScale,"/9")
+                
+            }
             let json = NSDictionary(dictionary: ["taskId" : taskResult.identifier, "results": resultsArray])
             print("---JSON---")
             print(resultsArray.description)
@@ -71,61 +86,22 @@ class DSJSONSerializer: DSReflect {
 
                     if hoursAsleep != "0" {
                         
-                        var data:Results<DSTaskAnswerRealm>!
-                        var json = [String : Any]()
+                        var dictAnswer = NSDictionary(dictionary: ["result": "" , "date":convertDateHKtoRK(sample.startDate)])
                         
-                        //Check if there is already the data in local database
-                        do{
-                            let realm = try Realm()
-                            kBgQueue.sync() {
-                                data = realm.objects(DSTaskAnswerRealm.self).filter("taskName = 'DSSleepTask'")
-                            }
-                            //realm.delete(data)
-                            
-                        }catch let error as NSError{
-                            print(error.localizedDescription)
-                        }
+                        dict.setValue(dictAnswer, forKey: "DSSleepDescription")
                         
-                        for obj in data {
-                            let jsonLocalData = obj.json.data(using: String.Encoding.utf8)
-                            do {
-                                json = (try JSONSerialization.jsonObject(with: jsonLocalData!, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: Any])!
-                            }catch let error as NSError {
-                                print(error.localizedDescription)
-                            }
-                            
-                            if json != nil {
-                                if let results = json["results"] as? [String : Any] {
-                                    if let result = results["DSSleepTask"] as? [String : Any] {
-                                        if result["date"] as? String != convertDateHKtoRK(sample.startDate){
-                                            var dictAnswer = NSDictionary(dictionary: ["result": "" , "date":convertDateHKtoRK(sample.startDate)])
-                                            
-                                            dict.setValue(dictAnswer, forKey: "DSSleepDescription")
-                                            
-                                            dictAnswer = NSDictionary(dictionary: ["result": hoursAsleep , "date":convertDateHKtoRK(sample.startDate)])
-                                            dict.setValue(dictAnswer, forKey: "hoursSleep")
-                                            
-                                            let json = NSDictionary(dictionary: ["taskId" : "DSSleepTask", "results": dict])
-                                            jsonData = self.JSONObjectToData(json)
-                                            print("---NEW JSON---")
-                                            print(dict.description)
-                                            print("----------")
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                        dictAnswer = NSDictionary(dictionary: ["result": hoursAsleep , "date":convertDateHKtoRK(sample.startDate)])
+                        dict.setValue(dictAnswer, forKey: "hoursSleep")
+                        
+                        let json = NSDictionary(dictionary: ["taskId" : "DSSleepTask", "results": dict])
+                        jsonData = JSONObjectToData(json)
+
                     }
-//                    print("---NEW JSON---")
-//                    print(dict.description)
-//                    print("----------")
-//                    
                 }
             }
         }
-       return jsonData
+        return jsonData
     }
-    
     
     fileprivate static func resultsArrayToJsonArray(_ results: NSArray/*<ORKResult>*/) -> [NSMutableDictionary]{
         var dictArray = [NSMutableDictionary]()

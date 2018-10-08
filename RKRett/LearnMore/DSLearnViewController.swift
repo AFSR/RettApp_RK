@@ -8,8 +8,6 @@
 
 import UIKit
 import SVProgressHUD
-import Realm
-import RealmSwift
 
 extension UITableViewCell {
     
@@ -19,7 +17,7 @@ extension UITableViewCell {
         bgView.tag = kCellBackgroundViewTag
         print(bgView)
         UIView.beginAnimations("SelectedCell", context: nil)
-        UIView.setAnimationCurve(UIViewAnimationCurve.easeIn)
+        UIView.setAnimationCurve(UIView.AnimationCurve.easeIn)
         UIView.setAnimationDuration(1.0)
         selectedBackgroundView?.addSubview(bgView)
         bgView.frame = contentView.frame

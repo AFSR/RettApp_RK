@@ -8,13 +8,12 @@
 
 import UIKit
 import ResearchKit
-//import Parse
-//import Realm
-import RealmSwift
+import CoreData
 
 /**
 Create and manage a ORKTaskViewController and its results.
 */
+@available(iOS 10.0, *)
 class DSTaskController: NSObject {
     
     /**
@@ -32,6 +31,8 @@ class DSTaskController: NSObject {
     */
     var task:DSTask!
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
     
     /**
     Create, and optionally shows, a task.
@@ -122,6 +123,7 @@ class DSTaskController: NSObject {
 }
 
 //MARK: - ORKTaskViewControllerDelegate
+@available(iOS 10.0, *)
 extension DSTaskController: ORKTaskViewControllerDelegate {
     /**
      Tells the delegate that the task has finished.
@@ -138,6 +140,7 @@ extension DSTaskController: ORKTaskViewControllerDelegate {
      @param reason              An `ORKTaskViewControllerFinishReason` value indicating how the user chose to complete the task.
      @param error               If failure occurred, an `NSError` object indicating the reason for the failure. The value of this parameter is `nil` if `result` does not indicate failure.
      */
+    @available(iOS 10.0, *)
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         //code
         print("Out of a Task");
@@ -145,28 +148,28 @@ extension DSTaskController: ORKTaskViewControllerDelegate {
         case ORKTaskViewControllerFinishReason.completed:
             print("Completed")
             var jsonString = ""
-            if let data = DSJSONSerializer.taskResultToJsonData(taskViewController.result){
+            print(taskViewController.task?.identifier)
+            if let data = DSJSONSerializer.taskResultToJsonData(taskViewController.result, taskViewController.task?.identifier as! String){
                 jsonString = String(data: data as Data, encoding: String.Encoding.utf8)!
-                let answer = DSTaskAnswerRealm()
-                answer.taskName = (taskViewController.task?.identifier)!
                 DSUtils.updateUserDefaultsFor(self.task)
                 if let taskListVC = self.parentViewController as? DSTaskListViewController{
                     taskListVC.tableView.reloadData()
                 }
-                answer.json = jsonString
-                do{
-                    let realm = try Realm()
-                    try realm.write{
-                        realm.add(answer)
-                        self.taskViewControllerInstance.dismiss(animated: true, completion: nil)
-                    }
-                }catch let error as NSError{
-                    print(error.localizedDescription)
+                
+                let data = NSManagedObject(entity: NSEntityDescription.entity(forEntityName: "TaskAnswer", in: appDelegate.persistentContainer.viewContext)!, insertInto: appDelegate.persistentContainer.viewContext)
+                
+                data.setValue((taskViewController.task?.identifier)!, forKey: "taskName")
+                data.setValue(jsonString, forKey: "json")
+                data.setValue(Date(), forKey: "date")
+                do {
+                    try data.validateForInsert()
+                } catch {
+                    print(error)
                 }
-                print("--Regular answer")
-                print(jsonString)
-                print("---")
+                appDelegate.saveContext()
+                
             }
+            self.taskViewControllerInstance.dismiss(animated: true, completion: nil)
             
         case ORKTaskViewControllerFinishReason.discarded:
             //            print("Discarded")
@@ -188,28 +191,26 @@ extension DSTaskController: ORKTaskViewControllerDelegate {
         case ORKTaskViewControllerFinishReason.completed:
             print("Completed")
             var jsonString = ""
-            if let data = DSJSONSerializer.taskResultToJsonData(taskViewController.result){
+            if let data = DSJSONSerializer.taskResultToJsonData(taskViewController.result , taskViewController.task?.identifier as! String){
                 jsonString = String(data: data as Data, encoding: String.Encoding.utf8)!
-                let answer = DSTaskAnswerRealm()
-                answer.taskName = (taskViewController.task?.identifier)!
                 DSUtils.updateUserDefaultsFor(self.task)
                 if let taskListVC = self.parentViewController as? DSTaskListViewController{
                     taskListVC.tableView.reloadData()
                 }
-                answer.json = jsonString
-  
-                print(jsonString)
                 
-                do{
-                    let realm = try Realm()
-                    try realm.write{
-                        realm.add(answer)
-                        self.taskViewControllerInstance.dismiss(animated: true, completion: nil)
-                    }
-                }catch let error as NSError{
-                    print(error.localizedDescription)
+                let data = NSManagedObject(entity: NSEntityDescription.entity(forEntityName: "TaskAnswer", in: appDelegate.persistentContainer.viewContext)!, insertInto: appDelegate.persistentContainer.viewContext)
+                
+                data.setValue( (taskViewController.task?.identifier)! , forKey: "taskName")
+                data.setValue(jsonString, forKey: "json")
+                do {
+                    try data.validateForInsert()
+                } catch {
+                    print(error)
                 }
+                appDelegate.saveContext()
+                
             }
+            self.taskViewControllerInstance.dismiss(animated: true, completion: nil)
             
         case ORKTaskViewControllerFinishReason.discarded:
 //            print("Discarded")

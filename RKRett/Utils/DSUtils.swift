@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class DSUtils{
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
     static func applyStyleDictionary(_ dictionary:NSDictionary, onTag tag:String, withText text:String) -> String{
         var string = ""
         for key in dictionary.allKeys{
@@ -22,7 +25,6 @@ class DSUtils{
         return string
     }
 
-    
     static func updateUserDefaultsFor(_ task: DSTask){
         
         let userDefaults = UserDefaults.standard
@@ -77,7 +79,3 @@ class DSUtils{
         }
     }
 }
-
-///lastUpdate
-    ///dayString -> didChangeWeek
-    ///monthString -> monthly

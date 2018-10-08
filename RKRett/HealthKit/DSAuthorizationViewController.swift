@@ -56,7 +56,9 @@ class DSAuthorizationViewController: UIViewController {
     //MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(DSAuthorizationViewController.configureButtons), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(DSAuthorizationViewController.configureButtons), name: NSNotification.Name.UIApplication.willEnterForegroundNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(DSAuthorizationViewController.configureButtons), name: UIApplication.willEnterForegroundNotification, object: nil)
         
         Bundle.main.loadNibNamed("DSAuthorizationViewController", owner: self, options: nil)
         for button in buttons{
@@ -156,10 +158,10 @@ class DSAuthorizationViewController: UIViewController {
         let alertController: UIAlertController?
         let title = NSLocalizedString("You should change this permission on settings", comment: "")
         let msg = NSLocalizedString("Please, go to the Settings app and change the permissions for the app", comment: "")
-        alertController = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
-        let gotoSettingsAction = UIAlertAction(title: NSLocalizedString("Settings", comment: ""), style: UIAlertActionStyle.default) { (UIAlertAction) -> Void in
+        alertController = UIAlertController(title: title, message: msg, preferredStyle: UIAlertController.Style.alert)
+        let gotoSettingsAction = UIAlertAction(title: NSLocalizedString("Settings", comment: ""), style: UIAlertAction.Style.default) { (UIAlertAction) -> Void in
             
-            UIApplication.shared.openURL(NSURL(string: UIApplicationOpenSettingsURLString)! as URL)
+            UIApplication.shared.openURL(NSURL(string: UIApplication.openSettingsURLString)! as URL)
         }
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController!.addAction(gotoSettingsAction)
@@ -172,7 +174,7 @@ class DSAuthorizationViewController: UIViewController {
         let alertController: UIAlertController?
         let title = NSLocalizedString("You changed HealthKit permissions", comment: "")
         let msg = NSLocalizedString("Please, go to the Health App and give permissions back manually", comment: "")
-        alertController = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        alertController = UIAlertController(title: title, message: msg, preferredStyle: UIAlertController.Style.alert)
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController!.addAction(action)
         
