@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Parse
+//import Parse
 import CoreData
 import CloudKit
 

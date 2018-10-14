@@ -41,12 +41,13 @@
                                 </connections>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="fill" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="W7m-oz-j0W">
-                                <rect key="frame" x="80" y="72" width="215" height="29"/>
+                                <rect key="frame" x="53" y="72" width="269" height="29"/>
                                 <segments>
                                     <segment title="Day"/>
                                     <segment title="Week"/>
                                     <segment title="Month"/>
                                     <segment title="Year"/>
+                                    <segment title="All"/>
                                 </segments>
                                 <connections>
                                     <action selector="timeSegmentAction:" destination="jrE-62-FtM" eventType="valueChanged" id="DEn-YV-ge0"/>
@@ -80,13 +81,13 @@
         <!--Title-->
         <scene sceneID="sZ9-t9-j3T">
             <objects>
-                <tableViewController id="gWS-wz-Xi1" customClass="DashboardGraphTableViewController" customModule="RKRett" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="gWS-wz-Xi1" customClass="Deta" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="XbJ-RA-Sam">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="573" id="Ek6-Se-Oee">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailDashBoardCell" rowHeight="573" id="Ek6-Se-Oee">
                                 <rect key="frame" x="0.0" y="28" width="375" height="573"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ek6-Se-Oee" id="hH4-6R-U0v">

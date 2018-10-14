@@ -4,8 +4,9 @@
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="json" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="taskName" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TaskAnswer" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="TaskAnswer" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>

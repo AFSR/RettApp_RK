@@ -59,7 +59,8 @@ import UIKit
                 }
                 
             default:
-                print("Default questions")
+                break
+                //print("Default questions")
                 
             }
             self.setValue(value, forKey: property as! String)

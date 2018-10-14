@@ -32,7 +32,7 @@ class DSDashboardViewController: UIViewController,TimeBasedGraphCellDelegate {
     // ------------------------------------------------?
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destVC : DashboardGraphTableViewController = segue.destination as! DashboardGraphTableViewController
-        destVC.originCell = sender as! TimeBasedGraphCell
+        //destVC.originCell = sender as! TimeBasedGraphCell
     }
     
  
@@ -89,26 +89,38 @@ class DSDashboardViewController: UIViewController,TimeBasedGraphCellDelegate {
                 }
             }
         }
+        
+        if timeSegment.selectedSegmentIndex == 4 {
+            
+            for vc in viewControllers {
+                if vc is DSTimeBasedGraphViewController {
+                    let tvc = vc as! DSTimeBasedGraphViewController
+                    tvc.showAllDataInGraph()
+                }
+            }
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         graphIdentifiers = getGraphIds()
         
         print("Dashboard appear")
-        if UserDefaults.standard.value(forKey: "localDataDeleted") as! Bool == true{
-            self.setNeedsFocusUpdate()
-            for vc in viewControllers {
-                if vc is DSTimeBasedGraphViewController {
-                    let tvc = vc as! DSTimeBasedGraphViewController
-                    tvc.resetValues()
-                    tvc.updateView()
+        if UserDefaults.standard.value(forKey: "localDataDeleted") != nil{
+            if UserDefaults.standard.value(forKey: "localDataDeleted") as! Bool == true{
+                self.setNeedsFocusUpdate()
+                for vc in viewControllers {
+                    if vc is DSTimeBasedGraphViewController {
+                        let tvc = vc as! DSTimeBasedGraphViewController
+                        tvc.resetValues()
+                        tvc.updateView()
+                    }
                 }
+                tableView.reloadData()
+                UserDefaults.standard.set(false, forKey: "localDataDeleted")
+                print("reload dashboard view")
             }
-            tableView.reloadData()
-            UserDefaults.standard.set(false, forKey: "localDataDeleted")
-            print("reload dashboard view")
         }
-        
     }
     
     override func viewDidLoad() {

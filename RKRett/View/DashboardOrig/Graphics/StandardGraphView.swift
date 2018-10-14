@@ -38,12 +38,14 @@ class StandardGraphView: UIView {
     internal var points = [(Any, Any)]()
     
     var animate = false
+
     
     var edgeInsets = UIEdgeInsets(top: 16, left: 40, bottom: 40, right: 16) {
         didSet{
             self.setNeedsDisplay()
         }
     }
+    
     internal var yValuesRange:(min:Double, max:Double) {
         didSet{
             self.shouldUpdatePoints = true
@@ -130,6 +132,8 @@ class StandardGraphView: UIView {
     }
     
     func clearGraph(){
+        self.points.removeAll()
+        self.pointsLayer.path = nil
         self.contentMode = UIView.ContentMode.redraw
     }
     

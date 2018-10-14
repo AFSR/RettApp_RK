@@ -84,6 +84,9 @@ Your data remain strictly personal and aren't share with anyone.
                                     <action selector="signUpOrLogIn:" destination="nbc-SA-geV" eventType="touchUpInside" id="gMW-eO-77x"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Gvz-9L-9i1">
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -91,6 +94,7 @@ Your data remain strictly personal and aren't share with anyone.
                             <constraint firstItem="i1O-A1-A3I" firstAttribute="top" secondItem="zK6-9M-lMH" secondAttribute="bottom" constant="3.5" id="5d1-AA-R47"/>
                             <constraint firstItem="1DR-p4-EBW" firstAttribute="centerX" secondItem="Q7n-1J-XMk" secondAttribute="centerX" id="8gG-bP-NDG"/>
                             <constraint firstItem="7Jh-h5-mzu" firstAttribute="leading" secondItem="gvb-a9-SMu" secondAttribute="leading" constant="16" id="AY3-jB-pZb"/>
+                            <constraint firstItem="Gvz-9L-9i1" firstAttribute="centerX" secondItem="Q7n-1J-XMk" secondAttribute="centerX" id="D9s-fs-uNK"/>
                             <constraint firstItem="pHp-9n-DCq" firstAttribute="top" secondItem="T4S-wJ-2nE" secondAttribute="bottom" constant="8" id="J5H-eL-82k"/>
                             <constraint firstItem="1DR-p4-EBW" firstAttribute="leading" secondItem="gvb-a9-SMu" secondAttribute="leading" constant="113" id="JGk-ow-Zaf"/>
                             <constraint firstItem="gvb-a9-SMu" firstAttribute="trailing" secondItem="oc8-5B-YXU" secondAttribute="trailing" constant="16" id="K6O-2v-t99"/>
@@ -99,6 +103,7 @@ Your data remain strictly personal and aren't share with anyone.
                             <constraint firstItem="lF2-ak-MQX" firstAttribute="top" secondItem="FMS-Mo-iBg" secondAttribute="bottom" constant="8" id="QwZ-5b-zk4"/>
                             <constraint firstItem="L6q-FM-nZz" firstAttribute="leading" secondItem="gvb-a9-SMu" secondAttribute="leading" constant="16" id="RXG-EE-zjg"/>
                             <constraint firstItem="7Jh-h5-mzu" firstAttribute="top" secondItem="zK6-9M-lMH" secondAttribute="bottom" constant="8" id="VnS-6m-Jfa"/>
+                            <constraint firstItem="Gvz-9L-9i1" firstAttribute="centerY" secondItem="Q7n-1J-XMk" secondAttribute="centerY" id="YmJ-m6-rWW"/>
                             <constraint firstItem="FMS-Mo-iBg" firstAttribute="leading" secondItem="gvb-a9-SMu" secondAttribute="leading" constant="16" id="ZKv-Uz-zea"/>
                             <constraint firstItem="FMS-Mo-iBg" firstAttribute="top" secondItem="pHp-9n-DCq" secondAttribute="bottom" constant="8" id="bUB-Hv-qpF"/>
                             <constraint firstItem="L6q-FM-nZz" firstAttribute="top" secondItem="7Jh-h5-mzu" secondAttribute="bottom" constant="8" id="cQZ-Bg-ggb"/>
@@ -126,6 +131,7 @@ Your data remain strictly personal and aren't share with anyone.
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Gvz-9L-9i1" id="Qdz-Wc-nPD"/>
                         <outlet property="emailLabel" destination="pHp-9n-DCq" id="dDZ-e4-KqP"/>
                         <outlet property="emailTextField" destination="FMS-Mo-iBg" id="tIm-Dd-9lk"/>
                         <outlet property="infoText" destination="T4S-wJ-2nE" id="zeZ-sZ-kl6"/>

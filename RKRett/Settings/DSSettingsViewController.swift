@@ -95,44 +95,6 @@ extension DSSettingsViewController:UITableViewDelegate{
         self.present(alertController!, animated: true, completion: nil)
     }
     
-    func deleteLocalData(){
-        let alertController: UIAlertController?
-        let title = NSLocalizedString("Delete all local data?", comment: "")
-        let msg = NSLocalizedString("Are you sure to delete all local data? \nWarning, This operation can't be cancelled.", comment: "")
-        alertController = UIAlertController(title: title, message: msg, preferredStyle: UIAlertController.Style.alert)
-        
-        // Create OK button
-        let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
-            
-            // Code in this block will trigger when OK button tapped.
-            //Delete all local data
-            
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let managedContext = appDelegate.persistentContainer.viewContext
-            let DelAllReqVar = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: "TaskAnswer"))
-            do {
-                try managedContext.execute(DelAllReqVar)
-            }
-            catch {
-                print(error)
-            }
-            UserDefaults.standard.set(true, forKey: "localDataDeleted")
-            print("All local data successfully deleted")
-            print("Ok button tapped");
-            
-        }
-        alertController!.addAction(OKAction)
-        
-        // Create Cancel button
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
-            print("Cancel button tapped");
-        }
-        alertController!.addAction(cancelAction)
-        
-        self.present(alertController!,animated: true,completion: nil)
-        
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         switch settingsArray[indexPath.section][indexPath.row + 1][2] {
@@ -153,9 +115,15 @@ extension DSSettingsViewController:UITableViewDelegate{
             tableView.deselectRow(at: indexPath as IndexPath, animated: true)
             Buglife.shared().presentReporter()
         case "deleteData":
-            deleteLocalData()
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.clearCoreDataRecords()
             tableView.deselectRow(at: indexPath as IndexPath, animated: true)
             print("Delete local data")
+        case "deleteRemoteData":
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.clearCloudKitRecords(recordType: "TaskAnswer")
+            tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+            print("Delete remote data")
         default:
             tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         }

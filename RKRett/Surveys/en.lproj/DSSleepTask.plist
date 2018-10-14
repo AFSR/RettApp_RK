@@ -43,7 +43,7 @@
 			<key>dashboard</key>
 			<dict>
 				<key>graphType</key>
-				<string>timeBased</string>
+				<string>LineGraphChartView</string>
 				<key>yAxisColName</key>
 				<string></string>
 				<key>timeUnit</key>

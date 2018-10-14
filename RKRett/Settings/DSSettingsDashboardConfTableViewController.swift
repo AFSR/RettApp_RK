@@ -17,8 +17,6 @@ class DSSettingsDashboardConfTableViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    
-    
     @IBOutlet weak var tableView: UITableView!
     
     

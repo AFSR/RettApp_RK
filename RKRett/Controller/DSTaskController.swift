@@ -140,7 +140,7 @@ extension DSTaskController: ORKTaskViewControllerDelegate {
      @param reason              An `ORKTaskViewControllerFinishReason` value indicating how the user chose to complete the task.
      @param error               If failure occurred, an `NSError` object indicating the reason for the failure. The value of this parameter is `nil` if `result` does not indicate failure.
      */
-    @available(iOS 10.0, *)
+
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         //code
         print("Out of a Task");
@@ -155,12 +155,15 @@ extension DSTaskController: ORKTaskViewControllerDelegate {
                 if let taskListVC = self.parentViewController as? DSTaskListViewController{
                     taskListVC.tableView.reloadData()
                 }
+                let uuid = UUID().uuidString
                 
                 let data = NSManagedObject(entity: NSEntityDescription.entity(forEntityName: "TaskAnswer", in: appDelegate.persistentContainer.viewContext)!, insertInto: appDelegate.persistentContainer.viewContext)
                 
                 data.setValue((taskViewController.task?.identifier)!, forKey: "taskName")
                 data.setValue(jsonString, forKey: "json")
                 data.setValue(Date(), forKey: "date")
+                data.setValue(uuid, forKey: "uuid")
+                
                 do {
                     try data.validateForInsert()
                 } catch {
@@ -181,47 +184,6 @@ extension DSTaskController: ORKTaskViewControllerDelegate {
             
         case ORKTaskViewControllerFinishReason.saved:
             //            print("Saved")
-            self.taskViewControllerInstance.dismiss(animated: true, completion: nil)
-        }
-    }
-
-  
-    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: NSError?) {
-        switch(reason){
-        case ORKTaskViewControllerFinishReason.completed:
-            print("Completed")
-            var jsonString = ""
-            if let data = DSJSONSerializer.taskResultToJsonData(taskViewController.result , taskViewController.task?.identifier as! String){
-                jsonString = String(data: data as Data, encoding: String.Encoding.utf8)!
-                DSUtils.updateUserDefaultsFor(self.task)
-                if let taskListVC = self.parentViewController as? DSTaskListViewController{
-                    taskListVC.tableView.reloadData()
-                }
-                
-                let data = NSManagedObject(entity: NSEntityDescription.entity(forEntityName: "TaskAnswer", in: appDelegate.persistentContainer.viewContext)!, insertInto: appDelegate.persistentContainer.viewContext)
-                
-                data.setValue( (taskViewController.task?.identifier)! , forKey: "taskName")
-                data.setValue(jsonString, forKey: "json")
-                do {
-                    try data.validateForInsert()
-                } catch {
-                    print(error)
-                }
-                appDelegate.saveContext()
-                
-            }
-            self.taskViewControllerInstance.dismiss(animated: true, completion: nil)
-            
-        case ORKTaskViewControllerFinishReason.discarded:
-//            print("Discarded")
-            self.taskViewControllerInstance.dismiss(animated: true, completion: nil)
-            
-        case ORKTaskViewControllerFinishReason.failed:
-//            print("Failed: \(error?.localizedDescription)")
-            self.taskViewControllerInstance.dismiss(animated: true, completion: nil)
-            
-        case ORKTaskViewControllerFinishReason.saved:
-//            print("Saved")
             self.taskViewControllerInstance.dismiss(animated: true, completion: nil)
         }
     }

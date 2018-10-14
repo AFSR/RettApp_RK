@@ -13,9 +13,9 @@
 import SVProgressHUD
 import UIKit
 import Buglife
-import Parse
 import CoreData
 import DeviceCheck
+import CloudKit
 
 //MARK: - AppDelegate
 @UIApplicationMain
@@ -33,6 +33,9 @@ class AppDelegate: UIResponder {
     
     var healthManager = HealthManager()
     let healthStore = HKHealthStore()
+    
+    let privateDB = CKContainer.default().privateCloudDatabase
+    let publicDB = CKContainer.default().publicCloudDatabase
     
     //CoreData
     let moc = NSManagedObjectContext(concurrencyType:.mainQueueConcurrencyType)
@@ -102,8 +105,23 @@ class AppDelegate: UIResponder {
             populateDashboardWithHealthData()
         } else {
             gotoStoryboard(StoryboardName.Consent.rawValue)
-            KeychainWrapper.standard.removeObject(forKey: kDSPasswordKey)
+            do{
+                try ORKKeychainWrapper.removeObject(forKey: kDSPasswordKey)
+            }catch{
+                print("Error:",error)
+            }
+            
         }
+        //
+        
+        //clearCoreDataRecords()
+        
+        //clearCloudKitRecords(recordType: "TaskAnswer")
+        
+        syncDataCloudKitCoreData()
+        
+        
+        
     }
     
     func gotoStoryboard(_ initialStoryboard:String){
@@ -128,6 +146,254 @@ class AppDelegate: UIResponder {
         UILabel.appearance().tintColor = .purple
         UIButton.appearance().tintColor = .purple
         UITabBar.appearance().tintColor = .purple
+    }
+    
+    func syncDataCloudKitCoreData(){
+        
+        //General Vars
+        var nbRecordsCloudKit = 0
+        var nbRecordsCoreData = 0
+        //Fetch last CoreData Record
+        //Fetch UUID list from Core Data
+        let context = self.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TaskAnswer")
+        fetchRequest.predicate = NSPredicate(value: true)
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        
+        var uuidListCD : [String] = []
+        var uuidListCK : [String] = []
+        
+        var controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        do {
+            try controller.performFetch()
+            nbRecordsCoreData = controller.fetchedObjects?.count ?? 0
+            if controller.fetchedObjects?.count ?? 0 > 0 {
+                for record in controller.fetchedObjects as! [NSManagedObject]{
+                    if record.value(forKey: "uuid") != nil{
+                        let uuid = (record.value(forKey: "uuid") as! String) ?? ""
+                        uuidListCD.append(uuid)
+                    }
+                }
+                print("[CDUUID]",nbRecordsCoreData.description,":",uuidListCD)
+            }
+        } catch {
+            fatalError("Failed to fetch entities: \(error)")
+        }
+        
+        //Fetch UUID List from CloudKit
+        var predicate = NSPredicate()
+        predicate = NSPredicate(value: true)
+    
+        var query = CKQuery(recordType: "TaskAnswer", predicate: predicate)
+        query.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+    
+        let queryOperation = CKQueryOperation(query: query)
+        queryOperation.desiredKeys = ["uuid"]
+        
+        queryOperation.recordFetchedBlock = { record in
+            if let uuid = record.value(forKey: "uuid") {
+                uuidListCK.append(uuid as! String)
+            }
+        }
+    
+        queryOperation.queryCompletionBlock = { [weak self] (cursor, error) in
+            DispatchQueue.main.sync {
+                if cursor != nil{
+                    let newOperation = CKQueryOperation(cursor: cursor!)
+                    newOperation.queryCompletionBlock = queryOperation.queryCompletionBlock
+                    newOperation.recordFetchedBlock = queryOperation.recordFetchedBlock
+                    self?.privateDB.add(newOperation)
+                }
+            }
+        }
+        
+        self.privateDB.add(queryOperation)
+    
+        nbRecordsCloudKit = uuidListCK.count
+        print("[CKUUID]",nbRecordsCloudKit.description,":",uuidListCK)
+        
+        //Looking for UUID from CD which are not in CK
+        //Push CD data found to CK
+        if uuidListCK == []{
+            predicate = NSPredicate(value: true)
+        }else{
+            predicate = NSPredicate(format: "NOT (uuid IN %@)", uuidListCK)
+        }
+        fetchRequest.predicate = predicate
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        
+        let privateMOC = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+        privateMOC.parent = context
+        
+        controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: privateMOC, sectionNameKeyPath: nil, cacheName: nil)
+        do {
+            try controller.performFetch()
+            nbRecordsCoreData = controller.fetchedObjects?.count ?? 0
+            print("Nb of UUID from CD not in CK: ",controller.fetchedObjects?.count.description)
+            if controller.fetchedObjects?.count ?? 0 > 0 {
+                for taskAnswer in controller.fetchedObjects as! [NSManagedObject]{
+                    
+                    let taskResult = CKRecord(recordType: "TaskAnswer")
+                    var date = taskAnswer.value(forKey: "date")
+                    if date == nil {
+                        date = Date() as NSDate
+                    }
+                    taskResult.setValue( date as! NSDate, forKey: "date")
+                    taskResult.setValue((taskAnswer.value(forKey: "json") as! String), forKey: "json")
+                    taskResult.setValue((taskAnswer.value(forKey: "taskName") as! String), forKey: "taskName")
+                    if taskAnswer.value(forKey: "uuid") == nil{
+                        let uuid = UUID().uuidString
+                        taskResult.setValue(uuid, forKey: "uuid")
+                    }else{
+                        taskResult.setValue((taskAnswer.value(forKey: "uuid") as! String), forKey: "uuid")
+                    }
+                    self.privateDB.save(taskResult) { (savedRecord, error) -> Void in
+                        guard let savedRecord = savedRecord else {
+                            print("Error saving record: ", error)
+                            return
+                        }
+                        print("Successfully saved record: ", savedRecord," in CloudKit")
+                    }
+                }
+            }
+        } catch {
+            fatalError("Failed to fetch entities: \(error)")
+        }
+            
+            //Looking for UUID from CK which are not in CD
+            //Pulling data found from CK to CD
+            if uuidListCK == []{
+                predicate = NSPredicate(value: true)
+            }else{
+                predicate = NSPredicate(format: "NOT (uuid IN %@)", uuidListCD)
+            }
+            query = CKQuery(recordType: "TaskAnswer", predicate: predicate)
+            query.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+            
+            self.privateDB.perform(query, inZoneWith: nil, completionHandler: {
+                (records, error) -> Void in
+                guard let records = records else {
+                    print("Error querying records: ", error ?? "Error")
+                    return
+                }
+                print("Nb of UUID from CK not in CD: ",records.count.description)
+                for taskAnswer in records{
+                    let privateMOC = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+                    privateMOC.parent = context
+                    let data = NSManagedObject(entity: NSEntityDescription.entity(forEntityName: "TaskAnswer", in: privateMOC)!, insertInto: privateMOC)
+                    
+                    data.setValue( (taskAnswer.value(forKey: "taskName") as! String) , forKey: "taskName")
+                    data.setValue( (taskAnswer.value(forKey: "json") as! String), forKey: "json")
+                    var date = taskAnswer.value(forKey: "date")
+                    if date == nil {
+                        date = Date() as NSDate
+                    }
+                    data.setValue( date as! NSDate, forKey: "date")
+                    if taskAnswer.value(forKey: "uuid") == nil{
+                        let uuid = UUID().uuidString
+                        data.setValue(uuid, forKey: "uuid")
+                    }else{
+                        data.setValue((taskAnswer.value(forKey: "uuid") as! String), forKey: "uuid")
+                    }
+                    do {
+                        try data.validateForInsert()
+                    } catch {
+                        print(error)
+                    }
+                    print(data.description)
+                    do {
+                        try privateMOC.save()
+                    } catch {
+                        // Replace this implementation with code to handle the error appropriately.
+                        // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                        let nserror = error as NSError
+                        fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                    }
+                    
+                }
+                print("Successfully saved record: ", records.count.description," in CoreData")
+            })
+//        })
+//
+    }
+    
+    func clearCloudKitRecords(recordType: String){
+        
+        
+        var predicate = NSPredicate()
+        predicate = NSPredicate(value: true)
+        
+        var query = CKQuery(recordType: "TaskAnswer", predicate: predicate)
+        query.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        
+        let queryOperation = CKQueryOperation(query: query)
+        
+        queryOperation.recordFetchedBlock = { record in
+            self.privateDB.delete(withRecordID: record.recordID, completionHandler: {
+                (deletedRecord, error) -> Void in
+                guard let deletedRecord = deletedRecord else{
+                    print("Error querying records: ", error ?? "Error")
+                    return
+                }
+                print("Record deleted",record.recordID)
+            })
+        }
+        
+        queryOperation.queryCompletionBlock = { (cursor, error) in
+            print("New Operation Completion Block:",cursor?.description)
+            if cursor != nil{
+                let newOperation = CKQueryOperation(cursor: cursor!)
+                newOperation.queryCompletionBlock = queryOperation.queryCompletionBlock
+                newOperation.recordFetchedBlock = queryOperation.recordFetchedBlock
+                self.privateDB.add(newOperation)
+                print("New Operation")
+            }
+        }
+        
+        self.privateDB.add(queryOperation)
+        
+        
+        
+//        let predicate = NSPredicate(value: true)
+//        let query = CKQuery(recordType: recordType, predicate: predicate)
+//        query.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+//
+//        self.privateDB.perform(query, inZoneWith: nil, completionHandler: {
+//            (records, error) -> Void in
+//            guard let records = records else {
+//                print("Error querying records: ", error ?? "Error")
+//                return
+//            }
+//            for record in records{
+//                self.privateDB.delete(withRecordID: record.recordID, completionHandler: {
+//                    (deletedRecord, error) -> Void in
+//                    guard let deletedRecord = deletedRecord else{
+//                        print("Error querying records: ", error ?? "Error")
+//                        return
+//                    }
+//                })
+//            }
+//        })
+        print("All remote data successfully deleted")
+    }
+    
+    func clearCoreDataRecords(){
+        
+        // Code in this block will trigger when OK button tapped.
+        //Delete all local data
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let DelAllReqVar = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: "TaskAnswer"))
+        do {
+            try managedContext.execute(DelAllReqVar)
+        }
+        catch {
+            print(error)
+        }
+        UserDefaults.standard.set(true, forKey: "localDataDeleted")
+        print("All local data successfully deleted")
+        
     }
     
     func populateDashboardWithHealthData(){
@@ -283,25 +549,24 @@ extension AppDelegate: UIApplicationDelegate{
         }
         
         if let dict = keys {
-            
-            let parseApplicationId = dict["parseApplicationId"] as? String
-            let parseClientKey = dict["parseClientKey"] as? String
-            let bugLifeApplicationId = dict["BuglifeAPIKey"] as? String
-            let parseURL = dict ["parseURL"] as? String
   
             //----Buglife setup
+            let bugLifeApplicationId = dict["BuglifeAPIKey"] as? String
             Buglife.shared().start(withAPIKey: bugLifeApplicationId!)
             //Buglife.shared().invocationOptions = .floatingButton
             Buglife.shared().invocationOptions = .screenshot
             //----end Buglife setup
             
             //---AWS Parse Server
-            let configuration = ParseClientConfiguration {
-                $0.applicationId = parseApplicationId
-                $0.clientKey = parseClientKey
-                $0.server = parseURL!
-            }
-            Parse.initialize(with: configuration)
+            //let parseApplicationId = dict["parseApplicationId"] as? String
+            //let parseClientKey = dict["parseClientKey"] as? String
+            //let parseURL = dict ["parseURL"] as? String
+//            let configuration = ParseClientConfiguration {
+//                $0.applicationId = parseApplicationId
+//                $0.clientKey = parseClientKey
+//                $0.server = parseURL!
+//            }
+            //Parse.initialize(with: configuration)
             //---end AWS Parse Server
 
          }
@@ -340,9 +605,9 @@ extension AppDelegate: UIApplicationDelegate{
         }else{
             lastHKSync = olderHKSyncDate
         }
-        print(lastHKSync)
+        print("Dernière synchronisation avec HK:",lastHKSync)
         healthManager.syncWithHK()
-        print(lastHKSync)
+        print("Dernière synchronisation avec HK (upd):",lastHKSync)
     }
 
     func applicationSignificantTimeChange(_ application: UIApplication) {

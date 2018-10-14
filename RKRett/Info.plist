@@ -19,11 +19,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.9</string>
+	<string>1.1.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>39</string>
+	<string>45</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -33,6 +33,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Camera is used to record some video at the user descretion if it can help to understand informations.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>Contacts are used to share data with selected people.</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>$(EXECUTABLE_NAME) use FaceID to log In.</string>
 	<key>NSHealthShareUsageDescription</key>

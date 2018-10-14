@@ -44,7 +44,11 @@ class DSTimeBasedGraphViewController: UIViewController {
             cell.graphView.timeUnit = .hour
             self.view.setNeedsDisplay()
         }
+        
+        print(points.description)
     }
+    
+    
     
     func loadPlistData(){
         var dict:NSDictionary?
@@ -297,6 +301,38 @@ class DSTimeBasedGraphViewController: UIViewController {
         }
     }
     
+    func showAllDataInGraph(){
+        if self.view is TimeBasedGraphCell {
+            let cell = self.view as! TimeBasedGraphCell
+            let datePoints = cell.graphView.points
+            if datePoints.count > 0 {
+                var minDate = datePoints[0].0 as! Date
+                for point in points{
+                    if minDate > (point.0 as! Date){
+                        minDate = (point.0 as! Date)
+                    }
+                }
+                cell.graphView.setXValuesRange((minDate,Date()))
+//                if (DateInterval(start: minDate, end: Date())) > DateInterval(start: <#T##Date#>, duration: <#T##TimeInterval#>) 3600 * 24 {
+//                    cell.graphView.timeUnit = .day
+//                }else{
+//                    cell.graphView.timeUnit = .day
+//                }
+//                if (DateInterval(start: minDate, end: Date()) as! Double) > 3600 * 24 * 31 {
+//                    cell.graphView.timeUnit = .week
+//                }
+//                if (DateInterval(start: minDate, end: Date()) as! Double) > 3600 * 24 * 31 * 6 {
+//                    cell.graphView.timeUnit = .month
+//                }
+                cell.graphView.timeUnit = .month
+            }else{
+                cell.graphView.setXValuesRange((((Date() - 3600 * 24 * 365 - 3600 * 24 * 31) as Date),Date()))
+                cell.graphView.timeUnit = .month
+            }
+            self.view.setNeedsDisplay()
+        }
+    }
+    
     func showDataFrom(_ initialDate:Date ,toDate finalDate:Date){
         
     }
@@ -320,7 +356,11 @@ class DSTimeBasedGraphViewController: UIViewController {
     
     func resetValues() {
         points.removeAll()
-        self.view.setNeedsDisplay()
+        if self.view is TimeBasedGraphCell  {
+            let cell = self.view as! TimeBasedGraphCell
+            cell.graphView.clearGraph()
+            self.view.setNeedsDisplay()
+        }
     }
     
     func updatePoints() {

@@ -4,17 +4,6 @@
 <array>
 	<array>
 		<array>
-			<string>Personal data</string>
-			<string>Header</string>
-		</array>
-		<array>
-			<string>Share data with another device</string>
-			<string>SettingsCell</string>
-			<string>shareData</string>
-		</array>
-	</array>
-	<array>
-		<array>
 			<string>HealthKit</string>
 			<string>Header</string>
 		</array>
@@ -39,10 +28,21 @@
 			<string>MoreCell</string>
 			<string>selectData</string>
 		</array>
+	</array>
+	<array>
 		<array>
-			<string>Delete local data</string>
+			<string>Personal data</string>
+			<string>Header</string>
+		</array>
+		<array>
+			<string>Delete all local data</string>
 			<string>SettingsCell</string>
 			<string>deleteData</string>
+		</array>
+		<array>
+			<string>Delete all remote data</string>
+			<string>SettingsCell</string>
+			<string>deleteRemoteData</string>
 		</array>
 	</array>
 	<array>

@@ -13,7 +13,7 @@ class DashboardGraphTableViewController: UITableViewController {
   
     @IBOutlet weak var titleViewController: UINavigationItem!
     
-    var originCell = TimeBasedGraphCell()
+    var originCell = DashboardGraphCell()
  
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
         return UIInterfaceOrientationMask.landscapeLeft
@@ -38,8 +38,8 @@ class DashboardGraphTableViewController: UITableViewController {
         let value = UIInterfaceOrientation.landscapeLeft.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
 
-        self.tableView.estimatedRowHeight = 300;
-        self.tableView.rowHeight = UITableView.automaticDimension;
+        self.tableView.estimatedRowHeight = 300
+        self.tableView.rowHeight = UITableView.automaticDimension
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

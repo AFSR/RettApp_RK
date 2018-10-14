@@ -70,7 +70,7 @@ class DSTask: DSReflect {
                         status = (taskDictionary.object(forKey: "status") as! Bool)
 
                     default:
-                        print("default")
+                        break
                     }
                     
                     let propertyValue: AnyObject? = taskDictionary.object(forKey: property) as AnyObject

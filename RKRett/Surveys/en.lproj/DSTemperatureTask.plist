@@ -35,7 +35,7 @@
 			<key>dashboard</key>
 			<dict>
 				<key>graphType</key>
-				<string>timeBased</string>
+				<string>DiscreteGraphChartView</string>
 				<key>yAxisColName</key>
 				<string>Celsius</string>
 				<key>timeUnit</key>

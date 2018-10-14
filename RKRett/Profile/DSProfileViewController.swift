@@ -9,12 +9,15 @@
 import UIKit
 import CloudKit
 import CoreData
+import CryptoSwift
 
 class DSProfileViewController: UIViewController {
     
     // Fetch Public Database
     let privateDB = CKContainer.default().privateCloudDatabase
     let publicDB = CKContainer.default().publicCloudDatabase
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var signupModeActive = true
 
@@ -82,7 +85,7 @@ class DSProfileViewController: UIViewController {
                 let name = CKRecord(recordType: "AppUsers")
                 
                 name["username"] = emailTextField.text as! String
-                name["password"] = passwordTextField.text
+                name["password"] = passwordTextField.text?.md5()
                 name["validationCode"] = inscriptionCodeTextField.text as! String
                 let validationCode = inscriptionCodeTextField.text as! String
                 var userGranted = false
@@ -152,19 +155,6 @@ class DSProfileViewController: UIViewController {
                 
              }else{
                 
-//                PFUser.logInWithUsername(inBackground: emailTextField.text!, password: passwordTextField.text!, block: { (user, error) in
-//                    if user != nil{
-//                        self.switchMode(status: true)
-//                    }else{
-//                        var errorText = "Unknown error"
-//                        if let error = error {
-//                            errorText = error.localizedDescription
-//                            self.displayAlert(title: NSLocalizedString("Login impossible", comment: ""), message: errorText)
-//
-//                        }
-//
-//                    }
-//                })
             }
      
         }
@@ -231,6 +221,8 @@ class DSProfileViewController: UIViewController {
         
         let query = CKQuery(recordType: "AppUsers", predicate: predicate)
         
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
         
         privateDB.perform(query, inZoneWith: nil, completionHandler: {
             (records, error) -> Void in
@@ -242,7 +234,10 @@ class DSProfileViewController: UIViewController {
             if records.count == 1{
                 print("User aldready logged In")
                 self.switchMode(status: true)
-                
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.isHidden = true
+                }
             }
         })
         

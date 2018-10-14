@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import Parse
 
 class DSUpdateInfosTableViewController: UITableViewController {
 
     
-    var currentUser = PFUser.current()
+    //var currentUser = PFUser.current()
     
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var passwordLabel: UILabel!
@@ -20,19 +19,19 @@ class DSUpdateInfosTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if currentUser != nil {
-            // Do stuff with the user
-            print("Already loged in")
-            
-            emailLabel.text = currentUser?.email
-            passwordLabel.text = "*********"
-            
-            
-        } else {
-            // Show the signup or login screen
-            print("ready to log in")
-        }
+        
+//        if currentUser != nil {
+//            // Do stuff with the user
+//            print("Already loged in")
+//
+//            emailLabel.text = currentUser?.email
+//            passwordLabel.text = "*********"
+//
+//
+//        } else {
+//            // Show the signup or login screen
+//            print("ready to log in")
+//        }
         
         
         // Uncomment the following line to preserve selection between presentations

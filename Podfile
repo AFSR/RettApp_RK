@@ -9,19 +9,20 @@ target 'RKRett' do
     pod 'SwiftKeychainWrapper'
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
     pod 'JBChartView'
-#    pod 'ScrollableGraphView'
+    pod 'Charts'
     pod 'Buglife'
-    pod 'Parse'
+    pod 'CryptoSwift'
 end
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
-      config.build_settings['SWIFT_VERSION'] = '4.0'
+      config.build_settings['SWIFT_VERSION'] = '4.2'
     end
   end
 end
 
 target 'RKRettTests' do
     pod 'RealmSwift'
+    pod 'Charts'
 end

@@ -1,12 +1,11 @@
 PODS:
-  - Bolts/Tasks (1.9.0)
   - Buglife (2.8.1)
   - CareKit (1.2.1)
+  - Charts (3.2.1):
+    - Charts/Core (= 3.2.1)
+  - Charts/Core (3.2.1)
+  - CryptoSwift (0.12.0)
   - JBChartView (3.0.13)
-  - Parse (1.17.1):
-    - Parse/Core (= 1.17.1)
-  - Parse/Core (1.17.1):
-    - Bolts/Tasks (~> 1.9)
   - Realm (3.11.0):
     - Realm/Headers (= 3.11.0)
   - Realm/Headers (3.11.0)
@@ -20,8 +19,9 @@ PODS:
 DEPENDENCIES:
   - Buglife
   - CareKit
+  - Charts
+  - CryptoSwift
   - JBChartView
-  - Parse
   - RealmSwift
   - ResearchKit
   - SVProgressHUD
@@ -30,11 +30,11 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - Bolts
     - Buglife
     - CareKit
+    - Charts
+    - CryptoSwift
     - JBChartView
-    - Parse
     - Realm
     - RealmSwift
     - ResearchKit
@@ -51,11 +51,11 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   Buglife: cbf83ab8a0e203a76ee640b24c2e3c3cae9f2c8a
   CareKit: aa0c8a57c1a2d7cfb46ff3981fe1503f02ca302e
+  Charts: f122fb70b19847fa5817d018b77d6c5a2296ab25
+  CryptoSwift: 1c07ca50843dd48bc54e6ea53d7a4dba3b645716
   JBChartView: ea240dca7b83a92f47d4ae766beb3714753988a1
-  Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
   Realm: 92f09a102692b96a9a10e9617f214f15c5ab85fc
   RealmSwift: 5f0481cd658bb751c509314b964a35eaa264d2cf
   ResearchKit: a5770681dd61afddd3d1f24d232b9abf00cba454
@@ -63,6 +63,6 @@ SPEC CHECKSUMS:
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 22257830a9dfde18107e273f5d5479d1cba0197a
+PODFILE CHECKSUM: 96561293bb2b0b11f3a8f6f215610010353be9e3
 
 COCOAPODS: 1.5.0
