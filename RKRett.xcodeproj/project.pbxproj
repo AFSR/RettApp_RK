@@ -15,6 +15,7 @@
 		2F0A2C692170E8BD003D5737 /* LineGraphDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A2C682170E8BD003D5737 /* LineGraphDataSource.swift */; };
 		2F0A2C6B2170FE3E003D5737 /* DetailGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A2C6A2170FE3E003D5737 /* DetailGraphViewController.swift */; };
 		2F0A2C6D2171D5C5003D5737 /* GraphTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A2C6C2171D5C5003D5737 /* GraphTableViewCell.swift */; };
+		2F0A2CA42173C7B6003D5737 /* CloudCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0A2CA32173C7B6003D5737 /* CloudCore.framework */; };
 		2F1189FD201955BC00F6D27D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1189FC201955BC00F6D27D /* DetailView.swift */; };
 		2F1189FF201955E100F6D27D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1189FE201955E100F6D27D /* DetailViewController.swift */; };
 		2F28EFA0216BB3380014A924 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F28EF9F216BB3380014A924 /* News.storyboard */; };
@@ -155,26 +156,12 @@
 			remoteGlobalIDString = A777602D3C64673C33CFA8BEF8DCBF89;
 			remoteInfo = CryptoSwift;
 		};
-		2F823CE72095C15A00E36FC3 /* PBXContainerItemProxy */ = {
+		2F0A2CA22173C7B6003D5737 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2F9FD36D20552FD30024752A /* Pods.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 775483202F6A471C332321082FC6B124;
-			remoteInfo = Bolts;
-		};
-		2F823CE92095C15A00E36FC3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2F9FD36D20552FD30024752A /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EC4F92AEC535A757D9E113374549D2E6;
-			remoteInfo = Parse;
-		};
-		2F823CEB2095C15A00E36FC3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2F9FD36D20552FD30024752A /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 63FFBE7EA5E7751830D12FB2D956E637;
-			remoteInfo = "Parse-Parse";
+			remoteGlobalIDString = 1BCB32A2D7B41CEF549ABAE68DAC6C3B;
+			remoteInfo = CloudCore;
 		};
 		2F9FD37C20552FD40024752A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -496,6 +483,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F0A2CA42173C7B6003D5737 /* CloudCore.framework in Frameworks */,
 				626E1EE01C10B51A00A19674 /* HealthKit.framework in Frameworks */,
 				2F5F796221653B2A00952ADF /* CloudKit.framework in Frameworks */,
 				620943AB1BAC037600C1A9B9 /* LocalAuthentication.framework in Frameworks */,
@@ -582,14 +570,12 @@
 		2F9FD36E20552FD30024752A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2F823CE82095C15A00E36FC3 /* Bolts.framework */,
 				2F9FD37D20552FD40024752A /* Buglife.framework */,
 				2F9FD37F20552FD40024752A /* CareKit.framework */,
 				2FAB0FFA216C9FDC004F2D80 /* Charts.framework */,
+				2F0A2CA32173C7B6003D5737 /* CloudCore.framework */,
 				2F0A2C80217334B2003D5737 /* CryptoSwift.framework */,
 				2F9FD38120552FD40024752A /* JBChartView.framework */,
-				2F823CEA2095C15A00E36FC3 /* Parse.framework */,
-				2F823CEC2095C15A00E36FC3 /* Parse.bundle */,
 				2F9FD38320552FD40024752A /* Pods_RKRett.framework */,
 				2F9FD38520552FD40024752A /* Pods_RKRettTests.framework */,
 				2F9FD38720552FD40024752A /* Realm.framework */,
@@ -1161,25 +1147,11 @@
 			remoteRef = 2F0A2C7F217334B2003D5737 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2F823CE82095C15A00E36FC3 /* Bolts.framework */ = {
+		2F0A2CA32173C7B6003D5737 /* CloudCore.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = Bolts.framework;
-			remoteRef = 2F823CE72095C15A00E36FC3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2F823CEA2095C15A00E36FC3 /* Parse.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Parse.framework;
-			remoteRef = 2F823CE92095C15A00E36FC3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2F823CEC2095C15A00E36FC3 /* Parse.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = Parse.bundle;
-			remoteRef = 2F823CEB2095C15A00E36FC3 /* PBXContainerItemProxy */;
+			path = CloudCore.framework;
+			remoteRef = 2F0A2CA22173C7B6003D5737 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		2F9FD37D20552FD40024752A /* Buglife.framework */ = {

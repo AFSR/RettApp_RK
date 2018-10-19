@@ -93,7 +93,8 @@ class DSProfileViewController: UIViewController {
                 let recordZone = CKRecordZone.init(zoneName: "_defaultZone")
                 
                 //Move to backgroung task
-                DispatchQueue.global(qos: .userInitiated).async {
+                DispatchQueue.global(qos: .userInitiated).sync {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = true
                     print(name["username"] as! String)
                     let predicate = NSPredicate(format: "(username = %@) AND (validationCode = %@)", name["username"] as! String, validationCode)
                     let query = CKQuery(recordType: "AppUsers", predicate: predicate)
@@ -151,6 +152,7 @@ class DSProfileViewController: UIViewController {
                             
                         }
                     })
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }
                 
              }else{

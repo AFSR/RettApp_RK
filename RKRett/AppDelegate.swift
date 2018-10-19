@@ -17,6 +17,7 @@ import CoreData
 import DeviceCheck
 import CloudKit
 
+
 //MARK: - AppDelegate
 @UIApplicationMain
 class AppDelegate: UIResponder {
@@ -99,6 +100,54 @@ class AppDelegate: UIResponder {
         
     }
     
+    
+    
+    func getCloudKitUUID(){
+        
+        var uuidListCK = [String]()
+        
+        var predicate = NSPredicate()
+        predicate = NSPredicate(value: true)
+        
+        let query = CKQuery(recordType: "TaskAnswer", predicate: predicate)
+        query.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        
+        var queryOperation = CKQueryOperation(query: query)
+        
+        let networkQueue = DispatchQueue(label: "NetworkQueue", qos: .userInitiated)
+        
+        queryOperation.recordFetchedBlock = { record in
+            if let uuid = record.value(forKey: "uuid") {
+                uuidListCK.append(uuid as! String)
+            }
+        }
+        
+        queryOperation.queryCompletionBlock = { [weak self] (cursor, error) in
+            if cursor != nil{
+                let newOperation = CKQueryOperation(cursor: cursor!)
+                newOperation.queryCompletionBlock = queryOperation.queryCompletionBlock
+                newOperation.recordFetchedBlock = queryOperation.recordFetchedBlock
+                newOperation.qualityOfService = .userInitiated
+                queryOperation = newOperation
+                
+                self?.privateDB.add(queryOperation)
+            }else{
+                print("Cursor=nil")
+            }
+        }
+        
+        queryOperation.qualityOfService = .userInitiated
+        
+        networkQueue.sync {
+            self.privateDB.add(queryOperation)
+        }
+        
+        print("UUID[CK]:",uuidListCK)
+        
+    }
+    
+    
+    
     func initApp(){
         if(alreadyParticipating){
             gotoStoryboard(StoryboardName.Password.rawValue)
@@ -112,14 +161,16 @@ class AppDelegate: UIResponder {
             }
             
         }
-        //
+        
+        UIApplication.shared.registerForRemoteNotifications()
+        
+        getCloudKitUUID()
         
         //clearCoreDataRecords()
         
         //clearCloudKitRecords(recordType: "TaskAnswer")
         
-        syncDataCloudKitCoreData()
-        
+        //syncDataCloudKitCoreData()
         
         
     }
@@ -150,9 +201,13 @@ class AppDelegate: UIResponder {
     
     func syncDataCloudKitCoreData(){
         
+        let syncOperationQueue: OperationQueue = OperationQueue()
+        syncOperationQueue.maxConcurrentOperationCount = 1
+        
         //General Vars
         var nbRecordsCloudKit = 0
         var nbRecordsCoreData = 0
+        
         //Fetch last CoreData Record
         //Fetch UUID list from Core Data
         let context = self.persistentContainer.viewContext
@@ -164,6 +219,7 @@ class AppDelegate: UIResponder {
         var uuidListCK : [String] = []
         
         var controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        
         do {
             try controller.performFetch()
             nbRecordsCoreData = controller.fetchedObjects?.count ?? 0
@@ -179,6 +235,7 @@ class AppDelegate: UIResponder {
         } catch {
             fatalError("Failed to fetch entities: \(error)")
         }
+            
         
         //Fetch UUID List from CloudKit
         var predicate = NSPredicate()
@@ -186,31 +243,40 @@ class AppDelegate: UIResponder {
     
         var query = CKQuery(recordType: "TaskAnswer", predicate: predicate)
         query.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
-    
-        let queryOperation = CKQueryOperation(query: query)
-        queryOperation.desiredKeys = ["uuid"]
         
-        queryOperation.recordFetchedBlock = { record in
-            if let uuid = record.value(forKey: "uuid") {
-                uuidListCK.append(uuid as! String)
+        syncOperationQueue.addOperation {
+            
+            var queryOperation = CKQueryOperation(query: query)
+            queryOperation.resultsLimit = 100
+            
+            queryOperation.recordFetchedBlock = { record in
+                if let uuid = record.value(forKey: "uuid") {
+                    uuidListCK.append(uuid as! String)
+                }
             }
-        }
-    
-        queryOperation.queryCompletionBlock = { [weak self] (cursor, error) in
-            DispatchQueue.main.sync {
+            
+            queryOperation.queryCompletionBlock = { [weak self] (cursor, error) in
                 if cursor != nil{
                     let newOperation = CKQueryOperation(cursor: cursor!)
                     newOperation.queryCompletionBlock = queryOperation.queryCompletionBlock
                     newOperation.recordFetchedBlock = queryOperation.recordFetchedBlock
-                    self?.privateDB.add(newOperation)
+                    newOperation.resultsLimit = queryOperation.resultsLimit
+                    
+                    queryOperation = newOperation
+                    
+                    self?.privateDB.add(queryOperation)
                 }
             }
+            
+            self.privateDB.add(queryOperation)
+            
         }
         
-        self.privateDB.add(queryOperation)
+        syncOperationQueue.addOperation {
+            nbRecordsCloudKit = uuidListCK.count
+            print("[CKUUID]",nbRecordsCloudKit.description,":",uuidListCK)
+        }
     
-        nbRecordsCloudKit = uuidListCK.count
-        print("[CKUUID]",nbRecordsCloudKit.description,":",uuidListCK)
         
         //Looking for UUID from CD which are not in CK
         //Push CD data found to CK
@@ -221,16 +287,14 @@ class AppDelegate: UIResponder {
         }
         fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
-        
-        let privateMOC = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-        privateMOC.parent = context
-        
-        controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: privateMOC, sectionNameKeyPath: nil, cacheName: nil)
+    
+        controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         do {
             try controller.performFetch()
             nbRecordsCoreData = controller.fetchedObjects?.count ?? 0
             print("Nb of UUID from CD not in CK: ",controller.fetchedObjects?.count.description)
             if controller.fetchedObjects?.count ?? 0 > 0 {
+                var tasksToSaveInCK = [CKRecord]()
                 for taskAnswer in controller.fetchedObjects as! [NSManagedObject]{
                     
                     let taskResult = CKRecord(recordType: "TaskAnswer")
@@ -247,14 +311,35 @@ class AppDelegate: UIResponder {
                     }else{
                         taskResult.setValue((taskAnswer.value(forKey: "uuid") as! String), forKey: "uuid")
                     }
-                    self.privateDB.save(taskResult) { (savedRecord, error) -> Void in
-                        guard let savedRecord = savedRecord else {
-                            print("Error saving record: ", error)
-                            return
-                        }
-                        print("Successfully saved record: ", savedRecord," in CloudKit")
-                    }
+                    
+                    tasksToSaveInCK.append(taskResult)
+                    
                 }
+                
+                print("Tasks to save:", tasksToSaveInCK)
+                
+                
+                syncOperationQueue.addOperation {
+                    let modifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: tasksToSaveInCK, recordIDsToDelete: [])
+                    
+                    modifyRecordsOperation.modifyRecordsCompletionBlock = { savedRecord, _, error in
+                        if error != nil{
+                            print(error)
+                        }else{
+                            let nbOfRecordSaved = savedRecord?.count as! Int
+                            if nbOfRecordSaved == 0 {
+                                print("No record saved")
+                            }else{
+                                for i in 0..<nbOfRecordSaved{
+                                    print("Record ",i," ",savedRecord?[i])
+                                }
+                            }
+                        }
+                        
+                    }
+                    self.privateDB.add(modifyRecordsOperation)
+                }
+                
             }
         } catch {
             fatalError("Failed to fetch entities: \(error)")
@@ -267,6 +352,7 @@ class AppDelegate: UIResponder {
             }else{
                 predicate = NSPredicate(format: "NOT (uuid IN %@)", uuidListCD)
             }
+            predicate = NSPredicate(format: "NOT (uuid IN %@)", uuidListCD)
             query = CKQuery(recordType: "TaskAnswer", predicate: predicate)
             query.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
             
@@ -276,11 +362,10 @@ class AppDelegate: UIResponder {
                     print("Error querying records: ", error ?? "Error")
                     return
                 }
+                print("[CKUUID]",uuidListCK.count,":",uuidListCK)
                 print("Nb of UUID from CK not in CD: ",records.count.description)
                 for taskAnswer in records{
-                    let privateMOC = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-                    privateMOC.parent = context
-                    let data = NSManagedObject(entity: NSEntityDescription.entity(forEntityName: "TaskAnswer", in: privateMOC)!, insertInto: privateMOC)
+                    let data = NSManagedObject(entity: NSEntityDescription.entity(forEntityName: "TaskAnswer", in: context)!, insertInto: context)
                     
                     data.setValue( (taskAnswer.value(forKey: "taskName") as! String) , forKey: "taskName")
                     data.setValue( (taskAnswer.value(forKey: "json") as! String), forKey: "json")
@@ -302,7 +387,8 @@ class AppDelegate: UIResponder {
                     }
                     print(data.description)
                     do {
-                        try privateMOC.save()
+                        try context.save()
+                        print("Successfully saved record: ", records.count.description," in CoreData")
                     } catch {
                         // Replace this implementation with code to handle the error appropriately.
                         // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -311,49 +397,94 @@ class AppDelegate: UIResponder {
                     }
                     
                 }
-                print("Successfully saved record: ", records.count.description," in CoreData")
+                
             })
 //        })
-//
+
+        print("End of sync process")
     }
     
     func clearCloudKitRecords(recordType: String){
         
+        var recordIDsArray = [CKRecord.ID]()
         
-        var predicate = NSPredicate()
-        predicate = NSPredicate(value: true)
-        
-        var query = CKQuery(recordType: "TaskAnswer", predicate: predicate)
-        query.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
-        
-        let queryOperation = CKQueryOperation(query: query)
-        
+        var queryOperation = CKQueryOperation(query: CKQuery(recordType: recordType, predicate: NSPredicate(value: true)))
+
         queryOperation.recordFetchedBlock = { record in
-            self.privateDB.delete(withRecordID: record.recordID, completionHandler: {
-                (deletedRecord, error) -> Void in
-                guard let deletedRecord = deletedRecord else{
-                    print("Error querying records: ", error ?? "Error")
-                    return
-                }
-                print("Record deleted",record.recordID)
-            })
+            recordIDsArray.append(record.recordID)
         }
-        
+
         queryOperation.queryCompletionBlock = { (cursor, error) in
             print("New Operation Completion Block:",cursor?.description)
             if cursor != nil{
-                let newOperation = CKQueryOperation(cursor: cursor!)
-                newOperation.queryCompletionBlock = queryOperation.queryCompletionBlock
-                newOperation.recordFetchedBlock = queryOperation.recordFetchedBlock
-                self.privateDB.add(newOperation)
+                let nextOperation = CKQueryOperation(cursor: cursor!)
+                nextOperation.recordFetchedBlock = queryOperation.recordFetchedBlock
+                nextOperation.queryCompletionBlock = queryOperation.queryCompletionBlock
+
+                queryOperation = nextOperation
+
+                self.privateDB.add(queryOperation)
                 print("New Operation")
             }
         }
         
-        self.privateDB.add(queryOperation)
+        OperationQueue.main.addOperation {
+            self.privateDB.add(queryOperation)
+        }
         
         
+        let modifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: recordIDsArray)
         
+        modifyRecordsOperation.addDependency(queryOperation)
+        
+        modifyRecordsOperation.modifyRecordsCompletionBlock = { _, deletedRecord, error in
+            if error != nil{
+                print(error)
+            }else{
+                let nbOfRecordDeleted = deletedRecord?.count as! Int
+                if nbOfRecordDeleted == 0 {
+                    print("No record deleted")
+                }else{
+                    for i in 0..<nbOfRecordDeleted{
+                        print("Record ",i," deleted",deletedRecord?[i])
+                    }
+                }
+            }
+            
+        }
+        OperationQueue.main.addOperation {
+            self.privateDB.add(modifyRecordsOperation)
+        }
+        
+//        var queryOperation = CKQueryOperation(query: CKQuery(recordType: recordType, predicate: NSPredicate(value: true)))
+//
+//        queryOperation.recordFetchedBlock = { record in
+//            self.privateDB.delete(withRecordID: record.recordID, completionHandler: {
+//                (deletedRecord, error) -> Void in
+//                guard let deletedRecord = deletedRecord else{
+//                    print("Error querying records: ", error ?? "Error")
+//                    return
+//                }
+//                print("Record deleted",record.recordID)
+//            })
+//        }
+//
+//        queryOperation.queryCompletionBlock = { (cursor, error) in
+//            print("New Operation Completion Block:",cursor?.description)
+//            if cursor != nil{
+//                let nextOperation = CKQueryOperation(cursor: cursor!)
+//                nextOperation.recordFetchedBlock = queryOperation.recordFetchedBlock
+//                nextOperation.queryCompletionBlock = queryOperation.queryCompletionBlock
+//
+//                queryOperation = nextOperation
+//
+//                self.privateDB.add(queryOperation)
+//                print("New Operation")
+//            }
+//        }
+//
+//        self.privateDB.add(queryOperation)
+//
 //        let predicate = NSPredicate(value: true)
 //        let query = CKQuery(recordType: recordType, predicate: predicate)
 //        query.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]

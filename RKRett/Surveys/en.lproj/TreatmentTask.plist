@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>taskId</key>
+	<string>TreatmentTask</string>
+	<key>frequencyType</key>
+	<string>onDemand</string>
+	<key>frequencyNumber</key>
+	<string>0</string>
+	<key>name</key>
+	<string>Update Treatment</string>
+	<key>type</key>
+	<string>Survey</string>
+	<key>status</key>
+	<true/>
+	<key>questions</key>
+	<array>
+		<dict>
+			<key>answerType</key>
+			<string>Introduction</string>
+			<key>prompt</key>
+			<string>This survey should be used to log information about treatment.</string>
+			<key>questionId</key>
+			<string>TreatmentIntroduction</string>
+		</dict>
+		<dict>
+			<key>value</key>
+			<integer>1</integer>
+			<key>answerRange</key>
+			<dict>
+				<key>minimum</key>
+				<integer>0</integer>
+				<key>maximum</key>
+				<integer>10</integer>
+			</dict>
+			<key>answerUnit</key>
+			<string>NSNumber</string>
+			<key>answerType</key>
+			<string>String</string>
+			<key>prompt</key>
+			<string>What is the name of the treatment?</string>
+			<key>questionId</key>
+			<string>TreatmentName</string>
+		</dict>
+		<dict>
+			<key>answerRange</key>
+			<dict>
+				<key>minimum</key>
+				<integer>0</integer>
+				<key>maximum</key>
+				<integer>10</integer>
+			</dict>
+			<key>answerUnit</key>
+			<string>Unit</string>
+			<key>answerType</key>
+			<string>NSNumber</string>
+			<key>prompt</key>
+			<string>What is the dosage of the treatment?</string>
+			<key>questionId</key>
+			<string>TreatmentDosage</string>
+			<key>dashboard</key>
+			<dict>
+				<key>graphType</key>
+				<string>LineGraphChartView</string>
+				<key>yAxisColName</key>
+				<string>DSDateColName</string>
+				<key>timeUnit</key>
+				<string>Hour</string>
+				<key>title</key>
+				<string>Treatment</string>
+				<key>subtitle</key>
+				<string></string>
+				<key>rank</key>
+				<integer>0</integer>
+				<key>color</key>
+				<dict>
+					<key>red</key>
+					<real>1</real>
+					<key>green</key>
+					<real>0.2113</real>
+					<key>blue</key>
+					<real>0.3618</real>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>optional</key>
+			<false/>
+			<key>answerType</key>
+			<string>TimeOfDay</string>
+			<key>prompt</key>
+			<string>When did it happen?</string>
+			<key>questionId</key>
+			<string>TreatmentTimeOfDay</string>
+		</dict>
+	</array>
+</dict>
+</plist>
