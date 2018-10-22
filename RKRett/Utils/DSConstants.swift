@@ -128,6 +128,7 @@ enum DSTaskTypes : String{
     case TextChoice = "TextChoice"
     case TimeOfDay = "TimeOfDay"
     case Task = "Task"
+    case Picker = "Picker"
     
     var description: String {
         return self.rawValue

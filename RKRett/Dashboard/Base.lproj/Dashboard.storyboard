@@ -304,7 +304,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aB3-E3-KjI">
-                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LineGraphCell" rowHeight="200" id="O4m-bk-7e8" customClass="LineTableViewCell" customModule="RKRett" customModuleProvider="target">
@@ -389,6 +389,7 @@
                                             <outlet property="graphView" destination="c7t-Al-eng" id="R45-WD-cXO"/>
                                             <outlet property="subtitleLabel" destination="AUM-F3-LAG" id="uGa-HN-Mqn"/>
                                             <outlet property="titleLabel" destination="vvy-gR-sg7" id="i7T-IW-8g8"/>
+                                            <outlet property="toggleFullScreenButton" destination="c7l-MB-9ii" id="qVq-C7-ZVI"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DiscreteGraphCell" rowHeight="200" id="Eae-7L-Ny2" customClass="DiscreteTableViewCell" customModule="RKRett" customModuleProvider="target">
@@ -474,6 +475,7 @@
                                             <outlet property="graphView" destination="0VE-uO-PYn" id="a4i-wg-Azd"/>
                                             <outlet property="subtitleLabel" destination="Pbl-xf-fDi" id="12c-Su-n9y"/>
                                             <outlet property="titleLabel" destination="j4A-lr-Y9Z" id="TRE-A1-HkF"/>
+                                            <outlet property="toggleFullScreenButton" destination="fXM-Bf-6qW" id="hFD-yi-W2I"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CircularGraphCell" rowHeight="200" id="Fq1-Jy-R7p" userLabel="CircularGraphCell" customClass="CircularTableViewCell" customModule="RKRett" customModuleProvider="target">
@@ -514,6 +516,7 @@
                                                     <state key="normal" title="Button" image="toggleFullScreen"/>
                                                     <connections>
                                                         <action selector="toggleFullScreen:" destination="Fq1-Jy-R7p" eventType="touchUpInside" id="YXB-F9-CXT"/>
+                                                        <action selector="toggleFullScreenButton:" destination="Fq1-Jy-R7p" eventType="touchUpInside" id="0fC-iP-Ljw"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -537,6 +540,7 @@
                                             <outlet property="graphView" destination="bk7-0b-eTm" id="9vQ-rG-N9J"/>
                                             <outlet property="subtitleLabel" destination="02l-rk-hnJ" id="tdG-aw-HoL"/>
                                             <outlet property="titleLabel" destination="kVU-0O-byh" id="3aw-jB-hE6"/>
+                                            <outlet property="toggleFullScreenButton" destination="cZx-7D-rzV" id="e1W-xr-bIA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -623,6 +627,6 @@
         <image name="toggleFullScreen" width="360" height="360"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Vtc-Cr-DH1"/>
+        <segue reference="9Df-Fx-ss2"/>
     </inferredMetricsTieBreakers>
 </document>

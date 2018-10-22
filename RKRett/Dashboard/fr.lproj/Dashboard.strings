@@ -1,0 +1,93 @@
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "02l-rk-hnJ"; */
+"02l-rk-hnJ.text" = "Sous-titre";
+
+/* Class = "UIBarButtonItem"; title = "Dashboard"; ObjectID = "6kK-1q-sBP"; */
+"6kK-1q-sBP.title" = "Dashboard";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "AUM-F3-LAG"; */
+"AUM-F3-LAG.text" = "Sous-titre";
+
+/* Class = "UISegmentedControl"; BIU-nz-qTx.segmentTitles[0] = "Day"; ObjectID = "BIU-nz-qTx"; */
+"BIU-nz-qTx.segmentTitles[0]" = "Jour";
+
+/* Class = "UISegmentedControl"; BIU-nz-qTx.segmentTitles[1] = "Week"; ObjectID = "BIU-nz-qTx"; */
+"BIU-nz-qTx.segmentTitles[1]" = "Semaine";
+
+/* Class = "UISegmentedControl"; BIU-nz-qTx.segmentTitles[2] = "Month"; ObjectID = "BIU-nz-qTx"; */
+"BIU-nz-qTx.segmentTitles[2]" = "Mois";
+
+/* Class = "UISegmentedControl"; BIU-nz-qTx.segmentTitles[3] = "Year"; ObjectID = "BIU-nz-qTx"; */
+"BIU-nz-qTx.segmentTitles[3]" = "Année";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Eld-cU-PU0"; */
+"Eld-cU-PU0.text" = "Titre";
+
+/* Class = "UINavigationItem"; title = "Dashboard"; ObjectID = "JWr-ZQ-c2i"; */
+"JWr-ZQ-c2i.title" = "Dashboard";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "Pbl-xf-fDi"; */
+"Pbl-xf-fDi.text" = "Sous-titre";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "PzS-so-xvK"; */
+"PzS-so-xvK.normalTitle" = "Bouton";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "V0m-PK-kBc"; */
+"V0m-PK-kBc.text" = "Sous-titre";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "aEW-YK-qHZ"; */
+"aEW-YK-qHZ.text" = "Titre";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "be6-13-r4s"; */
+"be6-13-r4s.title" = "Titre";
+
+/* Class = "UISegmentedControl"; blH-RX-8tv.segmentTitles[0] = "Day"; ObjectID = "blH-RX-8tv"; */
+"blH-RX-8tv.segmentTitles[0]" = "Jour";
+
+/* Class = "UISegmentedControl"; blH-RX-8tv.segmentTitles[1] = "Week"; ObjectID = "blH-RX-8tv"; */
+"blH-RX-8tv.segmentTitles[1]" = "Semaine";
+
+/* Class = "UISegmentedControl"; blH-RX-8tv.segmentTitles[2] = "Month"; ObjectID = "blH-RX-8tv"; */
+"blH-RX-8tv.segmentTitles[2]" = "Mois";
+
+/* Class = "UISegmentedControl"; blH-RX-8tv.segmentTitles[3] = "Year"; ObjectID = "blH-RX-8tv"; */
+"blH-RX-8tv.segmentTitles[3]" = "Année";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "c7l-MB-9ii"; */
+"c7l-MB-9ii.normalTitle" = "Bouton";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "cZx-7D-rzV"; */
+"cZx-7D-rzV.normalTitle" = "Bouton";
+
+/* Class = "UITabBarItem"; title = "Dashboard"; ObjectID = "dMl-J7-HwR"; */
+"dMl-J7-HwR.title" = "Dashboard";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "fXM-Bf-6qW"; */
+"fXM-Bf-6qW.normalTitle" = "Bouton";
+
+/* Class = "UIBarButtonItem"; title = "Dashboard"; ObjectID = "gkE-59-zLr"; */
+"gkE-59-zLr.title" = "Dashboard";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "hfb-T3-oVv"; */
+"hfb-T3-oVv.text" = "Sous-titre";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "j1S-e4-NWG"; */
+"j1S-e4-NWG.text" = "Sous-titre";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "j4A-lr-Y9Z"; */
+"j4A-lr-Y9Z.text" = "Titre";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "kB2-ju-lBg"; */
+"kB2-ju-lBg.normalTitle" = "Bouton";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "kVU-0O-byh"; */
+"kVU-0O-byh.text" = "Titre";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "lXL-KW-3Jj"; */
+"lXL-KW-3Jj.normalTitle" = "Bouton";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "vvy-gR-sg7"; */
+"vvy-gR-sg7.text" = "Titre";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "wS3-hX-kkq"; */
+"wS3-hX-kkq.text" = "Titre";

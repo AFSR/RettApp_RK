@@ -11,7 +11,7 @@ import CloudKit
 import CoreData
 import CryptoSwift
 
-class DSProfileViewController: UIViewController {
+class DSProfileViewController: UIViewController, UITextFieldDelegate {
     
     // Fetch Public Database
     let privateDB = CKContainer.default().privateCloudDatabase
@@ -90,7 +90,7 @@ class DSProfileViewController: UIViewController {
                 let validationCode = inscriptionCodeTextField.text as! String
                 var userGranted = false
                 
-                let recordZone = CKRecordZone.init(zoneName: "_defaultZone")
+                let recordZone = CKRecordZone.init(zoneName: "records")
                 
                 //Move to backgroung task
                 DispatchQueue.global(qos: .userInitiated).sync {
@@ -112,7 +112,7 @@ class DSProfileViewController: UIViewController {
                                 let uuid = UUID().uuidString
                                 name["UUID"] = uuid
                                 print("The user is granted and connect for the first time")
-                                self.privateDB.save(name, completionHandler: { savedRecord, error in
+                                self.publicDB.save(name, completionHandler: { savedRecord, error in
                                     if error == nil {
                                         // Hooray! Let them use the app now.
                                         self.switchMode(status: true)
@@ -125,7 +125,7 @@ class DSProfileViewController: UIViewController {
                             }else{
                                 let predicatePassword = NSPredicate(format: "(username = %@) AND (validationCode = %@) AND (passsword = %@)", name["username"] as! String, validationCode, name["password"] as! String)
                                 let queryPassword = CKQuery(recordType: "AppUsers", predicate: predicatePassword)
-                                self.privateDB.perform(queryPassword, inZoneWith: recordZone.zoneID, completionHandler: {
+                                self.publicDB.perform(queryPassword, inZoneWith: recordZone.zoneID, completionHandler: {
                                     (recordsPassword, error) -> Void in
                                     guard let recordsPassword = recordsPassword else {
                                         print("Error querying records: ", error)
@@ -212,7 +212,7 @@ class DSProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let recordZone = CKRecordZone.init(zoneName: "_defaultZone")
+        let recordZone = CKRecordZone.init(zoneName: "records")
         
         let uuid = UserDefaults.standard.string(forKey: "LogUUID") ?? ""
         print("UUID saved in UserDefaults: ",uuid)
@@ -243,6 +243,11 @@ class DSProfileViewController: UIViewController {
             }
         })
         
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        inscriptionCodeTextField.delegate = self
+        
+        
         // Do any additional setup after loading the view.
         logOutButton.isEnabled = false
         
@@ -267,6 +272,11 @@ class DSProfileViewController: UIViewController {
     }
     
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return false
+    }
+    
     /*
     // MARK: - Navigation
 

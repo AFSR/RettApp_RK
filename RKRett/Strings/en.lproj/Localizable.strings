@@ -75,3 +75,15 @@ Once these data anonymized, they will be transfered on a server to be analysed w
 "You didn't authorize the use of HealthKit" = "You didn't authorize the use of HealthKit";
 "Reminder" = "Reminder";
 "You have pending tasks, please check the tasks tab" = "You have pending tasks, please check the tasks tab";
+"Learn More..." = "Learn More...";
+"News" = "News";
+"Fetching news from server..." = "Fetching news from server...";
+"New records found on remote server." = "New records found on remote server.";
+"Tasks results" = "Tasks results";
+"Personal treatment" = "Personal treatment";
+"Add Treatment" = "Add Treatment";
+"Name" = "Name";
+"Posology" = "Posology";
+"Unit" = "Unit";
+"Frequency" = "Frequency";
+"Add" = "Add";

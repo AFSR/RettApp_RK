@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 //import ScrollableGraphView
 
 class DSDashboardViewController: UIViewController,TimeBasedGraphCellDelegate {
@@ -29,10 +30,11 @@ class DSDashboardViewController: UIViewController,TimeBasedGraphCellDelegate {
         return DSGraphIdentifierType(dictionary[TaskIdKey] as String!, dictionary[QuestionIdKey] as String!)
     }
     
-    // ------------------------------------------------?
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
         let destVC : DashboardGraphTableViewController = segue.destination as! DashboardGraphTableViewController
-        //destVC.originCell = sender as! TimeBasedGraphCell
+
     }
     
  
@@ -102,6 +104,21 @@ class DSDashboardViewController: UIViewController,TimeBasedGraphCellDelegate {
         
     }
     
+    func resetBadgeCounter() {
+        
+        let badgeResetOperation = CKModifyBadgeOperation(badgeValue: 0)
+        badgeResetOperation.modifyBadgeCompletionBlock = { (error) -> Void in
+            if error != nil {
+                print("Error resetting badge: \(error)")
+            }
+            else {
+                UIApplication.shared.applicationIconBadgeNumber = 0
+            }
+        }
+        
+        //appDelegate.privateDB.add(badgeResetOperation)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         graphIdentifiers = getGraphIds()
         
@@ -121,6 +138,10 @@ class DSDashboardViewController: UIViewController,TimeBasedGraphCellDelegate {
                 print("reload dashboard view")
             }
         }
+        
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        
+        //resetBadgeCounter()
     }
     
     override func viewDidLoad() {
@@ -133,12 +154,6 @@ class DSDashboardViewController: UIViewController,TimeBasedGraphCellDelegate {
         
         tableView.register(UINib(nibName: "CircularGraphCell", bundle: Bundle.main), forCellReuseIdentifier: "CircularGraphCell")
         tableView.register(UINib(nibName: "TimeBasedGraphCell", bundle: Bundle.main), forCellReuseIdentifier: "TimeBasedGraphCell")
-        
-//        if let unwrapped = UserDefaults.standard.object(forKey: kQuestionsGraphArrayKey) as? [DSGraphIdentifierTypeDictionary]{
-//            unwrapped.forEach({ (element) -> () in
-//                graphIdentifiers += [deserializeDictionary(element)]
-//            })
-//        }
         
         //Init view with Today view
         timeSegment.selectedSegmentIndex = 0
@@ -196,9 +211,7 @@ class DSDashboardViewController: UIViewController,TimeBasedGraphCellDelegate {
                 if tupleFromVc == graphId {
                     return true
                 }
-                
-                //            case is DSCircularGraphViewController:
-                //                break
+               
             default:
                 print("tipo errado")
                 break

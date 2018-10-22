@@ -37,7 +37,7 @@
 			<key>answerUnit</key>
 			<string>NSNumber</string>
 			<key>answerType</key>
-			<string>String</string>
+			<string>Picker</string>
 			<key>prompt</key>
 			<string>Quel est le nom du traitement?</string>
 			<key>questionId</key>
@@ -54,7 +54,7 @@
 			<key>answerUnit</key>
 			<string>Unité</string>
 			<key>answerType</key>
-			<string>NSNumber</string>
+			<string>Picker</string>
 			<key>prompt</key>
 			<string>Quel est le dosage du traitement?</string>
 			<key>questionId</key>

@@ -9,12 +9,22 @@
 import UIKit
 import ResearchKit
 import CoreData
+import CloudKit
 
 /**
 Create and manage a ORKTaskViewController and its results.
 */
 @available(iOS 10.0, *)
-class DSTaskController: NSObject {
+class DSTaskController: NSObject, UICloudSharingControllerDelegate {
+    
+    func cloudSharingController(_ csc: UICloudSharingController, failedToSaveShareWithError error: Error) {
+        print("Fail to share:",error)
+    }
+    
+    func itemTitle(for csc: UICloudSharingController) -> String? {
+        return NSLocalizedString("Tasks results", comment: "")
+    }
+    
     
     /**
     Holds the UIViewController parent of taskViewControllerInstance.
@@ -155,7 +165,7 @@ extension DSTaskController: ORKTaskViewControllerDelegate {
                 if let taskListVC = self.parentViewController as? DSTaskListViewController{
                     taskListVC.tableView.reloadData()
                 }
-                let uuid = UUID().uuidString
+                let uuid = UserDefaults.standard.value(forKey: "Device_uuid") as! String
                 
                 let data = NSManagedObject(entity: NSEntityDescription.entity(forEntityName: "TaskAnswer", in: appDelegate.persistentContainer.viewContext)!, insertInto: appDelegate.persistentContainer.viewContext)
                 
@@ -170,6 +180,60 @@ extension DSTaskController: ORKTaskViewControllerDelegate {
                     print(error)
                 }
                 appDelegate.saveContext()
+                
+                //Saving process to Cloud Kit
+                if (UserDefaults.standard.value(forKey: "zoneCreated") != nil) && (UserDefaults.standard.value(forKey: "zoneCreated") as! Bool){
+                    let zone = CKRecordZone(zoneName: "records")
+                    let modifyRecordZoneOperation = CKModifyRecordZonesOperation(recordZonesToSave: [zone], recordZoneIDsToDelete: nil)
+                    modifyRecordZoneOperation.modifyRecordZonesCompletionBlock = { savedRecordZone, _, error in
+                        if error != nil{
+                            print(error)
+                        }
+                    }
+                    appDelegate.privateDB.add(modifyRecordZoneOperation)
+                }
+                
+                
+                
+                let ckRecordZoneID = CKRecordZone.ID(zoneName: "records", ownerName: CKCurrentUserDefaultName)
+                let ckRecordID = CKRecord.ID(recordName: CKRecord(recordType: "TaskAnswer").recordID.recordName, zoneID: ckRecordZoneID)
+                let taskRecord = CKRecord(recordType: "TaskAnswer", recordID: ckRecordID)
+                
+                print("Father reference:", UserDefaults.standard.value(forKey: "fatherRecordID"))
+                print("Zone:", UserDefaults.standard.value(forKey: "zoneCreated"))
+                
+                if UserDefaults.standard.value(forKey: "fatherRecordID") == nil {
+                    appDelegate.checkInitCKData()
+                }
+                
+                let parentTaskName = UserDefaults.standard.value(forKey: "fatherRecordID") as! String
+                let fatherRecordZoneID = CKRecordZone.ID(zoneName: "records", ownerName: CKCurrentUserDefaultName)
+                let fatherRecordID = CKRecord.ID(recordName: parentTaskName, zoneID: fatherRecordZoneID)
+                
+                taskRecord.setParent(fatherRecordID)
+                
+                taskRecord["date"] = data.value(forKey: "date") as! Date
+                taskRecord["taskName"] = data.value(forKey: "taskName") as! String
+                taskRecord["json"] = data.value(forKey: "json") as! String
+                taskRecord["uuid"] = data.value(forKey: "uuid") as! String
+                
+                let modifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: [taskRecord], recordIDsToDelete: [])
+                
+                modifyRecordsOperation.modifyRecordsCompletionBlock = { savedRecord, _, error in
+                    if error != nil{
+                        print(error)
+                    }else{
+                        let nbOfRecordSaved = savedRecord?.count as! Int
+                        if nbOfRecordSaved == 0 {
+                            print("No record saved")
+                        }else{
+                            for i in 0..<nbOfRecordSaved{
+                                print("Record ",i," ",savedRecord?[i])
+                            }
+                        }
+                    }
+                }
+                appDelegate.privateDB.add(modifyRecordsOperation)
                 
             }
             self.taskViewControllerInstance.dismiss(animated: true, completion: nil)

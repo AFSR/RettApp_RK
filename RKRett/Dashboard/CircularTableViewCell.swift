@@ -27,6 +27,8 @@ class CircularTableViewCell: GraphTableViewCell {
 
     let cell = self
     
+    @IBOutlet weak var toggleFullScreenButton: UIButton!
+    
     @IBAction func toggleFullScreen(_ sender: Any) {
         
         delegate?.didTapShowGraph(self, taskID: self.taskId!, questionID: self.questionId!)

@@ -127,6 +127,8 @@ class DetailGraphViewController: UIViewController, UITableViewDelegate, UITableV
         
         titleView.title = titleOfCell
         
+        
+        
         switch (graphType) {
         case GraphType.LineGraphChartView:
             let cell = tableView.dequeueReusableCell(withIdentifier: "LineGraphCell", for: indexPath) as! LineTableViewCell
@@ -139,6 +141,8 @@ class DetailGraphViewController: UIViewController, UITableViewDelegate, UITableV
             
             cell.dataSource = LineGraphDataSource(taskID: graphId.taskId, questionID: graphId.questionId, nbOfHourToShow: nbOfHourToShow)
             cell.graphView.dataSource = cell.dataSource
+            
+            cell.toggleFullScreenButton.isHidden = true
             
             return cell
         case GraphType.DiscreteGraphChartView:

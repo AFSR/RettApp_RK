@@ -7,7 +7,7 @@
 	<key>frequencyType</key>
 	<string>daily</string>
 	<key>frequencyNumber</key>
-	<string>-1</string>
+	<string>0</string>
 	<key>name</key>
 	<string>Step Log</string>
 	<key>type</key>
@@ -20,11 +20,24 @@
 			<key>answerType</key>
 			<string>Introduction</string>
 			<key>prompt</key>
-			<string>Please provide the number of steps.</string>
+			<string>Saisissez le nombre de pas.</string>
 			<key>questionId</key>
 			<string>DSStepIntroduction</string>
 		</dict>
 		<dict>
+			<key>answerType</key>
+			<string>NSNumber</string>
+			<key>answerUnit</key>
+			<string>pas</string>
+			<key>prompt</key>
+			<string>Combien de pas votre enfant a t&apos;il effectué?</string>
+			<key>answerRange</key>
+			<dict>
+				<key>maximum</key>
+				<integer>20</integer>
+				<key>minimum</key>
+				<integer>0</integer>
+			</dict>
 			<key>questionId</key>
 			<string>step</string>
 			<key>dashboard</key>

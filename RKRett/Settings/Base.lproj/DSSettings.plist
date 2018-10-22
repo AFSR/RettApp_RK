@@ -35,6 +35,16 @@
 			<string>Header</string>
 		</array>
 		<array>
+			<string>Share data with contact</string>
+			<string>ToggleCell</string>
+			<string>shareData</string>
+		</array>
+		<array>
+			<string>Personal treatment</string>
+			<string>MoreCell</string>
+			<string>defineTreatment</string>
+		</array>
+		<array>
 			<string>Delete all local data</string>
 			<string>SettingsCell</string>
 			<string>deleteData</string>

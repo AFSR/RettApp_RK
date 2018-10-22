@@ -7,7 +7,7 @@
 	<key>frequencyType</key>
 	<string>daily</string>
 	<key>frequencyNumber</key>
-	<string>-1</string>
+	<string>0</string>
 	<key>name</key>
 	<string>Step Log</string>
 	<key>type</key>
@@ -25,6 +25,19 @@
 			<string>DSStepIntroduction</string>
 		</dict>
 		<dict>
+			<key>answerRange</key>
+			<dict>
+				<key>maximum</key>
+				<integer>20</integer>
+				<key>minimum</key>
+				<integer>0</integer>
+			</dict>
+			<key>prompt</key>
+			<string>How many steps did she make?</string>
+			<key>answerUnit</key>
+			<string>steps</string>
+			<key>answerType</key>
+			<string>NSNumber</string>
 			<key>questionId</key>
 			<string>step</string>
 			<key>dashboard</key>

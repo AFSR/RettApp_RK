@@ -26,6 +26,34 @@ class DSTaskListViewController: UIViewController{
     var hideTasks = [DSTask]()
     var tasksCount = 0
     
+    func setupCloudKitSubscription() {
+        
+//        if (UserDefaults.standard.value(forKey: "subscribed") != nil) && ((UserDefaults.standard.value(forKey: "subscribed") as! Bool) == false) {
+//
+//            let predicate = NSPredicate(value: true)
+//
+//            let querySubscription = CKQuerySubscription(recordType: "TaskAnswer", predicate: predicate, options: .firesOnRecordCreation)
+//
+//            let notificationInfo = CKSubscription.NotificationInfo()
+//            notificationInfo.alertLocalizationKey = "New record"
+//            notificationInfo.shouldBadge = true
+//
+//            querySubscription.notificationInfo = notificationInfo
+//
+//            appDelegate.privateDB.save(querySubscription, completionHandler: { subscription, error in
+//                if error != nil {
+//                    print(error)
+//                }else {
+//                    UserDefaults.standard.setValue( true , forKey: "subscribed")
+//                    UserDefaults.standard.setValue(querySubscription.subscriptionID, forKey: "subscriptionID")
+//                    print("Subscription successfully saved")
+//                }
+//            })
+//
+//        }
+        
+    }
+    
 //    private func fetchUserRecord(recordID: CKRecordID) {
 //        // Fetch Default Container
 //        let defaultContainer = CKContainer.default()
@@ -72,6 +100,7 @@ class DSTaskListViewController: UIViewController{
         // Fetch User Record ID
         //fetchUserRecordID()
         
+        setupCloudKitSubscription()
         
      }
     

@@ -1,18 +1,42 @@
 
-/* Class = "UILabel"; text = "Title"; ObjectID = "B6J-7U-WUm"; */
-"B6J-7U-WUm.text" = "Titre";
+/* Class = "UINavigationItem"; title = "Données personnelles"; ObjectID = "BUu-W2-YFb"; */
+"BUu-W2-YFb.title" = "Données personnelles";
+
+/* Class = "UINavigationItem"; title = "Share Data"; ObjectID = "EjP-Pk-XTJ"; */
+"EjP-Pk-XTJ.title" = "Partage de données";
 
 /* Class = "UIViewController"; title = "Settings"; ObjectID = "Eud-XG-z85"; */
 "Eud-XG-z85.title" = "Réglages";
 
+/* Class = "UILabel"; text = "Posologie:"; ObjectID = "FuG-tI-6YA"; */
+"FuG-tI-6YA.text" = "Posologie:";
+
+/* Class = "UILabel"; text = "Add Treatment"; ObjectID = "PVZ-Uq-kH7"; */
+"PVZ-Uq-kH7.text" = "Ajouter un traitement";
+
+/* Class = "UILabel"; text = "Unit:"; ObjectID = "ROo-xF-ETM"; */
+"ROo-xF-ETM.text" = "Unité:";
+
 /* Class = "UITabBarItem"; title = "Settings"; ObjectID = "SdE-Re-ki2"; */
 "SdE-Re-ki2.title" = "Réglages";
+
+/* Class = "UINavigationItem"; title = "Dashboard Configuration"; ObjectID = "WF4-0f-5on"; */
+"WF4-0f-5on.title" = "Configuration du Dashboard";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "cMl-7B-OsS"; */
+"cMl-7B-OsS.title" = "Titre";
+
+/* Class = "UILabel"; text = "Frequency:"; ObjectID = "kkF-Gp-sjn"; */
+"kkF-Gp-sjn.text" = "Frequence:";
+
+/* Class = "UIButton"; normalTitle = "Add"; ObjectID = "lhx-pB-zdy"; */
+"lhx-pB-zdy.normalTitle" = "Ajouter";
 
 /* Class = "UINavigationItem"; title = "Title"; ObjectID = "nO6-96-6mR"; */
 "nO6-96-6mR.title" = "Titre";
 
+/* Class = "UILabel"; text = "Name:"; ObjectID = "s7L-Ap-9WY"; */
+"s7L-Ap-9WY.text" = "Nom:";
+
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "shz-nk-2vT"; */
 "shz-nk-2vT.title" = "Réglages";
-
-/* Class = "UIBarButtonItem"; title = "OK"; ObjectID = "ugD-2T-IWV"; */
-"ugD-2T-IWV.title" = "OK";

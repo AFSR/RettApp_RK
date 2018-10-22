@@ -10,8 +10,18 @@ import UIKit
 import SVProgressHUD
 import Buglife
 import CoreData
+import CloudKit
 
-class DSSettingsViewController:UIViewController{
+class DSSettingsViewController:UIViewController, UICloudSharingControllerDelegate{
+    
+    func cloudSharingController(_ csc: UICloudSharingController, failedToSaveShareWithError error: Error) {
+        print("Fail to save Share")
+    }
+    
+    func itemTitle(for csc: UICloudSharingController) -> String? {
+        return NSLocalizedString("Tasks results", comment: "")
+    }
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -95,6 +105,58 @@ extension DSSettingsViewController:UITableViewDelegate{
         self.present(alertController!, animated: true, completion: nil)
     }
     
+    func shareData(){
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        if UserDefaults.standard.value(forKey: "fatherRecordID") == nil {
+            appDelegate.checkInitCKData()
+        }else{
+            
+            if (UserDefaults.standard.value(forKey: "shareData") != nil) && (UserDefaults.standard.value(forKey: "shareData") as! Bool) && (UserDefaults.standard.value(forKey: "sharedRecordID") != nil) {
+                let recordSharedID = CKRecord.ID(recordName: UserDefaults.standard.value(forKey: "sharedRecordID") as! String)
+                let sharedRecord = CKShare(recordType: "TaskAnswer", recordID: recordSharedID)
+                let sharingController = UICloudSharingController(share: sharedRecord, container: CKContainer.default())
+                sharingController.availablePermissions = [.allowReadWrite, .allowPrivate]
+                sharingController.delegate = self
+                self.parent?.present(sharingController, animated: true, completion: nil)
+                print("Parent record is created")
+                
+            }else{
+                
+                let ckRecordZoneID = CKRecordZone.ID(zoneName: "records", ownerName: CKCurrentUserDefaultName)
+                let ckRecordID = CKRecord.ID(recordName: UserDefaults.standard.value(forKey: "fatherRecordID") as! String, zoneID: ckRecordZoneID)
+                let recordToSave = CKRecord(recordType: "TaskAnswer", recordID: ckRecordID)
+                let share = CKShare(rootRecord: recordToSave)
+                let sharingController = UICloudSharingController(preparationHandler: {(UICloudSharingController, handler:
+                    @escaping (CKShare?, CKContainer?, Error?) -> Void) in
+                    let modifyOp = CKModifyRecordsOperation(recordsToSave:[share], recordIDsToDelete: nil)
+                    modifyOp.modifyRecordsCompletionBlock = { (record, recordID, error) in
+                        handler(share, CKContainer.default(), error)
+                        print("Record saved in sharing process:",record?.count)
+                        if let record = record{
+                            UserDefaults.standard.set(record.first?.recordID.recordName, forKey: "sharedRecordID")
+                            UserDefaults.standard.set(true, forKey: "shareData")
+                        }
+                    }
+                    appDelegate.privateDB.add(modifyOp)
+                })
+                sharingController.availablePermissions = [.allowReadWrite, .allowPrivate]
+                sharingController.delegate = self
+                
+                self.parent?.present(sharingController, animated: true, completion: nil)
+                print("Shared record is created")
+                print(UserDefaults.standard.value(forKey: "fatherRecordID"))
+                
+            }
+            
+            print("---",UserDefaults.standard.value(forKey: "shareData"),UserDefaults.standard.value(forKey: "sharedRecordID"))
+            
+        }
+        
+    }
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         switch settingsArray[indexPath.section][indexPath.row + 1][2] {
@@ -106,7 +168,7 @@ extension DSSettingsViewController:UITableViewDelegate{
             print("Print Data")
         case "shareData":
             tableView.deselectRow(at: indexPath as IndexPath, animated: true)
-            performSegue(withIdentifier: "shareDataSegue", sender: self)
+            shareData()
             print("Share Data")
         case "selectData":
             tableView.deselectRow(at: indexPath as IndexPath, animated: true)
@@ -114,6 +176,9 @@ extension DSSettingsViewController:UITableViewDelegate{
         case "reportBug":
             tableView.deselectRow(at: indexPath as IndexPath, animated: true)
             Buglife.shared().presentReporter()
+        case "defineTreatment":
+            tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+            performSegue(withIdentifier: "viewPersonalTreatment", sender: self)
         case "deleteData":
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.clearCoreDataRecords()
@@ -166,6 +231,14 @@ extension DSSettingsViewController: UITableViewDataSource{
                     cell2.switchToggle.isOn = true
                 }else{
                     print("HK Not Authorized")
+                    cell2.switchToggle.isOn = false
+                }
+            }
+            
+            if settingsArray[indexPath.section][indexPath.row + 1][2] == "shareData"{
+                if (UserDefaults.standard.value(forKey: "shareData") != nil) && (UserDefaults.standard.value(forKey: "shareData") as! Bool){
+                    cell2.switchToggle.isOn = true
+                }else{
                     cell2.switchToggle.isOn = false
                 }
             }

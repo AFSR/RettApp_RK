@@ -14,7 +14,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     var news = [CKRecord]()
     let publicDB = CKContainer.default().publicCloudDatabase
     
-    let sections = ["Learn More...","News"]
+    let sections = [NSLocalizedString("Learn More...", comment: ""),NSLocalizedString("News", comment: "")]
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var newsView: UIView!
@@ -38,7 +38,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     private func setupView() {
         tableView.isHidden = true
         activityLabel.isHidden = false
-        activityLabel.text = "Fetching news from server..."
+        activityLabel.text = NSLocalizedString("Fetching news from server...", comment: "")
         activityIndicator.startAnimating()
     }
     
@@ -46,7 +46,9 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "News", predicate: predicate)
         
-        self.publicDB.perform(query, inZoneWith: nil, completionHandler: {
+        let recordZone = CKRecordZone.init(zoneName: "records")
+        
+        self.publicDB.perform(query, inZoneWith: recordZone.zoneID, completionHandler: {
             (records, error) -> Void in
             guard let records = records else {
                 print("Error querying records: ", error)
@@ -150,10 +152,10 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         switch (section) {
         case 0 :
             //Learn More
-            sectionName = "Learn More..."
+            sectionName = NSLocalizedString("Learn More...", comment: "")
         case 1 :
             //News
-            sectionName = "News"
+            sectionName = NSLocalizedString("News", comment: "")
         default:
             break
         }

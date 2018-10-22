@@ -4,10 +4,12 @@
 //
 //  Created by Henrique Valcanaia on 8/20/15.
 //  Copyright (c) 2015 DarkShine. All rights reserved.
+//  Copyright (c) 2018 AFSR. All rights reserved.
 //
 
 import UIKit
 import ResearchKit
+import CoreData
 
 /**
 The `DSStepCreator` is used to create a step for a task based on a Dictionary.
@@ -47,6 +49,9 @@ class DSStepCreator: NSObject {
         case DSTaskTypes.TimeOfDay.rawValue:
             step = DSStepCreator.createTimeOfDayStepUsingDictionary(dictionary)
             
+        case DSTaskTypes.Picker.rawValue:
+            step = DSStepCreator.createPickerStepUsingDictionary(dictionary)
+            
         default:
             step = DSStepCreator.defaultStep
         }
@@ -61,6 +66,83 @@ class DSStepCreator: NSObject {
         return step
     }
     
+    //MARK: - Picker Query Step - acho que vai sair
+    fileprivate static func createPickerStepUsingDictionary(_ dictionary:NSDictionary) -> ORKQuestionStep{
+        var step:ORKQuestionStep
+        if let questionIdentifier = dictionary.object(forKey: PlistFile.Task.Question.QuestionID.rawValue) as? String,
+                            let prompt = dictionary.object(forKey: PlistFile.Task.Question.Prompt.rawValue) as? String{
+            
+            switch(questionIdentifier){
+            case "TreatmentName":
+                var listOfTreatmentChoice = [ORKTextChoice]()
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                let context = appDelegate.persistentContainer.viewContext
+                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Treatment")
+                let predicate = NSPredicate(value: true)
+                fetchRequest.predicate = predicate
+                fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+                
+                let listOfTreatment = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+                do {
+                    try listOfTreatment.performFetch()
+                    if listOfTreatment.fetchedObjects?.count ?? 0 > 0 {
+                        for (index,treatment) in (listOfTreatment.fetchedObjects as! [NSManagedObject]).enumerated(){
+                            let treatmentName = treatment.value(forKey: "name") as! String
+                            let treatmentUnit = treatment.value(forKey: "unit") as! String
+                            let treatmentPosology = (treatment.value(forKey: "posology") as! Double).description
+                            let treatmentFrequency = treatment.value(forKey: "frequency") as! String
+                            let label = treatmentName + " - " + treatmentUnit + " " + treatmentPosology + treatmentFrequency
+                            let choice = ORKTextChoice(text: label, detailText: label, value: index as NSNumber, exclusive: false)
+                            listOfTreatmentChoice.append(choice)
+                        }
+                    }
+                }catch{
+                    print("Error retrieving treatment")
+                }
+                let answerFormat = ORKValuePickerAnswerFormat(textChoices: listOfTreatmentChoice)
+                
+                step = ORKQuestionStep(identifier: questionIdentifier, title: prompt, answer: answerFormat)
+                
+            case "TreatmentDosage":
+                var listOfTreatmentChoice = [ORKTextChoice]()
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                let context = appDelegate.persistentContainer.viewContext
+                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Treatment")
+                let predicate = NSPredicate(value: true)
+                fetchRequest.predicate = predicate
+                fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+                
+                let listOfTreatment = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+                do {
+                    try listOfTreatment.performFetch()
+                    if listOfTreatment.fetchedObjects?.count ?? 0 > 0 {
+                        for (index,treatment) in (listOfTreatment.fetchedObjects as! [NSManagedObject]).enumerated(){
+                            let treatmentUnit = treatment.value(forKey: "unit") as! String
+                            let label = treatmentUnit
+                            let choice = ORKTextChoice(text: label, detailText: label, value: index as NSNumber, exclusive: false)
+                            listOfTreatmentChoice.append(choice)
+                        }
+                        let otherChoice = ORKTextChoice(text: NSLocalizedString("Other", comment: ""), detailText: "", value: (listOfTreatmentChoice.count + 1 ) as NSNumber, exclusive: false)
+                        listOfTreatmentChoice.append(otherChoice)
+                    }
+                }catch{
+                    print("Error retrieving treatment")
+                }
+                let answerFormat = ORKValuePickerAnswerFormat(textChoices: listOfTreatmentChoice)
+                
+                step = ORKQuestionStep(identifier: questionIdentifier, title: prompt, answer: answerFormat)
+            default:
+                assertionFailure("Some value couldn't be unwrapped in DSStepCreator.createQueryStepUsingDictionary")
+                step = ORKQuestionStep(identifier: "Numeric Question Step Identifier")
+            }
+        }else{
+            assertionFailure("Some value couldn't be unwrapped in DSStepCreator.createQueryStepUsingDictionary")
+            step = ORKQuestionStep(identifier: "Numeric Question Step Identifier")
+        }
+        
+        return step
+        
+    }
     
     //MARK: - Query Step - acho que vai sair
     fileprivate static func createQueryStepUsingDictionary(_ dictionary:NSDictionary) -> ORKQuestionStep{

@@ -22,6 +22,7 @@ class LineTableViewCell: GraphTableViewCell {
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var graphView: ORKLineGraphChartView!
     
+    @IBOutlet weak var toggleFullScreenButton: UIButton!
     @IBAction func toggleFullScreen(_ sender: Any) {
         
         delegate?.didTapShowGraph(self, taskID: self.taskId!, questionID: self.questionId!)

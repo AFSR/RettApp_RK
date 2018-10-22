@@ -83,8 +83,15 @@ Une fois ces données rendues non identifiables, toutes ces données sont collec
 "Error" = "Erreur";
 "Enter an email and a password." = "Entrez un email et un mot de passe.";
 "Login impossible" = "Connexion impossible";
-
-
-
-
-
+"Learn More..." = "En savoir plus...";
+"News" = "News";
+"Fetching news from server..." = "Connexion au serveur de news...";
+"New records found on remote server." = "De nouveaux enregistrements ont été trouvés sur le serveur distant.";
+"Tasks results" = "Tâches";
+"Personal treatment" = "Traitement";
+"Add Treatment" = "Ajouter un traitement";
+"Name" = "Nom";
+"Posology" = "Posologie";
+"Unit" = "Unité";
+"Frequency" = "Fréquence";
+"Add" = "Ajouter";
