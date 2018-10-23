@@ -43,32 +43,38 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     private func fetchNews(){
+        
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "News", predicate: predicate)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        let recordZone = CKRecordZone.init(zoneName: "records")
+        news.removeAll()
         
-        self.publicDB.perform(query, inZoneWith: recordZone.zoneID, completionHandler: {
-            (records, error) -> Void in
-            guard let records = records else {
-                print("Error querying records: ", error)
-                return
+        let queryOperation = CKQueryOperation(query: query)
+    
+        queryOperation.recordFetchedBlock = { record in
+            if !self.news.contains(record){
+                self.news.append(record)
             }
-            print("Found \(records.count) records")
-            self.news = []
-            self.news.append(contentsOf: records)
-            OperationQueue.main.addOperation {
-                self.updateView()
-                self.tableView.reloadData()
+        }
+        
+        queryOperation.queryCompletionBlock = { [weak self] (cursor, error) in
+            DispatchQueue.main.async {
+                self?.updateView()
+                self?.tableView.reloadData()
             }
-            print("Found \(self.news.count) records")
-        })
+        }
+        
+        appDelegate.publicDB.add(queryOperation)
+        
     }
     
     private func updateView() {
+        
         let hasRecords = news.count > 0
         activityLabel.isHidden = hasRecords
         tableView.isHidden = !hasRecords
+        
         if hasRecords {
             activityIndicator.stopAnimating()
             activityIndicator.isHidden = hasRecords
@@ -88,14 +94,9 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.estimatedRowHeight = 140
         
         setupView()
+        updateView()
         fetchNews()
         
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
 

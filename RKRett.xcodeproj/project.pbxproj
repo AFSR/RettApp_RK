@@ -295,7 +295,6 @@
 		2F40F10821514C8F008FADB1 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		2F413B3B217A42E700252053 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/News.storyboard; sourceTree = "<group>"; };
 		2F413B4B217A42EA00252053 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/News.strings; sourceTree = "<group>"; };
-		2F413B4D217B103900252053 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSSettings.plist; sourceTree = "<group>"; };
 		2F413B4E217C784100252053 /* PersonalTreatmentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalTreatmentTableViewController.swift; sourceTree = "<group>"; };
 		2F4BE834210486F1006DA12F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = Surveys/en.lproj/TreatmentTask.plist; sourceTree = "<group>"; };
 		2F4F90061F3E488F009852D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -323,6 +322,7 @@
 		2F719D75217E6101002FA9A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Dashboard.storyboard; sourceTree = "<group>"; };
 		2F719D85217E6106002FA9A5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Dashboard.strings; sourceTree = "<group>"; };
 		2F719D87217E6277002FA9A5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Settings.strings; sourceTree = "<group>"; };
+		2F719D89217E7461002FA9A5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/DSSettings.plist; sourceTree = "<group>"; };
 		2F823CEF2095C1E800E36FC3 /* DSProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSProfileTableViewController.swift; sourceTree = "<group>"; };
 		2F823CF12095C76800E36FC3 /* DSProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSProfileViewController.swift; sourceTree = "<group>"; };
 		2F823CF32095F84500E36FC3 /* DSUpdateInfosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSUpdateInfosTableViewController.swift; sourceTree = "<group>"; };
@@ -1609,7 +1609,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2FDC1D28209BCC5D00B489D7 /* Base */,
-				2F413B4D217B103900252053 /* fr */,
+				2F719D89217E7461002FA9A5 /* fr */,
 			);
 			name = DSSettings.plist;
 			sourceTree = "<group>";

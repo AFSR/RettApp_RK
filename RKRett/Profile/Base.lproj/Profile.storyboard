@@ -25,7 +25,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4S-wJ-2nE">
-                                <rect key="frame" x="16" y="168" width="343" height="162.5"/>
+                                <rect key="frame" x="16" y="168" width="343" height="163"/>
                                 <string key="text">You are about to sign up or log in with your credentials.
 This will allow to provide data from different devices and have access to your data from the web.
 Your data remain strictly personal and aren't share with anyone.
@@ -35,75 +35,80 @@ Your data remain strictly personal and aren't share with anyone.
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FMS-Mo-iBg">
-                                <rect key="frame" x="16" y="367.5" width="343" height="30"/>
+                                <rect key="frame" x="16" y="367" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-ak-MQX">
-                                <rect key="frame" x="16" y="405.5" width="79" height="21"/>
+                                <rect key="frame" x="16" y="405" width="79" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zK6-9M-lMH">
-                                <rect key="frame" x="16" y="434.5" width="343" height="30"/>
+                                <rect key="frame" x="16" y="434" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code d'inscription:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Jh-h5-mzu">
-                                <rect key="frame" x="16" y="472.5" width="144" height="21"/>
+                                <rect key="frame" x="16" y="472" width="144" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Code d'inscription" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L6q-FM-nZz">
-                                <rect key="frame" x="16" y="501.5" width="343" height="30"/>
+                                <rect key="frame" x="16" y="501" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oc8-5B-YXU">
-                                <rect key="frame" x="190" y="539.5" width="169" height="30"/>
+                                <rect key="frame" x="190" y="539" width="169" height="30"/>
                                 <state key="normal" title="Update my informations."/>
                                 <connections>
                                     <action selector="updateInformations:" destination="nbc-SA-geV" eventType="touchUpInside" id="rKz-jy-vSi"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHp-9n-DCq">
-                                <rect key="frame" x="16" y="338.5" width="46" height="21"/>
+                                <rect key="frame" x="16" y="339" width="46" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1O-A1-A3I">
-                                <rect key="frame" x="252" y="468" width="107" height="30"/>
+                                <rect key="frame" x="252" y="467.5" width="107" height="30"/>
                                 <state key="normal" title="Sign up / Log In"/>
                                 <connections>
                                     <action selector="signUpOrLogIn:" destination="nbc-SA-geV" eventType="touchUpInside" id="gMW-eO-77x"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Gvz-9L-9i1">
-                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Gvz-9L-9i1">
+                                <rect key="frame" x="177" y="339" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="5b4-f1-nVP"/>
+                                </constraints>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gvb-a9-SMu" firstAttribute="trailing" secondItem="FMS-Mo-iBg" secondAttribute="trailing" constant="16" id="2je-4D-Bck"/>
                             <constraint firstItem="i1O-A1-A3I" firstAttribute="top" secondItem="zK6-9M-lMH" secondAttribute="bottom" constant="3.5" id="5d1-AA-R47"/>
+                            <constraint firstItem="gvb-a9-SMu" firstAttribute="trailing" secondItem="Gvz-9L-9i1" secondAttribute="trailing" constant="178" id="6JL-R1-rlA"/>
                             <constraint firstItem="1DR-p4-EBW" firstAttribute="centerX" secondItem="Q7n-1J-XMk" secondAttribute="centerX" id="8gG-bP-NDG"/>
                             <constraint firstItem="7Jh-h5-mzu" firstAttribute="leading" secondItem="gvb-a9-SMu" secondAttribute="leading" constant="16" id="AY3-jB-pZb"/>
                             <constraint firstItem="Gvz-9L-9i1" firstAttribute="centerX" secondItem="Q7n-1J-XMk" secondAttribute="centerX" id="D9s-fs-uNK"/>
                             <constraint firstItem="pHp-9n-DCq" firstAttribute="top" secondItem="T4S-wJ-2nE" secondAttribute="bottom" constant="8" id="J5H-eL-82k"/>
                             <constraint firstItem="1DR-p4-EBW" firstAttribute="leading" secondItem="gvb-a9-SMu" secondAttribute="leading" constant="113" id="JGk-ow-Zaf"/>
                             <constraint firstItem="gvb-a9-SMu" firstAttribute="trailing" secondItem="oc8-5B-YXU" secondAttribute="trailing" constant="16" id="K6O-2v-t99"/>
+                            <constraint firstItem="Gvz-9L-9i1" firstAttribute="centerY" secondItem="pHp-9n-DCq" secondAttribute="centerY" id="N9u-SZ-icZ"/>
                             <constraint firstItem="zK6-9M-lMH" firstAttribute="leading" secondItem="gvb-a9-SMu" secondAttribute="leading" constant="16" id="Nhk-F9-7hw"/>
                             <constraint firstItem="gvb-a9-SMu" firstAttribute="trailing" secondItem="T4S-wJ-2nE" secondAttribute="trailing" constant="16" id="OOw-x6-AZC"/>
                             <constraint firstItem="lF2-ak-MQX" firstAttribute="top" secondItem="FMS-Mo-iBg" secondAttribute="bottom" constant="8" id="QwZ-5b-zk4"/>
                             <constraint firstItem="L6q-FM-nZz" firstAttribute="leading" secondItem="gvb-a9-SMu" secondAttribute="leading" constant="16" id="RXG-EE-zjg"/>
+                            <constraint firstItem="Gvz-9L-9i1" firstAttribute="top" secondItem="pHp-9n-DCq" secondAttribute="top" id="Rg8-ZV-FPC"/>
                             <constraint firstItem="7Jh-h5-mzu" firstAttribute="top" secondItem="zK6-9M-lMH" secondAttribute="bottom" constant="8" id="VnS-6m-Jfa"/>
-                            <constraint firstItem="Gvz-9L-9i1" firstAttribute="centerY" secondItem="Q7n-1J-XMk" secondAttribute="centerY" id="YmJ-m6-rWW"/>
                             <constraint firstItem="FMS-Mo-iBg" firstAttribute="leading" secondItem="gvb-a9-SMu" secondAttribute="leading" constant="16" id="ZKv-Uz-zea"/>
                             <constraint firstItem="FMS-Mo-iBg" firstAttribute="top" secondItem="pHp-9n-DCq" secondAttribute="bottom" constant="8" id="bUB-Hv-qpF"/>
                             <constraint firstItem="L6q-FM-nZz" firstAttribute="top" secondItem="7Jh-h5-mzu" secondAttribute="bottom" constant="8" id="cQZ-Bg-ggb"/>
@@ -118,6 +123,7 @@ Your data remain strictly personal and aren't share with anyone.
                             <constraint firstItem="T4S-wJ-2nE" firstAttribute="top" secondItem="1DR-p4-EBW" secondAttribute="bottom" constant="8" id="qah-vW-uxr"/>
                             <constraint firstItem="gvb-a9-SMu" firstAttribute="trailing" secondItem="i1O-A1-A3I" secondAttribute="trailing" constant="16" id="rs5-pK-QbN"/>
                             <constraint firstItem="oc8-5B-YXU" firstAttribute="top" secondItem="L6q-FM-nZz" secondAttribute="bottom" constant="8" id="ww2-xK-X4s"/>
+                            <constraint firstAttribute="bottom" secondItem="Gvz-9L-9i1" secondAttribute="bottom" constant="308" id="zrD-kc-uCo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gvb-a9-SMu"/>
                     </view>
